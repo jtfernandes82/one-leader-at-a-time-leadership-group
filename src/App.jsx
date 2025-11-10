@@ -124,16 +124,16 @@ const About = () => (
         </div>
 
         {/* RIGHT: Photo */}
-        <aside className="about-side">
-          <img
-            src="/about-jesseana.jpg"  /* <— replace with your actual filename if different */
-            alt="Jesseana Fernandes"
-            className="about-photo"
-          />
-          <div className="about-caption">
-            Jesseana Fernandes, CW3 — Senior Manager & Founder of One Leader at a Time – Leadership Group™
-          </div>
-        </aside>
+<aside className="about-side">
+  <img
+    src="/about-jesseana.jpg"   // make sure this matches the renamed file in /public
+    alt="Jesseana Fernandes"
+    className="about-photo"
+  />
+  <div className="about-caption">
+    Jesseana Fernandes, CW3 — Founder of One Leader at a Time – Leadership Group™
+  </div>
+</aside>
       </div>
     </section>
   </Layout>
