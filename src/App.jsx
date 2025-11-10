@@ -57,14 +57,14 @@ const AppShell = ({ children }) => (
           }}
         />
 
-        {/* Gradient nav bar */}
+        {/* Gradient nav bar (now matches footer exactly) */}
         <div
           className="absolute left-0 right-0 rounded-t-md backdrop-blur-[3px]"
           style={{
             bottom: "-18px",
             height: "38px",
             background:
-              "linear-gradient(to right, rgba(232,192,104,0.35) 0%, rgba(249,231,181,0.25) 20%, rgba(201,216,238,0.35) 100%)",
+              "linear-gradient(to right, rgba(249,231,181,0.25) 0%, rgba(201,216,238,0.3) 100%)",
             boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
           }}
         >
