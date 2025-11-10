@@ -4,14 +4,12 @@ import { BrowserRouter as Router, Routes, Route, Link, NavLink } from "react-rou
 /* ===== Brand ===== */
 const BRAND = {
   legal: "One Leader at a Time Leadership Group, LLC",
-  bannerUrl: "/One%20Leader%20at%20a%20Time001.png", // keep spaces encoded
+  bannerUrl: "/One%20Leader%20at%20a%20Time001.png",
   colors: {
     navy: "#2F4E86",
     ink: "#21324F",
     gold: "#F0C460",
     goldDark: "#D4A32C",
-    white: "#FFFFFF",
-    sky: "#EAF2F9",
   },
   fonts: {
     heading: "'Merriweather', Georgia, 'Times New Roman', serif",
@@ -19,11 +17,11 @@ const BRAND = {
   },
 };
 
-/* Subtle fades that match the version you liked */
+/* Softer, more translucent fades (like the version you loved) */
 const topNavGradient =
-  "linear-gradient(90deg, rgba(240,196,96,0.22) 0%, rgba(255,255,255,0.64) 45%, rgba(201,219,239,0.28) 100%)";
+  "linear-gradient(90deg, rgba(240,196,96,0.12) 0%, rgba(255,255,255,0.45) 46%, rgba(201,219,239,0.12) 100%)";
 const footerGradient =
-  "linear-gradient(90deg, rgba(240,196,96,0.18) 0%, rgba(255,255,255,0.58) 45%, rgba(201,219,239,0.24) 100%)";
+  "linear-gradient(90deg, rgba(240,196,96,0.10) 0%, rgba(255,255,255,0.40) 46%, rgba(201,219,239,0.10) 100%)";
 const pageBgGradient =
   "linear-gradient(180deg, #EAF2F9 0%, #FFFFFF 100%)";
 
@@ -37,21 +35,19 @@ function GoldButton({ to = "#", text = "Learn more" }) {
 }
 
 /* ===== Layout Shell ===== */
-function Shell({ children }) {
+function Shell({ children, title }) {
   useEffect(() => {
-    document.title = "One Leader at a Time – Leadership Group™ | E.L.I.T.E.™";
-  }, []);
+    document.title = title
+      ? `${title} | One Leader at a Time – Leadership Group™`
+      : "One Leader at a Time – Leadership Group™ | E.L.I.T.E.™";
+  }, [title]);
 
   return (
     <div className="site" style={{ fontFamily: BRAND.fonts.body }}>
       {/* Banner */}
-      <img
-        src={BRAND.bannerUrl}
-        alt="One Leader at a Time banner"
-        className="banner"
-      />
+      <img src={BRAND.bannerUrl} alt="One Leader at a Time banner" className="banner" />
 
-      {/* Nav — thinner & subtle fade */}
+      {/* Nav (thinner + lighter) */}
       <header className="nav" style={{ background: topNavGradient }}>
         <div className="container nav__inner">
           {[
@@ -81,7 +77,7 @@ function Shell({ children }) {
         <div className="container">{children}</div>
       </main>
 
-      {/* Footer — same left→right fade, navy text */}
+      {/* Footer (same soft fade) */}
       <footer className="footer" style={{ background: footerGradient }}>
         <div className="container footer__inner">
           <div className="footer__copy">
@@ -104,7 +100,7 @@ function Shell({ children }) {
 
 function Home() {
   return (
-    <Shell>
+    <Shell title="Home">
       <section className="stack-lg center">
         <h1 className="h1" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
           Lead Today. Transform Tomorrow.
@@ -124,8 +120,8 @@ function Home() {
 
 function About() {
   return (
-    <Shell>
-      <section className="stack-xl">
+    <Shell title="About">
+      <section className="stack-lg">
         {/* Jesseana */}
         <div className="stack-md">
           <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
@@ -214,7 +210,7 @@ function Services() {
   ];
 
   return (
-    <Shell>
+    <Shell title="Services">
       <section className="stack-lg">
         <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
           Services
@@ -251,7 +247,7 @@ function ELITE() {
     { k: "E", t: "Elevate", d: "Sustain excellence through coaching and continuous learning." },
   ];
   return (
-    <Shell>
+    <Shell title="ELITE">
       <section className="stack-lg">
         <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
           E.L.I.T.E.™ Framework
@@ -290,8 +286,8 @@ function Speaking() {
   ];
 
   return (
-    <Shell>
-      <section className="stack-xl">
+    <Shell title="Speaking">
+      <section className="stack-lg">
         <div className="stack-md">
           <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
             Speaking & Keynotes
@@ -339,7 +335,7 @@ function Speaking() {
 
 function Veterans() {
   return (
-    <Shell>
+    <Shell title="Veterans">
       <section className="stack-lg">
         <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
           Veteran Transition Leadership
@@ -370,7 +366,7 @@ function Veterans() {
 
 function Contact() {
   return (
-    <Shell>
+    <Shell title="Contact">
       <section className="grid-2 gap-xl">
         <div className="panel">
           <h2 className="h3" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
