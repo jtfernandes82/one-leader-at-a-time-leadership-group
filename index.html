@@ -74,4 +74,18 @@
     <!-- Vite entry -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
+/* Social icon button */
+.social-link {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  transition: transform .2s ease, opacity .2s ease, box-shadow .2s ease;
+}
+.social-link img { width: 100%; height: 100%; display: block; }
+.social-link:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,.12); }
+
 </html>
