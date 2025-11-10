@@ -1,254 +1,174 @@
+/* -------------------------
+   Brand Fonts and Base Styles
+-------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Open+Sans:wght@400;600&display=swap');
 
 :root {
-  --navy: #223b6b;
-  --text: #334155;
-  --gold: #f0c460;
-
-  /* Direction: soft gold → white → subtle blue */
-  --top-gradient: linear-gradient(90deg,
-    rgba(240,196,96,0.10) 0%,
-    rgba(255,255,255,0.18) 50%,
-    rgba(173,197,226,0.10) 100%);
-
-  --bottom-gradient: linear-gradient(90deg,
-    rgba(240,196,96,0.08) 0%,
-    rgba(255,255,255,0.16) 50%,
-    rgba(173,197,226,0.09) 100%);
+  --primary-navy: #1d3c78;
+  --accent-gold: #d8a941;
+  --light-blue: #e8eef7;
+  --gradient-gold: #f4e7c2;
+  --gradient-blue: #dfe9f4;
+  --text-color: #2c3e50;
+  --font-heading: 'Merriweather', serif;
+  --font-body: 'Open Sans', sans-serif;
 }
 
-* { box-sizing: border-box; }
-html, body, #root { height: 100%; }
-
-body {
+html, body {
   margin: 0;
-  color: var(--text);
-  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: linear-gradient(180deg, #f3f7fc 0%, #ffffff 100%);
+  padding: 0;
+  font-family: var(--font-body);
+  color: var(--text-color);
+  background-color: white;
+  line-height: 1.6;
 }
 
-h1,h2,h3,h4 {
-  font-family: "Merriweather", Georgia, 'Times New Roman', serif;
-  color: var(--navy);
-  margin: 0 0 .6rem;
-}
-h1 { font-size: clamp(34px, 5.2vw, 56px); line-height: 1.12; }
-h2 { font-size: clamp(26px, 3.2vw, 36px); }
-h3 { font-size: clamp(20px, 2.3vw, 26px); }
-h4 { font-size: clamp(18px, 1.9vw, 22px); }
-
-p { margin: .5rem 0 1rem; }
-.lead { color:#475569; font-size:clamp(16px, 1.5vw, 18px); max-width: 980px; }
-
-.site { min-height:100%; display:flex; flex-direction:column; }
-
-.banner { background:#fff; }
-.banner-img { width:100%; height:auto; display:block; }
-
-.nav {
-  background: var(--top-gradient);
-  border: none;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-.nav-inner {
+/* -------------------------
+   Header & Navigation
+-------------------------- */
+header {
+  background: linear-gradient(to right, rgba(244, 231, 194, 0.85), rgba(223, 233, 244, 0.9));
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
-  gap: 22px;
-  justify-content: center;
-  padding: 10px 0;
-}
-.navlink {
-  text-decoration: none;
-  color: var(--navy);
-  font-weight: 700;
-}
-.navlink.active { text-decoration: underline; text-underline-offset: 4px; }
-
-.main {
-  flex: 1;
-  padding: 22px 0 0;
-}
-
-.footer {
-  background: var(--bottom-gradient);
-  border: none;
-}
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 14px 16px 22px;
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  color: var(--navy);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-}
-.footer-links { display: flex; gap: 14px; }
-.footlink { text-decoration: none; color: var(--navy); font-weight: 700; }
-.footlink:hover { text-decoration: underline; }
-
-.section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 24px 16px 40px; /* slightly smaller bottom padding to bring footer up */
+  gap: 20px;
+  padding: 8px 0;
 }
 
-.home-hero {
-  min-height: 54vh;    /* reduced from 60vh to nudge footer up slightly */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  text-align: center;
-}
-
-.btn {
-  background: var(--gold);
-  color: #222;
+nav a {
   text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-weight: 700;
-  border: none;
-  transition: background .2s ease, color .2s ease, transform .06s ease;
-}
-.btn:hover {
-  background: #d4a32c;
-  color: #fff;
-  transform: translateY(-1px);
+  color: var(--primary-navy);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
 }
 
-.cta-row { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
-
-.cards {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin-top: 16px;
-}
-.card {
-  background: #fff;
-  border-radius: 14px;
-  padding: 16px;
-  border: 1px solid #e6edf6;
-  box-shadow: 0 8px 22px rgba(26,43,77,.03);
+nav a:hover {
+  color: var(--accent-gold);
 }
 
-.bullets { padding-left: 18px; }
-.bullets li { margin: 8px 0; }
-
-.info-callout {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(240,196,96,0.12);
-  border: 1px solid rgba(34,59,107,.12);
-  border-radius: 14px;
-  padding: 14px 16px;
-  gap: 12px;
-}
-
-/* Contact */
-.contact-form {
-  display: grid;
-  gap: 10px;
-  background: #fff;
-  border: 1px solid #e6edf6;
-  border-radius: 14px;
-  padding: 16px;
-  box-shadow: 0 8px 22px rgba(26,43,77,.05);
-  max-width: 700px;
-}
-.contact-form label { display:flex; flex-direction:column; gap:6px; font-size:14px; color:#334155; }
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-  padding: 10px 12px;
-  border: 1px solid #d7e1f0;
-  border-radius: 10px;
-  font-size: 14px;
-  font-family: inherit;
-}
-.hidden { display:none; }
-
-.contact-side {
-  margin-top: 18px;
-  background:#fff;
-  border:1px solid #e6edf6;
-  border-radius:14px;
-  padding:16px;
-  max-width: 700px;
-}
-/* About page layout */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
-  gap: 28px;
-  align-items: start;
-}
-@media (max-width: 980px) {
-  .about-grid { grid-template-columns: 1fr; }
-}
-
-.about-body p { line-height: 1.7; }
-
-.about-side {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-.about-photo {
-  width: 100%;
-  max-width: 520px;
-  border-radius: 14px;
-  border: 1px solid #e6edf6;
-  box-shadow: 0 8px 22px rgba(26,43,77,.06);
-  object-fit: cover;
-}
-.about-caption {
-  font-size: 13px;
-  color: #475569;
+/* -------------------------
+   Main Section
+-------------------------- */
+main {
+  padding: 60px 20px;
   text-align: center;
-}
-/* === ABOUT PAGE POLISH === */
-
-/* Smooth gradient background across the whole About page */
-.section {
-  background: linear-gradient(
-    to bottom,
-    #f8fafc 0%,        /* top soft neutral */
-    #f9fbfe 35%,       /* gentle fade */
-    #f5f8fb 100%       /* bottom tone */
-  );
-  transition: background 0.3s ease-in-out;
+  background: linear-gradient(to bottom, var(--light-blue) 0%, #ffffff 100%);
 }
 
-/* Softer, cleaner portrait styling */
-.about-photo {
-  width: 100%;
-  max-width: 520px;
-  border-radius: 20px;
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--primary-navy);
+}
+
+button, .btn {
+  background-color: var(--accent-gold);
+  color: var(--primary-navy);
   border: none;
-  box-shadow:
-  0 0 12px rgba(255, 255, 255, 0.7),
-  0 6px 20px rgba(0, 0, 0, 0.08);
-  background: radial-gradient(circle at center, rgba(255,255,255,0.2), rgba(255,255,255,0));
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-/* Optional: slight blur around the image edge for a soft blend */
-.about-photo {
-  mask-image: radial-gradient(circle at center, black 80%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle at center, black 80%, transparent 100%);
+button:hover, .btn:hover {
+  background-color: #e6b64e;
+  transform: translateY(-2px);
 }
 
-/* Keep caption neatly spaced */
-.about-caption {
-  font-size: 13px;
-  color: #475569;
+/* -------------------------
+   Footer
+-------------------------- */
+footer {
+  background: linear-gradient(to right, rgba(244, 231, 194, 0.85), rgba(223, 233, 244, 0.9));
+  color: var(--primary-navy);
   text-align: center;
-  margin-top: 8px;
+  padding: 20px 10px;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+footer a {
+  color: var(--primary-navy);
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+footer a:hover {
+  color: var(--accent-gold);
+}
+
+/* -------------------------
+   Social Media Button
+-------------------------- */
+.social-link {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-link img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0.95;
+}
+
+/* -------------------------
+   Contact Form (optional styling)
+-------------------------- */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+form button {
+  width: 100%;
+  background-color: var(--accent-gold);
+  color: var(--primary-navy);
+  font-weight: 600;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #e6b64e;
 }
