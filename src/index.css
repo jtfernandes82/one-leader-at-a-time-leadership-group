@@ -6,14 +6,16 @@
 :root {
   --primary-navy: #1d3c78;
   --accent-gold: #d8a941;
-  --light-blue: #e8eef7;
-  --gradient-gold: #f4e7c2;
-  --gradient-blue: #dfe9f4;
+  --light-gold: rgba(244, 231, 194, 0.85);
+  --light-blue: rgba(223, 233, 244, 0.85);
   --text-color: #2c3e50;
   --font-heading: 'Merriweather', serif;
   --font-body: 'Open Sans', sans-serif;
 }
 
+/* -------------------------
+   Reset
+-------------------------- */
 html, body {
   margin: 0;
   padding: 0;
@@ -27,19 +29,30 @@ html, body {
    Header & Navigation
 -------------------------- */
 header {
-  background: linear-gradient(to right, rgba(244, 231, 194, 0.85), rgba(223, 233, 244, 0.9));
-  padding: 8px 0;
+  background: linear-gradient(
+    to right,
+    var(--light-gold),
+    #ffffff,
+    var(--light-blue)
+  );
+  text-align: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding-bottom: 8px;
+}
+
+.banner-logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 nav {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 18px;
   padding: 8px 0;
 }
 
@@ -59,17 +72,31 @@ nav a:hover {
    Main Section
 -------------------------- */
 main {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
-  background: linear-gradient(to bottom, var(--light-blue) 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, #f7f9fb 0%, #ffffff 100%);
 }
 
-h1, h2, h3 {
+h1 {
   font-family: var(--font-heading);
   color: var(--primary-navy);
+  font-size: 2.2rem;
+  margin-bottom: 10px;
 }
 
-button, .btn {
+p {
+  max-width: 750px;
+  margin: 0 auto 24px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.btn {
   background-color: var(--accent-gold);
   color: var(--primary-navy);
   border: none;
@@ -78,9 +105,10 @@ button, .btn {
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
+  text-decoration: none;
 }
 
-button:hover, .btn:hover {
+.btn:hover {
   background-color: #e6b64e;
   transform: translateY(-2px);
 }
@@ -89,27 +117,35 @@ button:hover, .btn:hover {
    Footer
 -------------------------- */
 footer {
-  background: linear-gradient(to right, rgba(244, 231, 194, 0.85), rgba(223, 233, 244, 0.9));
-  color: var(--primary-navy);
+  background: linear-gradient(
+    to right,
+    var(--light-gold),
+    #ffffff,
+    var(--light-blue)
+  );
   text-align: center;
-  padding: 20px 10px;
+  padding: 24px 10px;
+  color: var(--primary-navy);
   font-size: 0.9rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 footer a {
   color: var(--primary-navy);
-  font-weight: 600;
   text-decoration: none;
   margin: 0 8px;
+  font-weight: 600;
 }
 
 footer a:hover {
   color: var(--accent-gold);
 }
 
+.footer-links {
+  margin: 8px 0;
+}
+
 /* -------------------------
-   Social Media Button
+   LinkedIn Button
 -------------------------- */
 .social-link {
   display: inline-flex;
@@ -137,38 +173,14 @@ footer a:hover {
 }
 
 /* -------------------------
-   Contact Form (optional styling)
+   Responsive Design
 -------------------------- */
-form {
-  max-width: 600px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-}
-
-form input, form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-family: var(--font-body);
-  font-size: 1rem;
-}
-
-form button {
-  width: 100%;
-  background-color: var(--accent-gold);
-  color: var(--primary-navy);
-  font-weight: 600;
-  border: none;
-  padding: 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #e6b64e;
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+  main {
+    padding: 60px 10px;
+  }
 }
