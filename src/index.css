@@ -1,20 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Brand fonts (optional Google fonts) */
+/* Fonts MUST be first */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Open+Sans:wght@400;600&display=swap');
 
-:root{
-  --brand-header:#4C7CC1;
-  --brand-gold:#F5C24B;
-  --brand-gold-dark:#D4A32C;
-  --brand-sky:#E6EEF7;
-  --brand-text:#334155;
-}
+/* Basic resets to avoid gaps and stray margins */
+html, body, #root { height: 100%; }
+body { margin: 0; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+img { display: block; max-width: 100%; height: auto; }
 
-body{
-  color: var(--brand-text);
-  font-family: 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-}
-.h-heading{ font-family: 'Merriweather', Georgia, serif; }
+/* (Optional) utility if you need it later */
+* { box-sizing: border-box; }
