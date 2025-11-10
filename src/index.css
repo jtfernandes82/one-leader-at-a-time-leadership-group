@@ -1,10 +1,91 @@
-/* Fonts MUST be first */
+/* Fonts must be first */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Open+Sans:wght@400;600&display=swap');
 
-/* Basic resets to avoid gaps and stray margins */
+/* Resets & base */
 html, body, #root { height: 100%; }
-body { margin: 0; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-img { display: block; max-width: 100%; height: auto; }
-
-/* (Optional) utility if you need it later */
+body { margin: 0; color: #334155; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 * { box-sizing: border-box; }
+img { max-width: 100%; height: auto; display: block; }
+
+.site { min-height: 100%; display: flex; flex-direction: column; }
+.banner { width: 100%; height: auto; object-fit: cover; display: block; }
+
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Nav */
+.nav { border-bottom: 1px solid rgba(47,78,134,0.18); }
+.nav__inner { height: 56px; display: flex; align-items: center; gap: 18px; }
+.nav__link { text-decoration: none; color: #21324F; padding: 6px 8px; border-radius: 6px; font-weight: 500; }
+.nav__link--active { font-weight: 700; }
+
+/* Main & Footer */
+.main { flex: 1; padding: 48px 0; }
+.footer { border-top: 1px solid rgba(47,78,134,0.18); }
+.footer__inner { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; padding: 20px 0; }
+.footer__links { display: flex; flex-wrap: wrap; gap: 16px; }
+.footer__links a { color: #21324F; text-decoration: none; font-weight: 600; }
+.footer__copy { color: #21324F; }
+
+/* Typography */
+.h1 { font-size: 44px; line-height: 1.2; margin: 0; }
+.h2 { font-size: 34px; line-height: 1.25; margin: 0; }
+.h3 { font-size: 26px; line-height: 1.25; margin: 0; }
+.lead { font-size: 18px; max-width: 760px; margin: 0 auto; color: #475569; }
+.copy { color: #475569; }
+.bold { font-weight: 700; }
+.mt-8 { margin-top: 8px; }
+
+/* Layout helpers */
+.center { text-align: center; }
+.row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.stack-md > * + * { margin-top: 16px; }
+.stack-lg > * + * { margin-top: 24px; }
+.stack-xl > * + * { margin-top: 32px; }
+.maxw-760 { max-width: 760px; }
+.maxw-860 { max-width: 860px; }
+
+/* Grid */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+.grid--five { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.grid-2 { display: grid; grid-template-columns: 1fr; }
+.gap-xl { gap: 32px; }
+@media (min-width: 980px) {
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+}
+
+/* Cards / Panels */
+.card { background: rgba(255,255,255,0.88); border: 1px solid #e2e8f0; border-radius: 14px; padding: 18px; }
+.card__title { margin: 0; font-weight: 700; color: #21324F; }
+.card__desc { margin: 8px 0 0; color: #64748B; font-size: 14px; }
+.card__k { font-weight: 700; color: #2F4E86; }
+.card__sub { margin-top: 10px; font-size: 12px; color: #2F4E86; font-weight: 700; }
+.card__list { margin: 8px 0 0 16px; color: #475569; }
+
+.panel { background: rgba(255,255,255,0.92); border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; }
+
+/* Lists */
+.list { margin: 0; padding-left: 18px; }
+.list li { margin: 6px 0; }
+
+/* CTA box */
+.cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.88); border: 1px solid #e2e8f0; border-radius: 14px; padding: 14px 16px; }
+.cta__text { color: #475569; }
+
+/* Forms */
+.form__row { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 680px) {
+  .form__row { grid-template-columns: 1fr 1fr; }
+}
+.form__group label { display: block; font-size: 13px; color: #64748B; }
+.form__group input,
+.form__group select,
+.form__group textarea { width: 100%; margin-top: 6px; padding: 10px 12px; border: 1px solid #CBD5E1; border-radius: 10px; font: inherit; color: #0f172a; background: #fff; outline: none; }
+.form__group textarea { resize: vertical; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 16px; border-radius: 10px; font-weight: 700; text-decoration: none; }
+.btn--gold { background: #F0C460; color: #0f172a; }
+.btn--gold:hover { background: #D4A32C; color: #fff; }
+
+/* Tagline */
+.tagline { font-size: 12px; font-weight: 700; letter-spacing: .02em; color: #2F4E86; }
