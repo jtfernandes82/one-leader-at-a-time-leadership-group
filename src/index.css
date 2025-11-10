@@ -73,3 +73,32 @@ main{min-height:48vh}
 }
 .footer-row{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:14px}
 .footer-links{display:flex; align-items:center; gap:18px; font-weight:600}
+/* --- Soft blend frame for portrait --- */
+.soft-frame {
+  position: relative;
+  padding: 16px;                 /* creates space for the feather */
+  border-radius: 20px;
+  /* Feathers from transparent (center) to very light at the edge */
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 255, 255, 0) 72%,
+    rgba(255, 255, 255, 0.92) 100%
+  );
+}
+
+.soft-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10);
+  position: relative;
+  z-index: 2;
+}
+
+.soft-frame .figcap {
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: #5b6b7b;
+  text-align: center;
+}
