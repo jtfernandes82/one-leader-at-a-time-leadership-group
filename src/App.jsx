@@ -1,38 +1,29 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link, NavLink } from "react-router-dom";
 
-/* ---------------------------------
-   Brand + helpers
----------------------------------- */
+/* Brand constants */
 const BRAND = {
-  name: "One Leader at a Time – Leadership Group™",
   legal: "One Leader at a Time Leadership Group, LLC",
-  bannerUrl: "/One Leader at a Time001.png",  // your wide banner
+  bannerUrl: "/One Leader at a Time001.png", // full-width banner you uploaded
   linkedin: "https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/",
 };
 
+/* Small nav helper */
 const NavItem = ({ to, label }) => (
-  <NavLink
-    to={to}
-    className={({ isActive }) => (isActive ? "active" : "")}
-  >
+  <NavLink to={to} className={({ isActive }) => (isActive ? "active" : "")}>
     {label}
   </NavLink>
 );
 
-/* ---------------------------------
-   Layout: Banner + Nav
----------------------------------- */
+/* ===== Header (banner + nav) ===== */
 const SiteHeader = () => (
   <>
     <div className="banner">
-      <div className="container" style={{ padding: "10px 24px" }}>
-        <img
-          src={BRAND.bannerUrl}
-          alt="One Leader at a Time – Leadership Group"
-          style={{ width: "100%", height: "auto", display: "block" }}
-        />
-      </div>
+      {/* No inner container: lets banner be truly full width */}
+      <img
+        src={BRAND.bannerUrl}
+        alt="One Leader at a Time – Leadership Group"
+      />
     </div>
 
     <header className="nav">
@@ -46,6 +37,8 @@ const SiteHeader = () => (
           <NavItem to="/veterans" label="Veterans" />
           <NavItem to="/contact" label="Contact" />
         </nav>
+
+        {/* Clean 28px icon — not cropped */}
         <a
           className="social-link"
           href={BRAND.linkedin}
@@ -53,7 +46,6 @@ const SiteHeader = () => (
           rel="noopener noreferrer"
           aria-label="LinkedIn"
           title="LinkedIn"
-          style={{ marginLeft: "auto" }}
         >
           <img src="/linkedin.svg" alt="LinkedIn" />
         </a>
@@ -62,9 +54,7 @@ const SiteHeader = () => (
   </>
 );
 
-/* ---------------------------------
-   Footer
----------------------------------- */
+/* ===== Footer ===== */
 const SiteFooter = () => (
   <footer className="footer">
     <div className="container footer-row">
@@ -90,19 +80,18 @@ const SiteFooter = () => (
   </footer>
 );
 
-/* ---------------------------------
-   Pages
----------------------------------- */
+/* ===== Pages ===== */
+
 const HomePage = () => (
   <section className="section home-hero">
     <div className="container" style={{ textAlign: "center" }}>
-      <h1 style={{ fontSize: "42px", lineHeight: 1.2, marginTop: 8 }}>
+      <h1 style={{ fontSize: "42px", marginTop: 6 }}>
         Lead Today. Transform Tomorrow.
       </h1>
       <p style={{ maxWidth: 820, margin: "10px auto 18px", color: "#415672" }}>
-        Empowering leaders and organizations through the E.L.I.T.E.™ Framework — Empower, Lead, Inspire, Transform, Elevate.
+        Empowering leaders and organizations through the E.L.I.T.E.™ Framework —
+        Empower, Lead, Inspire, Transform, Elevate.
       </p>
-
       <div style={{ display: "flex", justifyContent: "center", gap: 14, marginTop: 10 }}>
         <Link className="btn btn-gold" to="/contact">Book a discovery call</Link>
         <Link className="btn btn-gold" to="/elite">Explore the E.L.I.T.E.™ Framework</Link>
@@ -111,45 +100,62 @@ const HomePage = () => (
   </section>
 );
 
-/* Keep your richer About content as you wish; a concise version here */
 const AboutPage = () => (
   <section className="section">
-    <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "28px" }}>
+    <div className="container" style={{ display:"grid", gridTemplateColumns:"1fr 340px", gap:28 }}>
       <div>
         <h1>About Jesseana Fernandes</h1>
+
         <p>
-          Jesseana Fernandes is a transformational senior leader and <strong>Chief Warrant Officer Three (CW3)</strong>
-          with over two decades of experience leading in complex, high-stakes environments. As a
-          <strong> Senior Manager in aerospace operations</strong>, she blends disciplined execution with people-first
-          leadership to build resilient, high-performing teams.
+          Jesseana Fernandes is a transformational senior leader and
+          <strong> Chief Warrant Officer Three (CW3)</strong> with over two decades of experience
+          leading in complex, high-stakes environments. As a
+          <strong> Senior Manager in aerospace operations</strong>, she blends disciplined execution
+          with people-first leadership to build resilient, high-performing teams.
         </p>
+
         <p>
-          Trained to advise leaders from <strong>junior enlisted to senior commissioned officers</strong>, Jesseana’s
-          approach is grounded in purpose, accountability, clarity, and performance under pressure. Her faith-driven
-          leadership inspired <strong>One Leader at a Time – Leadership Group™</strong> and the proprietary
-          <strong> E.L.I.T.E.™ Framework</strong> — Empower, Lead, Inspire, Transform, Elevate.
+          Trained to serve as a technical advisor to officers at every level—including
+          <strong> senior commissioned officers</strong>—Jesseana has a proven record of mentoring leaders,
+          elevating standards, and driving cultural momentum. Her leadership is grounded in
+          purpose, accountability, clarity, and dignity—principles that create clarity in complexity
+          and performance under pressure.
         </p>
+
+        <p>
+          Faith and service inform Jesseana’s approach: <em>great organizations are built one
+          leader at a time.</em> That conviction inspired
+          <strong> One Leader at a Time – Leadership Group™</strong> and its proprietary
+          <strong> E.L.I.T.E.™ Framework</strong> — Empower, Lead, Inspire, Transform, Elevate —
+          translating values into daily behaviors, decision frameworks, and measurable outcomes.
+        </p>
+
+        <h2 style={{ marginTop: 22 }}>Signature Strengths</h2>
+        <ul>
+          <li><strong>Leader Development:</strong> coaching, standards, and rituals that raise performance</li>
+          <li><strong>Organizational Resilience:</strong> change navigation, risk playbooks, continuity planning</li>
+          <li><strong>Operational Excellence:</strong> cadence systems, ownership, disciplined follow-through</li>
+          <li><strong>Culture Building:</strong> trust, accountability, feedback loops that stick</li>
+        </ul>
 
         <h2 style={{ marginTop: 22 }}>About One Leader at a Time – Leadership Group™</h2>
         <p>
-          We equip executives, teams, and transitioning veterans to lead with integrity, resilience, and purpose.
-          Every engagement turns values into daily behaviors, decision frameworks, and measurable outcomes.
+          We equip executives, teams, and transitioning veterans to lead with integrity, resilience,
+          and purpose. Every engagement turns values into visible behaviors and measurable results—
+          from decision cadence to after-action learning. Veteran-owned • Women-owned • Purpose-driven.
         </p>
       </div>
 
-      <figure style={{ margin: 0 }}>
+      <figure style={{ margin:0 }}>
         <img
           src="/about-jesseana.jpg.jng"
           alt="Jesseana Fernandes portrait"
           style={{
-            width: "100%",
-            height: "auto",
-            borderRadius: "14px",
-            display: "block",
-            boxShadow: "0 10px 24px rgba(0,0,0,.12)"
+            width:"100%", height:"auto", display:"block",
+            borderRadius:"14px", boxShadow:"0 10px 24px rgba(0,0,0,.12)"
           }}
         />
-        <figcaption style={{ textAlign: "center", fontSize: 13, marginTop: 8, color: "#5a6b84" }}>
+        <figcaption className="figcap">
           Jesseana Fernandes, CW3 — Founder of One Leader at a Time – Leadership Group™
         </figcaption>
       </figure>
@@ -162,10 +168,10 @@ const ServicesPage = () => (
     <div className="container">
       <h1>Services</h1>
       <p style={{ maxWidth: 900 }}>
-        We transform leaders, teams, and organizations through the E.L.I.T.E.™ Framework — Empower, Lead, Inspire,
-        Transform, Elevate. Programs can be delivered onsite or virtually and tailored by audience level.
+        We transform leaders, teams, and organizations through the E.L.I.T.E.™ Framework —
+        Empower, Lead, Inspire, Transform, Elevate. Programs are delivered onsite or virtually
+        and tailored by audience level.
       </p>
-      {/* Cards removed for brevity; leave your existing ones if you had them */}
       <div style={{ marginTop: 18 }}>
         <Link className="btn btn-gold" to="/contact">Schedule a consultation</Link>
       </div>
@@ -178,7 +184,6 @@ const ElitePage = () => (
     <div className="container">
       <h1>E.L.I.T.E.™ Framework</h1>
       <p>Empower • Lead • Inspire • Transform • Elevate</p>
-      {/* Place your detailed ELITE content here; leaving minimal for brevity */}
     </div>
   </section>
 );
@@ -188,13 +193,12 @@ const SpeakingPage = () => (
     <div className="container">
       <h1>Speaking & Keynotes</h1>
       <p>
-        High-energy, high-credibility talks that turn leadership principles into action—rooted in two decades of
-        military and aerospace leadership.
+        High-energy, high-credibility talks that turn leadership principles into action—rooted in
+        two decades of military and aerospace leadership.
       </p>
       <div style={{ marginTop: 16 }}>
         <Link className="btn btn-gold" to="/contact">Request speaking availability</Link>
       </div>
-      {/* Keep your signature topics section if you had it previously */}
     </div>
   </section>
 );
@@ -204,10 +208,10 @@ const VeteransPage = () => (
     <div className="container">
       <h1>Veteran Transition Leadership</h1>
       <ul>
-        <li>Leadership & skills translation into executive-ready language</li>
+        <li>Translate military excellence into executive-ready language</li>
         <li>Resume & LinkedIn development</li>
         <li>Interview preparation & executive presence</li>
-        <li>Job search coaching & market navigation</li>
+        <li>Job-search coaching & market navigation</li>
         <li>Mentor matching & networking strategies</li>
         <li>Target-role 30-60-90 plan aligned to E.L.I.T.E.™</li>
       </ul>
@@ -220,14 +224,15 @@ const VeteransPage = () => (
 
 const ContactPage = () => (
   <section className="section">
-    <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+    <div className="container" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:24 }}>
       <div>
         <h1>Contact</h1>
         <p>Email — <a href="mailto:jesse@oneleaderatatimegroup.com">jesse@oneleaderatatimegroup.com</a></p>
-        <p style={{ marginTop: 12 }}>
+        <p style={{ marginTop:12 }}>
           Prefer a form? Fill it out and we’ll reply shortly.
         </p>
       </div>
+
       {/* Netlify form */}
       <form
         name="contact"
@@ -235,28 +240,28 @@ const ContactPage = () => (
         data-netlify="true"
         netlify-honeypot="bot-field"
         action="/contact"
-        style={{ background: "#fff", padding: 16, borderRadius: 12, border: "1px solid #e7edf5" }}
+        style={{ background:"#fff", padding:16, borderRadius:12, border:"1px solid #e7edf5" }}
       >
         <input type="hidden" name="form-name" value="contact" />
-        <p style={{ display: "none" }}>
+        <p style={{ display:"none" }}>
           <label>Don’t fill this out: <input name="bot-field" /></label>
         </p>
-        <div style={{ display: "grid", gap: 10 }}>
+        <div style={{ display:"grid", gap:10 }}>
           <label>
             Name
-            <input name="name" required style={inputStyle} />
+            <input name="name" required style={inputStyle}/>
           </label>
           <label>
             Email
-            <input type="email" name="email" required style={inputStyle} />
+            <input type="email" name="email" required style={inputStyle}/>
           </label>
           <label>
             Phone
-            <input name="phone" style={inputStyle} />
+            <input name="phone" style={inputStyle}/>
           </label>
           <label>
             Message
-            <textarea name="message" rows={5} required style={inputStyle} />
+            <textarea name="message" rows={5} required style={inputStyle}/>
           </label>
           <button className="btn btn-gold" type="submit">Send inquiry</button>
         </div>
@@ -266,31 +271,24 @@ const ContactPage = () => (
 );
 
 const inputStyle = {
-  width: "100%",
-  marginTop: 6,
-  padding: "10px 12px",
-  borderRadius: 10,
-  border: "1px solid #cfe0f0",
-  outline: "none",
-  fontSize: 15
+  width:"100%", marginTop:6, padding:"10px 12px",
+  borderRadius:10, border:"1px solid #cfe0f0", outline:"none", fontSize:15
 };
 
-/* ---------------------------------
-   App (router)
----------------------------------- */
-export default function App() {
+/* ===== App Router ===== */
+export default function App(){
   return (
     <Router>
       <SiteHeader />
       <main>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/elite" element={<ElitePage />} />
-          <Route path="/speaking" element={<SpeakingPage />} />
-          <Route path="/veterans" element={<VeteransPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/" element={<HomePage/>} />
+          <Route path="/about" element={<AboutPage/>} />
+          <Route path="/services" element={<ServicesPage/>} />
+          <Route path="/elite" element={<ElitePage/>} />
+          <Route path="/speaking" element={<SpeakingPage/>} />
+          <Route path="/veterans" element={<VeteransPage/>} />
+          <Route path="/contact" element={<ContactPage/>} />
         </Routes>
       </main>
       <SiteFooter />
