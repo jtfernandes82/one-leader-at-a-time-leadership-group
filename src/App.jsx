@@ -7,10 +7,10 @@ const BRAND = {
   legal: "One Leader at a Time Leadership Group, LLC",
   bannerUrl: "/One%20Leader%20at%20a%20Time001.png", // banner image in /public
   colors: {
-    headerBlue: "#2F4A7F",     // deep navy that complements your logo text
+    headerBlue: "#2F4A7F",     // deep navy
     gold: "#F5C24B",           // accent gold
     goldDark: "#D4A32C",
-    sky: "#E6EEF7",
+    sky: "#E6EEF7",            // background gradient
     text: "#2B3244",
   },
   fonts: {
@@ -41,23 +41,31 @@ const AppShell = ({ children }) => (
     {/* HEADER SECTION */}
     <header className="relative z-40">
       {/* Full-width banner */}
-      <div className="w-full bg-white relative">
+      <div className="relative w-full">
         <img
           src={BRAND.bannerUrl}
           alt="One Leader at a Time – Leadership Group™"
-          className="w-full h-[150px] object-cover object-center md:h-[160px] lg:h-[170px]"
+          className="w-full h-[170px] object-cover object-center md:h-[180px] lg:h-[190px]"
           loading="eager"
         />
 
-        {/* Blended translucent nav bar overlay */}
+        {/* Soft fade gradient at bottom of banner */}
         <div
-          className="absolute bottom-0 left-0 right-0 backdrop-blur-sm"
+          className="absolute bottom-0 left-0 right-0 h-10"
           style={{
-            backgroundColor: "rgba(47, 74, 127, 0.8)", // translucent navy blend
-            boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+            background: "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)",
+          }}
+        ></div>
+
+        {/* Translucent nav bar placed slightly below */}
+        <div
+          className="absolute bottom-[-20px] left-0 right-0 backdrop-blur-sm rounded-t-lg"
+          style={{
+            backgroundColor: "rgba(47, 74, 127, 0.6)", // 60% translucent navy
+            boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
           }}
         >
-          <nav className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-end">
+          <nav className="max-w-7xl mx-auto px-6 h-10 flex items-center justify-end">
             <div className="hidden md:flex items-center gap-6 text-sm">
               {[
                 { to: "/", label: "Home" },
@@ -94,20 +102,32 @@ const AppShell = ({ children }) => (
     {/* FOOTER */}
     <footer className="mt-10" style={{ backgroundColor: BRAND.colors.headerBlue }}>
       <div className="max-w-7xl mx-auto px-6 py-8 text-slate-100 text-sm flex flex-col md:flex-row gap-3 items-center justify-between">
-        <div>© {new Date().getFullYear()} {BRAND.legal}. All rights reserved.</div>
+        <div>
+          © {new Date().getFullYear()} {BRAND.legal}. All rights reserved.
+        </div>
         <div className="flex gap-4">
-          <Link to="/elite" className="hover:text-slate-300">ELITE</Link>
-          <Link to="/services" className="hover:text-slate-300">Services</Link>
-          <Link to="/speaking" className="hover:text-slate-300">Speaking</Link>
-          <Link to="/veterans" className="hover:text-slate-300">Veterans</Link>
-          <Link to="/contact" className="hover:text-slate-300">Contact</Link>
+          <Link to="/elite" className="hover:text-slate-300">
+            ELITE
+          </Link>
+          <Link to="/services" className="hover:text-slate-300">
+            Services
+          </Link>
+          <Link to="/speaking" className="hover:text-slate-300">
+            Speaking
+          </Link>
+          <Link to="/veterans" className="hover:text-slate-300">
+            Veterans
+          </Link>
+          <Link to="/contact" className="hover:text-slate-300">
+            Contact
+          </Link>
         </div>
       </div>
     </footer>
   </div>
 );
 
-/* ------- Page Templates (replace with your copy later) ------- */
+/* ------- Page Templates (replace later with full copy) ------- */
 const Home = () => (
   <AppShell>
     <section
