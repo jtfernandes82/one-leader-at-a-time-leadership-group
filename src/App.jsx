@@ -359,46 +359,217 @@ const ElitePage = () => (
 const SpeakingPage = () => (
   <section className="section">
     <div className="container">
-      <h1>Speaking & Keynotes</h1>
-      <p>
-        High-energy, high-credibility talks that bring two decades of military and aerospace leadership to the stage. Formats include keynote
-        (20–45 min), fireside chat, panel, and workshops (90–120 min).
+
+      <h1>Speaking &amp; Keynotes</h1>
+      <p className="lead">
+        High-energy, high-credibility talks that turn leadership principles into action.
+        Jesseana brings two decades of military and aerospace leadership to the stage,
+        equipping audiences to lead with clarity, courage, and the E.L.I.T.E.™ mindset.
       </p>
 
-      <h2 style={{ marginTop: 18 }}>Signature Topics</h2>
-      <div className="grid grid-3" style={{ marginTop: 10 }}>
+      {/* Quick facts grid */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+          gap: 14,
+          marginTop: 10,
+        }}
+      >
         <div className="card">
-          <h3>Building High-Performance Teams</h3>
+          <h3 style={{ marginTop: 0 }}>Formats</h3>
           <ul>
-            <li>Trust & cadence systems</li>
-            <li>Priorities & ownership</li>
-            <li>Cleaner handoffs</li>
+            <li>Keynote (20–45 min)</li>
+            <li>Fireside chat / Panelist</li>
+            <li>Workshop / Masterclass (60–120 min)</li>
           </ul>
         </div>
+
+        <div className="card">
+          <h3 style={{ marginTop: 0 }}>Audiences</h3>
+          <ul>
+            <li>Executives &amp; senior leaders</li>
+            <li>Emerging leaders &amp; ERGs</li>
+            <li>Technical / operations teams</li>
+            <li>Veteran &amp; transition groups</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3 style={{ marginTop: 0 }}>Outcomes</h3>
+          <ul>
+            <li>Clarity &amp; accountability</li>
+            <li>Decision speed under pressure</li>
+            <li>Culture momentum &amp; ownership</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3 style={{ marginTop: 0 }}>Travel &amp; Delivery</h3>
+          <ul>
+            <li>Domestic &amp; international</li>
+            <li>Based in Oklahoma City, OK</li>
+            <li>In-person or virtual</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Flexible CTA panel (no overlap on any screen) */}
+      <div
+        style={{
+          marginTop: 16,
+          padding: 16,
+          borderRadius: 12,
+          border: "1px solid rgba(20,40,60,.10)",
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.92))",
+          display: "flex",
+          gap: 14,
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+        }}
+      >
+        <div style={{ minWidth: 240 }}>
+          <strong>Ready to lock dates or request rates?</strong>
+          <div style={{ color: "#576578" }}>
+            Use the contact form and mention your event name, location, and
+            preferred format.
+          </div>
+        </div>
+        <Link className="btn" to="/contact#speaking">
+          Request speaking availability
+        </Link>
+      </div>
+
+      <h2 style={{ marginTop: 22 }}>Signature Topics</h2>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gap: 16,
+        }}
+      >
+        {/* Topic 1 */}
+        <div className="card">
+          <h3>Building High-Performance Teams in High-Stakes Environments</h3>
+          <p className="muted">
+            Align roles, run disciplined stand-ups, and execute with urgency—
+            without burning people out.
+          </p>
+          <div style={{ fontWeight: 600, marginTop: 8 }}>Audience takeaways</div>
+          <ul>
+            <li>Team trust &amp; cadence systems</li>
+            <li>Clarity of priorities &amp; ownership</li>
+            <li>Faster, cleaner handoffs</li>
+          </ul>
+        </div>
+
+        {/* Topic 2 */}
         <div className="card">
           <h3>Culture as a Competitive Advantage</h3>
+          <p className="muted">
+            Turn values into behaviors, feedback loops, and visible leadership
+            standards that lift performance.
+          </p>
+          <div style={{ fontWeight: 600, marginTop: 8 }}>Audience takeaways</div>
           <ul>
-            <li>Leadership standards & rituals</li>
-            <li>Constructive feedback loops</li>
-            <li>Retention & engagement gains</li>
+            <li>Leadership standards &amp; rituals</li>
+            <li>Constructive feedback culture</li>
+            <li>Retention &amp; engagement gains</li>
           </ul>
         </div>
+
+        {/* Topic 3 */}
         <div className="card">
-          <h3>The E.L.I.T.E.™ Playbook</h3>
+          <h3>
+            The E.L.I.T.E.™ Framework: Practical Leadership for Real Results
+          </h3>
+          <p className="muted">
+            A field-tested system to simplify decisions and drive change with
+            discipline and care.
+          </p>
+          <div style={{ fontWeight: 600, marginTop: 8 }}>Audience takeaways</div>
           <ul>
             <li>Decision frameworks</li>
             <li>Change navigation</li>
             <li>Post-event action plans</li>
           </ul>
         </div>
+
+        {/* Topic 4 */}
+        <div className="card">
+          <h3>Leading Through Change—Without Burning People Out</h3>
+          <p className="muted">
+            Practical playbooks for risk, response, and communication that
+            protect people and performance.
+          </p>
+          <div style={{ fontWeight: 600, marginTop: 8 }}>Audience takeaways</div>
+          <ul>
+            <li>Change brief / debrief cadence</li>
+            <li>Continuity &amp; risk buffers</li>
+            <li>Leader message map</li>
+          </ul>
+        </div>
+
+        {/* Topic 5 */}
+        <div className="card">
+          <h3>Veteran-to-Leader Transition Playbook</h3>
+          <p className="muted">
+            Translate military excellence into civilian leadership and career success.
+          </p>
+          <div style={{ fontWeight: 600, marginTop: 8 }}>Audience takeaways</div>
+          <ul>
+            <li>Resume &amp; LinkedIn positioning</li>
+            <li>Interview preparation</li>
+            <li>30-60-90 leadership plans</li>
+          </ul>
+        </div>
+
+        {/* Topic 6 */}
+        <div className="card">
+          <h3>Women Leading in High-Stakes Environments</h3>
+          <p className="muted">
+            Standards, systems, and presence—without compromise.
+          </p>
+          <div style={{ fontWeight: 600, marginTop: 8 }}>Audience takeaways</div>
+          <ul>
+            <li>Confidence &amp; communication under pressure</li>
+            <li>Sponsor versus mentor map</li>
+            <li>Strategic network design</li>
+          </ul>
+        </div>
       </div>
 
-      <div style={{ marginTop: 18 }}>
-        <Link className="btn btn-gold" to="/contact">Request speaking availability</Link>
+      <h2 style={{ marginTop: 22 }}>Event Fit &amp; Logistics</h2>
+      <ul>
+        <li>Keynotes can be adapted for leadership summits, offsites, or town halls.</li>
+        <li>Workshops include hands-on tools, templates, and practical action plans.</li>
+        <li>Slides are clean and brand-neutral; AV needs are minimal (handheld or lav mic).</li>
+        <li>Virtual sessions available via Zoom, Teams, or platform of choice.</li>
+      </ul>
+
+      <div
+        className="cta"
+        style={{
+          marginTop: 22,
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 12,
+        }}
+      >
+        <Link className="btn" to="/contact#speaking">
+          Check availability
+        </Link>
+        <a className="btn-outline" href="/OneLeaderAtATime_Speaker-OneSheet.pdf">
+          Download speaker one-sheet
+        </a>
       </div>
     </div>
   </section>
 );
+
 
 const VeteransPage = () => (
   <section className="section">
