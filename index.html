@@ -1,68 +1,77 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <title>One Leader at a Time – Leadership Group™</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>One Leader at a Time – Leadership Group™ | E.L.I.T.E.™ Framework</title>
+    <meta
+      name="description"
+      content="Executive coaching, leadership development, organizational resilience, and veteran transition leadership powered by the E.L.I.T.E.™ Framework — Empower, Lead, Inspire, Transform, Elevate."
+    />
+    <meta name="theme-color" content="#F5C24B" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.png" />
+
+    <!-- Google Fonts (no CSS @import needed) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Your main stylesheet (Tailwind/Vite will handle this) -->
+    <!-- If your project relies on /src/index.css, keep this link -->
+    <link rel="stylesheet" href="/src/index.css" />
   </head>
-  <body class="antialiased">
+
+  <body>
+    <!--
+      Netlify "shadow" form (hidden) so the build bot detects your fields.
+      This enables email notifications & submissions without a backend.
+    -->
+    <form
+      name="contact"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <select name="interest">
+        <option>Keynote / Speaking</option>
+        <option>Leadership Workshop</option>
+        <option>Executive Coaching</option>
+        <option>Veteran Transition Program</option>
+        <option>Custom Engagement</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
+
+    <noscript>
+      <div
+        style="
+          padding: 12px;
+          background: #fde68a;
+          color: #1f2937;
+          text-align: center;
+          font: 14px/1.5 'Open Sans', system-ui, -apple-system, Segoe UI,
+            Roboto, sans-serif;
+        "
+      >
+        This site needs JavaScript enabled to work properly.
+      </div>
+    </noscript>
+
+    <!-- React mounts here -->
     <div id="root"></div>
+
+    <!-- Vite entry -->
     <script type="module" src="/src/main.jsx"></script>
-  <!-- Netlify shadow form (so the build bot knows about your fields) -->
-<form
-  name="contact"
-  method="POST"
-  data-netlify="true"
-  netlify-honeypot="bot-field"
-  action="/thanks"               // create a Thank-You route (see C)
-  className="rounded-xl border border-slate-200 p-6 space-y-4 bg-white"
->
-  {/* required hidden inputs for Netlify */}
-  <input type="hidden" name="form-name" value="contact" />
-  <p className="hidden">
-    <label>Don’t fill this out: <input name="bot-field" /></label>
-  </p>
-
-  <div>
-    <label className="text-sm text-slate-600">Name</label>
-    <input name="name" required className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" />
-  </div>
-
-  <div className="grid sm:grid-cols-2 gap-4">
-    <div>
-      <label className="text-sm text-slate-600">Email</label>
-      <input type="email" name="email" required className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" />
-    </div>
-    <div>
-      <label className="text-sm text-slate-600">Phone</label>
-      <input name="phone" className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" />
-    </div>
-  </div>
-
-  <div>
-    <label className="text-sm text-slate-600">What are you looking for?</label>
-    <select name="interest" className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2">
-      <option>Keynote / Speaking</option>
-      <option>Leadership Workshop</option>
-      <option>Executive Coaching</option>
-      <option>Veteran Transition Program</option>
-      <option>Custom Engagement</option>
-    </select>
-  </div>
-
-  <div>
-    <label className="text-sm text-slate-600">Message</label>
-    <textarea name="message" rows={5} className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" />
-  </div>
-
-  {/* Optional reCAPTCHA (enable it in Netlify > Forms first) */}
-  {/* <div data-netlify-recaptcha="true"></div> */}
-
-  <button className="px-5 py-3 rounded-lg" style={{ backgroundColor: '#F5C24B', color: '#0f172a' }}>
-    Send inquiry
-  </button>
-</form>
-
   </body>
 </html>
