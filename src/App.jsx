@@ -7,7 +7,7 @@ const BRAND = {
   legal: "One Leader at a Time Leadership Group, LLC",
   bannerUrl: "/One%20Leader%20at%20a%20Time001.png",
   colors: {
-    headerBlue: "#4A608F",      // lighter, cooler blue for footer
+    navy: "#1E2A4A",          // same as logo text color
     gold: "#E8C068",
     goldFade: "#F9E7B5",
     paleBlue: "#C9D8EE",
@@ -83,12 +83,9 @@ const AppShell = ({ children }) => (
                   key={i.to}
                   to={i.to}
                   className={({ isActive }) =>
-                    `text-[#1E2A4A] ${
-                      isActive
-                        ? "font-bold underline underline-offset-4"
-                        : "opacity-90 hover:opacity-100"
-                    }`
+                    `${isActive ? "font-bold underline underline-offset-4" : "opacity-90 hover:opacity-100"}`
                   }
+                  style={{ color: BRAND.colors.navy }}
                 >
                   {i.label}
                 </NavLink>
@@ -103,15 +100,23 @@ const AppShell = ({ children }) => (
     <main>{children}</main>
 
     {/* FOOTER */}
-    <footer className="mt-12" style={{ backgroundColor: BRAND.colors.headerBlue }}>
-      <div className="max-w-7xl mx-auto px-6 py-8 text-slate-100 text-sm flex flex-col md:flex-row gap-3 items-center justify-between">
+    <footer
+      className="mt-12"
+      style={{
+        background: `linear-gradient(to right, ${BRAND.colors.goldFade} 0%, ${BRAND.colors.paleBlue} 100%)`,
+      }}
+    >
+      <div
+        className="max-w-7xl mx-auto px-6 py-8 text-sm flex flex-col md:flex-row gap-3 items-center justify-between"
+        style={{ color: BRAND.colors.navy }}
+      >
         <div>© {new Date().getFullYear()} {BRAND.legal}. All rights reserved.</div>
-        <div className="flex gap-4 font-medium">
-          <Link to="/elite" className="hover:text-slate-300">ELITE</Link>
-          <Link to="/services" className="hover:text-slate-300">Services</Link>
-          <Link to="/speaking" className="hover:text-slate-300">Speaking</Link>
-          <Link to="/veterans" className="hover:text-slate-300">Veterans</Link>
-          <Link to="/contact" className="hover:text-slate-300">Contact</Link>
+        <div className="flex gap-4 font-semibold">
+          <Link to="/elite" className="hover:opacity-70">ELITE</Link>
+          <Link to="/services" className="hover:opacity-70">Services</Link>
+          <Link to="/speaking" className="hover:opacity-70">Speaking</Link>
+          <Link to="/veterans" className="hover:opacity-70">Veterans</Link>
+          <Link to="/contact" className="hover:opacity-70">Contact</Link>
         </div>
       </div>
     </footer>
@@ -125,7 +130,10 @@ const Home = () => (
       className="text-center py-20"
       style={{ background: `linear-gradient(180deg, ${BRAND.colors.sky} 0%, #ffffff 100%)` }}
     >
-      <h1 className="text-4xl md:text-5xl font-bold" style={{ color: BRAND.colors.headerBlue, fontFamily: BRAND.fonts.heading }}>
+      <h1
+        className="text-4xl md:text-5xl font-bold"
+        style={{ color: BRAND.colors.navy, fontFamily: BRAND.fonts.heading }}
+      >
         Lead Today. Transform Tomorrow.
       </h1>
       <p className="mt-4 text-lg max-w-2xl mx-auto text-slate-700">
