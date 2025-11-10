@@ -250,17 +250,111 @@ const ElitePage = () => (
   <section className="section">
     <div className="container">
       <h1>E.L.I.T.E.™ Framework</h1>
-      <p><strong>Empower • Lead • Inspire • Transform • Elevate</strong></p>
-      <p style={{ maxWidth:900 }}>
-        A field-tested system that turns values into visible behaviors and measurable results. Leaders model curiosity, set clear standards, and
-        use feedback loops to drive continuous improvement—without burnout.
+      <p className="lead">
+        The E.L.I.T.E.™ Framework turns values into visible behaviors and
+        measurable results. Empower, Lead, Inspire, Transform, Elevate — a
+        practical system to simplify decisions and drive change with clarity and
+        care.
       </p>
-      <div style={{ marginTop: 16 }}>
-        <Link className="btn btn-gold" to="/services">See our services</Link>
+
+      <div
+        className="grid"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gap: 16,
+          marginTop: 18,
+        }}
+      >
+        {/* Empower */}
+        <div className="card">
+          <h3>Empower</h3>
+          <p className="muted">
+            Build confidence, autonomy, and accountability at every level.
+          </p>
+          <ul>
+            <li>Role clarity & decision rights</li>
+            <li>Cadence systems for ownership</li>
+            <li>Coaching standards & rituals</li>
+          </ul>
+          <div className="tagline">Outcome: Teams move faster with less friction.</div>
+        </div>
+
+        {/* Lead */}
+        <div className="card">
+          <h3>Lead</h3>
+          <p className="muted">
+            Model values, align decisions, and communicate with precision.
+          </p>
+          <ul>
+            <li>Leader standards & daily behaviors</li>
+            <li>Decision frameworks under pressure</li>
+            <li>Run-of-show discipline & brief/debrief</li>
+          </ul>
+          <div className="tagline">Outcome: Clear priorities. Consistent execution.</div>
+        </div>
+
+        {/* Inspire */}
+        <div className="card">
+          <h3>Inspire</h3>
+          <p className="muted">
+            Craft vision and messaging that mobilize action — not just agreement.
+          </p>
+          <ul>
+            <li>Vision-to-action communication</li>
+            <li>Leader narrative & symbols</li>
+            <li>Recognition loops that stick</li>
+          </ul>
+          <div className="tagline">Outcome: Momentum you can feel and measure.</div>
+        </div>
+
+        {/* Transform */}
+        <div className="card">
+          <h3>Transform</h3>
+          <p className="muted">
+            Navigate change with resilience and systems thinking.
+          </p>
+          <ul>
+            <li>Change navigation playbooks</li>
+            <li>Risk, response & continuity planning</li>
+            <li>After-action learning (close the loop)</li>
+          </ul>
+          <div className="tagline">Outcome: Adaptability without chaos.</div>
+        </div>
+
+        {/* Elevate */}
+        <div className="card">
+          <h3>Elevate</h3>
+          <p className="muted">
+            Sustain excellence through coaching, mentoring, and measurement.
+          </p>
+          <ul>
+            <li>Leader pipelines & transition plans</li>
+            <li>Pulse metrics that matter</li>
+            <li>Promotion readiness & 30-60-90s</li>
+          </ul>
+          <div className="tagline">Outcome: A culture that compounds.</div>
+        </div>
+      </div>
+
+      <div
+        className="cta"
+        style={{
+          marginTop: 22,
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 12,
+        }}
+      >
+        <Link className="btn" to="/contact">Request ELITE program details</Link>
+        <a className="btn-outline" href="/OneLeaderAtATime_Speaker-OneSheet.pdf">
+          Download one-sheet
+        </a>
       </div>
     </div>
   </section>
 );
+
 
 const SpeakingPage = () => (
   <section className="section">
