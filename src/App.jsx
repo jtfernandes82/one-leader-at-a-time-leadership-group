@@ -575,20 +575,77 @@ const VeteransPage = () => (
   <section className="section">
     <div className="container">
       <h1>Veteran Transition Leadership</h1>
-      <ul>
-        <li>Translate military excellence into executive-ready language</li>
-        <li>Resume & LinkedIn development</li>
-        <li>Interview preparation & executive presence</li>
-        <li>Job-search coaching & market navigation</li>
-        <li>Mentor matching & networking strategies</li>
-        <li>Target role 30-60-90 plan aligned to E.L.I.T.E.™</li>
-      </ul>
-      <div style={{ marginTop: 16 }}>
-        <Link className="btn btn-gold" to="/contact">Start your transition</Link>
+      <p className="lead">
+        End-to-end support to translate military excellence into civilian
+        leadership and career success. We bridge your MOS experience into
+        high-value leadership competencies that hiring managers recognize.
+      </p>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gap: 16,
+          marginTop: 12
+        }}
+      >
+        <div className="card">
+          <h3>Positioning &amp; Branding</h3>
+          <ul>
+            <li>Resume &amp; LinkedIn redesign (impact-first, metrics-forward)</li>
+            <li>Translate MOS to business competencies</li>
+            <li>Leadership value narrative &amp; career pitch</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>Interview &amp; Offers</h3>
+          <ul>
+            <li>Behavioral interview practice (STAR+Impact)</li>
+            <li>Portfolio &amp; story bank (ops, risk, turnarounds)</li>
+            <li>Offer review &amp; salary negotiation planning</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>On-Ramp Plans</h3>
+          <ul>
+            <li>30-60-90 leadership plan templates</li>
+            <li>Stakeholder mapping &amp; cadence design</li>
+            <li>KPIs that build early credibility</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>Mentors &amp; Network</h3>
+          <ul>
+            <li>Mentorship matching (industry &amp; function)</li>
+            <li>Informational interview scripts</li>
+            <li>Target company shortlists &amp; warm paths</li>
+          </ul>
+        </div>
       </div>
+
+      <h2 style={{ marginTop: 22 }}>What You’ll Walk Away With</h2>
+      <ul>
+        <li>Industry-ready resume &amp; LinkedIn that showcase leadership impact</li>
+        <li>Clear, confident interview stories that translate military outcomes to business value</li>
+        <li>A practical 30-60-90 plan for your first 90 days in role</li>
+        <li>A network plan and outreach system that actually moves the needle</li>
+      </ul>
+
+      <div className="cta" style={{ marginTop: 22, display: "flex", gap: 12, flexWrap: "wrap" }}>
+        <Link className="btn" to="/contact#veterans">Request a consult</Link>
+        <a className="btn-outline" href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/" target="_blank" rel="noreferrer">
+          Connect on LinkedIn
+        </a>
+      </div>
+
+      <div className="page-band page-band--gold" />
     </div>
   </section>
 );
+
 
 const ContactPage = () => (
   <section className="section">
