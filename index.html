@@ -1,53 +1,33 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1"
+      content="width=device-width, initial-scale=1.0"
     />
-    <title>One Leader at a Time – Leadership Group™ | E.L.I.T.E.™ Framework</title>
-    <meta
-      name="description"
-      content="Executive coaching, leadership development, organizational resilience, and veteran transition leadership powered by the E.L.I.T.E.™ Framework — Empower, Lead, Inspire, Transform, Elevate."
-    />
-    <meta name="theme-color" content="#1d3c78" />
-    <!-- Favicon -->
-<link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
-<!-- If you used .ico instead -->
-<!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> -->
-<link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.png" />
-</head>
+    <title>One Leader at a Time – Leadership Group™</title>
 
-    <!-- Google Fonts (no CSS @import warnings in build) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Open+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Favicon (put favicon.png or favicon.ico in the /public folder) -->
+    <!-- For Vite, files in /public are served from the site root (/) -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- If you prefer .ico, use the line below and delete the png line -->
+    <!-- <link rel="icon" href="/favicon.ico" /> -->
+
+    <!-- Optional: iOS/Android home screen icon -->
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- Optional: address bar color on mobile -->
+    <meta name="theme-color" content="#0f274d" />
 
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="/src/index.css" />
   </head>
 
   <body>
-    <!-- Netlify shadow form so the build bot detects your fields -->
-    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <select name="interest">
-        <option>Keynote / Speaking</option>
-        <option>Leadership Workshop</option>
-        <option>Executive Coaching</option>
-        <option>Veteran Transition Program</option>
-        <option>Custom Engagement</option>
-      </select>
-      <textarea name="message"></textarea>
-    </form>
-
     <div id="root"></div>
+
+    <!-- React/Vite entry -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
