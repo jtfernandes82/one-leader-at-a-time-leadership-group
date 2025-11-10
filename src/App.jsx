@@ -5,12 +5,12 @@ import { Routes, Route, Link, NavLink } from "react-router-dom";
 const BRAND = {
   name: "One Leader at a Time – Leadership Group™",
   legal: "One Leader at a Time Leadership Group, LLC",
-  bannerUrl: "/One%20Leader%20at%20a%20Time001.png", // banner image in /public
+  bannerUrl: "/One%20Leader%20at%20a%20Time001.png",
   colors: {
-    headerBlue: "#2F4A7F",     // deep navy
-    gold: "#F5C24B",           // accent gold
+    headerBlue: "#2F4A7F",   // deep navy anchor
+    gold: "#F5C24B",
     goldDark: "#D4A32C",
-    sky: "#E6EEF7",            // background gradient
+    sky: "#E6EEF7",
     text: "#2B3244",
   },
   fonts: {
@@ -34,38 +34,37 @@ const GoldButton = ({ to = "#", children }) => (
 
 /* ------- App Shell ------- */
 const AppShell = ({ children }) => (
-  <div
-    className="min-h-screen bg-white"
-    style={{ color: BRAND.colors.text, fontFamily: BRAND.fonts.body }}
-  >
-    {/* HEADER SECTION */}
+  <div className="min-h-screen bg-white" style={{ color: BRAND.colors.text, fontFamily: BRAND.fonts.body }}>
+    {/* HEADER */}
     <header className="relative z-40">
-      {/* Full-width banner */}
       <div className="relative w-full">
         <img
           src={BRAND.bannerUrl}
           alt="One Leader at a Time – Leadership Group™"
-          className="w-full h-[170px] object-cover object-center md:h-[180px] lg:h-[190px]"
+          className="w-full h-[170px] object-cover object-center md:h-[184px] lg:h-[196px]"
           loading="eager"
         />
 
-        {/* Soft fade gradient at bottom of banner */}
+        {/* Longer, more gradual fade */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-10"
+          className="absolute bottom-0 left-0 right-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)",
+            height: "36px",
+            background:
+              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.7) 80%, rgba(255,255,255,1) 100%)",
           }}
-        ></div>
+        />
 
-        {/* Translucent nav bar placed slightly below */}
+        {/* Lighter, more transparent nav; slightly thinner and nudged down */}
         <div
-          className="absolute bottom-[-20px] left-0 right-0 backdrop-blur-sm rounded-t-lg"
+          className="absolute left-0 right-0 backdrop-blur-[2px] rounded-t-md"
           style={{
-            backgroundColor: "rgba(47, 74, 127, 0.6)", // 60% translucent navy
-            boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+            bottom: "-18px",
+            backgroundColor: "rgba(47, 74, 127, 0.35)", // ~35% opacity
+            boxShadow: "0 2px 6px rgba(0,0,0,0.06)",
           }}
         >
-          <nav className="max-w-7xl mx-auto px-6 h-10 flex items-center justify-end">
+          <nav className="max-w-7xl mx-auto px-6 h-9 flex items-center justify-end">
             <div className="hidden md:flex items-center gap-6 text-sm">
               {[
                 { to: "/", label: "Home" },
@@ -96,51 +95,33 @@ const AppShell = ({ children }) => (
       </div>
     </header>
 
-    {/* MAIN CONTENT */}
+    {/* MAIN */}
     <main>{children}</main>
 
     {/* FOOTER */}
-    <footer className="mt-10" style={{ backgroundColor: BRAND.colors.headerBlue }}>
+    <footer className="mt-12" style={{ backgroundColor: BRAND.colors.headerBlue }}>
       <div className="max-w-7xl mx-auto px-6 py-8 text-slate-100 text-sm flex flex-col md:flex-row gap-3 items-center justify-between">
-        <div>
-          © {new Date().getFullYear()} {BRAND.legal}. All rights reserved.
-        </div>
+        <div>© {new Date().getFullYear()} {BRAND.legal}. All rights reserved.</div>
         <div className="flex gap-4">
-          <Link to="/elite" className="hover:text-slate-300">
-            ELITE
-          </Link>
-          <Link to="/services" className="hover:text-slate-300">
-            Services
-          </Link>
-          <Link to="/speaking" className="hover:text-slate-300">
-            Speaking
-          </Link>
-          <Link to="/veterans" className="hover:text-slate-300">
-            Veterans
-          </Link>
-          <Link to="/contact" className="hover:text-slate-300">
-            Contact
-          </Link>
+          <Link to="/elite" className="hover:text-slate-300">ELITE</Link>
+          <Link to="/services" className="hover:text-slate-300">Services</Link>
+          <Link to="/speaking" className="hover:text-slate-300">Speaking</Link>
+          <Link to="/veterans" className="hover:text-slate-300">Veterans</Link>
+          <Link to="/contact" className="hover:text-slate-300">Contact</Link>
         </div>
       </div>
     </footer>
   </div>
 );
 
-/* ------- Page Templates (replace later with full copy) ------- */
+/* ------- Pages (placeholder copy) ------- */
 const Home = () => (
   <AppShell>
     <section
       className="text-center py-20"
       style={{ background: `linear-gradient(180deg, ${BRAND.colors.sky} 0%, #ffffff 100%)` }}
     >
-      <h1
-        className="text-4xl md:text-5xl font-bold"
-        style={{
-          color: BRAND.colors.headerBlue,
-          fontFamily: BRAND.fonts.heading,
-        }}
-      >
+      <h1 className="text-4xl md:text-5xl font-bold" style={{ color: BRAND.colors.headerBlue, fontFamily: BRAND.fonts.heading }}>
         Lead Today. Transform Tomorrow.
       </h1>
       <p className="mt-4 text-lg max-w-2xl mx-auto text-slate-700">
@@ -154,43 +135,14 @@ const Home = () => (
   </AppShell>
 );
 
-const About = () => (
-  <AppShell>
-    <div className="max-w-7xl mx-auto px-6 py-16">About page</div>
-  </AppShell>
-);
+const About = () => (<AppShell><div className="max-w-7xl mx-auto px-6 py-16">About page</div></AppShell>);
+const Services = () => (<AppShell><div className="max-w-7xl mx-auto px-6 py-16">Services page</div></AppShell>);
+const Elite = () => (<AppShell><div className="max-w-7xl mx-auto px-6 py-16">ELITE page</div></AppShell>);
+const Speaking = () => (<AppShell><div className="max-w-7xl mx-auto px-6 py-16">Speaking page</div></AppShell>);
+const Veterans = () => (<AppShell><div className="max-w-7xl mx-auto px-6 py-16">Veterans page</div></AppShell>);
+const Contact = () => (<AppShell><div className="max-w-7xl mx-auto px-6 py-16">Contact page</div></AppShell>);
 
-const Services = () => (
-  <AppShell>
-    <div className="max-w-7xl mx-auto px-6 py-16">Services page</div>
-  </AppShell>
-);
-
-const Elite = () => (
-  <AppShell>
-    <div className="max-w-7xl mx-auto px-6 py-16">ELITE page</div>
-  </AppShell>
-);
-
-const Speaking = () => (
-  <AppShell>
-    <div className="max-w-7xl mx-auto px-6 py-16">Speaking page</div>
-  </AppShell>
-);
-
-const Veterans = () => (
-  <AppShell>
-    <div className="max-w-7xl mx-auto px-6 py-16">Veterans page</div>
-  </AppShell>
-);
-
-const Contact = () => (
-  <AppShell>
-    <div className="max-w-7xl mx-auto px-6 py-16">Contact page</div>
-  </AppShell>
-);
-
-/* ------- Default export ------- */
+/* ------- Router ------- */
 export default function App() {
   return (
     <Routes>
