@@ -1,30 +1,36 @@
- import React from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 
-/** =========================================================
+/** =========================
  * Brand
- * ======================================================= */
+ * ======================= */
 const BRAND = {
-  banner: "/One Leader at a Time001.png",
+  banner: "/One Leader at a Time001.png", // keep this image in /public
   email: "jesse@oneleaderatatimegroup.com",
 };
 
-/* Internal site button */
+/* Internal button that routes without reloading */
 const Button = ({ to, children }) => (
   <NavLink className="btn" to={to}>
     {children}
   </NavLink>
 );
 
-/** =========================================================
- * Layout wrapper
- * ======================================================= */
+/** =========================
+ * Layout (shared shell)
+ * ======================= */
 const Layout = ({ children }) => (
   <div className="site">
+    {/* Banner */}
     <header className="banner">
-      <img src={BRAND.banner} alt="One Leader at a Time – Leadership Group" className="banner-img" />
+      <img
+        src={BRAND.banner}
+        alt="One Leader at a Time – Leadership Group"
+        className="banner-img"
+      />
     </header>
 
+    {/* Nav with soft gold → white → subtle blue */}
     <nav className="nav">
       <div className="nav-inner">
         <NavLink to="/" end className="navlink">Home</NavLink>
@@ -39,6 +45,7 @@ const Layout = ({ children }) => (
 
     <main className="main">{children}</main>
 
+    {/* Footer with matching soft gradient; no hard line */}
     <footer className="footer">
       <div className="footer-inner">
         <div>© {new Date().getFullYear()} One Leader at a Time Leadership Group, LLC. All rights reserved.</div>
@@ -54,9 +61,9 @@ const Layout = ({ children }) => (
   </div>
 );
 
-/** =========================================================
+/** =========================
  * Pages
- * ======================================================= */
+ * ======================= */
 const Home = () => (
   <Layout>
     <section className="section home-hero">
@@ -114,6 +121,8 @@ const Services = () => (
           ["Leadership & Team Development", ["Team rhythm", "Leader rituals", "After-action learning"]],
           ["Executive & Strategic Coaching", ["Decision frameworks", "Executive presence", "Accountability systems"]],
           ["Organizational Resilience", ["Change navigation", "Risk playbooks", "Metrics that matter"]],
+          ["Speaking & Keynotes", ["Keynotes", "Panels & firesides", "Workshops"]],
+          ["Veteran Transition Leadership", ["Resume & LinkedIn", "Interview prep", "30-60-90 plans"]],
         ].map(([title, list]) => (
           <article key={title} className="card">
             <h4>{title}</h4>
@@ -172,6 +181,15 @@ const Veterans = () => (
       <p>
         Support to translate military excellence into civilian leadership and career success.
       </p>
+      <ul className="bullets">
+        <li>Leadership & skills translation into executive-ready language</li>
+        <li>Resume & LinkedIn tailored to leadership/technical roles</li>
+        <li>Interview preparation & executive presence</li>
+        <li>Job search coaching & market navigation strategies</li>
+        <li>Career counseling aligned to purpose & advancement goals</li>
+        <li>Senior mentor matching & executive networking</li>
+        <li>Target-role 30-60-90 onboarding plan aligned to E.L.I.T.E.™</li>
+      </ul>
       <div className="cta-row mt-md">
         <Button to="/contact">Start your transition</Button>
       </div>
@@ -183,9 +201,51 @@ const Contact = () => (
   <Layout>
     <section className="section">
       <h2>Contact</h2>
-      <p>
-        Tell us about your goals, dates, and audience. We’ll follow up quickly.
-      </p>
+      <p className="lead">Tell us about your goals, dates, and audience. We’ll follow up quickly.</p>
+
+      {/* Netlify form (works on static deploy) */}
+      <form
+        className="contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        {/* Honeypot */}
+        <input type="hidden" name="form-name" value="contact" />
+        <p className="hidden">
+          <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+        </p>
+
+        <label>
+          Name
+          <input name="name" type="text" placeholder="Your name" required />
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" placeholder="you@company.com" required />
+        </label>
+        <label>
+          Phone
+          <input name="phone" type="text" placeholder="(###) ###-####" />
+        </label>
+        <label>
+          What are you looking for?
+          <select name="topic">
+            <option>Keynote / Speaking</option>
+            <option>Leadership Workshop</option>
+            <option>Executive Coaching</option>
+            <option>Veteran Transition Program</option>
+            <option>Custom Engagement</option>
+          </select>
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="6" placeholder="Share goals, dates, audience size…"></textarea>
+        </label>
+        <button className="btn" type="submit">Send inquiry</button>
+      </form>
+
       <div className="contact-side">
         <div><strong>Email:</strong> <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a></div>
         <div><strong>Location:</strong> Oklahoma City, OK</div>
@@ -194,9 +254,9 @@ const Contact = () => (
   </Layout>
 );
 
-/** =========================================================
+/** =========================
  * Router
- * ======================================================= */
+ * ======================= */
 export default function App() {
   return (
     <BrowserRouter>
