@@ -5,14 +5,13 @@ import { Routes, Route, Link, NavLink } from "react-router-dom";
 const BRAND = {
   name: "One Leader at a Time – Leadership Group™",
   legal: "One Leader at a Time Leadership Group, LLC",
-  // If you keep spaces in the filename, use the URL-encoded path below:
-  bannerUrl: "/One%20Leader%20at%20a%20Time001.png",
+  bannerUrl: "/One%20Leader%20at%20a%20Time001.png", // banner image in /public
   colors: {
-    headerBlue: "#4C7CC1",
-    gold: "#F5C24B",
+    headerBlue: "#2F4A7F",     // deep navy that complements your logo text
+    gold: "#F5C24B",           // accent gold
     goldDark: "#D4A32C",
     sky: "#E6EEF7",
-    text: "#334155",
+    text: "#2B3244",
   },
   fonts: {
     heading: "'Merriweather', Georgia, 'Times New Roman', serif",
@@ -33,50 +32,66 @@ const GoldButton = ({ to = "#", children }) => (
   </Link>
 );
 
-/* ------- App Shell with full-width banner + readable nav ------- */
+/* ------- App Shell ------- */
 const AppShell = ({ children }) => (
-  <div className="min-h-screen bg-white" style={{ color: BRAND.colors.text, fontFamily: BRAND.fonts.body }}>
-    {/* Full-width banner (keeps aspect, spans edge-to-edge) */}
+  <div
+    className="min-h-screen bg-white"
+    style={{ color: BRAND.colors.text, fontFamily: BRAND.fonts.body }}
+  >
+    {/* HEADER SECTION */}
     <header className="relative z-40">
-      <div className="w-full bg-white">
+      {/* Full-width banner */}
+      <div className="w-full bg-white relative">
         <img
           src={BRAND.bannerUrl}
           alt="One Leader at a Time – Leadership Group™"
-          className="w-full h-[140px] object-cover object-center md:h-[150px] lg:h-[160px]"
+          className="w-full h-[150px] object-cover object-center md:h-[160px] lg:h-[170px]"
           loading="eager"
         />
-      </div>
 
-      {/* Solid nav bar BELOW the banner for perfect contrast */}
-      <div style={{ backgroundColor: BRAND.colors.headerBlue }}>
-        <nav className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-end">
-          <div className="hidden md:flex items-center gap-6 text-sm">
-            {[
-              { to: "/", label: "Home" },
-              { to: "/about", label: "About" },
-              { to: "/services", label: "Services" },
-              { to: "/elite", label: "ELITE" },
-              { to: "/speaking", label: "Speaking" },
-              { to: "/veterans", label: "Veterans" },
-              { to: "/contact", label: "Contact" },
-            ].map((i) => (
-              <NavLink
-                key={i.to}
-                to={i.to}
-                className={({ isActive }) =>
-                  `text-white ${isActive ? "font-semibold underline underline-offset-4" : "opacity-95 hover:opacity-100"}`
-                }
-              >
-                {i.label}
-              </NavLink>
-            ))}
-          </div>
-        </nav>
+        {/* Blended translucent nav bar overlay */}
+        <div
+          className="absolute bottom-0 left-0 right-0 backdrop-blur-sm"
+          style={{
+            backgroundColor: "rgba(47, 74, 127, 0.8)", // translucent navy blend
+            boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+          }}
+        >
+          <nav className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-end">
+            <div className="hidden md:flex items-center gap-6 text-sm">
+              {[
+                { to: "/", label: "Home" },
+                { to: "/about", label: "About" },
+                { to: "/services", label: "Services" },
+                { to: "/elite", label: "ELITE" },
+                { to: "/speaking", label: "Speaking" },
+                { to: "/veterans", label: "Veterans" },
+                { to: "/contact", label: "Contact" },
+              ].map((i) => (
+                <NavLink
+                  key={i.to}
+                  to={i.to}
+                  className={({ isActive }) =>
+                    `text-white ${
+                      isActive
+                        ? "font-semibold underline underline-offset-4"
+                        : "opacity-95 hover:opacity-100"
+                    }`
+                  }
+                >
+                  {i.label}
+                </NavLink>
+              ))}
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
 
+    {/* MAIN CONTENT */}
     <main>{children}</main>
 
+    {/* FOOTER */}
     <footer className="mt-10" style={{ backgroundColor: BRAND.colors.headerBlue }}>
       <div className="max-w-7xl mx-auto px-6 py-8 text-slate-100 text-sm flex flex-col md:flex-row gap-3 items-center justify-between">
         <div>© {new Date().getFullYear()} {BRAND.legal}. All rights reserved.</div>
@@ -92,14 +107,20 @@ const AppShell = ({ children }) => (
   </div>
 );
 
-/* ------- Pages (swap in your full copy later) ------- */
+/* ------- Page Templates (replace with your copy later) ------- */
 const Home = () => (
   <AppShell>
     <section
       className="text-center py-20"
       style={{ background: `linear-gradient(180deg, ${BRAND.colors.sky} 0%, #ffffff 100%)` }}
     >
-      <h1 className="h-heading text-4xl md:text-5xl font-bold" style={{ color: BRAND.colors.headerBlue }}>
+      <h1
+        className="text-4xl md:text-5xl font-bold"
+        style={{
+          color: BRAND.colors.headerBlue,
+          fontFamily: BRAND.fonts.heading,
+        }}
+      >
         Lead Today. Transform Tomorrow.
       </h1>
       <p className="mt-4 text-lg max-w-2xl mx-auto text-slate-700">
