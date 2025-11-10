@@ -17,13 +17,26 @@ const BRAND = {
   },
 };
 
-/* Softer, more translucent fades (like the version you loved) */
+/* Softer, more granular fades (extra stops + lower alpha) */
 const topNavGradient =
-  "linear-gradient(90deg, rgba(240,196,96,0.12) 0%, rgba(255,255,255,0.45) 46%, rgba(201,219,239,0.12) 100%)";
+  "linear-gradient(90deg," +
+  "rgba(240,196,96,0.06) 0%," +
+  "rgba(255,255,255,0.22) 18%," +
+  "rgba(255,255,255,0.35) 40%," +
+  "rgba(255,255,255,0.35) 60%," +
+  "rgba(226,234,244,0.22) 82%," +
+  "rgba(201,219,239,0.06) 100%)";
+
 const footerGradient =
-  "linear-gradient(90deg, rgba(240,196,96,0.10) 0%, rgba(255,255,255,0.40) 46%, rgba(201,219,239,0.10) 100%)";
+  "linear-gradient(90deg," +
+  "rgba(240,196,96,0.05) 0%," +
+  "rgba(255,255,255,0.18) 18%," +
+  "rgba(255,255,255,0.30) 46%," +
+  "rgba(226,234,244,0.18) 82%," +
+  "rgba(201,219,239,0.05) 100%)";
+
 const pageBgGradient =
-  "linear-gradient(180deg, #EAF2F9 0%, #FFFFFF 100%)";
+  "linear-gradient(180deg, rgba(234,242,249,1) 0%, rgba(255,255,255,1) 100%)";
 
 /* ===== Reusable Button ===== */
 function GoldButton({ to = "#", text = "Learn more" }) {
@@ -43,11 +56,11 @@ function Shell({ children, title }) {
   }, [title]);
 
   return (
-    <div className="site" style={{ fontFamily: BRAND.fonts.body }}>
+    <div className="site">
       {/* Banner */}
       <img src={BRAND.bannerUrl} alt="One Leader at a Time banner" className="banner" />
 
-      {/* Nav (thinner + lighter) */}
+      {/* Nav (thin + very soft fade) */}
       <header className="nav" style={{ background: topNavGradient }}>
         <div className="container nav__inner">
           {[
@@ -77,7 +90,7 @@ function Shell({ children, title }) {
         <div className="container">{children}</div>
       </main>
 
-      {/* Footer (same soft fade) */}
+      {/* Footer (same smooth fade) */}
       <footer className="footer" style={{ background: footerGradient }}>
         <div className="container footer__inner">
           <div className="footer__copy">
@@ -101,8 +114,8 @@ function Shell({ children, title }) {
 function Home() {
   return (
     <Shell title="Home">
-      <section className="stack-lg center">
-        <h1 className="h1" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
+      <section className="stack-lg center hero-tight">
+        <h1 className="h1">
           Lead Today. Transform Tomorrow.
         </h1>
         <p className="lead">
@@ -124,9 +137,7 @@ function About() {
       <section className="stack-lg">
         {/* Jesseana */}
         <div className="stack-md">
-          <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
-            About Jesseana Fernandes
-          </h2>
+          <h2 className="h2">About Jesseana Fernandes</h2>
           <div className="copy maxw-860">
             <p>
               Jesseana Fernandes is a transformational senior leader and
@@ -168,9 +179,7 @@ function About() {
 
         {/* Company */}
         <div className="stack-md">
-          <h3 className="h3" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
-            About One Leader at a Time – Leadership Group™
-          </h3>
+          <h3 className="h3">About One Leader at a Time – Leadership Group™</h3>
           <div className="copy maxw-860">
             <p>
               <strong>One Leader at a Time – Leadership Group™</strong> equips executives, teams, and
@@ -212,9 +221,7 @@ function Services() {
   return (
     <Shell title="Services">
       <section className="stack-lg">
-        <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
-          Services
-        </h2>
+        <h2 className="h2">Services</h2>
         <p className="copy maxw-760">
           We transform leaders, teams, and organizations through the E.L.I.T.E.™ Framework —
           Empower, Lead, Inspire, Transform, Elevate. Programs can be delivered onsite or virtually
@@ -249,9 +256,7 @@ function ELITE() {
   return (
     <Shell title="ELITE">
       <section className="stack-lg">
-        <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
-          E.L.I.T.E.™ Framework
-        </h2>
+        <h2 className="h2">E.L.I.T.E.™ Framework</h2>
         <div className="grid grid--five">
           {blocks.map((m) => (
             <div key={m.t} className="card">
@@ -289,9 +294,7 @@ function Speaking() {
     <Shell title="Speaking">
       <section className="stack-lg">
         <div className="stack-md">
-          <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
-            Speaking & Keynotes
-          </h2>
+          <h2 className="h2">Speaking & Keynotes</h2>
           <p className="copy maxw-860">
             High-energy, high-credibility talks that turn leadership principles into action. Jesseana brings two decades of
             military and aerospace leadership to the stage, equipping audiences to lead with clarity, courage, and the
@@ -312,9 +315,7 @@ function Speaking() {
         </div>
 
         <div className="stack-md">
-          <h3 className="h3" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
-            Signature Topics
-          </h3>
+          <h3 className="h3">Signature Topics</h3>
           <div className="grid">
             {topics.map((card) => (
               <div key={card.t} className="card">
@@ -337,9 +338,7 @@ function Veterans() {
   return (
     <Shell title="Veterans">
       <section className="stack-lg">
-        <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
-          Veteran Transition Leadership
-        </h2>
+        <h2 className="h2">Veteran Transition Leadership</h2>
         <div className="copy maxw-860">
           <p><strong>From junior enlisted to senior commissioned officers — stepping into what’s next.</strong></p>
           <p>
@@ -369,9 +368,7 @@ function Contact() {
     <Shell title="Contact">
       <section className="grid-2 gap-xl">
         <div className="panel">
-          <h2 className="h3" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
-            Contact
-          </h2>
+          <h2 className="h3">Contact</h2>
           <p className="copy">
             Tell us about your goals, audience, and dates—we’ll follow up quickly with options.
           </p>
