@@ -1,22 +1,15 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, NavLink } from "react-router-dom";
 
-/* -----------------------------------------------------------
-   One Leader at a Time — stabilized flex layout (v2.1)
-   - No white gap: flex column + min-h-screen + main flex-1
-   - Top & footer gradients match
-   - Encoded banner filename (spaces) so it always resolves
-   - About/Speaking buttons are wrap-safe (no overlap)
-   - All pages share the same background
------------------------------------------------------------ */
-
+/* ===== Brand ===== */
 const BRAND = {
   legal: "One Leader at a Time Leadership Group, LLC",
-  bannerUrl: "/One%20Leader%20at%20a%20Time001.png", // <- encoded spaces
+  bannerUrl: "/One%20Leader%20at%20a%20Time001.png", // keep the spaces encoded
   colors: {
     navy: "#2F4E86",
     ink: "#21324F",
     gold: "#F0C460",
+    goldDark: "#D4A32C",
     goldSoft: "rgba(240,196,96,0.45)",
     skySoft: "rgba(201,219,239,0.55)",
     sky: "#EAF2F9",
@@ -28,49 +21,37 @@ const BRAND = {
   },
 };
 
-const color = (k, fb = "#000") => BRAND.colors[k] ?? fb;
-const font = (k, fb = "system-ui, sans-serif") => BRAND.fonts[k] ?? fb;
+const topNavGradient = `linear-gradient(90deg, ${BRAND.colors.goldSoft} 0%, ${BRAND.colors.skySoft} 100%)`;
+const footerGradient = `linear-gradient(90deg, ${BRAND.colors.goldSoft} 0%, ${BRAND.colors.skySoft} 100%)`;
+const pageBgGradient = `linear-gradient(180deg, ${BRAND.colors.sky} 0%, ${BRAND.colors.white} 100%)`;
 
-const topNavGradient = `linear-gradient(90deg, ${color("goldSoft")} 0%, ${color("skySoft")} 100%)`;
-const footerGradient = `linear-gradient(90deg, ${color("goldSoft")} 0%, ${color("skySoft")} 100%)`;
-const pageBgGradient = `linear-gradient(180deg, ${color("sky")} 0%, ${color("white")} 100%)`;
+/* ===== Reusable Button ===== */
+function GoldButton({ to = "#", text = "Learn more" }) {
+  return (
+    <Link className="btn btn--gold" to={to}>
+      {text}
+    </Link>
+  );
+}
 
-const GoldButton = ({ to = "#", text = "Learn more" }) => (
-  <Link
-    to={to}
-    className="inline-flex items-center justify-center px-5 py-3 rounded-lg text-sm font-semibold no-underline transition-colors duration-200"
-    style={{ backgroundColor: color("gold"), color: "#0f172a" }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.backgroundColor = "#D4A32C";
-      e.currentTarget.style.color = "#FFFFFF";
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.backgroundColor = color("gold");
-      e.currentTarget.style.color = "#0f172a";
-    }}
-  >
-    {text}
-  </Link>
-);
-
-/* ---------- Layout Shell (flex column) ---------- */
-const Shell = ({ children }) => {
+/* ===== Layout Shell (no Tailwind) ===== */
+function Shell({ children }) {
   useEffect(() => {
     document.title = "One Leader at a Time – Leadership Group™ | E.L.I.T.E.™";
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ fontFamily: font("body"), color: "#334155" }}>
+    <div className="site" style={{ fontFamily: BRAND.fonts.body }}>
       {/* Banner */}
       <img
         src={BRAND.bannerUrl}
         alt="One Leader at a Time banner"
-        className="w-full h-auto object-cover block"
+        className="banner"
       />
 
       {/* Nav */}
-      <header className="w-full border-b" style={{ background: topNavGradient, borderColor: "rgba(47,78,134,0.18)" }}>
-        <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center gap-6">
+      <header className="nav" style={{ background: topNavGradient }}>
+        <div className="container nav__inner">
           {[
             { to: "/", label: "Home" },
             { to: "/about", label: "About" },
@@ -84,323 +65,333 @@ const Shell = ({ children }) => {
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `no-underline px-2 py-1 rounded ${isActive ? "font-bold" : ""}`
+                "nav__link" + (isActive ? " nav__link--active" : "")
               }
-              style={{ color: color("ink") }}
             >
               {item.label}
             </NavLink>
           ))}
-        </nav>
+        </div>
       </header>
 
-      {/* Main (fills remaining height) */}
-      <main className="flex-1" style={{ background: pageBgGradient }}>
-        <div className="max-w-7xl mx-auto px-6 py-12">{children}</div>
+      {/* Main */}
+      <main className="main" style={{ background: pageBgGradient }}>
+        <div className="container">{children}</div>
       </main>
 
       {/* Footer */}
-      <footer className="w-full" style={{ background: footerGradient, borderTop: "1px solid rgba(47,78,134,0.18)" }}>
-        <div className="max-w-7xl mx-auto px-6 py-8 text-sm flex flex-col md:flex-row items-center justify-between gap-3">
-          <div style={{ color: color("ink") }}>
+      <footer className="footer" style={{ background: footerGradient }}>
+        <div className="container footer__inner">
+          <div className="footer__copy">
             © {new Date().getFullYear()} {BRAND.legal}. All rights reserved.
           </div>
-          <div className="flex flex-wrap gap-4" style={{ color: color("ink") }}>
-            <Link to="/elite" className="no-underline" style={{ color: color("ink") }}>ELITE</Link>
-            <Link to="/services" className="no-underline" style={{ color: color("ink") }}>Services</Link>
-            <Link to="/speaking" className="no-underline" style={{ color: color("ink") }}>Speaking</Link>
-            <Link to="/veterans" className="no-underline" style={{ color: color("ink") }}>Veterans</Link>
-            <Link to="/contact" className="no-underline" style={{ color: color("ink") }}>Contact</Link>
+          <div className="footer__links">
+            <Link to="/elite">ELITE</Link>
+            <Link to="/services">Services</Link>
+            <Link to="/speaking">Speaking</Link>
+            <Link to="/veterans">Veterans</Link>
+            <Link to="/contact">Contact</Link>
           </div>
         </div>
       </footer>
     </div>
   );
-};
+}
 
-/* ---------- Pages ---------- */
+/* ========== Pages (plain CSS classes, no Tailwind) ========== */
 
-const Home = () => (
-  <Shell>
-    <section className="text-center">
-      <h1 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: font("heading"), color: color("navy") }}>
-        Lead Today. Transform Tomorrow.
-      </h1>
-      <p className="mt-4 text-lg text-slate-700 max-w-3xl mx-auto">
-        Empowering leaders and organizations through the E.L.I.T.E.™ Framework — Empower, Lead,
-        Inspire, Transform, Elevate.
-      </p>
-      <div className="mt-8 flex flex-wrap justify-center gap-4">
-        <GoldButton to="/contact" text="Book a discovery call" />
-        <GoldButton to="/elite" text="Explore the E.L.I.T.E.™ Framework" />
-      </div>
-    </section>
-  </Shell>
-);
-
-const About = () => (
-  <Shell>
-    <section className="space-y-8">
-      <div>
-        <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: font("heading"), color: color("navy") }}>
-          About Jesseana Fernandes
-        </h2>
-        <div className="mt-4 space-y-5 text-slate-700 max-w-3xl">
-          <p>
-            Jesseana Fernandes is a transformational senior leader and <strong>CW3 (Chief Warrant Officer Three)</strong> with 20+ years of experience in
-            leadership, logistics, and organizational strategy. As a <strong>Senior Manager in aerospace</strong>, she blends military discipline with corporate
-            execution to deliver clarity, accountability, and results under pressure.
-          </p>
-          <p>
-            She has mentored leaders from <strong>junior enlisted to senior commissioned officers</strong>, serving as a trusted technical advisor to
-            decision-makers across formations. Her field-tested approach centers on purpose, ownership, and service—building high-performing teams and resilient cultures.
-          </p>
-          <p>
-            That conviction inspired the creation of <strong>One Leader at a Time – Leadership Group™</strong> and its proprietary
-            <strong> E.L.I.T.E.™ Framework</strong>—Empower, Lead, Inspire, Transform, Elevate.
-          </p>
-        </div>
-        <div className="mt-6 flex flex-wrap gap-3">
+function Home() {
+  return (
+    <Shell>
+      <section className="stack-lg center">
+        <h1 className="h1" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
+          Lead Today. Transform Tomorrow.
+        </h1>
+        <p className="lead">
+          Empowering leaders and organizations through the E.L.I.T.E.™ Framework — Empower, Lead,
+          Inspire, Transform, Elevate.
+        </p>
+        <div className="row">
+          <GoldButton to="/contact" text="Book a discovery call" />
           <GoldButton to="/elite" text="Explore the E.L.I.T.E.™ Framework" />
-          <GoldButton to="/services" text="See our services" />
         </div>
-      </div>
+      </section>
+    </Shell>
+  );
+}
 
-      <div>
-        <h3 className="text-2xl md:text-3xl font-bold" style={{ fontFamily: font("heading"), color: color("navy") }}>
-          About One Leader at a Time – Leadership Group™
-        </h3>
-        <div className="mt-4 space-y-5 text-slate-700 max-w-4xl">
-          <p>
-            <strong>One Leader at a Time – Leadership Group™</strong> equips executives, teams, and transitioning veterans to lead with integrity, resilience,
-            and purpose. We deliver executive coaching, organizational transformation programs, and veteran transition leadership—bridging the gap between technical
-            mastery and human-centered leadership.
-          </p>
-          <p>
-            Every engagement is grounded in the <strong>E.L.I.T.E.™ Framework</strong>, translating values into daily behaviors, decision frameworks, and measurable
-            outcomes that build <strong>high-performance teams</strong> and <strong>resilient cultures</strong>.
-          </p>
-          <div className="text-sm font-medium tracking-wide" style={{ color: color("navy") }}>
-            VETERAN-OWNED • WOMEN-OWNED • PURPOSE-DRIVEN • LEADERSHIP-FOCUSED
+function About() {
+  return (
+    <Shell>
+      <section className="stack-xl">
+        <div className="stack-md">
+          <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
+            About Jesseana Fernandes
+          </h2>
+          <div className="copy maxw-760">
+            <p>
+              Jesseana Fernandes is a transformational senior leader and <strong>CW3 (Chief Warrant Officer Three)</strong> with 20+ years of experience in
+              leadership, logistics, and organizational strategy. As a <strong>Senior Manager in aerospace</strong>, she blends military discipline with corporate
+              execution to deliver clarity, accountability, and results under pressure.
+            </p>
+            <p>
+              She has mentored leaders from <strong>junior enlisted to senior commissioned officers</strong>, serving as a trusted technical advisor to
+              decision-makers across formations. Her field-tested approach centers on purpose, ownership, and service—building high-performing teams and resilient cultures.
+            </p>
+            <p>
+              That conviction inspired the creation of <strong>One Leader at a Time – Leadership Group™</strong> and its proprietary
+              <strong> E.L.I.T.E.™ Framework</strong>—Empower, Lead, Inspire, Transform, Elevate.
+            </p>
+          </div>
+          <div className="row">
+            <GoldButton to="/elite" text="Explore the E.L.I.T.E.™ Framework" />
+            <GoldButton to="/services" text="See our services" />
           </div>
         </div>
-      </div>
-    </section>
-  </Shell>
-);
 
-const Services = () => (
-  <Shell>
-    <section>
-      <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: font("heading"), color: color("navy") }}>
-        Services
-      </h2>
-      <p className="mt-4 max-w-3xl text-slate-700">
-        We transform leaders, teams, and organizations through the E.L.I.T.E.™ Framework — Empower,
-        Lead, Inspire, Transform, Elevate. Programs can be delivered onsite or virtually and tailored by audience level.
-      </p>
-
-      <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[
-          { t: "Leadership & Team Development", b: ["Team operating rhythm", "Leader standards & rituals", "After-action learning"] },
-          { t: "Executive & Strategic Coaching", b: ["Decision frameworks", "Executive presence", "Accountability systems"] },
-          { t: "Organizational Resilience", b: ["Change navigation", "Risk & response playbooks", "Metrics that matter"] },
-          { t: "Speaking & Keynotes", b: ["Keynotes", "Panels & firesides", "Workshops"] },
-          { t: "Veteran Transition Leadership", b: ["Resume & LinkedIn", "Interview prep", "30-60-90 plans"] },
-        ].map((card) => (
-          <div key={card.t} className="rounded-xl border border-slate-200 p-6 bg-white/85">
-            <h3 className="font-semibold" style={{ fontFamily: font("heading"), color: color("ink") }}>{card.t}</h3>
-            <ul className="mt-3 list-disc pl-5 text-slate-700">
-              {card.b.map((x) => <li key={x}>{x}</li>)}
-            </ul>
+        <div className="stack-md">
+          <h3 className="h3" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
+            About One Leader at a Time – Leadership Group™
+          </h3>
+          <div className="copy maxw-860">
+            <p>
+              <strong>One Leader at a Time – Leadership Group™</strong> equips executives, teams, and transitioning veterans to lead with integrity,
+              resilience, and purpose. We deliver executive coaching, organizational transformation programs, and veteran transition leadership—bridging
+              the gap between technical mastery and human-centered leadership.
+            </p>
+            <p>
+              Every engagement is grounded in the <strong>E.L.I.T.E.™ Framework</strong>, translating values into daily behaviors, decision frameworks,
+              and measurable outcomes that build <strong>high-performance teams</strong> and <strong>resilient cultures</strong>.
+            </p>
+            <div className="tagline">
+              VETERAN-OWNED • WOMEN-OWNED • PURPOSE-DRIVEN • LEADERSHIP-FOCUSED
+            </div>
           </div>
-        ))}
-      </div>
+        </div>
+      </section>
+    </Shell>
+  );
+}
 
-      <div className="mt-8">
-        <GoldButton to="/contact" text="Schedule a consultation" />
-      </div>
-    </section>
-  </Shell>
-);
+function Services() {
+  const cards = [
+    { t: "Leadership & Team Development", b: ["Team operating rhythm", "Leader standards & rituals", "After-action learning"] },
+    { t: "Executive & Strategic Coaching", b: ["Decision frameworks", "Executive presence", "Accountability systems"] },
+    { t: "Organizational Resilience", b: ["Change navigation", "Risk & response playbooks", "Metrics that matter"] },
+    { t: "Speaking & Keynotes", b: ["Keynotes", "Panels & firesides", "Workshops"] },
+    { t: "Veteran Transition Leadership", b: ["Resume & LinkedIn", "Interview prep", "30-60-90 plans"] },
+  ];
 
-const ELITE = () => (
-  <Shell>
-    <section>
-      <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: font("heading"), color: color("navy") }}>
-        E.L.I.T.E.™ Framework
-      </h2>
-      <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-5 gap-4 text-slate-700">
-        {[
-          { k: "E", t: "Empower", d: "Build confidence, autonomy, and accountability." },
-          { k: "L", t: "Lead", d: "Model values, align decisions, and execute with clarity." },
-          { k: "I", t: "Inspire", d: "Craft vision and communicate to mobilize action." },
-          { k: "T", t: "Transform", d: "Navigate change with resilience and systems thinking." },
-          { k: "E", t: "Elevate", d: "Sustain excellence through coaching and continuous learning." },
-        ].map((m) => (
-          <div key={m.t} className="rounded-xl border border-slate-200 p-5 bg-white/85">
-            <div className="text-sm font-semibold" style={{ color: color("navy") }}>{m.k} — {m.t}</div>
-            <p className="mt-2 text-slate-600 text-sm">{m.d}</p>
-          </div>
-        ))}
-      </div>
-      <div className="mt-8">
-        <GoldButton to="/contact" text="Request ELITE program details" />
-      </div>
-    </section>
-  </Shell>
-);
-
-const Speaking = () => (
-  <Shell>
-    <section className="space-y-8">
-      <div>
-        <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: font("heading"), color: color("navy") }}>
-          Speaking & Keynotes
+  return (
+    <Shell>
+      <section className="stack-lg">
+        <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
+          Services
         </h2>
-        <p className="mt-4 text-slate-700 max-w-4xl">
-          High-energy, high-credibility talks that turn leadership principles into action. Jesseana brings two decades of
-          military and aerospace leadership to the stage, equipping audiences to lead with clarity, courage, and the E.L.I.T.E.™ mindset.
+        <p className="copy maxw-760">
+          We transform leaders, teams, and organizations through the E.L.I.T.E.™ Framework — Empower, Lead, Inspire, Transform, Elevate.
+          Programs can be delivered onsite or virtually and tailored by audience level.
         </p>
 
-        {/* wrap-safe CTA box */}
-        <div className="mt-6 rounded-xl border border-slate-200 bg-white/85 p-5">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="text-slate-700">Ready to lock dates or request rates?</div>
-            <GoldButton to="/contact" text="Request speaking availability" />
-          </div>
-        </div>
-
-        <div className="mt-6 grid md:grid-cols-2 gap-4 text-slate-700">
-          <div><span className="font-semibold">Formats:</span> Keynote (20–45 min), Fireside chat, Panelist, Workshop (90–120 min)</div>
-          <div><span className="font-semibold">Audiences:</span> Executives, emerging leaders, technical teams, veteran ERGs</div>
-          <div><span className="font-semibold">Outcomes:</span> Clarity, accountability, decision speed, cultural momentum</div>
-          <div><span className="font-semibold">Travel:</span> Domestic & international • Based in Oklahoma City, OK</div>
-        </div>
-      </div>
-
-      <div>
-        <h3 className="text-2xl md:text-3xl font-bold" style={{ fontFamily: font("heading"), color: color("navy") }}>
-          Signature Topics
-        </h3>
-        <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            {
-              t: "Building High-Performance Teams in High-Stakes Environments",
-              b: "Align roles, run disciplined stand-ups, and execute with urgency—without burning people out.",
-              o: ["Team trust & cadence systems", "Clarity of priorities & ownership", "Faster, cleaner handoffs"],
-            },
-            {
-              t: "Culture as a Competitive Advantage",
-              b: "Turn values into behaviors, feedback loops, and visible leadership standards that lift performance.",
-              o: ["Leadership standards & rituals", "Constructive feedback culture", "Retention & engagement gains"],
-            },
-            {
-              t: "The E.L.I.T.E.™ Framework: Practical Leadership for Real Results",
-              b: "A field-tested system to simplify decisions and drive change with discipline and care.",
-              o: ["Decision frameworks", "Change navigation", "Post-event action plans"],
-            },
-          ].map((card) => (
-            <div key={card.t} className="rounded-xl border border-slate-200 p-6 bg-white/85">
-              <h4 className="font-semibold" style={{ fontFamily: font("heading"), color: color("ink") }}>{card.t}</h4>
-              <p className="mt-2 text-slate-600 text-sm">{card.b}</p>
-              <div className="mt-3">
-                <div className="text-xs font-medium" style={{ color: color("navy") }}>Audience takeaways</div>
-                <ul className="mt-1 list-disc pl-5 text-sm text-slate-700">
-                  {card.o.map((x) => <li key={x}>{x}</li>)}
-                </ul>
-              </div>
+        <div className="grid">
+          {cards.map((c) => (
+            <div key={c.t} className="card">
+              <h3 className="card__title">{c.t}</h3>
+              <ul className="card__list">
+                {c.b.map((x) => <li key={x}>{x}</li>)}
+              </ul>
             </div>
           ))}
         </div>
-      </div>
-    </section>
-  </Shell>
-);
 
-const Veterans = () => (
-  <Shell>
-    <section>
-      <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: font("heading"), color: color("navy") }}>
-        Veteran Transition Leadership
-      </h2>
-      <div className="mt-4 text-slate-700 space-y-4 max-w-4xl">
-        <p><strong>From junior enlisted to senior commissioned officers — stepping into what’s next.</strong></p>
-        <p>
-          We equip veterans to convert military discipline, technical mastery, and operational experience into high-impact civilian leadership.
-          Our programs focus on leadership readiness, advancement, and career success—not just job placement.
-        </p>
-        <p><strong>What’s included:</strong></p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>Leadership & skills translation into executive-ready language</li>
-          <li>Resume & LinkedIn development tailored to leadership and technical roles</li>
-          <li>Interview preparation focused on confidence, communication, and executive presence</li>
-          <li>Job search coaching and market navigation strategies</li>
-          <li>Career counseling to align experience, purpose, and advancement goals</li>
-          <li>Senior mentor matching and executive networking strategies</li>
-          <li>Target-role 30-60-90 day onboarding plan aligned to E.L.I.T.E.™</li>
-          <li>Ongoing progression and promotion planning support</li>
-        </ul>
-      </div>
-      <div className="mt-8">
-        <GoldButton to="/contact" text="Start your transition" />
-      </div>
-    </section>
-  </Shell>
-);
+        <GoldButton to="/contact" text="Schedule a consultation" />
+      </section>
+    </Shell>
+  );
+}
 
-const Contact = () => (
-  <Shell>
-    <section className="grid lg:grid-cols-2 gap-8 items-start">
-      <div className="rounded-xl border border-slate-200 p-6 bg-white/90">
-        <h2 className="text-2xl md:text-3xl font-bold" style={{ fontFamily: font("heading"), color: color("navy") }}>
-          Contact
+function ELITE() {
+  const blocks = [
+    { k: "E", t: "Empower", d: "Build confidence, autonomy, and accountability." },
+    { k: "L", t: "Lead", d: "Model values, align decisions, and execute with clarity." },
+    { k: "I", t: "Inspire", d: "Craft vision and communicate to mobilize action." },
+    { k: "T", t: "Transform", d: "Navigate change with resilience and systems thinking." },
+    { k: "E", t: "Elevate", d: "Sustain excellence through coaching and continuous learning." },
+  ];
+  return (
+    <Shell>
+      <section className="stack-lg">
+        <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
+          E.L.I.T.E.™ Framework
         </h2>
-        <p className="mt-3 text-slate-700">Tell us about your goals, audience, and dates—we’ll follow up quickly with options.</p>
-        <form className="mt-6 space-y-4">
-          <div>
-            <label className="text-sm text-slate-600">Name</label>
-            <input className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" placeholder="Your name" />
-          </div>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label className="text-sm text-slate-600">Email</label>
-              <input type="email" className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" placeholder="you@company.com" />
+        <div className="grid grid--five">
+          {blocks.map((m) => (
+            <div key={m.t} className="card">
+              <div className="card__k">{m.k} — {m.t}</div>
+              <p className="card__desc">{m.d}</p>
             </div>
-            <div>
-              <label className="text-sm text-slate-600">Phone</label>
-              <input className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" placeholder="(###) ###-####" />
-            </div>
-          </div>
-          <div>
-            <label className="text-sm text-slate-600">What are you looking for?</label>
-            <select className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2">
-              <option>Keynote / Speaking</option>
-              <option>Leadership Workshop</option>
-              <option>Executive Coaching</option>
-              <option>Veteran Transition Program</option>
-              <option>Custom Engagement</option>
-            </select>
-          </div>
-          <div>
-            <label className="text-sm text-slate-600">Message</label>
-            <textarea rows={5} className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" placeholder="Share your goals, audience size, and target dates…" />
-          </div>
-          <GoldButton to="/contact" text="Send inquiry" />
-        </form>
-      </div>
-
-      <div className="rounded-xl border border-slate-200 p-6 bg-white/90">
-        <div className="text-slate-700">
-          <div><span className="font-medium">Email</span> — jesse@oneleaderatatimegroup.com</div>
-          <div className="mt-2"><span className="font-medium">Location</span> — Oklahoma City, OK</div>
+          ))}
         </div>
-      </div>
-    </section>
-  </Shell>
-);
+        <GoldButton to="/contact" text="Request ELITE program details" />
+      </section>
+    </Shell>
+  );
+}
 
-/* ---------- Router ---------- */
+function Speaking() {
+  const topics = [
+    {
+      t: "Building High-Performance Teams in High-Stakes Environments",
+      b: "Align roles, run disciplined stand-ups, and execute with urgency—without burning people out.",
+      o: ["Team trust & cadence systems", "Clarity of priorities & ownership", "Faster, cleaner handoffs"],
+    },
+    {
+      t: "Culture as a Competitive Advantage",
+      b: "Turn values into behaviors, feedback loops, and visible leadership standards that lift performance.",
+      o: ["Leadership standards & rituals", "Constructive feedback culture", "Retention & engagement gains"],
+    },
+    {
+      t: "The E.L.I.T.E.™ Framework: Practical Leadership for Real Results",
+      b: "A field-tested system to simplify decisions and drive change with discipline and care.",
+      o: ["Decision frameworks", "Change navigation", "Post-event action plans"],
+    },
+  ];
+
+  return (
+    <Shell>
+      <section className="stack-xl">
+        <div className="stack-md">
+          <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
+            Speaking & Keynotes
+          </h2>
+          <p className="copy maxw-860">
+            High-energy, high-credibility talks that turn leadership principles into action. Jesseana brings two decades of
+            military and aerospace leadership to the stage, equipping audiences to lead with clarity, courage, and the E.L.I.T.E.™ mindset.
+          </p>
+
+          {/* Wrap-safe CTA */}
+          <div className="cta">
+            <div className="cta__text">Ready to lock dates or request rates?</div>
+            <GoldButton to="/contact" text="Request speaking availability" />
+          </div>
+
+          <div className="facts">
+            <div><span className="bold">Formats:</span> Keynote (20–45 min), Fireside chat, Panelist, Workshop (90–120 min)</div>
+            <div><span className="bold">Audiences:</span> Executives, emerging leaders, technical teams, veteran ERGs</div>
+            <div><span className="bold">Outcomes:</span> Clarity, accountability, decision speed, cultural momentum</div>
+            <div><span className="bold">Travel:</span> Domestic & international • Based in Oklahoma City, OK</div>
+          </div>
+        </div>
+
+        <div className="stack-md">
+          <h3 className="h3" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
+            Signature Topics
+          </h3>
+          <div className="grid">
+            {topics.map((card) => (
+              <div key={card.t} className="card">
+                <h4 className="card__title">{card.t}</h4>
+                <p className="card__desc">{card.b}</p>
+                <div className="card__sub">Audience takeaways</div>
+                <ul className="card__list">
+                  {card.o.map((x) => <li key={x}>{x}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </Shell>
+  );
+}
+
+function Veterans() {
+  return (
+    <Shell>
+      <section className="stack-lg">
+        <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
+          Veteran Transition Leadership
+        </h2>
+        <div className="copy maxw-860">
+          <p><strong>From junior enlisted to senior commissioned officers — stepping into what’s next.</strong></p>
+          <p>
+            We equip veterans to convert military discipline, technical mastery, and operational experience into high-impact civilian leadership.
+            Our programs focus on leadership readiness, advancement, and career success—not just job placement.
+          </p>
+          <p><strong>What’s included:</strong></p>
+          <ul className="list">
+            <li>Leadership & skills translation into executive-ready language</li>
+            <li>Resume & LinkedIn development tailored to leadership and technical roles</li>
+            <li>Interview preparation focused on confidence, communication, and executive presence</li>
+            <li>Job search coaching and market navigation strategies</li>
+            <li>Career counseling to align experience, purpose, and advancement goals</li>
+            <li>Senior mentor matching and executive networking strategies</li>
+            <li>Target-role 30-60-90 day onboarding plan aligned to E.L.I.T.E.™</li>
+            <li>Ongoing progression and promotion planning support</li>
+          </ul>
+        </div>
+        <GoldButton to="/contact" text="Start your transition" />
+      </section>
+    </Shell>
+  );
+}
+
+function Contact() {
+  return (
+    <Shell>
+      <section className="grid-2 gap-xl">
+        <div className="panel">
+          <h2 className="h3" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
+            Contact
+          </h2>
+          <p className="copy">
+            Tell us about your goals, audience, and dates—we’ll follow up quickly with options.
+          </p>
+          <form className="form stack-md">
+            <div className="form__group">
+              <label>Name</label>
+              <input placeholder="Your name" />
+            </div>
+            <div className="form__row">
+              <div className="form__group">
+                <label>Email</label>
+                <input type="email" placeholder="you@company.com" />
+              </div>
+              <div className="form__group">
+                <label>Phone</label>
+                <input placeholder="(###) ###-####" />
+              </div>
+            </div>
+            <div className="form__group">
+              <label>What are you looking for?</label>
+              <select>
+                <option>Keynote / Speaking</option>
+                <option>Leadership Workshop</option>
+                <option>Executive Coaching</option>
+                <option>Veteran Transition Program</option>
+                <option>Custom Engagement</option>
+              </select>
+            </div>
+            <div className="form__group">
+              <label>Message</label>
+              <textarea rows={5} placeholder="Share your goals, audience size, and target dates…" />
+            </div>
+            <GoldButton to="/contact" text="Send inquiry" />
+          </form>
+        </div>
+
+        <div className="panel">
+          <div className="copy">
+            <div><span className="bold">Email</span> — jesse@oneleaderatatimegroup.com</div>
+            <div className="mt-8"><span className="bold">Location</span> — Oklahoma City, OK</div>
+          </div>
+        </div>
+      </section>
+    </Shell>
+  );
+}
+
+/* ===== Router ===== */
 export default function Website() {
   return (
     <Router>
