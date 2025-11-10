@@ -83,7 +83,7 @@ const AboutPage = () => (
         alignItems: "start",
       }}
     >
-      {/* ---- LEFT COLUMN ---- */}
+      {/* LEFT COLUMN */}
       <div>
         <h1>About Jesseana Fernandes</h1>
 
@@ -147,7 +147,6 @@ const AboutPage = () => (
           approach—anchored in the <strong>E.L.I.T.E.™ Framework</strong>—helps
           clients turn values into action and vision into results.
         </p>
-
         <p>
           Through leadership development, strategic alignment, and operational
           excellence, the firm partners with organizations to elevate culture,
@@ -155,7 +154,6 @@ const AboutPage = () => (
           environments. Every engagement reflects the belief that leadership is
           not a title—it’s a responsibility to empower others.
         </p>
-
         <p>
           Veteran-owned, women-led, and purpose-driven,
           <strong> One Leader at a Time – Leadership Group™</strong> brings
@@ -164,36 +162,13 @@ const AboutPage = () => (
         </p>
       </div>
 
-      {/* ---- RIGHT COLUMN ---- */}
-      <figure style={{ margin: 0, position: "relative" }}>
+      {/* RIGHT COLUMN: SOFT BLEND PORTRAIT */}
+      <figure className="soft-frame" style={{ margin: 0 }}>
         <img
           src="/about-jesseana.jpg"
           alt="Jesseana Fernandes portrait"
-          style={{
-            width: "100%",
-            height: "auto",
-            display: "block",
-            borderRadius: "14px",
-            boxShadow: "0 10px 24px rgba(0,0,0,.12)",
-            position: "relative",
-            zIndex: 2,
-          }}
         />
-        {/* soft gradient overlay around the image */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-4%",
-            left: "-4%",
-            right: "-4%",
-            bottom: "-4%",
-            borderRadius: "18px",
-            background:
-              "radial-gradient(circle at center, rgba(255,255,255,0) 60%, rgba(255,255,255,0.9) 100%)",
-            zIndex: 1,
-          }}
-        />
-        <figcaption className="figcap" style={{ position: "relative", zIndex: 3 }}>
+        <figcaption className="figcap">
           Jesseana Fernandes, CW3 — Founder of One Leader at a Time – Leadership
           Group™
         </figcaption>
