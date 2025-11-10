@@ -7,8 +7,10 @@ const BRAND = {
   legal: "One Leader at a Time Leadership Group, LLC",
   bannerUrl: "/One%20Leader%20at%20a%20Time001.png",
   colors: {
-    headerBlue: "#2F4A7F",   // deep navy anchor
-    gold: "#F5C24B",
+    headerBlue: "#2F4A7F",
+    gold: "#E8C068",           // soft gold pulled from banner
+    goldFade: "#F9E7B5",       // lighter end for gradient start
+    paleBlue: "#C9D8EE",       // soft right-end tone to blend with banner
     goldDark: "#D4A32C",
     sky: "#E6EEF7",
     text: "#2B3244",
@@ -45,26 +47,28 @@ const AppShell = ({ children }) => (
           loading="eager"
         />
 
-        {/* Longer, more gradual fade */}
+        {/* Gradual fade from banner to page */}
         <div
           className="absolute bottom-0 left-0 right-0"
           style={{
-            height: "36px",
+            height: "40px",
             background:
-              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.7) 80%, rgba(255,255,255,1) 100%)",
+              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 40%, rgba(255,255,255,0.75) 80%, rgba(255,255,255,1) 100%)",
           }}
         />
 
-        {/* Lighter, more transparent nav; slightly thinner and nudged down */}
+        {/* Gradient nav bar: soft gold (left) → pale blue (right) */}
         <div
-          className="absolute left-0 right-0 backdrop-blur-[2px] rounded-t-md"
+          className="absolute left-0 right-0 rounded-t-md backdrop-blur-[3px]"
           style={{
             bottom: "-18px",
-            backgroundColor: "rgba(47, 74, 127, 0.35)", // ~35% opacity
-            boxShadow: "0 2px 6px rgba(0,0,0,0.06)",
+            height: "38px",
+            background:
+              "linear-gradient(to right, rgba(232,192,104,0.35) 0%, rgba(249,231,181,0.25) 20%, rgba(201,216,238,0.35) 100%)",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
           }}
         >
-          <nav className="max-w-7xl mx-auto px-6 h-9 flex items-center justify-end">
+          <nav className="max-w-7xl mx-auto px-6 h-full flex items-center justify-end">
             <div className="hidden md:flex items-center gap-6 text-sm">
               {[
                 { to: "/", label: "Home" },
@@ -79,10 +83,10 @@ const AppShell = ({ children }) => (
                   key={i.to}
                   to={i.to}
                   className={({ isActive }) =>
-                    `text-white ${
+                    `text-[#1E2A4A] ${
                       isActive
                         ? "font-semibold underline underline-offset-4"
-                        : "opacity-95 hover:opacity-100"
+                        : "opacity-90 hover:opacity-100"
                     }`
                   }
                 >
