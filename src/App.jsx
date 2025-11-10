@@ -74,56 +74,134 @@ const HomePage = () => (
 
 const AboutPage = () => (
   <section className="section">
-    <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: 28 }}>
+    <div
+      className="container"
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 340px",
+        gap: 28,
+        alignItems: "start",
+      }}
+    >
+      {/* ---- LEFT COLUMN ---- */}
       <div>
         <h1>About Jesseana Fernandes</h1>
 
         <p>
-          Jesseana Fernandes is a transformational senior leader and <strong>Chief Warrant Officer Three (CW3)</strong> with over two decades
-          of experience leading in complex, high-stakes environments. As a <strong>Senior Manager in aerospace operations</strong>, she blends
-          disciplined execution with people-first leadership to build resilient, high-performing teams.
+          Jesseana Fernandes is a transformational senior leader and{" "}
+          <strong>Chief Warrant Officer Three (CW3)</strong> with over two
+          decades of experience leading in complex, high-stakes environments. As
+          a <strong>Senior Manager in aerospace operations</strong>, she blends
+          disciplined execution with people-first leadership to build resilient,
+          high-performing teams.
         </p>
 
         <p>
-          Trained to serve as a technical advisor to officers at every level—including <strong>senior commissioned officers</strong>—Jesseana has a
-          proven record of mentoring leaders, elevating standards, and driving cultural momentum. Her leadership is grounded in purpose,
-          accountability, clarity, and dignity—principles that create clarity in complexity and performance under pressure.
+          Trained to serve as a technical advisor to officers at every level —
+          including <strong>senior commissioned officers</strong> — Jesseana has
+          a proven record of mentoring leaders, elevating standards, and driving
+          cultural momentum. Her leadership is grounded in purpose,
+          accountability, clarity, and dignity — principles that create clarity
+          in complexity and performance under pressure.
         </p>
 
         <p>
-          Faith and service inform Jesseana’s approach: <em>great organizations are built one leader at a time.</em> That conviction inspired
-          <strong> One Leader at a Time – Leadership Group™</strong> and its proprietary <strong>E.L.I.T.E.™ Framework</strong> — Empower, Lead,
-          Inspire, Transform, Elevate — translating values into daily behaviors, decision frameworks, and measurable outcomes.
+          Faith and service inform Jesseana’s approach:{" "}
+          <em>great organizations are built one leader at a time.</em> That
+          conviction inspired{" "}
+          <strong>One Leader at a Time – Leadership Group™</strong> and its
+          proprietary <strong>E.L.I.T.E.™ Framework</strong> — Empower, Lead,
+          Inspire, Transform, Elevate — translating values into daily behaviors,
+          decision frameworks, and measurable outcomes.
         </p>
 
         <h2 style={{ marginTop: 22 }}>Signature Strengths</h2>
         <ul>
-          <li><strong>Leader Development:</strong> coaching, standards, and rituals that raise performance</li>
-          <li><strong>Organizational Resilience:</strong> change navigation, risk playbooks, continuity planning</li>
-          <li><strong>Operational Excellence:</strong> cadence systems, ownership, disciplined follow-through</li>
-          <li><strong>Culture Building:</strong> trust, accountability, and feedback loops that stick</li>
+          <li>
+            <strong>Leader Development:</strong> coaching, standards, and
+            rituals that raise performance
+          </li>
+          <li>
+            <strong>Organizational Resilience:</strong> change navigation, risk
+            playbooks, continuity planning
+          </li>
+          <li>
+            <strong>Operational Excellence:</strong> cadence systems, ownership,
+            disciplined follow-through
+          </li>
+          <li>
+            <strong>Culture Building:</strong> trust, accountability, and
+            feedback loops that stick
+          </li>
         </ul>
 
-        <h2 style={{ marginTop: 22 }}>About One Leader at a Time – Leadership Group™</h2>
+        <h2 style={{ marginTop: 22 }}>
+          About One Leader at a Time – Leadership Group™
+        </h2>
         <p>
-          We equip executives, teams, and transitioning veterans to lead with integrity, resilience, and purpose. Every engagement turns values
-          into visible behaviors and measurable results—from decision cadence to after-action learning. Veteran-owned • Women-owned • Purpose-driven.
+          <strong>One Leader at a Time – Leadership Group™</strong> was founded
+          with a simple purpose: to transform ordinary leadership moments into
+          legendary impact. Rooted in integrity, resilience, and service,
+          Jesseana’s team equips executives, emerging leaders, and transitioning
+          veterans to lead with courage and clarity. The organization’s
+          approach—anchored in the <strong>E.L.I.T.E.™ Framework</strong>—helps
+          clients turn values into action and vision into results.
+        </p>
+
+        <p>
+          Through leadership development, strategic alignment, and operational
+          excellence, the firm partners with organizations to elevate culture,
+          improve decision-making, and sustain performance in the most demanding
+          environments. Every engagement reflects the belief that leadership is
+          not a title—it’s a responsibility to empower others.
+        </p>
+
+        <p>
+          Veteran-owned, women-led, and purpose-driven,
+          <strong> One Leader at a Time – Leadership Group™</strong> brings
+          faith, strategy, and experience together to build stronger teams,
+          resilient leaders, and enduring organizations.
         </p>
       </div>
 
-      <figure style={{ margin: 0 }}>
+      {/* ---- RIGHT COLUMN ---- */}
+      <figure style={{ margin: 0, position: "relative" }}>
         <img
-          src="/about-jesseana.jpg"   /* <<— image must exist in /public exactly with this name */
+          src="/about-jesseana.jpg"
           alt="Jesseana Fernandes portrait"
-          style={{ width: "100%", height: "auto", display: "block", borderRadius: "14px", boxShadow: "0 10px 24px rgba(0,0,0,.12)" }}
+          style={{
+            width: "100%",
+            height: "auto",
+            display: "block",
+            borderRadius: "14px",
+            boxShadow: "0 10px 24px rgba(0,0,0,.12)",
+            position: "relative",
+            zIndex: 2,
+          }}
         />
-        <figcaption className="figcap">
-          Jesseana Fernandes, CW3 — Founder of One Leader at a Time – Leadership Group™
+        {/* soft gradient overlay around the image */}
+        <div
+          style={{
+            position: "absolute",
+            top: "-4%",
+            left: "-4%",
+            right: "-4%",
+            bottom: "-4%",
+            borderRadius: "18px",
+            background:
+              "radial-gradient(circle at center, rgba(255,255,255,0) 60%, rgba(255,255,255,0.9) 100%)",
+            zIndex: 1,
+          }}
+        />
+        <figcaption className="figcap" style={{ position: "relative", zIndex: 3 }}>
+          Jesseana Fernandes, CW3 — Founder of One Leader at a Time – Leadership
+          Group™
         </figcaption>
       </figure>
     </div>
   </section>
 );
+
 
 const ServicesPage = () => (
   <section className="section">
