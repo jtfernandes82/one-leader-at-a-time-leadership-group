@@ -1,77 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1"
-    />
-    <title>One Leader at a Time – Leadership Group™ | E.L.I.T.E.™ Framework</title>
-    <meta
-      name="description"
-      content="Executive coaching, leadership development, organizational resilience, and veteran transition leadership powered by the E.L.I.T.E.™ Framework — Empower, Lead, Inspire, Transform, Elevate."
-    />
-    <meta name="theme-color" content="#F5C24B" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="One Leader at a Time Leadership Group™ — Transforming Ordinary into Legendary through the E.L.I.T.E.™ Framework: Empower, Lead, Inspire, Transform, Elevate." />
+    <meta property="og:title" content="One Leader at a Time Leadership Group™" />
+    <meta property="og:description" content="Empowering leaders and organizations through the E.L.I.T.E.™ Framework — Empower, Lead, Inspire, Transform, Elevate." />
+    <meta property="og:image" content="/logo01.png" />
+    <meta name="theme-color" content="#1d3c78" />
+    <title>One Leader at a Time Leadership Group™</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
-    <!-- Google Fonts (no CSS @import needed) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Open+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
 
-    <!-- Your main stylesheet (Tailwind/Vite will handle this) -->
-    <!-- If your project relies on /src/index.css, keep this link -->
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="/src/index.css" />
+
+    <!-- Social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.oneleaderatatimegroup.com" />
   </head>
 
   <body>
-    <!--
-      Netlify "shadow" form (hidden) so the build bot detects your fields.
-      This enables email notifications & submissions without a backend.
-    -->
-    <form
-      name="contact"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      hidden
-    >
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <select name="interest">
-        <option>Keynote / Speaking</option>
-        <option>Leadership Workshop</option>
-        <option>Executive Coaching</option>
-        <option>Veteran Transition Program</option>
-        <option>Custom Engagement</option>
-      </select>
-      <textarea name="message"></textarea>
-    </form>
+    <header>
+      <img
+        src="/One Leader at a Time001.png"
+        alt="One Leader at a Time Leadership Group banner"
+        class="banner-logo"
+      />
 
-    <noscript>
-      <div
-        style="
-          padding: 12px;
-          background: #fde68a;
-          color: #1f2937;
-          text-align: center;
-          font: 14px/1.5 'Open Sans', system-ui, -apple-system, Segoe UI,
-            Roboto, sans-serif;
-        "
-      >
-        This site needs JavaScript enabled to work properly.
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/elite">ELITE</a>
+        <a href="/speaking">Speaking</a>
+        <a href="/veterans">Veterans</a>
+        <a href="/contact">Contact</a>
+        <a
+          class="social-link"
+          href="https://www.linkedin.com/in/jesseana-fernandes"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Connect on LinkedIn"
+          aria-label="LinkedIn"
+        >
+          <img src="/linkedin.svg" alt="LinkedIn" />
+        </a>
+      </nav>
+    </header>
+
+    <main id="root">
+      <h1>Lead Today. Transform Tomorrow.</h1>
+      <p>
+        Empowering leaders and organizations through the E.L.I.T.E.™ Framework —
+        Empower, Lead, Inspire, Transform, Elevate.
+      </p>
+
+      <div class="buttons">
+        <a class="btn" href="/contact">Book a discovery call</a>
+        <a class="btn" href="/elite">Explore the E.L.I.T.E.™ Framework</a>
       </div>
-    </noscript>
+    </main>
 
-    <!-- React mounts here -->
-    <div id="root"></div>
+    <footer>
+      <p>
+        © 2025 One Leader at a Time Leadership Group, LLC. All rights reserved.
+      </p>
+      <div class="footer-links">
+        <a href="/elite">ELITE</a>
+        <a href="/services">Services</a>
+        <a href="/speaking">Speaking</a>
+        <a href="/veterans">Veterans</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div class="social-footer">
+        <a
+          class="social-link"
+          href="https://www.linkedin.com/in/jesseana-fernandes"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <img src="/linkedin.svg" alt="LinkedIn" />
+        </a>
+      </div>
+    </footer>
 
-    <!-- Vite entry -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
