@@ -214,3 +214,42 @@ p { margin: .5rem 0 1rem; }
   color: #475569;
   text-align: center;
 }
+/* === ABOUT PAGE POLISH === */
+
+/* Smooth gradient background across the whole About page */
+.section {
+  background: linear-gradient(
+    to bottom,
+    #f8fafc 0%,        /* top soft neutral */
+    #f9fbfe 35%,       /* gentle fade */
+    #f5f8fb 100%       /* bottom tone */
+  );
+  transition: background 0.3s ease-in-out;
+}
+
+/* Softer, cleaner portrait styling */
+.about-photo {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 20px;
+  border: none;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.6),
+    0 10px 25px rgba(0, 0, 0, 0.08),
+    0 15px 40px rgba(0, 0, 0, 0.05);
+  background: radial-gradient(circle at center, rgba(255,255,255,0.2), rgba(255,255,255,0));
+}
+
+/* Optional: slight blur around the image edge for a soft blend */
+.about-photo {
+  mask-image: radial-gradient(circle at center, black 80%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 80%, transparent 100%);
+}
+
+/* Keep caption neatly spaced */
+.about-caption {
+  font-size: 13px;
+  color: #475569;
+  text-align: center;
+  margin-top: 8px;
+}
