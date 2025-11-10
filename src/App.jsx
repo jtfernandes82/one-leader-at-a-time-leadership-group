@@ -166,9 +166,142 @@ const Speaking = () => (
   <Layout>
     <section className="section">
       <h2>Speaking & Keynotes</h2>
+
+      {/* Planner-friendly CTA */}
       <div className="info-callout">
-        <div>Ready to lock dates or request rates?</div>
+        <div><strong>Ready to lock dates or request rates?</strong></div>
         <Button to="/contact">Request speaking availability</Button>
+      </div>
+
+      {/* Formats / Audiences / Outcomes */}
+      <div className="cards three mt-md">
+        <article className="card">
+          <h4>Formats</h4>
+          <ul className="bullets">
+            <li>Keynote (20–45 minutes)</li>
+            <li>Workshop (90–120 minutes)</li>
+            <li>Fireside chat</li>
+            <li>Panelist / Moderator</li>
+          </ul>
+        </article>
+        <article className="card">
+          <h4>Audiences</h4>
+          <ul className="bullets">
+            <li>Executives & senior leaders</li>
+            <li>Emerging leaders & high-potential talent</li>
+            <li>Technical & operations teams</li>
+            <li>Veteran ERGs & service-member cohorts</li>
+          </ul>
+        </article>
+        <article className="card">
+          <h4>Outcomes</h4>
+          <ul className="bullets">
+            <li>Higher clarity & decision speed</li>
+            <li>Visible standards & accountability</li>
+            <li>Stronger team rhythm & trust</li>
+            <li>Momentum for real, sustained change</li>
+          </ul>
+        </article>
+      </div>
+
+      {/* Signature Topics with Takeaways */}
+      <h3 className="mt-lg">Signature Topics</h3>
+      <div className="cards three mt-md">
+        <article className="card">
+          <h4>Building High-Performance Teams in High-Stakes Environments</h4>
+          <p>Align roles, run disciplined stand-ups, and execute with urgency—without burning people out.</p>
+          <strong>Audience takeaways</strong>
+          <ul className="bullets">
+            <li>Team trust & cadence systems</li>
+            <li>Clarity of priorities & ownership</li>
+            <li>Faster, cleaner handoffs</li>
+          </ul>
+        </article>
+
+        <article className="card">
+          <h4>Culture as a Competitive Advantage</h4>
+          <p>Turn values into visible standards, feedback loops, and leadership rituals that lift performance.</p>
+          <strong>Audience takeaways</strong>
+          <ul className="bullets">
+            <li>Leadership standards & rituals</li>
+            <li>Constructive feedback culture</li>
+            <li>Retention & engagement gains</li>
+          </ul>
+        </article>
+
+        <article className="card">
+          <h4>The E.L.I.T.E.™ Framework: Practical Leadership for Real Results</h4>
+          <p>A system to simplify decisions, navigate change, and convert insight into action.</p>
+          <strong>Audience takeaways</strong>
+          <ul className="bullets">
+            <li>Decision frameworks that travel</li>
+            <li>Change navigation under pressure</li>
+            <li>Post-event action plans</li>
+          </ul>
+        </article>
+      </div>
+
+      {/* Demo Reel + One-sheet */}
+      <h3 className="mt-lg">See Jesseana in Action</h3>
+      <div className="cards">
+        <article className="card">
+          <h4>Demo Reel</h4>
+          <div style={{ aspectRatio: "16/9", width: "100%", borderRadius: "12px", overflow: "hidden", border: "1px solid #e6edf6" }}>
+            <iframe
+              title="Speaker Demo Reel"
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              style={{ border: 0 }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </article>
+        <article className="card">
+          <h4>One-Sheet & Booking</h4>
+          <p>Quick reference for planners: topics, outcomes, formats, and AV setup.</p>
+          <p>
+            <a className="btn" href="/OneLeaderAtATime_Speaker-OneSheet.pdf">Download one-sheet</a>
+          </p>
+          <p><strong>Travel:</strong> Domestic & international • Based in Oklahoma City, OK</p>
+        </article>
+      </div>
+
+      {/* Planner Requirements / AV */}
+      <h3 className="mt-lg">Planner Essentials</h3>
+      <div className="cards three mt-md">
+        <article className="card">
+          <h4>Pre-Event</h4>
+          <ul className="bullets">
+            <li>15–20 min alignment call on goals & outcomes</li>
+            <li>Run-of-show coordination with your team</li>
+            <li>Content tailoring to audience & mission</li>
+          </ul>
+        </article>
+        <article className="card">
+          <h4>AV & Stage</h4>
+          <ul className="bullets">
+            <li>Handheld or lav mic</li>
+            <li>HDMI to projector/LED</li>
+            <li>Confidence monitor (preferred)</li>
+            <li>Wireless slide advancer</li>
+          </ul>
+        </article>
+        <article className="card">
+          <h4>Deliverables</h4>
+          <ul className="bullets">
+            <li>Slide deck 48–72 hours prior</li>
+            <li>Q&A optional</li>
+            <li>Book signing / meet-and-greet on request</li>
+          </ul>
+        </article>
+      </div>
+
+      {/* Final CTA */}
+      <div className="cta-row mt-lg">
+        <Button to="/contact">Check dates & rates</Button>
+        <Button to="/services">Explore workshops</Button>
       </div>
     </section>
   </Layout>
@@ -178,8 +311,8 @@ const Veterans = () => (
   <Layout>
     <section className="section">
       <h2>Veteran Transition Leadership</h2>
-      <p>
-        Support to translate military excellence into civilian leadership and career success.
+      <p className="lead">
+        From junior enlisted to senior commissioned officers — stepping into what’s next with confidence.
       </p>
       <ul className="bullets">
         <li>Leadership & skills translation into executive-ready language</li>
