@@ -4,16 +4,14 @@ import { BrowserRouter as Router, Routes, Route, Link, NavLink } from "react-rou
 /* ===== Brand ===== */
 const BRAND = {
   legal: "One Leader at a Time Leadership Group, LLC",
-  bannerUrl: "/One%20Leader%20at%20a%20Time001.png", // keep the spaces encoded
+  bannerUrl: "/One%20Leader%20at%20a%20Time001.png", // keep spaces encoded
   colors: {
     navy: "#2F4E86",
     ink: "#21324F",
     gold: "#F0C460",
     goldDark: "#D4A32C",
-    goldSoft: "rgba(240,196,96,0.45)",
-    skySoft: "rgba(201,219,239,0.55)",
-    sky: "#EAF2F9",
     white: "#FFFFFF",
+    sky: "#EAF2F9",
   },
   fonts: {
     heading: "'Merriweather', Georgia, 'Times New Roman', serif",
@@ -21,9 +19,13 @@ const BRAND = {
   },
 };
 
-const topNavGradient = `linear-gradient(90deg, ${BRAND.colors.goldSoft} 0%, ${BRAND.colors.skySoft} 100%)`;
-const footerGradient = `linear-gradient(90deg, ${BRAND.colors.goldSoft} 0%, ${BRAND.colors.skySoft} 100%)`;
-const pageBgGradient = `linear-gradient(180deg, ${BRAND.colors.sky} 0%, ${BRAND.colors.white} 100%)`;
+/* Subtle fades that match the version you liked */
+const topNavGradient =
+  "linear-gradient(90deg, rgba(240,196,96,0.22) 0%, rgba(255,255,255,0.64) 45%, rgba(201,219,239,0.28) 100%)";
+const footerGradient =
+  "linear-gradient(90deg, rgba(240,196,96,0.18) 0%, rgba(255,255,255,0.58) 45%, rgba(201,219,239,0.24) 100%)";
+const pageBgGradient =
+  "linear-gradient(180deg, #EAF2F9 0%, #FFFFFF 100%)";
 
 /* ===== Reusable Button ===== */
 function GoldButton({ to = "#", text = "Learn more" }) {
@@ -34,7 +36,7 @@ function GoldButton({ to = "#", text = "Learn more" }) {
   );
 }
 
-/* ===== Layout Shell (no Tailwind) ===== */
+/* ===== Layout Shell ===== */
 function Shell({ children }) {
   useEffect(() => {
     document.title = "One Leader at a Time – Leadership Group™ | E.L.I.T.E.™";
@@ -49,7 +51,7 @@ function Shell({ children }) {
         className="banner"
       />
 
-      {/* Nav */}
+      {/* Nav — thinner & subtle fade */}
       <header className="nav" style={{ background: topNavGradient }}>
         <div className="container nav__inner">
           {[
@@ -79,7 +81,7 @@ function Shell({ children }) {
         <div className="container">{children}</div>
       </main>
 
-      {/* Footer */}
+      {/* Footer — same left→right fade, navy text */}
       <footer className="footer" style={{ background: footerGradient }}>
         <div className="container footer__inner">
           <div className="footer__copy">
@@ -98,7 +100,7 @@ function Shell({ children }) {
   );
 }
 
-/* ========== Pages (plain CSS classes, no Tailwind) ========== */
+/* ========== Pages ========== */
 
 function Home() {
   return (
@@ -124,48 +126,77 @@ function About() {
   return (
     <Shell>
       <section className="stack-xl">
+        {/* Jesseana */}
         <div className="stack-md">
           <h2 className="h2" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
             About Jesseana Fernandes
           </h2>
-          <div className="copy maxw-760">
+          <div className="copy maxw-860">
             <p>
-              Jesseana Fernandes is a transformational senior leader and <strong>CW3 (Chief Warrant Officer Three)</strong> with 20+ years of experience in
-              leadership, logistics, and organizational strategy. As a <strong>Senior Manager in aerospace</strong>, she blends military discipline with corporate
-              execution to deliver clarity, accountability, and results under pressure.
+              Jesseana Fernandes is a transformational senior leader and
+              <strong> Chief Warrant Officer Three (CW3)</strong> with over two decades of experience
+              spanning military operations and aerospace production. She is known for turning complex,
+              high-pressure environments into disciplined systems that deliver results without burning
+              people out.
             </p>
             <p>
-              She has mentored leaders from <strong>junior enlisted to senior commissioned officers</strong>, serving as a trusted technical advisor to
-              decision-makers across formations. Her field-tested approach centers on purpose, ownership, and service—building high-performing teams and resilient cultures.
+              Throughout her career, she has coached and developed leaders from
+              <strong> junior enlisted to senior commissioned officers</strong>, and advised executive
+              decision-makers across functions including materials, logistics, operations, and quality.
+              Her leadership style blends <em>clarity</em>, <em>ownership</em>, and <em>service</em>—with a
+              steady bias for action.
             </p>
             <p>
-              That conviction inspired the creation of <strong>One Leader at a Time – Leadership Group™</strong> and its proprietary
-              <strong> E.L.I.T.E.™ Framework</strong>—Empower, Lead, Inspire, Transform, Elevate.
+              The field-tested methods behind her work inspired
+              <strong> One Leader at a Time – Leadership Group™</strong> and the proprietary
+              <strong> E.L.I.T.E.™ Framework</strong>—Empower, Lead, Inspire, Transform, Elevate—
+              a practical system to align values with daily behaviors, decisions, and measurable outcomes.
             </p>
-          </div>
-          <div className="row">
-            <GoldButton to="/elite" text="Explore the E.L.I.T.E.™ Framework" />
-            <GoldButton to="/services" text="See our services" />
+
+            <ul className="dash-list">
+              <li>
+                <span className="bold">Expertise:</span> leadership development, decision frameworks,
+                organizational resilience, supply chain & logistics, coaching
+              </li>
+              <li>
+                <span className="bold">Leadership Reach:</span> from frontline supervisors to
+                <strong> senior commissioned officers</strong> and enterprise executives
+              </li>
+              <li>
+                <span className="bold">Commitment:</span> integrity, dignity, people-first standards,
+                mission-aligned results
+              </li>
+            </ul>
           </div>
         </div>
 
+        {/* Company */}
         <div className="stack-md">
           <h3 className="h3" style={{ fontFamily: BRAND.fonts.heading, color: BRAND.colors.navy }}>
             About One Leader at a Time – Leadership Group™
           </h3>
           <div className="copy maxw-860">
             <p>
-              <strong>One Leader at a Time – Leadership Group™</strong> equips executives, teams, and transitioning veterans to lead with integrity,
-              resilience, and purpose. We deliver executive coaching, organizational transformation programs, and veteran transition leadership—bridging
-              the gap between technical mastery and human-centered leadership.
+              <strong>One Leader at a Time – Leadership Group™</strong> equips executives, teams, and
+              transitioning veterans to lead with integrity, resilience, and purpose. We deliver
+              executive coaching, organizational transformation, and veteran transition leadership—
+              bridging the gap between technical mastery and human-centered leadership.
             </p>
             <p>
-              Every engagement is grounded in the <strong>E.L.I.T.E.™ Framework</strong>, translating values into daily behaviors, decision frameworks,
-              and measurable outcomes that build <strong>high-performance teams</strong> and <strong>resilient cultures</strong>.
+              Every engagement is anchored in the <strong>E.L.I.T.E.™ Framework</strong>, translating
+              values into daily behaviors, decision cadence, feedback loops, and standards of execution.
+              The outcome is simple and repeatable:
+              <strong> high-performance teams</strong> and
+              <strong> resilient cultures</strong> that sustain momentum under real-world pressure.
             </p>
             <div className="tagline">
               VETERAN-OWNED • WOMEN-OWNED • PURPOSE-DRIVEN • LEADERSHIP-FOCUSED
             </div>
+          </div>
+
+          <div className="row">
+            <GoldButton to="/elite" text="Explore the E.L.I.T.E.™ Framework" />
+            <GoldButton to="/services" text="See our services" />
           </div>
         </div>
       </section>
@@ -189,8 +220,9 @@ function Services() {
           Services
         </h2>
         <p className="copy maxw-760">
-          We transform leaders, teams, and organizations through the E.L.I.T.E.™ Framework — Empower, Lead, Inspire, Transform, Elevate.
-          Programs can be delivered onsite or virtually and tailored by audience level.
+          We transform leaders, teams, and organizations through the E.L.I.T.E.™ Framework —
+          Empower, Lead, Inspire, Transform, Elevate. Programs can be delivered onsite or virtually
+          and tailored by audience level.
         </p>
 
         <div className="grid">
@@ -266,10 +298,10 @@ function Speaking() {
           </h2>
           <p className="copy maxw-860">
             High-energy, high-credibility talks that turn leadership principles into action. Jesseana brings two decades of
-            military and aerospace leadership to the stage, equipping audiences to lead with clarity, courage, and the E.L.I.T.E.™ mindset.
+            military and aerospace leadership to the stage, equipping audiences to lead with clarity, courage, and the
+            E.L.I.T.E.™ mindset.
           </p>
 
-          {/* Wrap-safe CTA */}
           <div className="cta">
             <div className="cta__text">Ready to lock dates or request rates?</div>
             <GoldButton to="/contact" text="Request speaking availability" />
@@ -315,8 +347,8 @@ function Veterans() {
         <div className="copy maxw-860">
           <p><strong>From junior enlisted to senior commissioned officers — stepping into what’s next.</strong></p>
           <p>
-            We equip veterans to convert military discipline, technical mastery, and operational experience into high-impact civilian leadership.
-            Our programs focus on leadership readiness, advancement, and career success—not just job placement.
+            We equip veterans to convert military discipline, technical mastery, and operational experience into high-impact
+            civilian leadership. Our programs focus on leadership readiness, advancement, and career success—not just job placement.
           </p>
           <p><strong>What’s included:</strong></p>
           <ul className="list">
