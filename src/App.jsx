@@ -7,10 +7,10 @@ const BRAND = {
   legal: "One Leader at a Time Leadership Group, LLC",
   bannerUrl: "/One%20Leader%20at%20a%20Time001.png",
   colors: {
-    headerBlue: "#2F4A7F",
-    gold: "#E8C068",           // soft gold pulled from banner
-    goldFade: "#F9E7B5",       // lighter end for gradient start
-    paleBlue: "#C9D8EE",       // soft right-end tone to blend with banner
+    headerBlue: "#4A608F",      // lighter, cooler blue for footer
+    gold: "#E8C068",
+    goldFade: "#F9E7B5",
+    paleBlue: "#C9D8EE",
     goldDark: "#D4A32C",
     sky: "#E6EEF7",
     text: "#2B3244",
@@ -47,7 +47,7 @@ const AppShell = ({ children }) => (
           loading="eager"
         />
 
-        {/* Gradual fade from banner to page */}
+        {/* Gradual fade */}
         <div
           className="absolute bottom-0 left-0 right-0"
           style={{
@@ -57,7 +57,7 @@ const AppShell = ({ children }) => (
           }}
         />
 
-        {/* Gradient nav bar: soft gold (left) → pale blue (right) */}
+        {/* Gradient nav bar */}
         <div
           className="absolute left-0 right-0 rounded-t-md backdrop-blur-[3px]"
           style={{
@@ -69,7 +69,7 @@ const AppShell = ({ children }) => (
           }}
         >
           <nav className="max-w-7xl mx-auto px-6 h-full flex items-center justify-end">
-            <div className="hidden md:flex items-center gap-6 text-sm">
+            <div className="hidden md:flex items-center gap-6 text-sm font-semibold tracking-wide">
               {[
                 { to: "/", label: "Home" },
                 { to: "/about", label: "About" },
@@ -85,7 +85,7 @@ const AppShell = ({ children }) => (
                   className={({ isActive }) =>
                     `text-[#1E2A4A] ${
                       isActive
-                        ? "font-semibold underline underline-offset-4"
+                        ? "font-bold underline underline-offset-4"
                         : "opacity-90 hover:opacity-100"
                     }`
                   }
@@ -106,7 +106,7 @@ const AppShell = ({ children }) => (
     <footer className="mt-12" style={{ backgroundColor: BRAND.colors.headerBlue }}>
       <div className="max-w-7xl mx-auto px-6 py-8 text-slate-100 text-sm flex flex-col md:flex-row gap-3 items-center justify-between">
         <div>© {new Date().getFullYear()} {BRAND.legal}. All rights reserved.</div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 font-medium">
           <Link to="/elite" className="hover:text-slate-300">ELITE</Link>
           <Link to="/services" className="hover:text-slate-300">Services</Link>
           <Link to="/speaking" className="hover:text-slate-300">Speaking</Link>
@@ -118,7 +118,7 @@ const AppShell = ({ children }) => (
   </div>
 );
 
-/* ------- Pages (placeholder copy) ------- */
+/* ------- Pages ------- */
 const Home = () => (
   <AppShell>
     <section
