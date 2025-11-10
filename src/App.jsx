@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
  * Brand
  * ======================= */
 const BRAND = {
-  banner: "/One Leader at a Time001.png", // keep this image in /public
+  banner: "/One Leader at a Time001.png", // image in /public
   email: "jesse@oneleaderatatimegroup.com",
 };
 
@@ -82,28 +82,58 @@ const Home = () => (
 const About = () => (
   <Layout>
     <section className="section">
-      <h2>About Jesseana Fernandes</h2>
-      <p>
-        Jesseana Fernandes is a transformational senior leader and <strong>Chief Warrant Officer Three (CW3)</strong> with
-        over two decades of leadership across military logistics and aerospace operations. She combines disciplined execution
-        with people-centered leadership to create resilient, high-performing teams.
-      </p>
-      <ul className="bullets">
-        <li><strong>Expertise:</strong> leadership development, organizational resilience, logistics, coaching</li>
-        <li><strong>Leadership Reach:</strong> from frontline supervisors to senior commissioned officers</li>
-        <li><strong>Commitment:</strong> integrity, dignity, and purpose — always people-first</li>
-      </ul>
+      <div className="about-grid">
+        {/* LEFT: Extended Bio */}
+        <div className="about-body">
+          <h2>About Jesseana Fernandes</h2>
+          <p>
+            Jesseana Fernandes is a transformational senior leader and <strong>Chief Warrant Officer Three (CW3)</strong> with
+            over two decades of experience leading in complex, high-stakes environments. As a <strong>Senior Manager in aerospace operations</strong>,
+            she blends disciplined execution with people-first leadership to build resilient, high-performing teams.
+          </p>
+          <p>
+            Trained to serve as a technical advisor to officers at every level—including <strong>senior commissioned officers</strong>—Jesseana has a proven record
+            of mentoring leaders, elevating standards, and driving cultural momentum. Her leadership is grounded in purpose,
+            accountability, and dignity—principles that create clarity in complexity and performance under pressure.
+          </p>
+          <p>
+            Jesseana’s philosophy is simple and proven: <em>great organizations are built one leader at a time</em>. That conviction inspired
+            the creation of <strong>One Leader at a Time – Leadership Group™</strong> and the proprietary <strong>E.L.I.T.E.™ Framework</strong>—<em>Empower, Lead, Inspire, Transform, Elevate</em>.
+            E.L.I.T.E.™ translates values into visible behaviors, decision frameworks, and measurable outcomes leaders can apply immediately.
+          </p>
 
-      <h3 className="mt-lg">About One Leader at a Time – Leadership Group™</h3>
-      <p>
-        <strong>One Leader at a Time – Leadership Group™</strong> equips executives, teams, and transitioning veterans to lead with integrity, resilience, and purpose. Every engagement is grounded in the <strong>E.L.I.T.E.™ Framework</strong> — Empower, Lead, Inspire, Transform, Elevate.
-      </p>
-      <p className="tagline">
-        VETERAN-OWNED • WOMEN-OWNED • PURPOSE-DRIVEN • LEADERSHIP-FOCUSED
-      </p>
-      <div className="cta-row mt-md">
-        <Button to="/elite">Explore the E.L.I.T.E.™ Framework</Button>
-        <Button to="/services">See our services</Button>
+          <h3 className="mt-lg">Signature Strengths</h3>
+          <ul className="bullets">
+            <li><strong>Leader Development:</strong> coaching, standards, and rituals that raise performance</li>
+            <li><strong>Organizational Resilience:</strong> change navigation, risk playbooks, and continuity planning</li>
+            <li><strong>Operational Excellence:</strong> cadence systems, clear ownership, and disciplined follow-through</li>
+            <li><strong>Culture Building:</strong> trust, accountability, and feedback loops that stick</li>
+          </ul>
+
+          <h3 className="mt-lg">About One Leader at a Time – Leadership Group™</h3>
+          <p>
+            <strong>One Leader at a Time – Leadership Group™</strong> equips executives, teams, and transitioning veterans to lead with integrity, resilience, and purpose.
+            We deliver executive coaching, leadership & team development, organizational resilience programs, and veteran transition leadership—all aligned to E.L.I.T.E.™.
+          </p>
+          <p className="tagline">VETERAN-OWNED • WOMEN-OWNED • PURPOSE-DRIVEN • LEADERSHIP-FOCUSED</p>
+
+          <div className="cta-row mt-md">
+            <Button to="/elite">Explore the E.L.I.T.E.™ Framework</Button>
+            <Button to="/services">See our services</Button>
+          </div>
+        </div>
+
+        {/* RIGHT: Photo */}
+        <aside className="about-side">
+          <img
+            src="/about-jesseana.jpg"  /* <— replace with your actual filename if different */
+            alt="Jesseana Fernandes"
+            className="about-photo"
+          />
+          <div className="about-caption">
+            Jesseana Fernandes, CW3 — Senior Manager & Founder of One Leader at a Time – Leadership Group™
+          </div>
+        </aside>
       </div>
     </section>
   </Layout>
@@ -167,13 +197,11 @@ const Speaking = () => (
     <section className="section">
       <h2>Speaking & Keynotes</h2>
 
-      {/* Planner-friendly CTA */}
       <div className="info-callout">
         <div><strong>Ready to lock dates or request rates?</strong></div>
         <Button to="/contact">Request speaking availability</Button>
       </div>
 
-      {/* Formats / Audiences / Outcomes */}
       <div className="cards three mt-md">
         <article className="card">
           <h4>Formats</h4>
@@ -199,12 +227,11 @@ const Speaking = () => (
             <li>Higher clarity & decision speed</li>
             <li>Visible standards & accountability</li>
             <li>Stronger team rhythm & trust</li>
-            <li>Momentum for real, sustained change</li>
+            <li>Momentum for sustained change</li>
           </ul>
         </article>
       </div>
 
-      {/* Signature Topics with Takeaways */}
       <h3 className="mt-lg">Signature Topics</h3>
       <div className="cards three mt-md">
         <article className="card">
@@ -241,7 +268,6 @@ const Speaking = () => (
         </article>
       </div>
 
-      {/* Demo Reel + One-sheet */}
       <h3 className="mt-lg">See Jesseana in Action</h3>
       <div className="cards">
         <article className="card">
@@ -268,7 +294,6 @@ const Speaking = () => (
         </article>
       </div>
 
-      {/* Planner Requirements / AV */}
       <h3 className="mt-lg">Planner Essentials</h3>
       <div className="cards three mt-md">
         <article className="card">
@@ -298,7 +323,6 @@ const Speaking = () => (
         </article>
       </div>
 
-      {/* Final CTA */}
       <div className="cta-row mt-lg">
         <Button to="/contact">Check dates & rates</Button>
         <Button to="/services">Explore workshops</Button>
