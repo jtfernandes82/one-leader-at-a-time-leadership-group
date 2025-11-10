@@ -102,3 +102,96 @@ main{min-height:48vh}
   color: #5b6b7b;
   text-align: center;
 }
+/* ===== Portrait soft fade / blend ===== */
+.portrait-wrap {
+  position: relative;
+  display: inline-block;
+  max-width: 420px;
+  border-radius: 18px;
+  overflow: hidden; /* hides the masked edge & shadow */
+  background: transparent;
+  box-shadow: 0 10px 28px rgba(20, 40, 60, 0.15);
+}
+
+/* Use a mask so edges fade out softly into the page */
+.portrait-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  -webkit-mask-image: radial-gradient(120% 100% at 50% 40%, #000 68%, rgba(0,0,0,0) 100%);
+          mask-image: radial-gradient(120% 100% at 50% 40%, #000 68%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+  background: transparent;
+}
+
+/* Optional caption below the portrait */
+.portrait-caption {
+  margin-top: 8px;
+  color: #53657a;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* ===== Cards & layout polish ===== */
+.card {
+  border: 1px solid rgba(20, 40, 60, 0.10);
+  border-radius: 14px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 6px 16px rgba(20, 40, 60, 0.06);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #1f3352;
+}
+
+.lead {
+  color: #3f5067;
+}
+
+/* ===== Section band (gold gradient) ===== */
+.page-band {
+  height: 44px;
+  border-radius: 12px;
+  margin-top: 22px;
+  border: 1px solid rgba(20, 40, 60, 0.08);
+}
+
+/* Left→right: soft gold → white → subtle blue */
+.page-band--gold {
+  background: linear-gradient(
+    90deg,
+    rgba(216, 179, 93, 0.24) 0%,
+    rgba(255, 255, 255, 0.88) 48%,
+    rgba(153, 182, 212, 0.24) 100%
+  );
+}
+
+/* Buttons (reuse your existing palette) */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #e0b349;
+  color: #1f3352;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .06s ease, box-shadow .12s ease;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 8px 16px rgba(20, 40, 60, .12); }
+
+.btn-outline {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(20, 40, 60, .18);
+  color: #1f3352;
+  text-decoration: none;
+  background: rgba(255, 255, 255, .85);
+  transition: background .15s ease, transform .06s ease;
+}
+.btn-outline:hover { background: rgba(255,255,255,1); transform: translateY(-1px); }
