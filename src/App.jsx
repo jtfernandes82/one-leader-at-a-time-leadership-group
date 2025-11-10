@@ -103,7 +103,8 @@ const AppShell = ({ children }) => (
     <footer
       className="mt-12"
       style={{
-        background: `linear-gradient(to right, ${BRAND.colors.goldFade} 0%, ${BRAND.colors.paleBlue} 100%)`,
+        background:
+          "linear-gradient(to right, rgba(249,231,181,0.25) 0%, rgba(201,216,238,0.3) 100%)",
       }}
     >
       <div
