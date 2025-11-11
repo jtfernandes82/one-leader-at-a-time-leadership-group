@@ -1,104 +1,208 @@
-/* === Soft full-bleed blends (top + bottom) — keep subtle and seamless === */
-.top-gradient {
-  block-size: 12px;
-  background: linear-gradient(
-    to right,
-    rgba(218, 182, 111, 0.22) 0%,
-    rgba(255, 255, 255, 0.65) 48%,
-    rgba(169, 187, 209, 0.28) 100%
-  );
-  border: 0;
+/* Base */
+* { box-sizing: border-box; }
+:root {
+  --navy: #1f3352;
+  --text: #34495e;
+  --gold: #E0B349;          /* button & accents */
+  --blend-gold: 218,182,111; /* rgba triplet */
+  --blend-blue: 153,182,212; /* rgba triplet */
+}
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #fff;
+}
+h1, h2, h3 {
+  color: var(--navy);
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+}
+h1 { font-size: 2rem; margin: 0 0 10px; }
+h2 { font-size: 1.25rem; margin: 20px 0 8px; }
+p { line-height: 1.65; }
+
+/* Full-bleed helpers */
+.fullbleed {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+.top-blend {
+  height: 12px;
+  background: linear-gradient(90deg,
+    rgba(var(--blend-gold), 0.20) 0%,
+    rgba(255,255,255,0.70) 48%,
+    rgba(var(--blend-blue), 0.24) 100%);
+}
+.bottom-blend {
+  height: 12px;
+  background: linear-gradient(90deg,
+    rgba(var(--blend-gold), 0.20) 0%,
+    rgba(255,255,255,0.70) 48%,
+    rgba(var(--blend-blue), 0.24) 100%);
+}
+.blend-band {
+  background: linear-gradient(90deg,
+    rgba(var(--blend-gold), 0.22) 0%,
+    rgba(255,255,255,0.70) 48%,
+    rgba(var(--blend-blue), 0.26) 100%);
+  border-top: 1px solid rgba(20,40,60,0.08);
+  border-bottom: 1px solid rgba(20,40,60,0.08);
 }
 
-.bottom-gradient {
-  block-size: 12px;
-  background: linear-gradient(
-    to right,
-    rgba(218, 182, 111, 0.22) 0%,
-    rgba(255, 255, 255, 0.65) 48%,
-    rgba(169, 187, 209, 0.28) 100%
-  );
-  border: 0;
+/* Containers/sections */
+.container { max-width: 1100px; margin: 0 auto; padding: 14px 16px; }
+.section  { padding: 18px 0 24px; }
+.lead     { color: #3f5067; }
+.cta-row  { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+
+/* Grid 2 (stacks on mobile) */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .grid-2 { grid-template-columns: 1fr; }
 }
 
-/* Ensure the banner image keeps the same presence without being “too tall” */
-.site-banner {
-  display: block;
-  inline-size: 100%;
-  max-inline-size: 1400px;
-  margin-inline: auto;
-  object-fit: contain;
+/* Banner: image + graceful gradient fallback */
+.banner {
+  min-height: 160px;
+  background:
+    url("/one-leader-banner.png") center/cover no-repeat,
+    linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(230,238,246,0.65) 100%);
 }
 
-/* === LinkedIn icon styling === */
-.nav-link--social {
-  display: inline-flex;
+/* Nav */
+.nav {
+  border-top: 1px solid rgba(20,40,60,0.06);
+  border-bottom: 1px solid rgba(20,40,60,0.06);
+  background: linear-gradient(90deg,
+    rgba(var(--blend-gold), 0.18) 0%,
+    rgba(255,255,255,0.90) 50%,
+    rgba(var(--blend-blue), 0.18) 100%);
+}
+.nav-inner {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  inline-size: 34px;
-  block-size: 34px;
-  border-radius: 50%;
-  margin-inline-start: 8px;
-  background: rgba(0, 0, 0, 0.04);
-  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
-
-.nav-link--social:hover {
-  transform: translateY(-1px);
-  background: rgba(0, 0, 0, 0.06);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+.nav-list {
+  display: flex; gap: 10px 12px; padding: 0; margin: 0; list-style: none;
+  flex-wrap: wrap;
 }
+.nav-link {
+  text-decoration: none;
+  color: var(--navy);
+  font-weight: 800;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+.nav-link.is-active { background: rgba(31,51,82,0.08); }
+.nav-social {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(0,0,0,0.05);
+}
+.nav-social:hover { background: rgba(0,0,0,0.08); }
+.icon-linkedin { fill: #0a66c2; }
 
-.icon-linkedin {
+/* Portrait with soft fade */
+.portrait-col { display: flex; flex-direction: column; align-items: center; }
+.portrait-wrap {
+  position: relative;
+  display: inline-block;
+  max-width: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(20, 40, 60, 0.15);
+}
+.portrait-wrap img {
   display: block;
-  fill: #0a66c2; /* LinkedIn blue */
+  width: 100%;
+  height: auto;
+  -webkit-mask-image: radial-gradient(125% 105% at 50% 42%, #000 68%, rgba(0,0,0,0) 100%);
+          mask-image: radial-gradient(125% 105% at 50% 42%, #000 68%, rgba(0,0,0,0) 100%);
+  background: white; /* prevents harsh edge if image had a rectangle */
+}
+.portrait-caption { margin-top: 8px; color: #53657a; font-size: 0.95rem; text-align: center; }
+
+/* Cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+@media (max-width: 860px) {
+  .cards-grid { grid-template-columns: 1fr; }
+}
+.card {
+  border: 1px solid rgba(20,40,60,0.10);
+  border-radius: 14px;
+  padding: 16px;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 6px 16px rgba(20, 40, 60, 0.06);
+}
+.mini-title { color: var(--navy); font-weight: 800; margin-top: 4px; }
+
+/* Bullets */
+.bullets { margin: 8px 0 0 0; padding-left: 18px; }
+.bullets li { margin: 6px 0; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 800;
+  text-decoration: none;
 }
 
-/* === Mobile spacing fixes (no structure changes) === */
+/* Forms */
+.contact-form {
+  margin-top: 12px;
+  border: 1px solid rgba(20,40,60,0.10);
+  border-radius: 14px;
+  padding: 16px;
+  background: rgba(255,255,255,0.97);
+}
+.form-row { margin-bottom: 12px; }
+.form-row label { display: flex; flex-direction: column; gap: 6px; font-weight: 800; color: var(--navy); }
+.form-row input,
+.form-row textarea {
+  padding: 10px 12px;
+  border: 1px solid rgba(20,40,60,0.25);
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+.hidden { display: none; }
+
+/* Footer */
+.footer { margin-top: 18px; }
+.footer-inner { padding-bottom: 12px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.footer-links a { color: var(--navy); text-decoration: none; font-weight: 800; }
+.footer-copy { color: #5b6b7b; margin-top: 8px; font-size: 0.92rem; }
+
+/* Mobile niceties */
 @media (max-width: 960px) {
-  /* Nav: keep items tappable and not wrapping awkwardly */
-  .site-nav,
-  .nav {
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .nav-link,
-  .nav a {
-    padding: 10px 12px;
-  }
-
-  /* Hero spacing so content isn’t glued to the top */
-  .hero,
-  .hero-section,
-  .home-hero {
-    padding-block: 28px 24px;
-  }
-
-  /* Contact form fields comfortable on mobile */
-  .contact-form input[type="text"],
-  .contact-form input[type="email"],
-  .contact-form textarea,
-  .contact-form button {
-    inline-size: 100%;
-  }
-
-  /* About page: portrait stacks nicely with text */
-  .about .layout,
-  .about .grid,
-  .about .container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .about img.portrait,
-  .about .portrait {
-    max-inline-size: 380px;
-    justify-self: center;
-  }
-}
-
-/* Small fix so footer never looks clipped on short pages */
-.site-footer {
-  padding-block: 20px;
+  .nav-inner { gap: 8px; }
+  .nav-link { padding: 10px 12px; }
+  .section { padding: 16px 0 22px; }
+  .home .cta-row .btn { width: 100%; text-align: center; }
 }
