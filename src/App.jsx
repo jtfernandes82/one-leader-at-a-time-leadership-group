@@ -104,16 +104,6 @@ function Home() {
           <strong>E.L.I.T.E.™ Framework</strong> — Empower, Lead, Inspire, Transform, Elevate.
         </p>
 
-        <div className="buttons">
-          <Link to="/contact" className="btn">
-            Book a discovery call
-          </Link>
-          <Link to="/elite" className="btn btn-ghost">
-            Explore the E.L.I.T.E.™ Framework
-          </Link>
-        </div>
-      </section>
-
       {/* WHO WE HELP */}
       <section className="section intro">
         <h2>Who We Help</h2>
