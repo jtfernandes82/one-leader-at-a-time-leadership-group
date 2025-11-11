@@ -103,6 +103,8 @@ function Home() {
           Empowering leaders and organizations through the{" "}
           <strong>E.L.I.T.E.™ Framework</strong> — Empower, Lead, Inspire, Transform, Elevate.
         </p>
+        {/* ❌ Removed the double button bar */}
+      </section>
 
       {/* WHO WE HELP */}
       <section className="section intro">
@@ -112,10 +114,10 @@ function Home() {
           performance, strengthen culture, and build sustainable systems of excellence.
         </p>
         <ul className="pill-list">
-          <li>Corporate &amp; manufacturing teams</li>
-          <li>Mid-level and senior leaders</li>
-          <li>Veteran transition programs</li>
-          <li>Emerging professionals &amp; high-potential talent</li>
+          <li>Military and veteran leaders</li>
+          <li>Corporate and manufacturing teams</li>
+          <li>Emerging professionals</li>
+          <li>Faith-driven leadership groups</li>
         </ul>
       </section>
 
