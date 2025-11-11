@@ -206,3 +206,49 @@ p { line-height: 1.65; }
   .section { padding: 16px 0 22px; }
   .home .cta-row .btn { width: 100%; text-align: center; }
 }
+/* === HEADER + BANNER BLEND === */
+
+.site-header {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Soft gold → white → light blue line (top + bottom) */
+.header-blend {
+  height: 12px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(218, 182, 111, 0.22) 0%,
+    rgba(255, 255, 255, 0.72) 48%,
+    rgba(153, 182, 212, 0.22) 100%
+  );
+}
+
+.header-blend.bottom {
+  margin-top: 2px;
+}
+
+/* Banner image section with gentle fade behind */
+.banner-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    to right,
+    rgba(218, 182, 111, 0.18) 0%,
+    rgba(255, 255, 255, 0.9) 48%,
+    rgba(153, 182, 212, 0.18) 100%
+  );
+}
+
+/* Actual banner image spanning full width */
+.banner-image {
+  width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
