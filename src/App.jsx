@@ -197,121 +197,110 @@ function About() {
     <main className="about-page">
       {/* HERO */}
       <section className="about-hero">
-        <div className="about-wrapper">
+        <div className="about-grid">
           <div className="about-text">
-            <h1>About Jesseana “Jessiana” Fernandes</h1>
+            <h1>About Jesseana "Jesse" Fernandes</h1>
             <p className="lead">
-              Founder of <strong>One Leader At A Time Leadership Group™</strong>. Veteran. Builder
-              of high-performance teams. I help leaders elevate people and culture using the
+              Founder of <strong>One Leader At A Time Leadership Group™</strong>. Veteran and builder
+              of high-performance teams. I help leaders elevate people and culture through the
               <strong> E.L.I.T.E.™ Framework</strong> — Empower, Lead, Inspire, Transform, Elevate.
+            </p>
+
+            <p>
+              My leadership journey began in the U.S. Army and evolved through decades of leading
+              teams in high-stakes aerospace operations. What I discovered was that real leadership
+              isn’t about position — it’s about purpose, consistency, and the courage to grow even
+              when no one’s watching.
+            </p>
+
+            <p>
+              Today, I use those lessons to equip other leaders and organizations to transform their
+              culture from the inside out — one leader, one choice, one act of empowerment at a time.
+            </p>
+
+            <p className="about-cta">
+              <a className="btn" href="/contact">Book a discovery call</a>
             </p>
           </div>
 
-          <div className="about-photo vignette-gold">
+          <div className="about-photo photo-frame">
             <img
-              src="/images/jesseana-about.jpg"
-              alt="Jesseana Fernandes"
-              className="about-image"
+              src="/about-jesseana.jpg"
+              alt='Portrait of Jesseana "Jesse" Fernandes'
+              className="about-img"
             />
           </div>
         </div>
       </section>
 
-      {/* CREDIBILITY SNAPSHOT */}
-      <section className="about-cred section">
-        <ul className="cred-badges" aria-label="Credibility snapshot">
-          <li><strong>20+ years</strong><span>military & leadership experience</span></li>
-          <li><strong>Teams elevated</strong><span>military, aerospace & civilian</span></li>
-          <li><strong>ELITE™</strong><span>values → daily behaviors</span></li>
-        </ul>
-      </section>
-
-      {/* STORY */}
-      <section className="section about-story">
-        <div className="about-wrapper narrow">
-          <h2>Why One Leader At A Time</h2>
+      {/* ABOUT THE BUSINESS */}
+      <section className="section about-business">
+        <div className="about-wrapper">
+          <h2>About One Leader At A Time Leadership Group™</h2>
           <p>
-            My leadership journey began in uniform and continued across complex operations and
-            aerospace programs. The constant through every role: people thrive when expectations are
-            clear, values are lived, and leaders model what “right” looks like every day.
+            One Leader At A Time is a leadership development and consulting organization focused on
+            empowering leaders to strengthen culture, build trust, and achieve sustainable
+            performance. Grounded in military discipline, organizational strategy, and faith-based
+            principles, the company provides coaching, workshops, and keynote speaking engagements
+            that translate leadership theory into practical, measurable growth.
           </p>
           <p>
-            I created One Leader At A Time to turn that belief into a practical system. The work is
-            simple, not easy: align on what matters, coach the behaviors, remove friction, and
-            celebrate progress. Do that consistently and performance follows.
+            Through the E.L.I.T.E.™ Framework, we help leaders and teams redefine excellence —
+            aligning vision and values with everyday actions to create lasting transformation.
           </p>
         </div>
       </section>
 
-      {/* HOW WE HELP (OUTCOMES) */}
-      <section className="section about-outcomes">
-        <div className="about-wrapper narrow">
-          <h2>What You Can Expect</h2>
-          <ul className="check-list">
-            <li>Clarity on the few behaviors that drive results</li>
-            <li>Simple rhythms that strengthen trust and accountability</li>
-            <li>Tools leaders actually use (scorecards, huddles, coaching prompts)</li>
-            <li>Support for military → civilian leadership transitions</li>
-          </ul>
-        </div>
-      </section>
+      {/* VISION & MISSION */}
+      <section className="section about-vision">
+        <div className="about-wrapper center">
+          <h2>Our Vision</h2>
+          <p className="vision">
+            To build a world where leaders inspire transformation through empathy, accountability,
+            and faith — one decision, one moment, and one leader at a time.
+          </p>
 
-      {/* ELITE SNAPSHOT */}
-      <section className="section about-elite">
-        <div className="about-wrapper narrow">
-          <h2>The E.L.I.T.E.™ Snapshot</h2>
-          <div className="elite-mini">
-            <span><strong>E</strong> — Empower: ownership with guardrails</span>
-            <span><strong>L</strong> — Lead: model the standard, daily</span>
-            <span><strong>I</strong> — Inspire: connect work to mission</span>
-            <span><strong>T</strong> — Transform: turn constraints into catalysts</span>
-            <span><strong>E</strong> — Elevate: measure, coach, celebrate</span>
-          </div>
-          <p className="center">
-            <a className="btn btn-ghost" href="/elite">Explore the Framework</a>
+          <h2>Our Mission</h2>
+          <p className="mission">
+            To empower individuals and organizations to lead with clarity, courage, and purpose
+            through the E.L.I.T.E.™ Framework — cultivating teams that perform with excellence and
+            serve with heart.
           </p>
         </div>
       </section>
 
-      {/* VALUES */}
-      <section className="section about-values">
+      {/* FOUNDER’S LEADERSHIP PHILOSOPHY */}
+      <section className="section about-philosophy">
         <div className="about-wrapper narrow">
-          <h2>Values We Lead By</h2>
-          <div className="values-grid">
-            <article><h3>Stewardship</h3><p>We treat people, time, and resources like they matter—because they do.</p></article>
-            <article><h3>Courage</h3><p>We face truth, own decisions, and move forward together.</p></article>
-            <article><h3>Accountability</h3><p>Clear standards, honest feedback, and follow-through.</p></article>
-            <article><h3>Faith</h3><p>Purpose bigger than self; serve with humility and conviction.</p></article>
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section className="section testimonials">
-        <div className="about-wrapper narrow">
-          <h2>What Military Leaders Are Saying</h2>
-          <blockquote>
-            “The ELITE approach brought clarity and cohesion to our unit—purpose over position.”
-            <footer>— Senior NCO, U.S. Army</footer>
-          </blockquote>
-          <blockquote>
-            “Direct, practical, and mission-focused. This is how you lead change that lasts.”
-            <footer>— Chief Warrant Officer, National Guard</footer>
-          </blockquote>
+          <h2>Founder’s Leadership Philosophy</h2>
+          <p>
+            I believe leadership is a calling to serve with purpose, lead with integrity, and
+            empower others to reach their full potential. True transformation happens when leaders
+            model accountability, communicate with clarity, and elevate those they serve. Through
+            the E.L.I.T.E.™ Framework, I help leaders cultivate trust, resilience, and performance —
+            one leader at a time.
+          </p>
+          <p className="bible-quote">
+            “Whoever wants to become great among you must be your servant.” — Matthew 20:26
+          </p>
         </div>
       </section>
 
       {/* CTA */}
       <section className="section cta">
-        <div className="about-wrapper narrow center">
-          <h2>Ready to elevate your leaders?</h2>
-          <p>Let’s design the right next step for your team or event.</p>
-          <p><a className="btn" href="/contact">Book a discovery call</a></p>
+        <div className="about-wrapper center">
+          <h2>Let’s Grow Together</h2>
+          <p>
+            Whether you’re developing emerging leaders, strengthening a team, or shaping a new
+            culture — we’re here to help.
+          </p>
+          <p><a className="btn" href="/contact">Connect with Jesse</a></p>
         </div>
       </section>
     </main>
   );
 }
+
 function Services() {
   return (
     <main className="container">
