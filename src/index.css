@@ -231,3 +231,31 @@ main > .container:first-of-type{
   margin-top: auto !important;
   padding-top: 10px !important;
 }
+/* ======================================
+   RESTORE SOFT EDGE / BLENDED PORTRAIT
+   ====================================== */
+.about-portrait {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 14px;
+
+  /* soft radial fade into page background */
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 50%, 
+    rgba(0, 0, 0, 1) 72%, 
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: radial-gradient(
+    circle at 50% 50%, 
+    rgba(0, 0, 0, 1) 72%, 
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+
+  /* soft ambient shadow for natural blend */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  background: transparent;
+}
