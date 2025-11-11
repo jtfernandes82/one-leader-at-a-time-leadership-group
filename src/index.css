@@ -815,3 +815,82 @@ a.nav-social { display:none !important; }
   text-align: center;
   margin-top: 2rem;
 }
+/* Layout + spacing */
+.about-page { background: #fafafa; }
+.about-hero { padding: 2.5rem 0 1.5rem; }
+.section { padding: 2rem 0; }
+.about-wrapper { width: min(1100px, 92%); margin: 0 auto; display: grid; gap: 2rem; }
+.about-wrapper.narrow { width: min(900px, 92%); }
+.about-wrapper.center { text-align: center; }
+
+/* Hero two-column on wide screens */
+.about-hero .about-wrapper { grid-template-columns: 1.15fr .85fr; align-items: center; }
+@media (max-width: 960px){ .about-hero .about-wrapper { grid-template-columns: 1fr; } }
+
+/* Headings & text */
+.lead { font-size: 1.1rem; color: #334; }
+h1, h2 { color: #2a467b; }
+
+/* Cred badges */
+.cred-badges { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .75rem; list-style: none; padding: 0; margin: 0; }
+.cred-badges li { background: #fff; border: 1px solid #e6ecf5; border-radius: 12px; padding: .9rem 1rem; box-shadow: 0 6px 16px rgba(0,0,0,.06); }
+.cred-badges strong { display:block; font-size:1.05rem; color:#2a467b; }
+.cred-badges span { color:#5b6b82; }
+
+/* Outcomes list */
+.check-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+.check-list li { padding-left: 1.6rem; position: relative; }
+.check-list li::before { content: "✓"; position: absolute; left: 0; color: #2a467b; }
+
+/* ELITE mini */
+.elite-mini { display: grid; gap: .4rem; background:#fff; border:1px solid #e6ecf5; border-radius:12px; padding:1rem; }
+.elite-mini strong { color:#2a467b; }
+.center { text-align:center; }
+
+/* Values grid */
+.values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.values-grid article { background:#fff; border:1px solid #e6ecf5; border-radius:12px; padding:1rem; }
+
+/* Testimonials */
+.testimonials blockquote { background:#f7f9fc; border-left:4px solid #d9b85f; margin:1rem 0; padding:1rem 1.25rem; border-radius:8px; font-style: italic; }
+.testimonials footer { margin-top:.5rem; color:#2a467b; font-weight:600; }
+
+/* CTA */
+.section.cta .btn { background:#2a467b; color:#fff; border-radius:10px; padding:.75rem 1.25rem; }
+
+/* Photo with soft vignette blur (gold/navy) */
+.about-photo { position: relative; display:flex; justify-content:center; }
+.about-image {
+  width: 100%;
+  max-width: 440px;
+  border-radius: 14px;
+  display: block;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.1));
+  /* feather the very edge */
+  mask-image: radial-gradient(circle at 50% 50%, black 78%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 78%, transparent 100%);
+}
+/* warm gold/navy vignette that blends into bg */
+.vignette-gold::before,
+.vignette-gold::after {
+  content: "";
+  position: absolute;
+  inset: -22px;
+  border-radius: 28px;
+  z-index: -1;
+}
+.vignette-gold::before { /* soft glow */
+  background:
+    radial-gradient(180px 140px at 20% 15%, rgba(217,184,95,.22), transparent 60%),
+    radial-gradient(220px 180px at 80% 85%, rgba(42,70,123,.18), transparent 60%);
+  filter: blur(18px);
+}
+.vignette-gold::after { /* very subtle base to smooth hard edges */
+  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(240,244,250,.65));
+  filter: blur(8px);
+  opacity: .6;
+}
+
+/* Reduce giant accidental margins from page builders */
+.about-page > *:first-child { margin-top: 0; }
+.about-page section:empty { display: none; }
