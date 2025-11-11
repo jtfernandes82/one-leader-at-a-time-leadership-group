@@ -273,3 +273,53 @@ main > .container:last-child  { margin-bottom: 0 !important; }
 @media (max-width: 820px){
   .nav-social { margin-left: 6px !important; }
 }
+/* ===== NAV: center tabs & place LinkedIn after Contact ===== */
+.nav-inner { display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; }
+.nav-list  { display:flex; gap:22px; flex-wrap:wrap; justify-content:center; }
+.nav-social, .nav-social-link { margin-left:8px !important; }
+.nav-social-link {
+  display:inline-flex; width:28px; height:28px; align-items:center; justify-content:center;
+  border-radius:999px; transition:transform .15s ease;
+}
+.nav-social-link:hover { transform:translateY(-1px); }
+
+/* ===== HOME: center hero + remove large empty space ===== */
+/* Works whether your home <body> or <main> has a "home" class or not */
+body.home main,
+.page-home main,
+main:has(.home-hero),
+main:has(.home-tagline),
+main > .container:first-of-type:has(h1) {
+  display:grid !important;
+  place-items:center !important;
+  min-height: clamp(520px, 66dvh, 760px) !important;
+  padding-block: 0 !important;
+  text-align:center !important;
+}
+main .buttons { justify-content:center; }
+
+/* Trim sneaky top/bottom gaps on pages (collapsing margins, rules, etc.) */
+main > section:first-child,
+main > .container:first-child { margin-top:0 !important; }
+main > section:last-child,
+main > .container:last-child  { margin-bottom:0 !important; }
+hr, .rule, .separator { display:none !important; }
+
+/* ===== ABOUT: remove gap, keep portrait soft-blended edge ===== */
+.about-grid { margin-bottom: 6px !important; padding-bottom: 6px; align-items:start; }
+.about-grid + .section-title,
+.about-grid + h2 { margin-top: 10px !important; }
+
+/* Soft edge stays on the image */
+.about-portrait{
+  -webkit-mask-image: radial-gradient(125% 125% at 50% 48%, #000 76%, transparent 100%);
+          mask-image: radial-gradient(125% 125% at 50% 48%, #000 76%, transparent 100%);
+  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+  -webkit-mask-size:100% 100%;   mask-size:100% 100%;
+}
+
+/* ===== FOOTER stays flush to bottom, no extra gulf below ===== */
+html, body { height:100%; }
+body { display:flex; flex-direction:column; }
+main { flex:1 0 auto; }
+.site-footer { flex:0 0 auto; padding-bottom:18px; }
