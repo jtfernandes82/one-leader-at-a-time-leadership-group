@@ -11,3 +11,63 @@
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
+<section class="container" id="contact">
+  <h2 class="section-title">Contact</h2>
+  <p>Prefer email? Reach me at
+    <a href="mailto:jesse@oneleaderatatimegroup.com">jesse@oneleaderatatimegroup.com</a>.
+  </p>
+
+  <!-- Netlify Forms -->
+  <form name="contact" method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/thanks.html"
+        class="contact-form card">
+
+    <!-- This hidden input + form name must match for Netlify to pick it up -->
+    <input type="hidden" name="form-name" value="contact" />
+
+    <!-- Spam trap (hidden) -->
+    <p class="hidden">
+      <label>Don’t fill this out: <input name="bot-field" /></label>
+    </p>
+
+    <div class="form-grid">
+      <label>
+        Name*
+        <input type="text" name="name" required />
+      </label>
+
+      <label>
+        Email*
+        <input type="email" name="email" required />
+      </label>
+
+      <label>
+        Phone (optional)
+        <input type="tel" name="phone" />
+      </label>
+
+      <label>
+        Topic
+        <select name="topic">
+          <option>Discovery call</option>
+          <option>Speaking inquiry</option>
+          <option>ELITE framework workshop</option>
+          <option>Veteran transition coaching</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <label class="full">
+        Message*
+        <textarea name="message" rows="6" required></textarea>
+      </label>
+    </div>
+
+    <!-- Optional: Netlify reCAPTCHA (turn on in Netlify if you use this) -->
+    <!-- <div data-netlify-recaptcha="true"></div> -->
+
+    <button type="submit" class="btn">Send</button>
+  </form>
+</section>
