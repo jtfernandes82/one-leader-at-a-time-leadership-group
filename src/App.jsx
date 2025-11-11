@@ -1,39 +1,50 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 
-/* ============ Full-bleed gradient bars ============ */
-function TopGradientBar() {
+/* ---------- Shared UI ---------- */
+
+function LinkedInIcon() {
   return (
-    <div
-      className="fullbleed-bar"
-      style={{
-        height: 10,
-        background:
-          "linear-gradient(90deg, rgba(216,179,93,0.18) 0%, rgba(255,255,255,0.92) 50%, rgba(153,182,212,0.18) 100%)",
-      }}
-    />
+    <svg
+      className="icon-linkedin"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 448 512"
+      width="20"
+      height="20"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M100.28 448H7.4V148.9h92.88zm-46.44-340a53.79 53.79 0 1 1 53.79-53.8 53.8 53.8 0 0 1-53.8 53.8zM447.9 448h-92.4V302.4c0-34.7-.7-79.3-48.3-79.3-48.3 0-55.7 37.7-55.7 76.6V448h-92.5V148.9h88.8v40.8h1.3c12.4-23.5 42.6-48.3 87.7-48.3 93.8 0 111.2 61.8 111.2 142.3V448z" />
+    </svg>
   );
 }
-function FullBleedBottomBand({ height = 46, mt = 22, mb = 8 }) {
+
+function Button({ to = "#", children }) {
+  return (
+    <Link className="btn" to={to}>
+      {children}
+    </Link>
+  );
+}
+
+function SectionBand({ tight = false }) {
   return (
     <div
-      className="fullbleed-bar"
+      className="fullbleed blend-band"
       style={{
-        height,
-        marginTop: mt,
-        marginBottom: mb,
-        borderTop: "1px solid rgba(20,40,60,0.08)",
-        borderBottom: "1px solid rgba(20,40,60,0.08)",
-        background:
-          "linear-gradient(90deg, rgba(216,179,93,0.24) 0%, rgba(255,255,255,0.88) 48%, rgba(153,182,212,0.24) 100%)",
+        height: tight ? 12 : 44,
+        marginTop: tight ? 8 : 22,
+        marginBottom: tight ? 0 : 10,
       }}
+      aria-hidden="true"
     />
   );
 }
 
-/* ========================= Header (with banner) ========================= */
+/* ---------- Layout: Header / Footer ---------- */
+
 function Header() {
-  const items = [
+  const nav = [
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
     { to: "/services", label: "Services" },
@@ -44,463 +55,277 @@ function Header() {
   ];
   return (
     <header>
-      <TopGradientBar />
+      {/* Full-width banner with graceful fallback */}
+      <div className="fullbleed banner" role="img" aria-label="One Leader at a Time – Leadership Group"></div>
 
-      {/* Banner as background so it scales nicely even if image is tall/short */}
-      <div
-        className="banner-hero fullbleed-bar"
-        aria-label="One Leader at a Time – Leadership Group"
-      >
-        {/* If the image is missing, user still sees a soft gradient */}
-      </div>
-
-      {/* Wrap nav in subtle gradient and allow wrapping on mobile */}
       <nav className="nav">
-        <div className="container">
+        <div className="container nav-inner">
           <ul className="nav-list">
-            {items.map((it) => (
-              <li key={it.to}>
+            {nav.map((item) => (
+              <li key={item.to}>
                 <NavLink
-                  to={it.to}
+                  to={item.to}
                   className={({ isActive }) =>
-                    `nav-link ${isActive ? "nav-link--active" : ""}`
+                    `nav-link ${isActive ? "is-active" : ""}`
                   }
                 >
-                  {it.label}
+                  {item.label}
                 </NavLink>
               </li>
             ))}
           </ul>
+
+          <a
+            className="nav-social"
+            href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <LinkedInIcon />
+          </a>
         </div>
       </nav>
     </header>
   );
 }
 
-/* =============================== Footer ================================ */
 function Footer() {
   return (
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-links">
-          <Link to="/elite" className="footer-a">ELITE</Link>
-          <Link to="/services" className="footer-a">Services</Link>
-          <Link to="/speaking" className="footer-a">Speaking</Link>
-          <Link to="/veterans" className="footer-a">Veterans</Link>
-          <Link to="/contact" className="footer-a">Contact</Link>
+          <Link to="/elite">ELITE</Link>
+          <Link to="/services">Services</Link>
+          <Link to="/speaking">Speaking</Link>
+          <Link to="/veterans">Veterans</Link>
+          <Link to="/contact">Contact</Link>
         </div>
         <div className="footer-copy">
           © {new Date().getFullYear()} One Leader at a Time – Leadership Group, LLC. All rights reserved.
         </div>
       </div>
-      <FullBleedBottomBand height={12} mt={6} mb={0} />
+      <SectionBand tight />
     </footer>
   );
 }
 
-/* ============================= UI helpers ============================== */
-function Btn({ to = "#", children }) {
-  return (
-    <Link className="btn" to={to}>
-      {children}
-    </Link>
-  );
-}
-function BtnOutline({ href = "#", children }) {
-  return (
-    <a className="btn-outline" href={href} target="_blank" rel="noreferrer">
-      {children}
-    </a>
-  );
-}
+/* ---------- Pages ---------- */
 
-/* ================================ Pages ================================ */
-function HomePage() {
+function Home() {
   return (
-    <section className="section">
+    <section className="section home">
       <div className="container">
         <h1>Lead Today. Transform Tomorrow.</h1>
         <p className="lead">
-          Empowering leaders and organizations through the E.L.I.T.E.™ Framework —
-          Empower, Lead, Inspire, Transform, Elevate.
+          Empowering leaders and organizations through the E.L.I.T.E.™ Framework — Empower, Lead, Inspire, Transform, Elevate.
         </p>
         <div className="cta-row">
-          <Btn to="/contact">Book a discovery call</Btn>
-          <Btn to="/elite">Explore the E.L.I.T.E.™ Framework</Btn>
+          <Button to="/contact">Book a discovery call</Button>
+          <Button to="/elite">Explore the E.L.I.T.E.™ Framework</Button>
         </div>
       </div>
-      {/* Full-width soft band below content */}
-      <FullBleedBottomBand />
+      <SectionBand />
     </section>
   );
 }
 
-function AboutPage() {
+function About() {
   return (
-    <section className="section">
+    <section className="section about">
       <div className="container grid-2">
         <div>
           <h1>About Jesseana Fernandes</h1>
           <p>
-            Jesseana Fernandes is a transformational senior leader and <strong>Chief Warrant Officer
-            Three (CW3)</strong> with over two decades of expertise in leadership, logistics, and
-            organizational strategy. As a <strong>Senior Manager in aerospace operations</strong>, she brings a rare
-            dual perspective—combining the precision of military discipline with the innovation of
-            corporate excellence.
+            Jesseana Fernandes is a transformational senior leader and <strong>Chief Warrant Officer Three (CW3)</strong>
+            with over two decades of expertise in leadership, logistics, and organizational strategy. As a <strong>Senior Manager in aerospace operations</strong>,
+            she brings a dual perspective—combining military precision with corporate excellence—to develop leaders, build resilient cultures, and drive execution under pressure.
           </p>
           <p>
-            Throughout her career, Jesseana has mentored leaders from <strong>senior commissioned officers</strong> to
-            rising talent, serving as a trusted advisor and technical expert to decision-makers at every level.
-            Her leadership approach is rooted in purpose, accountability, and service—principles that consistently
-            deliver clarity in complex operations and performance under pressure.
+            Having advised leaders from <strong>junior enlisted to senior commissioned officers</strong>, Jesseana serves as a trusted technical and leadership
+            advisor to decision-makers at all levels. Her approach blends clarity, accountability, and service—translating into practical systems that improve cadence,
+            decision speed, and team performance.
           </p>
           <p>
-            Her philosophy is simple and proven: <em>great organizations are built one leader at a time</em>. That
-            conviction inspired the creation of <strong>One Leader at a Time – Leadership Group™</strong> and its proprietary{" "}
-            <strong>E.L.I.T.E.™ Framework</strong>—Empower, Lead, Inspire, Transform, Elevate.
+            Her philosophy is simple and proven: <em>great organizations are built one leader at a time</em>. That conviction inspired the creation of
+            <strong> One Leader at a Time – Leadership Group™</strong> and its proprietary <strong>E.L.I.T.E.™ Framework</strong>—Empower, Lead, Inspire, Transform, Elevate.
           </p>
-
-          <h2>Signature Strengths</h2>
-          <ul>
-            <li><strong>Leader Development:</strong> coaching, standards, and rituals that raise performance</li>
-            <li><strong>Organizational Resilience:</strong> change navigation, risk playbooks, continuity planning</li>
-            <li><strong>Operational Excellence:</strong> cadence systems, ownership, disciplined follow-through</li>
-            <li><strong>Culture Building:</strong> trust, accountability, and feedback loops that stick</li>
-          </ul>
 
           <h2>About One Leader at a Time – Leadership Group™</h2>
           <p>
-            <strong>One Leader at a Time – Leadership Group™</strong> equips executives, teams, and transitioning
-            veterans to lead with integrity, resilience, and purpose. We deliver executive coaching, organizational
-            transformation programs, and veteran transition leadership—bridging the gap between technical mastery
-            and human-centered leadership.
+            We equip executives, teams, and transitioning veterans to lead with integrity, resilience, and purpose. Every engagement is grounded in the
+            E.L.I.T.E.™ Framework—translating values into repeatable behaviors, decision frameworks, and measurable outcomes. We specialize in
+            <strong> high-performing teams</strong> and <strong>resilient cultures</strong> that thrive in high-stakes environments.
           </p>
-          <p>
-            Every engagement is grounded in the <strong>E.L.I.T.E.™ Framework</strong>, translating values into daily
-            behaviors, decision frameworks, and measurable outcomes. Our mission is to build <strong>high-performing
-            teams</strong> and <strong>resilient cultures</strong> that thrive in high-stakes environments.
-          </p>
-          <p>Veteran-owned • Women-owned • Purpose-driven • Leadership-focused</p>
+          <ul className="bullets">
+            <li>Leader development & coaching systems</li>
+            <li>Culture standards, feedback loops, and AARs</li>
+            <li>Operational cadence & ownership models</li>
+            <li>Change navigation & organizational resilience</li>
+          </ul>
         </div>
 
         <div className="portrait-col">
           <figure className="portrait-wrap">
-            <img src="/about-jesseana.jpg" alt="Jesseana Fernandes" />
+            <img src="/about-jesseana.jpg" alt="Jesseana Fernandes portrait" />
           </figure>
           <p className="portrait-caption">
             Jesseana Fernandes, CW3 — Founder of One Leader at a Time – Leadership Group™
           </p>
         </div>
       </div>
-
-      <FullBleedBottomBand />
+      <div className="container">
+        <div className="pills">Veteran-Owned • Women-Owned • Purpose-Driven • Leadership-Focused</div>
+      </div>
+      <SectionBand />
     </section>
   );
 }
 
-function ServicesPage() {
+function Services() {
   return (
     <section className="section">
       <div className="container">
         <h1>Services</h1>
         <p className="lead">
-          Transform leaders, teams, and organizations through the E.L.I.T.E.™ Framework — Empower, Lead, Inspire, Transform, Elevate.
+          Transforming leaders, teams, and organizations through the E.L.I.T.E.™ Framework.
         </p>
-
         <div className="cards-grid">
           <div className="card">
-            <h3>Leadership &amp; Team Development</h3>
-            <p className="muted">High-impact workshops to strengthen trust, communication, and decision-making across all levels of leadership.</p>
+            <h3>Leadership & Team Development</h3>
+            <p>Workshops to strengthen trust, communication, and decision-making across all levels.</p>
           </div>
           <div className="card">
-            <h3>Executive &amp; Strategic Coaching</h3>
-            <p className="muted">Customized one-on-one or small-group coaching for senior leaders navigating transformation and performance excellence.</p>
+            <h3>Executive & Strategic Coaching</h3>
+            <p>Customized coaching for senior leaders navigating transformation and performance excellence.</p>
           </div>
           <div className="card">
             <h3>Veteran Transition Leadership</h3>
-            <p className="muted">
-              Comprehensive support for transitioning service members and veterans: leadership translation, resume &amp; LinkedIn, interview prep, job search coaching, career counseling, mentor matching, and 30-60-90 onboarding plans — all aligned to E.L.I.T.E.™.
-            </p>
+            <p>Leadership translation, resume & LinkedIn, interview prep, job search coaching, career counseling, mentor matching, 30-60-90 plans.</p>
           </div>
           <div className="card">
-            <h3>Organizational Resilience Consulting</h3>
-            <p className="muted">Build adaptability and continuity strategies for long-term success in complex environments.</p>
+            <h3>Organizational Resilience</h3>
+            <p>Change navigation, continuity strategies, and systems that sustain results.</p>
           </div>
           <div className="card">
-            <h3>Speaking &amp; Keynotes</h3>
-            <p className="muted">Dynamic keynotes and presentations rooted in leadership, resilience, and transformation across high-stakes environments.</p>
+            <h3>Speaking & Keynotes</h3>
+            <p>Dynamic keynotes rooted in leadership, resilience, and transformation.</p>
           </div>
-        </div>
-
-        <div className="cta-row">
-          <Btn to="/contact">Schedule a consultation</Btn>
         </div>
       </div>
-      <FullBleedBottomBand />
+      <SectionBand />
     </section>
   );
 }
 
-function ElitePage() {
+function Elite() {
+  const items = [
+    { k: "E", t: "Empower", d: "Build confidence, autonomy, and accountability." },
+    { k: "L", t: "Lead", d: "Model values, align decisions, and execute with clarity." },
+    { k: "I", t: "Inspire", d: "Craft vision, communicate clearly, mobilize action." },
+    { k: "T", t: "Transform", d: "Navigate change with resilience and systems thinking." },
+    { k: "E", t: "Elevate", d: "Sustain excellence through coaching and continuous learning." }
+  ];
   return (
     <section className="section">
       <div className="container">
         <h1>E.L.I.T.E.™ Framework</h1>
-        <p className="lead">
-          Empower, Lead, Inspire, Transform, Elevate — a practical system to simplify decisions and drive change with clarity and care.
-        </p>
-
         <div className="cards-grid">
-          <div className="card">
-            <h3>Empower</h3>
-            <p className="muted">Build confidence, autonomy, and accountability at every level.</p>
-            <ul>
-              <li>Role clarity &amp; decision rights</li>
-              <li>Cadence systems for ownership</li>
-              <li>Coaching standards &amp; rituals</li>
-            </ul>
-            <div className="tagline">Outcome: Teams move faster with less friction.</div>
-          </div>
-          <div className="card">
-            <h3>Lead</h3>
-            <p className="muted">Model values, align decisions, and communicate with precision.</p>
-            <ul>
-              <li>Leader standards &amp; daily behaviors</li>
-              <li>Decision frameworks under pressure</li>
-              <li>Run-of-show discipline &amp; brief/debrief</li>
-            </ul>
-            <div className="tagline">Outcome: Clear priorities. Consistent execution.</div>
-          </div>
-          <div className="card">
-            <h3>Inspire</h3>
-            <p className="muted">Craft vision and messaging that mobilize action— not just agreement.</p>
-            <ul>
-              <li>Vision-to-action communication</li>
-              <li>Leader narrative &amp; symbols</li>
-              <li>Recognition loops that stick</li>
-            </ul>
-            <div className="tagline">Outcome: Momentum you can feel and measure.</div>
-          </div>
-          <div className="card">
-            <h3>Transform</h3>
-            <p className="muted">Navigate change with resilience and systems thinking.</p>
-            <ul>
-              <li>Change navigation playbooks</li>
-              <li>Risk, response &amp; continuity planning</li>
-              <li>After-action learning (close the loop)</li>
-            </ul>
-            <div className="tagline">Outcome: Adaptability without chaos.</div>
-          </div>
-          <div className="card">
-            <h3>Elevate</h3>
-            <p className="muted">Sustain excellence through coaching, mentoring, and measurement.</p>
-            <ul>
-              <li>Leader pipelines &amp; transition plans</li>
-              <li>Pulse metrics that matter</li>
-              <li>Promotion readiness &amp; 30-60-90s</li>
-            </ul>
-            <div className="tagline">Outcome: A culture that compounds.</div>
-          </div>
-        </div>
-
-        <div className="cta-row">
-          <Btn to="/contact">Request ELITE program details</Btn>
-          <BtnOutline href="/OneLeaderAtATime_Speaker-OneSheet.pdf">Download one-sheet</BtnOutline>
+          {items.map((m) => (
+            <div key={m.t} className="card">
+              <div className="mini-title">{m.k} — {m.t}</div>
+              <p>{m.d}</p>
+            </div>
+          ))}
         </div>
       </div>
-      <FullBleedBottomBand />
+      <SectionBand />
     </section>
   );
 }
 
-function SpeakingPage() {
+function Speaking() {
+  const topics = [
+    {
+      t: "Building High-Performance Teams in High-Stakes Environments",
+      b: "Align roles, set cadence, execute with urgency without burnout.",
+      o: ["Team trust & cadence systems", "Clarity of priorities & ownership", "Faster, cleaner handoffs"]
+    },
+    {
+      t: "Culture as a Competitive Advantage",
+      b: "Turn values into behaviors, feedback loops, and visible standards.",
+      o: ["Leadership standards & rituals", "Constructive feedback culture", "Retention & engagement gains"]
+    },
+    {
+      t: "The E.L.I.T.E.™ Framework: Practical Leadership for Real Results",
+      b: "A field-tested system to simplify decisions and drive change.",
+      o: ["Decision frameworks", "Change navigation", "Post-event action plans"]
+    },
+    {
+      t: "Veteran Lessons for Modern Leaders",
+      b: "Translate mission planning and AARs into business execution.",
+      o: ["Leadership under pressure", "Accountability systems", "After-action learning"]
+    }
+  ];
   return (
     <section className="section">
       <div className="container">
-        <h1>Speaking &amp; Keynotes</h1>
+        <h1>Speaking & Keynotes</h1>
         <p className="lead">
           High-energy, high-credibility talks that turn leadership principles into action.
-          Jesseana brings two decades of military and aerospace leadership to the stage,
-          equipping audiences to lead with clarity, courage, and the E.L.I.T.E.™ mindset.
         </p>
 
         <div className="cards-grid">
-          <div className="card">
-            <h3>Formats</h3>
-            <ul>
-              <li>Keynote (20–45 min)</li>
-              <li>Fireside chat / Panelist</li>
-              <li>Workshop / Masterclass (60–120 min)</li>
-            </ul>
-          </div>
-          <div className="card">
-            <h3>Audiences</h3>
-            <ul>
-              <li>Executives &amp; senior leaders</li>
-              <li>Emerging leaders &amp; ERGs</li>
-              <li>Technical / operations teams</li>
-              <li>Veteran &amp; transition groups</li>
-            </ul>
-          </div>
-          <div className="card">
-            <h3>Outcomes</h3>
-            <ul>
-              <li>Clarity &amp; accountability</li>
-              <li>Decision speed under pressure</li>
-              <li>Culture momentum &amp; ownership</li>
-            </ul>
-          </div>
-          <div className="card">
-            <h3>Travel &amp; Delivery</h3>
-            <ul>
-              <li>Domestic &amp; international</li>
-              <li>Based in Oklahoma City, OK</li>
-              <li>In-person or virtual</li>
-            </ul>
-          </div>
-        </div>
-
-        <h2>Signature Topics</h2>
-        <div className="cards-grid">
-          <div className="card">
-            <h3>Building High-Performance Teams in High-Stakes Environments</h3>
-            <p className="muted">Align roles, run disciplined stand-ups, and execute with urgency—without burning people out.</p>
-            <strong>Audience takeaways</strong>
-            <ul>
-              <li>Team trust &amp; cadence systems</li>
-              <li>Clarity of priorities &amp; ownership</li>
-              <li>Faster, cleaner handoffs</li>
-            </ul>
-          </div>
-          <div className="card">
-            <h3>Culture as a Competitive Advantage</h3>
-            <p className="muted">Turn values into behaviors, feedback loops, and visible leadership standards that lift performance.</p>
-            <strong>Audience takeaways</strong>
-            <ul>
-              <li>Leadership standards &amp; rituals</li>
-              <li>Constructive feedback culture</li>
-              <li>Retention &amp; engagement gains</li>
-            </ul>
-          </div>
-          <div className="card">
-            <h3>The E.L.I.T.E.™ Framework: Practical Leadership for Real Results</h3>
-            <p className="muted">A field-tested system to simplify decisions and drive change with discipline and care.</p>
-            <strong>Audience takeaways</strong>
-            <ul>
-              <li>Decision frameworks</li>
-              <li>Change navigation</li>
-              <li>Post-event action plans</li>
-            </ul>
-          </div>
-          <div className="card">
-            <h3>Leading Through Change—Without Burning People Out</h3>
-            <p className="muted">Practical playbooks for risk, response, and communication that protect people and performance.</p>
-            <strong>Audience takeaways</strong>
-            <ul>
-              <li>Change brief / debrief cadence</li>
-              <li>Continuity &amp; risk buffers</li>
-              <li>Leader message map</li>
-            </ul>
-          </div>
-          <div className="card">
-            <h3>Veteran-to-Leader Transition Playbook</h3>
-            <p className="muted">Translate military excellence into civilian leadership and career success.</p>
-            <strong>Audience takeaways</strong>
-            <ul>
-              <li>Resume &amp; LinkedIn positioning</li>
-              <li>Interview preparation</li>
-              <li>30-60-90 leadership plans</li>
-            </ul>
-          </div>
-          <div className="card">
-            <h3>Women Leading in High-Stakes Environments</h3>
-            <p className="muted">Standards, systems, and presence—without compromise.</p>
-            <strong>Audience takeaways</strong>
-            <ul>
-              <li>Confidence &amp; communication under pressure</li>
-              <li>Sponsor vs mentor map</li>
-              <li>Strategic network design</li>
-            </ul>
-          </div>
+          {topics.map((card) => (
+            <div key={card.t} className="card">
+              <h3>{card.t}</h3>
+              <p>{card.b}</p>
+              <div className="mini-title">Audience takeaways</div>
+              <ul className="bullets">
+                {card.o.map((x) => <li key={x}>{x}</li>)}
+              </ul>
+            </div>
+          ))}
         </div>
 
         <div className="cta-row">
-          <Btn to="/contact#speaking">Check availability</Btn>
-          <BtnOutline href="/OneLeaderAtATime_Speaker-OneSheet.pdf">
-            Download speaker one-sheet
-          </BtnOutline>
+          <Button to="/contact">Request speaking availability</Button>
         </div>
       </div>
-      <FullBleedBottomBand />
+      <SectionBand />
     </section>
   );
 }
 
-function VeteransPage() {
+function Veterans() {
   return (
     <section className="section">
       <div className="container">
         <h1>Veteran Transition Leadership</h1>
         <p className="lead">
-          End-to-end support to translate military excellence into civilian leadership and career success.
+          From junior enlisted to senior commissioned officers—translate military excellence into civilian leadership.
         </p>
-
-        <div className="cards-grid">
-          <div className="card">
-            <h3>Positioning &amp; Branding</h3>
-            <ul>
-              <li>Resume &amp; LinkedIn redesign (impact-first, metrics-forward)</li>
-              <li>Translate MOS to business competencies</li>
-              <li>Leadership value narrative &amp; career pitch</li>
-            </ul>
-          </div>
-          <div className="card">
-            <h3>Interview &amp; Offers</h3>
-            <ul>
-              <li>Behavioral interview practice (STAR+Impact)</li>
-              <li>Portfolio &amp; story bank (ops, risk, turnarounds)</li>
-              <li>Offer review &amp; salary negotiation planning</li>
-            </ul>
-          </div>
-          <div className="card">
-            <h3>On-Ramp Plans</h3>
-            <ul>
-              <li>30-60-90 leadership plan templates</li>
-              <li>Stakeholder mapping &amp; cadence design</li>
-              <li>KPIs that build early credibility</li>
-            </ul>
-          </div>
-          <div className="card">
-            <h3>Mentors &amp; Network</h3>
-            <ul>
-              <li>Mentorship matching (industry &amp; function)</li>
-              <li>Informational interview scripts</li>
-              <li>Target company shortlists &amp; warm paths</li>
-            </ul>
-          </div>
-        </div>
-
-        <h2>What You’ll Walk Away With</h2>
-        <ul>
-          <li>Industry-ready resume &amp; LinkedIn that showcase leadership impact</li>
-          <li>Confident interview stories that translate military outcomes to business value</li>
-          <li>A practical 30-60-90 plan for your first 90 days in role</li>
-          <li>A network plan and outreach system that actually moves the needle</li>
+        <ul className="bullets">
+          <li>Leadership & skills translation into executive-ready language</li>
+          <li>Resume & LinkedIn development tailored to leadership and technical roles</li>
+          <li>Interview preparation focused on confidence, communication, and executive presence</li>
+          <li>Job search coaching and market navigation strategies</li>
+          <li>Career counseling aligning experience, purpose, advancement</li>
+          <li>Senior mentor matching and executive networking strategies</li>
+          <li>Target-role 30-60-90 day onboarding plan aligned to E.L.I.T.E.™</li>
+          <li>Ongoing progression and promotion planning support</li>
         </ul>
-
         <div className="cta-row">
-          <Btn to="/contact#veterans">Start your transition</Btn>
-          <BtnOutline href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/">
-            Connect on LinkedIn
-          </BtnOutline>
+          <Button to="/contact">Start your transition</Button>
         </div>
       </div>
-      <FullBleedBottomBand />
+      <SectionBand />
     </section>
   );
 }
 
-function ContactPage() {
+function Contact() {
   return (
     <section className="section">
       <div className="container">
@@ -512,89 +337,56 @@ function ContactPage() {
           method="POST"
           data-netlify="true"
           netlify-honeypot="bot-field"
-          className="contact-form"
           action="/thank-you"
-          id="contact"
+          className="contact-form"
         >
           <input type="hidden" name="form-name" value="contact" />
           <p className="hidden">
-            <label>
-              Don’t fill this out if you’re human: <input name="bot-field" />
-            </label>
+            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
           </p>
-
+          <div className="grid-2 form-row">
+            <label>Name<input name="name" required /></label>
+            <label>Email<input type="email" name="email" required /></label>
+          </div>
           <div className="form-row">
-            <label>
-              Name
-              <input name="name" placeholder="Your name" required />
-            </label>
+            <label>Message<textarea name="message" rows="6"></textarea></label>
           </div>
-
-          <div className="form-row grid-2">
-            <label>
-              Email
-              <input type="email" name="email" placeholder="you@company.com" required />
-            </label>
-            <label>
-              Phone
-              <input name="phone" placeholder="(###) ###-####" />
-            </label>
-          </div>
-
-          <div className="form-row">
-            <label>
-              What are you looking for?
-              <select name="interest" defaultValue="Keynote / Speaking">
-                <option>Keynote / Speaking</option>
-                <option>Leadership Workshop</option>
-                <option>Executive Coaching</option>
-                <option>Veteran Transition Program</option>
-                <option>Custom Engagement</option>
-              </select>
-            </label>
-          </div>
-
-          <div className="form-row">
-            <label>
-              Message
-              <textarea name="message" rows={6} placeholder="Tell us about your goals, dates, and audience size…" />
-            </label>
-          </div>
-
           <button className="btn" type="submit">Send inquiry</button>
         </form>
       </div>
-      <FullBleedBottomBand />
+      <SectionBand />
     </section>
   );
 }
 
-/* ================================ App ================================ */
+function ThankYou() {
+  return (
+    <section className="section">
+      <div className="container">
+        <h1>Thank you!</h1>
+        <p className="lead">We’ll be in touch shortly.</p>
+      </div>
+      <SectionBand />
+    </section>
+  );
+}
+
+/* ---------- App ---------- */
+
 export default function App() {
   return (
     <BrowserRouter>
       <Header />
       <main>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/elite" element={<ElitePage />} />
-          <Route path="/speaking" element={<SpeakingPage />} />
-          <Route path="/veterans" element={<VeteransPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route
-            path="/thank-you"
-            element={
-              <section className="section">
-                <div className="container">
-                  <h1>Thank you!</h1>
-                  <p className="lead">Your message has been submitted. We’ll be in touch shortly.</p>
-                </div>
-                <FullBleedBottomBand />
-              </section>
-            }
-          />
+          <Route index element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/elite" element={<Elite />} />
+          <Route path="/speaking" element={<Speaking />} />
+          <Route path="/veterans" element={<Veterans />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/thank-you" element={<ThankYou />} />
         </Routes>
       </main>
       <Footer />
