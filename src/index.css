@@ -151,3 +151,70 @@ img{ display:block; max-width:100%; height:auto; } /* kill inline baseline gap *
   .about-grid{ grid-template-columns: 1fr; }
   .nav-social{ position:absolute; right:0; top:0; transform:translateY(4px); }
 }
+/* ===== HARD PATCH v3 — layout, hero centering, portrait blend ===== */
+
+/* 1) Page column layout so footer sits at bottom, no stray gaps */
+html, body { height: 100%; }
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;          /* mobile-friendly viewport */
+}
+#root, .root, .app, main, .site-main, .page, .content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  min-height: 0;
+}
+
+/* Footer is pushed by main content, but no giant space */
+.site-footer { margin-top: auto; }
+
+/* 2) Kill margin-collapsing “lines” between sections */
+section, .section {
+  margin: 0;
+  padding-block: 28px;
+}
+.container > *:first-child { margin-top: 0; }
+.container > *:last-child  { margin-bottom: 0; }
+
+/* 3) HOME intro: force a real centered hero even if classes differ */
+.home .hero,
+.home .container:first-of-type,
+.home-hero,
+main .hero {
+  display: grid !important;
+  place-items: center !important;
+  text-align: center !important;
+  min-height: clamp(420px, 62dvh, 680px) !important; /* centers between banner & footer */
+}
+.home .buttons, .hero .buttons { justify-content: center; }
+
+/* 4) Remove tiny inline img baseline gap everywhere */
+img { display: block; max-width: 100%; height: auto; }
+
+/* 5) ABOUT portrait: restore blended edges + no underflow gap */
+.about-image-wrapper {
+  background: transparent !important;   /* ensure fade blends to page, not a white box */
+  align-self: start;
+}
+
+.about-portrait {
+  display: block;
+  margin: 0 auto;
+  border-radius: 14px;
+  /* Soft radial fade at the edges (with WebKit prefix for iOS/Safari) */
+  -webkit-mask-image: radial-gradient(125% 125% at 50% 48%, #000 76%, transparent 100%);
+          mask-image: radial-gradient(125% 125% at 50% 48%, #000 76%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+}
+
+/* If your About layout is two columns, keep text aligned to top */
+.about-grid { align-items: start; }
+
+/* 6) Optional: slight tighten on Home top/bottom padding if still tall */
+.home .hero { padding-block: 12px; }
