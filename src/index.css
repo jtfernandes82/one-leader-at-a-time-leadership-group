@@ -384,3 +384,96 @@ html, body { height: 100%; }
 body { display: flex; flex-direction: column; }
 main { flex: 1 0 auto; }
 .site-footer { flex: 0 0 auto; padding-bottom: 18px; }
+/* ================================
+   1) HOME: true visual center + no gulf
+   ================================ */
+
+/* Treat the very first content container as the hero and center it  */
+main > .container:first-of-type{
+  /* center block itself */
+  margin-left:auto !important;
+  margin-right:auto !important;
+
+  /* center its content */
+  display:flex !important;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+
+  /* trim the “giant gap” feel */
+  margin-block: clamp(32px, 7vh, 72px) clamp(20px, 5vh, 56px) !important;
+  padding-block: 0 !important;
+  max-width: 980px;         /* keeps lines readable */
+}
+
+/* headline + lede tighter so the block can sit visually centered */
+main > .container:first-of-type h1{
+  margin: .1em 0 .45em !important;
+}
+main > .container:first-of-type p{
+  margin: 0 0 1.05rem !important;
+}
+main > .container:first-of-type .buttons{
+  margin-top: .65rem !important;
+  justify-content: center;
+}
+
+/* Remove any sneaky margins around first/last sections so footer sits correctly */
+main > section:first-child,
+main > .container:first-child { margin-top: 0 !important; }
+main > section:last-child,
+main > .container:last-child  { margin-bottom: 0 !important; }
+
+/* ================================
+   2) ABOUT: kill gap above “Signature Strengths”
+   ================================ */
+
+/* The portrait/text grid shouldn’t push a big bottom gap */
+.about-grid{
+  margin-bottom: 8px !important;
+  padding-bottom: 0 !important;
+}
+
+/* The heading that follows (your Signature Strengths) shouldn’t have a big top gap */
+.about-grid + h2,
+h2[id*="Signature"],
+h2[id*="signature"]{
+  margin-top: 8px !important;
+}
+
+/* In case a rule/hr slipped in, hide it */
+.about-grid + hr{ display:none !important; }
+
+/* Keep the soft fade on the portrait edge */
+.about-portrait{
+  -webkit-mask-image: radial-gradient(120% 120% at 50% 48%, #000 76%, transparent 100%);
+          mask-image: radial-gradient(120% 120% at 50% 48%, #000 76%, transparent 100%);
+  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+  -webkit-mask-size:100% 100%;   mask-size:100% 100%;
+}
+
+/* ================================
+   3) LinkedIn icon beside Contact (not bottom left)
+   ================================ */
+
+.nav-inner{ align-items:center; }
+.nav-list{ align-items:center; gap:22px; }
+.nav-social{
+  position: static !important;     /* no fixed/absolute drifting */
+  margin-left: 8px !important;     /* sits just after Contact */
+  transform: none !important;
+}
+
+/* If an older fixed icon remains, neutralize it */
+.nav-social[data-floating="true"]{
+  position: static !important;
+  bottom: auto !important; left: auto !important;
+}
+
+/* ================================
+   4) Footer stays snug at the bottom
+   ================================ */
+html, body { height: 100%; }
+body { display:flex; flex-direction:column; }
+main { flex: 1 0 auto; }
+.site-footer { flex: 0 0 auto; padding-bottom: 18px; }
