@@ -395,3 +395,22 @@ a[aria-label="LinkedIn"][style*="position:absolute"] {
 .site-footer a[href*="linkedin"]{
   display: none !important;
 }
+/* Soft blended edges for About portrait (class OR filename match) */
+.about-portrait,
+.about-image-wrapper img[src*="about-jesseana.png"] {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 14px;
+
+  /* smooth radial fade into the background */
+  -webkit-mask-image: radial-gradient(128% 128% at 50% 48%, #000 76%, transparent 100%) !important;
+          mask-image: radial-gradient(128% 128% at 50% 48%, #000 76%, transparent 100%) !important;
+  -webkit-mask-repeat: no-repeat !important;
+          mask-repeat: no-repeat !important;
+  -webkit-mask-size: 100% 100% !important;
+          mask-size: 100% 100% !important;
+
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  background: transparent;
+}
