@@ -1,34 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 
-/* ----------------------------------------
-   Brand palette (kept subtle & consistent)
------------------------------------------ */
-const COLORS = {
-  navy: "#1f3352",
-  text: "#34495e",
-  gold: "#E0B349",
-  goldSoft: "rgba(216,179,93,0.24)",
-  blueSoft: "rgba(153,182,212,0.24)",
-  white90: "rgba(255,255,255,0.90)",
-};
-
-function GradientTopBar() {
+/* ============ Thin gradient bars (match the look you loved) ============ */
+function TopGradientBar() {
   return (
     <div
       style={{
-        height: 12,
+        height: 10,
         width: "100%",
         background:
-          "linear-gradient(90deg, rgba(216,179,93,0.18) 0%, rgba(255,255,255,0.88) 50%, rgba(153,182,212,0.18) 100%)",
+          "linear-gradient(90deg, rgba(216,179,93,0.18) 0%, rgba(255,255,255,0.92) 50%, rgba(153,182,212,0.18) 100%)",
       }}
     />
   );
 }
-
-function GradientBottomBar() {
+function BottomGradientBand() {
   return (
     <div
+      className="bottom-band"
       style={{
         height: 44,
         width: "100%",
@@ -42,12 +31,9 @@ function GradientBottomBar() {
   );
 }
 
-/* ----------------------------------------
-   Responsive Header with Mobile Menu
------------------------------------------ */
+/* ========================= Header (with banner) ========================= */
 function Header() {
-  const [open, setOpen] = useState(false);
-  const navItems = [
+  const items = [
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
     { to: "/services", label: "Services" },
@@ -56,11 +42,10 @@ function Header() {
     { to: "/veterans", label: "Veterans" },
     { to: "/contact", label: "Contact" },
   ];
-
   return (
     <header>
-      <GradientTopBar />
-      {/* Banner */}
+      <TopGradientBar />
+      {/* Full-width banner image */}
       <div className="banner-wrap">
         <img
           src="/one-leader-banner.png"
@@ -68,31 +53,19 @@ function Header() {
           className="banner-img"
         />
       </div>
-
-      {/* Nav bar */}
+      {/* Simple responsive nav that WRAPS on mobile (no hamburger) */}
       <nav className="nav">
-        <div className="container nav-inner">
-          <button
-            className="burger"
-            aria-label="Toggle menu"
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-
-          <ul className={`nav-list ${open ? "nav-list--open" : ""}`}>
-            {navItems.map((item) => (
-              <li key={item.to}>
+        <div className="container">
+          <ul className="nav-list">
+            {items.map((it) => (
+              <li key={it.to}>
                 <NavLink
-                  to={item.to}
+                  to={it.to}
                   className={({ isActive }) =>
                     `nav-link ${isActive ? "nav-link--active" : ""}`
                   }
-                  onClick={() => setOpen(false)}
                 >
-                  {item.label}
+                  {it.label}
                 </NavLink>
               </li>
             ))}
@@ -103,9 +76,7 @@ function Header() {
   );
 }
 
-/* ----------------------------------------
-   Footer
------------------------------------------ */
+/* =============================== Footer ================================ */
 function Footer() {
   return (
     <footer className="footer">
@@ -126,9 +97,7 @@ function Footer() {
   );
 }
 
-/* ----------------------------------------
-   Buttons
------------------------------------------ */
+/* ============================= UI helpers ============================== */
 function Btn({ to = "#", children }) {
   return (
     <Link className="btn" to={to}>
@@ -138,15 +107,13 @@ function Btn({ to = "#", children }) {
 }
 function BtnOutline({ href = "#", children }) {
   return (
-    <a className="btn-outline" href={href}>
+    <a className="btn-outline" href={href} target="_blank" rel="noreferrer">
       {children}
     </a>
   );
 }
 
-/* ----------------------------------------
-   Pages (mobile-stacking layouts)
------------------------------------------ */
+/* ================================ Pages ================================ */
 function HomePage() {
   return (
     <section className="section">
@@ -160,7 +127,7 @@ function HomePage() {
           <Btn to="/contact">Book a discovery call</Btn>
           <Btn to="/elite">Explore the E.L.I.T.E.™ Framework</Btn>
         </div>
-        <GradientBottomBar />
+        <BottomGradientBand />
       </div>
     </section>
   );
@@ -175,22 +142,21 @@ function AboutPage() {
           <h1>About Jesseana Fernandes</h1>
           <p>
             Jesseana Fernandes is a transformational senior leader and <strong>Chief Warrant Officer
-            Three (CW3)</strong> with over two decades of experience leading in complex, high-stakes
-            environments. As a <strong>Senior Manager in aerospace operations</strong>, she blends
-            disciplined execution with people-first leadership to build resilient, high-performing teams.
+            Three (CW3)</strong> with over two decades of expertise in leadership, logistics, and
+            organizational strategy. As a <strong>Senior Manager in aerospace operations</strong>, she brings a rare
+            dual perspective—combining the precision of military discipline with the innovation of
+            corporate excellence.
           </p>
           <p>
-            Trained to serve as a technical advisor to officers at every level — including
-            <strong> senior commissioned officers</strong> — Jesseana has a proven record of mentoring
-            leaders, elevating standards, and driving cultural momentum. Her leadership is grounded in
-            purpose, accountability, clarity, and dignity — principles that create clarity in complexity
-            and performance under pressure.
+            Throughout her career, Jesseana has mentored leaders from <strong>senior commissioned officers</strong> to
+            rising talent, serving as a trusted advisor and technical expert to decision-makers at every level.
+            Her leadership approach is rooted in purpose, accountability, and service—principles that consistently
+            deliver clarity in complex operations and performance under pressure.
           </p>
           <p>
-            Faith and service inform Jesseana’s approach: <em>great organizations are built one leader at a time.</em>{" "}
-            That conviction inspired <strong>One Leader at a Time – Leadership Group™</strong> and its proprietary{" "}
-            <strong>E.L.I.T.E.™ Framework</strong> — Empower, Lead, Inspire, Transform, Elevate — translating values
-            into daily behaviors, decision frameworks, and measurable outcomes.
+            Her philosophy is simple and proven: <em>great organizations are built one leader at a time</em>. That
+            conviction inspired the creation of <strong>One Leader at a Time – Leadership Group™</strong> and its proprietary{" "}
+            <strong>E.L.I.T.E.™ Framework</strong>—Empower, Lead, Inspire, Transform, Elevate.
           </p>
 
           <h2>Signature Strengths</h2>
@@ -203,25 +169,22 @@ function AboutPage() {
 
           <h2>About One Leader at a Time – Leadership Group™</h2>
           <p>
-            <strong>One Leader at a Time – Leadership Group™</strong> was founded with a simple purpose:
-            to transform ordinary leadership moments into legendary impact. Rooted in integrity, resilience, and service,
-            Jesseana’s team equips executives, emerging leaders, and transitioning veterans to lead with courage and clarity.
-            The organization’s approach—anchored in the <strong>E.L.I.T.E.™ Framework</strong>—helps clients turn values
-            into action and vision into results.
+            <strong>One Leader at a Time – Leadership Group™</strong> equips executives, teams, and transitioning
+            veterans to lead with integrity, resilience, and purpose. We deliver executive coaching, organizational
+            transformation programs, and veteran transition leadership—bridging the gap between technical mastery
+            and human-centered leadership.
           </p>
           <p>
-            Through leadership development, strategic alignment, and operational excellence, the firm partners with
-            organizations to elevate culture, improve decision-making, and sustain performance in the most demanding
-            environments. Every engagement reflects the belief that leadership is not a title—it’s a responsibility to
-            empower others.
+            Every engagement is grounded in the <strong>E.L.I.T.E.™ Framework</strong>, translating values into daily
+            behaviors, decision frameworks, and measurable outcomes. Our mission is to build <strong>high-performing
+            teams</strong> and <strong>resilient cultures</strong> that thrive in high-stakes environments.
           </p>
           <p>
-            Veteran-owned, women-led, and purpose-driven, <strong>One Leader at a Time – Leadership Group™</strong> brings
-            faith, strategy, and experience together to build stronger teams, resilient leaders, and enduring organizations.
+            Veteran-owned • Women-owned • Purpose-driven • Leadership-focused
           </p>
         </div>
 
-        {/* RIGHT (soft-fade portrait) */}
+        {/* RIGHT portrait with soft fade */}
         <div className="portrait-col">
           <figure className="portrait-wrap">
             <img src="/about-jesseana.jpg" alt="Jesseana Fernandes" />
@@ -231,8 +194,9 @@ function AboutPage() {
           </p>
         </div>
       </div>
+
       <div className="container">
-        <GradientBottomBar />
+        <BottomGradientBand />
       </div>
     </section>
   );
@@ -246,6 +210,7 @@ function ServicesPage() {
         <p className="lead">
           Transform leaders, teams, and organizations through the E.L.I.T.E.™ Framework — Empower, Lead, Inspire, Transform, Elevate.
         </p>
+
         <div className="cards-grid">
           <div className="card">
             <h3>Leadership &amp; Team Development</h3>
@@ -258,8 +223,7 @@ function ServicesPage() {
           <div className="card">
             <h3>Veteran Transition Leadership</h3>
             <p className="muted">
-              Comprehensive support for transitioning service members and veterans: leadership translation, resume &amp; LinkedIn,
-              interview prep, job search coaching, career counseling, mentor matching, and 30-60-90 onboarding plans — all aligned to E.L.I.T.E.™.
+              Comprehensive support for transitioning service members and veterans: leadership translation, resume &amp; LinkedIn, interview prep, job search coaching, career counseling, mentor matching, and 30-60-90 onboarding plans — all aligned to E.L.I.T.E.™.
             </p>
           </div>
           <div className="card">
@@ -271,10 +235,11 @@ function ServicesPage() {
             <p className="muted">Dynamic keynotes and presentations rooted in leadership, resilience, and transformation across high-stakes environments.</p>
           </div>
         </div>
+
         <div className="cta-row">
           <Btn to="/contact">Schedule a consultation</Btn>
         </div>
-        <GradientBottomBar />
+        <BottomGradientBand />
       </div>
     </section>
   );
@@ -312,7 +277,7 @@ function ElitePage() {
           </div>
           <div className="card">
             <h3>Inspire</h3>
-            <p className="muted">Craft vision and messaging that mobilize action — not just agreement.</p>
+            <p className="muted">Craft vision and messaging that mobilize action— not just agreement.</p>
             <ul>
               <li>Vision-to-action communication</li>
               <li>Leader narrative &amp; symbols</li>
@@ -344,12 +309,10 @@ function ElitePage() {
 
         <div className="cta-row">
           <Btn to="/contact">Request ELITE program details</Btn>
-          <BtnOutline href="/OneLeaderAtATime_Speaker-OneSheet.pdf">
-            Download one-sheet
-          </BtnOutline>
+          <BtnOutline href="/OneLeaderAtATime_Speaker-OneSheet.pdf">Download one-sheet</BtnOutline>
         </div>
 
-        <GradientBottomBar />
+        <BottomGradientBand />
       </div>
     </section>
   );
@@ -486,7 +449,7 @@ function SpeakingPage() {
           </BtnOutline>
         </div>
 
-        <GradientBottomBar />
+        <BottomGradientBand />
       </div>
     </section>
   );
@@ -546,19 +509,19 @@ function VeteransPage() {
 
         <div className="cta-row">
           <Btn to="/contact#veterans">Start your transition</Btn>
-          <BtnOutline href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/" >
+          <BtnOutline href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/">
             Connect on LinkedIn
           </BtnOutline>
         </div>
 
-        <GradientBottomBar />
+        <BottomGradientBand />
       </div>
     </section>
   );
 }
 
 function ContactPage() {
-  // Netlify Forms: name="contact" method="POST" data-netlify="true" + hidden input form-name
+  // Netlify form (works on mobile + desktop)
   return (
     <section className="section">
       <div className="container">
@@ -622,15 +585,13 @@ function ContactPage() {
           <button className="btn" type="submit">Send inquiry</button>
         </form>
 
-        <GradientBottomBar />
+        <BottomGradientBand />
       </div>
     </section>
   );
 }
 
-/* ----------------------------------------
-   App Shell
------------------------------------------ */
+/* ================================ App ================================ */
 export default function App() {
   return (
     <BrowserRouter>
@@ -644,14 +605,17 @@ export default function App() {
           <Route path="/speaking" element={<SpeakingPage />} />
           <Route path="/veterans" element={<VeteransPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/thank-you" element={
-            <section className="section">
-              <div className="container">
-                <h1>Thank you!</h1>
-                <p className="lead">Your message has been submitted. We’ll be in touch shortly.</p>
-              </div>
-            </section>
-          } />
+          <Route
+            path="/thank-you"
+            element={
+              <section className="section">
+                <div className="container">
+                  <h1>Thank you!</h1>
+                  <p className="lead">Your message has been submitted. We’ll be in touch shortly.</p>
+                </div>
+              </section>
+            }
+          />
         </Routes>
       </main>
       <Footer />
