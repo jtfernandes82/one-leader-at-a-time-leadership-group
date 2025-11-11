@@ -93,21 +93,116 @@ function Footer() {
 
 /* ----- PAGES ----- */
 
+import { Link } from "react-router-dom";
+
 function Home() {
   return (
-    <main className="container">
-      <h1 className="section-title">Lead Today. Transform Tomorrow.</h1>
-      <p className="lede">
-        Empowering leaders and organizations through the E.L.I.T.E.™ Framework — Empower, Lead,
-        Inspire, Transform, Elevate.
-      </p>
-      <div className="buttons">
-        <Link to="/contact" className="btn">Book a discovery call</Link>
-        <Link to="/elite" className="btn">Explore the E.L.I.T.E.™ Framework</Link>
-      </div>
+    <main className="container home">
+      {/* HERO */}
+      <section className="hero section">
+        <h1 className="section-title">Lead Today. Transform Tomorrow.</h1>
+        <p className="lede">
+          Empowering leaders and organizations through the{" "}
+          <strong>E.L.I.T.E.™ Framework</strong> — Empower, Lead, Inspire, Transform, Elevate.
+        </p>
+
+        <div className="buttons">
+          <Link to="/contact" className="btn">
+            Book a discovery call
+          </Link>
+          <Link to="/elite" className="btn btn-ghost">
+            Explore the E.L.I.T.E.™ Framework
+          </Link>
+        </div>
+      </section>
+
+      {/* WHO WE HELP */}
+      <section className="section intro">
+        <h2>Who We Help</h2>
+        <p>
+          We partner with organizations, teams, and individual leaders who want to elevate
+          performance, strengthen culture, and build sustainable systems of excellence.
+        </p>
+        <ul className="pill-list">
+          <li>Corporate &amp; manufacturing teams</li>
+          <li>Mid-level and senior leaders</li>
+          <li>Veteran transition programs</li>
+          <li>Emerging professionals &amp; high-potential talent</li>
+        </ul>
+      </section>
+
+      {/* ELITE SNAPSHOT */}
+      <section className="section elite-preview">
+        <h2>The E.L.I.T.E.™ Snapshot</h2>
+        <p>
+          A proven framework to align values, improve communication, and transform culture —
+          one leader at a time.
+        </p>
+
+        <div className="elite-grid">
+          <article>
+            <h3>E — Empower</h3>
+            <p>Equip teams with clarity, trust, and ownership.</p>
+          </article>
+          <article>
+            <h3>L — Lead</h3>
+            <p>Model consistency and accountability every day.</p>
+          </article>
+          <article>
+            <h3>I — Inspire</h3>
+            <p>Connect people to purpose and mission.</p>
+          </article>
+          <article>
+            <h3>T — Transform</h3>
+            <p>Turn challenges into catalysts for improvement.</p>
+          </article>
+          <article>
+            <h3>E — Elevate</h3>
+            <p>Measure, coach, and celebrate progress.</p>
+          </article>
+        </div>
+        <p style={{ textAlign: "center", marginTop: "1rem" }}>
+          <Link to="/elite" className="btn btn-ghost">
+            Learn more about the Framework
+          </Link>
+        </p>
+      </section>
+
+      {/* TESTIMONIAL STRIP */}
+      <section className="section testimonials">
+        <h2>What Leaders Are Saying</h2>
+        <div className="testimonial-cards">
+          <blockquote>
+            “The ELITE framework helped our operations team build trust and
+            deliver consistent results under pressure.”
+            <footer>— Operations Director, Aerospace</footer>
+          </blockquote>
+          <blockquote>
+            “Practical, authentic, and energizing. We left with clarity and
+            actions we could apply immediately.”
+            <footer>— HR Partner, Manufacturing</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section cta">
+        <h2>Ready to elevate your team?</h2>
+        <p>Let’s turn your leadership vision into a roadmap for results.</p>
+        <div className="buttons">
+          <Link to="/contact" className="btn">
+            Schedule a call
+          </Link>
+          <Link to="/speaking" className="btn btn-ghost">
+            See speaking topics
+          </Link>
+        </div>
+      </section>
     </main>
   );
 }
+
+export default Home;
 
 function About() {
   return (
