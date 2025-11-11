@@ -179,7 +179,8 @@ function About() {
 
         <div className="portrait-col">
           <figure className="portrait-wrap">
-            <img src="/about-jesseana.jpg" alt="Jesseana Fernandes portrait" />
+            <img src="/about-jesseana.jpg" alt="Jesseana Fernandes portrait"className="about-portrait"
+/>
           </figure>
           <p className="portrait-caption">
             Jesseana Fernandes, CW3 — Founder of One Leader at a Time – Leadership Group™
@@ -194,118 +195,146 @@ function About() {
   );
 }
 
-function Services() {
+function ServicesPage(){
   return (
-    <section className="section">
-      <div className="container">
-        <h1>Services</h1>
-        <p className="lead">
-          Transforming leaders, teams, and organizations through the E.L.I.T.E.™ Framework.
-        </p>
-        <div className="cards-grid">
-          <div className="card">
-            <h3>Leadership & Team Development</h3>
-            <p>Workshops to strengthen trust, communication, and decision-making across all levels.</p>
-          </div>
-          <div className="card">
-            <h3>Executive & Strategic Coaching</h3>
-            <p>Customized coaching for senior leaders navigating transformation and performance excellence.</p>
-          </div>
-          <div className="card">
-            <h3>Veteran Transition Leadership</h3>
-            <p>Leadership translation, resume & LinkedIn, interview prep, job search coaching, career counseling, mentor matching, 30-60-90 plans.</p>
-          </div>
-          <div className="card">
-            <h3>Organizational Resilience</h3>
-            <p>Change navigation, continuity strategies, and systems that sustain results.</p>
-          </div>
-          <div className="card">
-            <h3>Speaking & Keynotes</h3>
-            <p>Dynamic keynotes rooted in leadership, resilience, and transformation.</p>
-          </div>
+    <main className="container">
+      <h1 className="section-title">Services</h1>
+      <p>
+        We transform leaders, teams, and organizations through the E.L.I.T.E.™ Framework —
+        Empower, Lead, Inspire, Transform, Elevate. Programs can be delivered onsite or virtually
+        and tailored by audience level.
+      </p>
+
+      <div className="grid" style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:'16px',marginTop:'14px'}}>
+        <div className="card">
+          <h3>Leadership & Team Development</h3>
+          <p>High-impact workshops to strengthen trust, communication, decision-making, and execution across all levels.</p>
+          <ul>
+            <li>Team operating rhythm</li>
+            <li>Leader standards & rituals</li>
+            <li>After-action learning</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>Executive & Strategic Coaching</h3>
+          <p>Confidential coaching for senior leaders navigating growth, transformation, and cultural momentum.</p>
+          <ul>
+            <li>Decision frameworks</li>
+            <li>Executive presence</li>
+            <li>Accountability systems</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>Organizational Resilience</h3>
+          <p>Build adaptability and continuity strategies that keep your mission on track in complex environments.</p>
+          <ul>
+            <li>Change navigation</li>
+            <li>Risk & response playbooks</li>
+            <li>Metrics that matter</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>Speaking & Keynotes</h3>
+          <p>Dynamic talks that translate leadership principles into action, tailored to your audience and outcomes.</p>
+          <ul>
+            <li>Keynotes</li>
+            <li>Panels & firesides</li>
+            <li>Workshops</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>Veteran Transition Leadership</h3>
+          <p>End-to-end support to translate military excellence into civilian leadership and career success.</p>
+          <ul>
+            <li>Résumé & LinkedIn</li>
+            <li>Interview prep</li>
+            <li>30-60-90 plans</li>
+          </ul>
         </div>
       </div>
-      <SectionBand />
-    </section>
+
+      <Link to="/contact" className="btn" style={{display:'inline-block',marginTop:'18px'}}>Schedule a consultation</Link>
+    </main>
   );
 }
 
-function Elite() {
-  const items = [
-    { k: "E", t: "Empower", d: "Build confidence, autonomy, and accountability." },
-    { k: "L", t: "Lead", d: "Model values, align decisions, and execute with clarity." },
-    { k: "I", t: "Inspire", d: "Craft vision, communicate clearly, mobilize action." },
-    { k: "T", t: "Transform", d: "Navigate change with resilience and systems thinking." },
-    { k: "E", t: "Elevate", d: "Sustain excellence through coaching and continuous learning." }
-  ];
+function ElitePage(){
   return (
-    <section className="section">
-      <div className="container">
-        <h1>E.L.I.T.E.™ Framework</h1>
-        <div className="cards-grid">
-          {items.map((m) => (
-            <div key={m.t} className="card">
-              <div className="mini-title">{m.k} — {m.t}</div>
-              <p>{m.d}</p>
-            </div>
-          ))}
-        </div>
+    <main className="container">
+      <h1 className="section-title">The E.L.I.T.E.™ Framework</h1>
+      <p>
+        A practical, repeatable way to lead in high-stakes environments. E.L.I.T.E.™ turns values
+        into visible behaviors and measurable outcomes—so teams move with clarity, speed, and trust.
+      </p>
+
+      <div className="grid" style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:'14px',marginTop:'12px'}}>
+        <div className="card"><h3>Empower</h3><p>Set standards, remove friction, and equip people to own the mission.</p></div>
+        <div className="card"><h3>Lead</h3><p>Model calm, courage, and accountability—especially under pressure.</p></div>
+        <div className="card"><h3>Inspire</h3><p>Tell the story of “why” and keep purpose visible in the work.</p></div>
+        <div className="card"><h3>Transform</h3><p>Build mechanisms for change—cadence, playbooks, and feedback loops.</p></div>
+        <div className="card"><h3>Elevate</h3><p>Measure, learn, and scale what works to sustain performance.</p></div>
       </div>
-      <SectionBand />
-    </section>
+
+      <Link to="/services" className="btn" style={{display:'inline-block',marginTop:'18px'}}>See our services</Link>
+    </main>
   );
 }
 
-function Speaking() {
-  const topics = [
-    {
-      t: "Building High-Performance Teams in High-Stakes Environments",
-      b: "Align roles, set cadence, execute with urgency without burnout.",
-      o: ["Team trust & cadence systems", "Clarity of priorities & ownership", "Faster, cleaner handoffs"]
-    },
-    {
-      t: "Culture as a Competitive Advantage",
-      b: "Turn values into behaviors, feedback loops, and visible standards.",
-      o: ["Leadership standards & rituals", "Constructive feedback culture", "Retention & engagement gains"]
-    },
-    {
-      t: "The E.L.I.T.E.™ Framework: Practical Leadership for Real Results",
-      b: "A field-tested system to simplify decisions and drive change.",
-      o: ["Decision frameworks", "Change navigation", "Post-event action plans"]
-    },
-    {
-      t: "Veteran Lessons for Modern Leaders",
-      b: "Translate mission planning and AARs into business execution.",
-      o: ["Leadership under pressure", "Accountability systems", "After-action learning"]
-    }
-  ];
+function SpeakingPage(){
   return (
-    <section className="section">
-      <div className="container">
-        <h1>Speaking & Keynotes</h1>
-        <p className="lead">
-          High-energy, high-credibility talks that turn leadership principles into action.
-        </p>
+    <main className="container">
+      <h1 className="section-title">Speaking & Keynotes</h1>
+      <p>
+        High-energy, high-credibility talks that turn leadership principles into action. Jesseana brings two decades of
+        military and aerospace leadership to the stage, equipping audiences to lead with clarity, courage, and the
+        E.L.I.T.E.™ mindset.
+      </p>
 
-        <div className="cards-grid">
-          {topics.map((card) => (
-            <div key={card.t} className="card">
-              <h3>{card.t}</h3>
-              <p>{card.b}</p>
-              <div className="mini-title">Audience takeaways</div>
-              <ul className="bullets">
-                {card.o.map((x) => <li key={x}>{x}</li>)}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        <div className="cta-row">
-          <Button to="/contact">Request speaking availability</Button>
+      <div className="card" style={{margin:'14px 0'}}>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:'12px'}}>
+          <div><strong>Formats:</strong><br/>Keynote (20–45 min), Fireside chat, Panelist, Workshop (90–120 min)</div>
+          <div><strong>Audiences:</strong><br/>Executives, emerging leaders, technical teams, veteran ERGs</div>
+          <div><strong>Outcomes:</strong><br/>Clarity, accountability, decision speed, cultural momentum</div>
+          <div><strong>Travel:</strong><br/>Domestic & international • Based in Oklahoma City, OK</div>
         </div>
       </div>
-      <SectionBand />
-    </section>
+
+      <h2 className="section-title" style={{marginTop:'6px'}}>Signature Topics</h2>
+      <div className="grid" style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:'14px'}}>
+        <div className="card">
+          <h3>Building High-Performance Teams in High-Stakes Environments</h3>
+          <ul>
+            <li>Team trust & cadence systems</li>
+            <li>Clarity of priorities & ownership</li>
+            <li>Faster, cleaner handoffs</li>
+          </ul>
+        </div>
+        <div className="card">
+          <h3>Culture as a Competitive Advantage</h3>
+          <ul>
+            <li>Leadership standards & rituals</li>
+            <li>Constructive feedback culture</li>
+            <li>Retention & engagement gains</li>
+          </ul>
+        </div>
+        <div className="card">
+          <h3>The E.L.I.T.E.™ Framework: Practical Leadership for Real Results</h3>
+          <ul>
+            <li>Decision frameworks</li>
+            <li>Change navigation</li>
+            <li>Post-event action plans</li>
+          </ul>
+        </div>
+      </div>
+
+      <Link to="/contact" className="btn" style={{display:'inline-block',marginTop:'18px'}}>
+        Request speaking availability
+      </Link>
+    </main>
   );
 }
 
