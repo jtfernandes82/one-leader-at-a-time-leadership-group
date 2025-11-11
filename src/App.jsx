@@ -56,10 +56,8 @@ function Header() {
 
   return (
     <header className="site-header">
-      {/* Top soft gradient line */}
       <div className="header-blend" aria-hidden="true"></div>
 
-      {/* Banner image spanning entire width */}
       <div className="banner-bar">
         <img
           src="/One%20Leader%20at%20a%20Time001.png"
@@ -68,10 +66,9 @@ function Header() {
         />
       </div>
 
-      {/* Navigation bar */}
       <nav className="nav">
-        <div className="container nav-inner">
-          <ul className="nav-list">
+        <div className="container nav-inner" style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+          <ul className="nav-list" style={{display:'flex',alignItems:'center',margin:0,padding:0,listStyle:'none'}}>
             {nav.map((item) => (
               <li key={item.to}>
                 <NavLink
@@ -99,32 +96,31 @@ function Header() {
         </div>
       </nav>
 
-      {/* Bottom soft gradient line */}
       <div className="header-blend bottom" aria-hidden="true"></div>
     </header>
   );
 }
 
-
-function Footer() {
+function Footer(){
   return (
-    <footer className="footer">
-      <div className="container footer-inner">
-        <div className="footer-links">
+    <footer className="site-footer">
+      <div className="footer-blend" aria-hidden="true"></div>
+      <div className="container" style={{padding:'18px 0', display:'flex', flexWrap:'wrap', gap:'14px', justifyContent:'space-between', alignItems:'center'}}>
+        <nav style={{display:'flex', gap:'16px', flexWrap:'wrap'}}>
           <Link to="/elite">ELITE</Link>
           <Link to="/services">Services</Link>
           <Link to="/speaking">Speaking</Link>
           <Link to="/veterans">Veterans</Link>
           <Link to="/contact">Contact</Link>
-        </div>
-        <div className="footer-copy">
-          © {new Date().getFullYear()} One Leader at a Time – Leadership Group, LLC. All rights reserved.
+        </nav>
+        <div style={{opacity:.9}}>
+          © 2025 One Leader at a Time Leadership Group, LLC. All rights reserved.
         </div>
       </div>
-      <SectionBand tight />
     </footer>
   );
 }
+
 
 /* ---------- Pages ---------- */
 
