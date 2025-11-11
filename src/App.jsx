@@ -1,29 +1,29 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 
-/* ============ Thin gradient bars (match the look you loved) ============ */
+/* ============ Full-bleed gradient bars ============ */
 function TopGradientBar() {
   return (
     <div
+      className="fullbleed-bar"
       style={{
         height: 10,
-        width: "100%",
         background:
           "linear-gradient(90deg, rgba(216,179,93,0.18) 0%, rgba(255,255,255,0.92) 50%, rgba(153,182,212,0.18) 100%)",
       }}
     />
   );
 }
-function BottomGradientBand() {
+function FullBleedBottomBand({ height = 46, mt = 22, mb = 8 }) {
   return (
     <div
-      className="bottom-band"
+      className="fullbleed-bar"
       style={{
-        height: 44,
-        width: "100%",
-        borderRadius: 12,
-        marginTop: 22,
-        border: "1px solid rgba(20,40,60,0.08)",
+        height,
+        marginTop: mt,
+        marginBottom: mb,
+        borderTop: "1px solid rgba(20,40,60,0.08)",
+        borderBottom: "1px solid rgba(20,40,60,0.08)",
         background:
           "linear-gradient(90deg, rgba(216,179,93,0.24) 0%, rgba(255,255,255,0.88) 48%, rgba(153,182,212,0.24) 100%)",
       }}
@@ -45,15 +45,16 @@ function Header() {
   return (
     <header>
       <TopGradientBar />
-      {/* Full-width banner image */}
-      <div className="banner-wrap">
-        <img
-          src="/one-leader-banner.png"
-          alt="One Leader at a Time – Leadership Group"
-          className="banner-img"
-        />
+
+      {/* Banner as background so it scales nicely even if image is tall/short */}
+      <div
+        className="banner-hero fullbleed-bar"
+        aria-label="One Leader at a Time – Leadership Group"
+      >
+        {/* If the image is missing, user still sees a soft gradient */}
       </div>
-      {/* Simple responsive nav that WRAPS on mobile (no hamburger) */}
+
+      {/* Wrap nav in subtle gradient and allow wrapping on mobile */}
       <nav className="nav">
         <div className="container">
           <ul className="nav-list">
@@ -92,7 +93,7 @@ function Footer() {
           © {new Date().getFullYear()} One Leader at a Time – Leadership Group, LLC. All rights reserved.
         </div>
       </div>
-      <div className="footer-gradient" />
+      <FullBleedBottomBand height={12} mt={6} mb={0} />
     </footer>
   );
 }
@@ -127,8 +128,9 @@ function HomePage() {
           <Btn to="/contact">Book a discovery call</Btn>
           <Btn to="/elite">Explore the E.L.I.T.E.™ Framework</Btn>
         </div>
-        <BottomGradientBand />
       </div>
+      {/* Full-width soft band below content */}
+      <FullBleedBottomBand />
     </section>
   );
 }
@@ -137,7 +139,6 @@ function AboutPage() {
   return (
     <section className="section">
       <div className="container grid-2">
-        {/* LEFT */}
         <div>
           <h1>About Jesseana Fernandes</h1>
           <p>
@@ -179,12 +180,9 @@ function AboutPage() {
             behaviors, decision frameworks, and measurable outcomes. Our mission is to build <strong>high-performing
             teams</strong> and <strong>resilient cultures</strong> that thrive in high-stakes environments.
           </p>
-          <p>
-            Veteran-owned • Women-owned • Purpose-driven • Leadership-focused
-          </p>
+          <p>Veteran-owned • Women-owned • Purpose-driven • Leadership-focused</p>
         </div>
 
-        {/* RIGHT portrait with soft fade */}
         <div className="portrait-col">
           <figure className="portrait-wrap">
             <img src="/about-jesseana.jpg" alt="Jesseana Fernandes" />
@@ -195,9 +193,7 @@ function AboutPage() {
         </div>
       </div>
 
-      <div className="container">
-        <BottomGradientBand />
-      </div>
+      <FullBleedBottomBand />
     </section>
   );
 }
@@ -239,8 +235,8 @@ function ServicesPage() {
         <div className="cta-row">
           <Btn to="/contact">Schedule a consultation</Btn>
         </div>
-        <BottomGradientBand />
       </div>
+      <FullBleedBottomBand />
     </section>
   );
 }
@@ -311,9 +307,8 @@ function ElitePage() {
           <Btn to="/contact">Request ELITE program details</Btn>
           <BtnOutline href="/OneLeaderAtATime_Speaker-OneSheet.pdf">Download one-sheet</BtnOutline>
         </div>
-
-        <BottomGradientBand />
       </div>
+      <FullBleedBottomBand />
     </section>
   );
 }
@@ -329,7 +324,6 @@ function SpeakingPage() {
           equipping audiences to lead with clarity, courage, and the E.L.I.T.E.™ mindset.
         </p>
 
-        {/* Snapshot cards */}
         <div className="cards-grid">
           <div className="card">
             <h3>Formats</h3>
@@ -370,9 +364,7 @@ function SpeakingPage() {
         <div className="cards-grid">
           <div className="card">
             <h3>Building High-Performance Teams in High-Stakes Environments</h3>
-            <p className="muted">
-              Align roles, run disciplined stand-ups, and execute with urgency—without burning people out.
-            </p>
+            <p className="muted">Align roles, run disciplined stand-ups, and execute with urgency—without burning people out.</p>
             <strong>Audience takeaways</strong>
             <ul>
               <li>Team trust &amp; cadence systems</li>
@@ -382,9 +374,7 @@ function SpeakingPage() {
           </div>
           <div className="card">
             <h3>Culture as a Competitive Advantage</h3>
-            <p className="muted">
-              Turn values into behaviors, feedback loops, and visible leadership standards that lift performance.
-            </p>
+            <p className="muted">Turn values into behaviors, feedback loops, and visible leadership standards that lift performance.</p>
             <strong>Audience takeaways</strong>
             <ul>
               <li>Leadership standards &amp; rituals</li>
@@ -394,9 +384,7 @@ function SpeakingPage() {
           </div>
           <div className="card">
             <h3>The E.L.I.T.E.™ Framework: Practical Leadership for Real Results</h3>
-            <p className="muted">
-              A field-tested system to simplify decisions and drive change with discipline and care.
-            </p>
+            <p className="muted">A field-tested system to simplify decisions and drive change with discipline and care.</p>
             <strong>Audience takeaways</strong>
             <ul>
               <li>Decision frameworks</li>
@@ -406,9 +394,7 @@ function SpeakingPage() {
           </div>
           <div className="card">
             <h3>Leading Through Change—Without Burning People Out</h3>
-            <p className="muted">
-              Practical playbooks for risk, response, and communication that protect people and performance.
-            </p>
+            <p className="muted">Practical playbooks for risk, response, and communication that protect people and performance.</p>
             <strong>Audience takeaways</strong>
             <ul>
               <li>Change brief / debrief cadence</li>
@@ -418,9 +404,7 @@ function SpeakingPage() {
           </div>
           <div className="card">
             <h3>Veteran-to-Leader Transition Playbook</h3>
-            <p className="muted">
-              Translate military excellence into civilian leadership and career success.
-            </p>
+            <p className="muted">Translate military excellence into civilian leadership and career success.</p>
             <strong>Audience takeaways</strong>
             <ul>
               <li>Resume &amp; LinkedIn positioning</li>
@@ -430,13 +414,11 @@ function SpeakingPage() {
           </div>
           <div className="card">
             <h3>Women Leading in High-Stakes Environments</h3>
-            <p className="muted">
-              Standards, systems, and presence—without compromise.
-            </p>
+            <p className="muted">Standards, systems, and presence—without compromise.</p>
             <strong>Audience takeaways</strong>
             <ul>
               <li>Confidence &amp; communication under pressure</li>
-              <li>Sponsor versus mentor map</li>
+              <li>Sponsor vs mentor map</li>
               <li>Strategic network design</li>
             </ul>
           </div>
@@ -448,9 +430,8 @@ function SpeakingPage() {
             Download speaker one-sheet
           </BtnOutline>
         </div>
-
-        <BottomGradientBand />
       </div>
+      <FullBleedBottomBand />
     </section>
   );
 }
@@ -513,15 +494,13 @@ function VeteransPage() {
             Connect on LinkedIn
           </BtnOutline>
         </div>
-
-        <BottomGradientBand />
       </div>
+      <FullBleedBottomBand />
     </section>
   );
 }
 
 function ContactPage() {
-  // Netlify form (works on mobile + desktop)
   return (
     <section className="section">
       <div className="container">
@@ -584,9 +563,8 @@ function ContactPage() {
 
           <button className="btn" type="submit">Send inquiry</button>
         </form>
-
-        <BottomGradientBand />
       </div>
+      <FullBleedBottomBand />
     </section>
   );
 }
@@ -613,6 +591,7 @@ export default function App() {
                   <h1>Thank you!</h1>
                   <p className="lead">Your message has been submitted. We’ll be in touch shortly.</p>
                 </div>
+                <FullBleedBottomBand />
               </section>
             }
           />
