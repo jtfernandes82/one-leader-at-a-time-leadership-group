@@ -168,17 +168,17 @@ function Home() {
 
       {/* TESTIMONIAL STRIP */}
       <section className="section testimonials">
-        <h2>What Leaders Are Saying</h2>
+        <h2>What Military Leaders Are Saying</h2>
         <div className="testimonial-cards">
           <blockquote>
-            “The ELITE framework helped our operations team build trust and
-            deliver consistent results under pressure.”
-            <footer>— Operations Director, Aerospace</footer>
+            “The ELITE framework brought clarity and cohesion to our unit — it helped us lead with
+            purpose, not just position.”
+            <footer>— Senior NCO, U.S. Army</footer>
           </blockquote>
           <blockquote>
-            “Practical, authentic, and energizing. We left with clarity and
-            actions we could apply immediately.”
-            <footer>— HR Partner, Manufacturing</footer>
+            “Authentic, practical, and mission-focused. This program speaks directly to how
+            military leaders can bridge service and civilian success.”
+            <footer>— Chief Warrant Officer, National Guard</footer>
           </blockquote>
         </div>
       </section>
