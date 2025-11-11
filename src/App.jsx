@@ -227,7 +227,7 @@ function About() {
             <img
               src="/about-jesseana.jpg"
               alt='Portrait of Jesseana "Jesse" Fernandes'
-              className="about-img"
+              className="about-img soft-edges"
             />
           </div>
         </div>
@@ -269,7 +269,7 @@ function About() {
         </div>
       </section>
 
-      {/* FOUNDER’S LEADERSHIP PHILOSOPHY */}
+      {/* LEADERSHIP PHILOSOPHY */}
       <section className="section about-philosophy">
         <div className="about-wrapper narrow">
           <h2>Founder’s Leadership Philosophy</h2>
@@ -283,6 +283,31 @@ function About() {
           <p className="bible-quote">
             “Whoever wants to become great among you must be your servant.” — Matthew 20:26
           </p>
+        </div>
+      </section>
+
+      {/* VALUES WE LIVE BY */}
+      <section className="section about-values">
+        <div className="about-wrapper center">
+          <h2>Values We Live By</h2>
+          <div className="values-grid">
+            <article>
+              <h3>Empowerment</h3>
+              <p>We equip others with the tools, trust, and courage to lead boldly.</p>
+            </article>
+            <article>
+              <h3>Accountability</h3>
+              <p>We hold ourselves and our teams to the highest standards of integrity.</p>
+            </article>
+            <article>
+              <h3>Courage</h3>
+              <p>We embrace challenges as opportunities to grow, not barriers to fear.</p>
+            </article>
+            <article>
+              <h3>Faith</h3>
+              <p>We lead with conviction, humility, and confidence in purpose-driven work.</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -300,7 +325,6 @@ function About() {
     </main>
   );
 }
-
 function Services() {
   return (
     <main className="container">
