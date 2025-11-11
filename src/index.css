@@ -1002,3 +1002,61 @@ h1, h2 { color: #2a467b; }
   border-radius: 10px;
   padding: 0.75rem 1.25rem;
 }
+/* === Soft Image Edge Blend === */
+.soft-edges {
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* subtle vignette fade around the image itself */
+.soft-edges::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: radial-gradient(circle at center, transparent 60%, rgba(250,250,250,0.9) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* soften photo edges via filter blur background layer */
+.photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  z-index: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(280px 220px at 25% 25%, rgba(217,184,95,.25), transparent 70%),
+    radial-gradient(280px 220px at 75% 75%, rgba(42,70,123,.20), transparent 70%);
+  filter: blur(28px);
+  opacity: 0.9;
+}
+
+/* === Values Section === */
+.about-values {
+  background: #f8f9fb;
+  padding: 2.5rem 0;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.values-grid article {
+  background: #fff;
+  border: 1px solid #e6ecf5;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,.05);
+}
+
+.values-grid h3 {
+  color: #2a467b;
+  margin-bottom: 0.5rem;
+}
