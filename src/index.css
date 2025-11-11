@@ -563,3 +563,39 @@ a.nav-social { display:none !important; }
 .site-footer .footer-inner{
   justify-content:center; align-items:center; text-align:center; gap:14px;
 }
+.hidden{ display:none !important; }
+
+.contact-form{
+  max-width: 880px;
+  margin: 12px 0 24px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(220px,1fr));
+  gap: 16px;
+}
+
+.form-grid label{
+  font-weight:600;
+  color: var(--navy);
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+}
+
+.form-grid .full{ grid-column: 1 / -1; }
+
+@media (max-width: 720px){
+  .form-grid{ grid-template-columns: 1fr; }
+}
