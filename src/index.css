@@ -894,3 +894,111 @@ h1, h2 { color: #2a467b; }
 /* Reduce giant accidental margins from page builders */
 .about-page > *:first-child { margin-top: 0; }
 .about-page section:empty { display: none; }
+/* ===== About Page Layout ===== */
+.about-page { background: #fafafa; }
+
+.about-hero {
+  padding: 2.5rem 0;
+}
+
+.about-grid {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (max-width: 960px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.about-text .lead {
+  font-size: 1.1rem;
+  color: #334;
+}
+
+.about-cta { margin-top: 1rem; }
+
+/* ===== Image halo blend ===== */
+.photo-frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: -25px;
+  z-index: 0;
+  border-radius: 24px;
+  background:
+    radial-gradient(260px 200px at 20% 20%, rgba(217,184,95,.22), transparent 70%),
+    radial-gradient(300px 240px at 80% 80%, rgba(42,70,123,.18), transparent 70%);
+  filter: blur(22px);
+}
+
+.about-img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  border-radius: 14px;
+  display: block;
+  box-shadow: 0 10px 24px rgba(0,0,0,.1);
+}
+
+/* ===== Vision, Mission, Philosophy ===== */
+.about-wrapper {
+  width: min(900px, 92%);
+  margin: 0 auto;
+}
+
+.about-wrapper.center { text-align: center; }
+.about-wrapper.narrow { width: min(700px, 92%); }
+
+.about-vision h2,
+.about-philosophy h2 {
+  color: #2a467b;
+  margin-bottom: 1rem;
+}
+
+.about-vision .vision,
+.about-vision .mission {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.about-philosophy p {
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.bible-quote {
+  font-style: italic;
+  text-align: right;
+  color: #2a467b;
+}
+
+/* ===== CTA ===== */
+.section.cta {
+  text-align: center;
+  background: linear-gradient(180deg, #f9fafc 0%, #eef2f6 100%);
+  padding: 2rem 0 3rem;
+}
+
+.section.cta .btn {
+  background: #2a467b;
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+}
