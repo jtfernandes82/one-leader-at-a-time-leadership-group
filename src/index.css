@@ -1060,3 +1060,49 @@ h1, h2 { color: #2a467b; }
   color: #2a467b;
   margin-bottom: 0.5rem;
 }
+/* === Natural Ivory Fade for Image === */
+.photo-frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Create a soft neutral glow behind the image */
+.photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: -60px;
+  z-index: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(300px 250px at 40% 40%, rgba(255,255,255,0.85), transparent 80%),
+    radial-gradient(300px 250px at 60% 70%, rgba(240,240,240,0.8), transparent 90%);
+  filter: blur(35px);
+  opacity: 0.9;
+}
+
+/* Soft fade at edges of photo */
+.soft-edges {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  border-radius: 14px;
+  display: block;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  mask-image: radial-gradient(circle at center, black 78%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 78%, transparent 100%);
+}
+
+/* Blend overlay (soft white haze) */
+.soft-edges::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: radial-gradient(circle at center, transparent 65%, rgba(250,250,250,0.95) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
