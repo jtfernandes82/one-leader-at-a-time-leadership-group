@@ -1,13 +1,13 @@
 import React from "react";
 import { Routes, Route, NavLink, Link } from "react-router-dom";
 
-/* --- LinkedIn Icon --- */
-function LinkedInIcon() {
+/* LinkedIn icon */
+function LinkedInIcon({ size = 22 }) {
   return (
     <svg
       viewBox="0 0 24 24"
-      width="22"
-      height="22"
+      width={size}
+      height={size}
       fill="#0a66c2"
       aria-hidden="true"
     >
@@ -16,7 +16,7 @@ function LinkedInIcon() {
   );
 }
 
-/* --- Header with Banner --- */
+/* Header with banner + nav (icon pinned right inside the nav) */
 function Header() {
   const nav = [
     { to: "/", label: "Home" },
@@ -30,8 +30,7 @@ function Header() {
 
   return (
     <header className="site-header">
-      <div className="header-blend" aria-hidden="true"></div>
-
+      {/* The banner sits flush to the top */}
       <div className="banner-bar">
         <img
           src="/One%20Leader%20at%20a%20Time001.png"
@@ -65,30 +64,27 @@ function Header() {
             aria-label="LinkedIn"
             title="LinkedIn"
           >
-            <LinkedInIcon />
+            <LinkedInIcon size={22} />
           </a>
         </div>
       </nav>
-
-      <div className="header-blend bottom" aria-hidden="true"></div>
     </header>
   );
 }
 
-/* --- Footer --- */
+/* Footer with correct order: links (left) then © (right) */
 function Footer() {
   return (
     <footer className="site-footer">
-      <div className="footer-blend" aria-hidden="true"></div>
       <div className="container footer-inner">
-        <nav>
+        <nav className="footer-links">
           <Link to="/elite">ELITE</Link>
           <Link to="/services">Services</Link>
           <Link to="/speaking">Speaking</Link>
           <Link to="/veterans">Veterans</Link>
           <Link to="/contact">Contact</Link>
         </nav>
-        <div>
+        <div className="footer-copy">
           © 2025 One Leader at a Time Leadership Group, LLC. All rights reserved.
         </div>
       </div>
@@ -96,14 +92,15 @@ function Footer() {
   );
 }
 
-/* --- PAGES --- */
+/* ----- PAGES ----- */
+
 function Home() {
   return (
     <main className="container">
       <h1 className="section-title">Lead Today. Transform Tomorrow.</h1>
-      <p>
-        Empowering leaders and organizations through the E.L.I.T.E.™ Framework —
-        Empower, Lead, Inspire, Transform, Elevate.
+      <p className="lede">
+        Empowering leaders and organizations through the E.L.I.T.E.™ Framework — Empower, Lead,
+        Inspire, Transform, Elevate.
       </p>
       <div className="buttons">
         <Link to="/contact" className="btn">Book a discovery call</Link>
@@ -135,10 +132,10 @@ function About() {
           </p>
 
           <p>
-            Jesseana’s philosophy is simple and proven: <em>great organizations are built one leader at a time.</em> 
+            Jesseana’s philosophy is simple and proven: <em>great organizations are built one leader at a time.</em>{" "}
             That conviction inspired the creation of One Leader at a Time – Leadership Group™ and its proprietary
-            E.L.I.T.E.™ Framework—Empower, Lead, Inspire, Transform, Elevate—a field-tested approach that
-            translates values into visible behaviors, decision frameworks, and measurable outcomes.
+            E.L.I.T.E.™ Framework—Empower, Lead, Inspire, Transform, Elevate—a field-tested approach that translates
+            values into visible behaviors, decision frameworks, and measurable outcomes leaders can apply immediately.
           </p>
         </div>
 
@@ -155,6 +152,21 @@ function About() {
         <li><strong>Operational Excellence:</strong> cadence systems, clear ownership, and disciplined follow-through</li>
         <li><strong>Culture Building:</strong> trust, accountability, and feedback loops that stick</li>
       </ul>
+
+      <h2 className="section-title">About One Leader at a Time – Leadership Group™</h2>
+      <p>
+        One Leader at a Time – Leadership Group™ equips executives, teams, and transitioning veterans to lead with
+        integrity, resilience, and purpose. We deliver executive coaching, organizational transformation programs,
+        and veteran transition leadership—bridging the gap between technical mastery and human-centered leadership.
+      </p>
+      <p>
+        Every engagement is grounded in the E.L.I.T.E.™ Framework, aligning empower, lead, inspire, transform, and
+        elevate into practical systems: decision cadence, feedback loops, standards of behavior, and measurable outcomes
+        that lift culture and performance.
+      </p>
+      <p className="tagline">
+        VETERAN-OWNED • WOMEN-OWNED • PURPOSE-DRIVEN • LEADERSHIP-FOCUSED
+      </p>
     </main>
   );
 }
@@ -169,12 +181,51 @@ function Services() {
         by audience level.
       </p>
 
-      <div className="service-grid">
-        <div className="card"><h3>Leadership & Team Development</h3><p>Trust, communication, and execution across all levels.</p></div>
-        <div className="card"><h3>Executive & Strategic Coaching</h3><p>Decision frameworks, executive presence, accountability systems.</p></div>
-        <div className="card"><h3>Organizational Resilience</h3><p>Continuity, adaptability, and mission assurance in complex environments.</p></div>
-        <div className="card"><h3>Speaking & Keynotes</h3><p>Dynamic keynotes and workshops that turn leadership into action.</p></div>
-        <div className="card"><h3>Veteran Transition Leadership</h3><p>Translating military excellence into civilian leadership success.</p></div>
+      <div className="card-grid">
+        <div className="card">
+          <h3>Leadership & Team Development</h3>
+          <ul>
+            <li>Team operating rhythm</li>
+            <li>Leader standards & rituals</li>
+            <li>After-action learning</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>Executive & Strategic Coaching</h3>
+          <ul>
+            <li>Decision frameworks</li>
+            <li>Executive presence</li>
+            <li>Accountability systems</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>Organizational Resilience</h3>
+          <ul>
+            <li>Change navigation</li>
+            <li>Risk & response playbooks</li>
+            <li>Metrics that matter</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>Speaking & Keynotes</h3>
+          <ul>
+            <li>Keynotes</li>
+            <li>Panels & firesides</li>
+            <li>Workshops</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>Veteran Transition Leadership</h3>
+          <ul>
+            <li>Resume & LinkedIn</li>
+            <li>Interview prep</li>
+            <li>30-60-90 day plans</li>
+          </ul>
+        </div>
       </div>
 
       <Link to="/contact" className="btn">Schedule a consultation</Link>
@@ -187,12 +238,11 @@ function Elite() {
     <main className="container">
       <h1 className="section-title">The E.L.I.T.E.™ Framework</h1>
       <p>
-        The E.L.I.T.E.™ Framework is a practical, repeatable way to lead in high-stakes environments.
-        It turns values into visible behaviors and measurable outcomes—so teams move with clarity,
-        speed, and trust.
+        A practical, repeatable way to lead in high-stakes environments. It turns values into visible
+        behaviors and measurable outcomes—so teams move with clarity, speed, and trust.
       </p>
 
-      <div className="elite-grid">
+      <div className="card-grid">
         <div className="card"><h3>Empower</h3><p>Set standards and equip teams to own outcomes.</p></div>
         <div className="card"><h3>Lead</h3><p>Model calm, courage, and accountability under pressure.</p></div>
         <div className="card"><h3>Inspire</h3><p>Connect purpose to performance and reinforce the “why.”</p></div>
@@ -214,17 +264,40 @@ function Speaking() {
       </p>
 
       <div className="card">
-        <strong>Formats:</strong> Keynote (20–45 min), Fireside chat, Panelist, Workshop (90–120 min)<br/>
-        <strong>Audiences:</strong> Executives, emerging leaders, technical teams, veteran ERGs<br/>
-        <strong>Outcomes:</strong> Clarity, accountability, decision speed, cultural momentum<br/>
-        <strong>Travel:</strong> Domestic & international • Based in Oklahoma City, OK
+        <p><strong>Formats:</strong> Keynote (20–45 min), Fireside chat, Panelist, Workshop (90–120 min)</p>
+        <p><strong>Audiences:</strong> Executives, emerging leaders, technical teams, veteran ERGs</p>
+        <p><strong>Outcomes:</strong> Clarity, accountability, decision speed, cultural momentum</p>
+        <p><strong>Travel:</strong> Domestic & international • Based in Oklahoma City, OK</p>
       </div>
 
       <h2 className="section-title">Signature Topics</h2>
-      <div className="service-grid">
-        <div className="card"><h3>Building High-Performance Teams</h3><p>Team trust, cadence, and disciplined execution.</p></div>
-        <div className="card"><h3>Culture as a Competitive Advantage</h3><p>Lift performance through feedback, retention, and engagement.</p></div>
-        <div className="card"><h3>The E.L.I.T.E.™ Framework in Action</h3><p>Real-world tools to simplify decisions and drive results.</p></div>
+      <div className="card-grid">
+        <div className="card">
+          <h3>Building High-Performance Teams</h3>
+          <ul>
+            <li>Team trust & cadence systems</li>
+            <li>Clarity of priorities & ownership</li>
+            <li>Faster, cleaner handoffs</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>Culture as a Competitive Advantage</h3>
+          <ul>
+            <li>Leadership standards & rituals</li>
+            <li>Constructive feedback culture</li>
+            <li>Retention & engagement gains</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>The E.L.I.T.E.™ Framework: Practical Leadership</h3>
+          <ul>
+            <li>Decision frameworks</li>
+            <li>Change navigation</li>
+            <li>Post-event action plans</li>
+          </ul>
+        </div>
       </div>
 
       <Link to="/contact" className="btn">Request speaking availability</Link>
@@ -243,7 +316,7 @@ function Veterans() {
       <ul>
         <li>Resume and LinkedIn coaching</li>
         <li>Interview preparation and positioning</li>
-        <li>30–60–90 day integration plans</li>
+        <li>30-60-90 day integration plans</li>
       </ul>
     </main>
   );
@@ -253,13 +326,27 @@ function Contact() {
   return (
     <main className="container">
       <h1 className="section-title">Contact</h1>
-      <p>Email: <a href="mailto:jesse@oneleaderatatimegroup.com">jesse@oneleaderatatimegroup.com</a></p>
+      <p>
+        Email:{" "}
+        <a href="mailto:jesse@oneleaderatatimegroup.com">
+          jesse@oneleaderatatimegroup.com
+        </a>
+      </p>
 
       <form name="contact" method="POST" data-netlify="true" className="card">
         <input type="hidden" name="form-name" value="contact" />
-        <label>Name<input type="text" name="name" required /></label>
-        <label>Email<input type="email" name="email" required /></label>
-        <label>Message<textarea name="message" rows="5" required></textarea></label>
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
         <button className="btn" type="submit">Send</button>
       </form>
     </main>
