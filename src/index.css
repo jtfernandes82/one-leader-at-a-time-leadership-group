@@ -142,3 +142,62 @@ main hr{ border:0; height:0; display:none; }
   .about-grid{ grid-template-columns: 1fr; }
   .nav-list{ gap:16px; }
 }
+/* ==============================
+   FINAL LAYOUT FIXES / OVERRIDES
+   (append to bottom of index.css)
+   ============================== */
+
+/* 1) Center the nav (tabs) horizontally and keep LinkedIn inline */
+.nav-inner{ justify-content: center !important; }
+.nav-list{ justify-content: center !important; }
+.nav-social{
+  position: static !important;
+  order: 1 !important;        /* sits after "Contact" */
+  margin-left: 10px !important;
+  align-self: center !important;
+}
+
+/* 2) Tighten ABOUT vertical rhythm
+   - remove micro-gap above "Signature Strengths"
+   - shrink the space after the portrait grid
+   - kill any stray <hr> line between sections
+*/
+.about-grid{ 
+  margin-bottom: 6px !important;
+  padding-bottom: 0 !important;
+}
+.about-grid + *{
+  margin-top: 10px !important;   /* first block after the grid */
+}
+.about-grid + hr{ display:none !important; }
+
+/* 3) Eliminate bottom white band on pages (esp. About)
+   - remove extra bottom space from the last content container
+   - also remove bottom margin on its last child
+*/
+main > .container:last-of-type{
+  margin-bottom: 0 !important;
+  padding-bottom: 10px !important;
+}
+main > .container:last-of-type > *:last-child{
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* 4) Center the hero + About "middle content" visually */
+main > .container:first-of-type{
+  margin-inline: auto !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 5) Center the footer content and links */
+.site-footer .footer-inner{
+  justify-content: center !important;
+  text-align: center !important;
+}
+.site-footer .footer-links{
+  display:flex; gap:18px; flex-wrap:wrap; justify-content:center !important;
+}
