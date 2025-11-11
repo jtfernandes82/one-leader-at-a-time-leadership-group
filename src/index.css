@@ -150,3 +150,107 @@ p { line-height: 1.6; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 12px; }
 .footer-a { color: var(--navy); text-decoration: none; font-weight: 700; }
 .footer-copy { color: #5b6b7b; margin-top: 8px; font-size: 0.92rem; }
+/* === Soft full-bleed blends (top + bottom) — keep subtle and seamless === */
+.top-gradient {
+  block-size: 12px;
+  background: linear-gradient(
+    to right,
+    rgba(218, 182, 111, 0.22) 0%,
+    rgba(255, 255, 255, 0.65) 48%,
+    rgba(169, 187, 209, 0.28) 100%
+  );
+  border: 0;
+}
+
+.bottom-gradient {
+  block-size: 12px;
+  background: linear-gradient(
+    to right,
+    rgba(218, 182, 111, 0.22) 0%,
+    rgba(255, 255, 255, 0.65) 48%,
+    rgba(169, 187, 209, 0.28) 100%
+  );
+  border: 0;
+}
+
+/* Ensure the banner image keeps the same presence without being “too tall” */
+.site-banner {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: 1400px;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+/* === LinkedIn icon styling === */
+.nav-link--social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 34px;
+  block-size: 34px;
+  border-radius: 50%;
+  margin-inline-start: 8px;
+  background: rgba(0, 0, 0, 0.04);
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.nav-link--social:hover {
+  transform: translateY(-1px);
+  background: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+.icon-linkedin {
+  display: block;
+  fill: #0a66c2; /* LinkedIn blue */
+}
+
+/* === Mobile spacing fixes (no structure changes) === */
+@media (max-width: 960px) {
+  /* Nav: keep items tappable and not wrapping awkwardly */
+  .site-nav,
+  .nav {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .nav-link,
+  .nav a {
+    padding: 10px 12px;
+  }
+
+  /* Hero spacing so content isn’t glued to the top */
+  .hero,
+  .hero-section,
+  .home-hero {
+    padding-block: 28px 24px;
+  }
+
+  /* Contact form fields comfortable on mobile */
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea,
+  .contact-form button {
+    inline-size: 100%;
+  }
+
+  /* About page: portrait stacks nicely with text */
+  .about .layout,
+  .about .grid,
+  .about .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about img.portrait,
+  .about .portrait {
+    max-inline-size: 380px;
+    justify-self: center;
+  }
+}
+
+/* Small fix so footer never looks clipped on short pages */
+.site-footer {
+  padding-block: 20px;
+}
