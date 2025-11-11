@@ -259,3 +259,77 @@ main > .container:first-of-type{
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   background: transparent;
 }
+/* ===== HEADER: keep LinkedIn right after Contact and square ===== */
+.nav-inner { display:flex; align-items:center; justify-content:center; gap:12px; }
+.nav-list  { display:flex; align-items:center; justify-content:center; gap:22px; flex-wrap:wrap; }
+.nav-social-link {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:28px; height:28px;
+  margin-left:10px !important;          /* sits right after Contact */
+  transform: translateY(1px);            /* optical alignment with text */
+}
+.nav-social-link svg { display:block; }
+
+/* ===== FOOTER: align LinkedIn properly with the footer links ===== */
+.site-footer .footer-inner {
+  display:flex; flex-wrap:wrap; gap:14px;
+  justify-content:center; align-items:center; text-align:center;
+}
+.site-footer .footer-links {
+  display:flex; gap:18px; flex-wrap:wrap; justify-content:center; align-items:center;
+}
+.site-footer .footer-social, .site-footer a[aria-label="LinkedIn"] {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:28px; height:28px;
+  margin-left:8px;
+}
+.site-footer .footer-social svg,
+.site-footer a[aria-label="LinkedIn"] svg { width:22px; height:22px; display:block; }
+
+/* If an old floating LinkedIn button exists anywhere, neutralize it */
+a[aria-label="LinkedIn"][style*="position:fixed"],
+a[aria-label="LinkedIn"][style*="position:absolute"] {
+  position: static !important; bottom:auto !important; left:auto !important;
+}
+
+/* ===== ABOUT PORTRAIT: force the soft blended edge and keep it ===== */
+.about-portrait {
+  width:100%; max-width:420px; border-radius:14px;
+  /* high-specificity, can’t be easily overridden elsewhere */
+  -webkit-mask-image: radial-gradient(128% 128% at 50% 48%, #000 76%, transparent 100%) !important;
+          mask-image: radial-gradient(128% 128% at 50% 48%, #000 76%, transparent 100%) !important;
+  -webkit-mask-repeat: no-repeat !important;
+          mask-repeat: no-repeat !important;
+  -webkit-mask-size: 100% 100% !important;
+          mask-size: 100% 100% !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  background: transparent;
+}
+/* Fallback if the image ever loses its class */
+.about-image-wrapper img[alt*="Jesseana"],
+.about-image-wrapper img[alt*="Fernandes"] {
+  -webkit-mask-image: radial-gradient(128% 128% at 50% 48%, #000 76%, transparent 100%) !important;
+          mask-image: radial-gradient(128% 128% at 50% 48%, #000 76%, transparent 100%) !important;
+  -webkit-mask-repeat: no-repeat !important;
+          mask-repeat: no-repeat !important;
+  -webkit-mask-size: 100% 100% !important;
+          mask-size: 100% 100% !important;
+}
+
+/* ===== ABOUT gaps: above “Signature Strengths” and at page bottom ===== */
+.about-grid { margin-bottom: 6px !important; padding-bottom: 0 !important; }
+.about-grid + h2,
+.about-grid + .section-title,
+h2[id*="Signature"], h2[id*="signature"] { margin-top: 8px !important; }
+.about-grid + hr { display:none !important; }
+main > .container:last-of-type { margin-bottom: 0 !important; padding-bottom: 8px !important; }
+main > .container:last-of-type > *:last-child { margin-bottom:0 !important; padding-bottom:0 !important; }
+
+/* ===== HOME hero: keep centered; prevent bottom gulf ===== */
+main > .container:first-of-type{
+  margin-inline:auto !important;
+  display:flex !important; flex-direction:column; align-items:center; text-align:center;
+  margin-top: clamp(16px, 3vh, 28px) !important;
+  margin-bottom: 8px !important;            /* trims band above footer */
+  padding-block: 0 !important; max-width: 940px;
+}
