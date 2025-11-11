@@ -414,3 +414,11 @@ a[aria-label="LinkedIn"][style*="position:absolute"] {
   box-shadow: 0 10px 24px rgba(0,0,0,.08);
   background: transparent;
 }
+/* Align header tabs and place the square LinkedIn right after Contact */
+.nav-inner { display:flex; align-items:center; justify-content:center; gap:12px; }
+.nav-list  { display:flex; align-items:center; justify-content:center; gap:22px; flex-wrap:wrap; }
+.nav-social-link {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:28px; height:28px; margin-left:10px;
+  transform: translateY(1px); /* optical baseline alignment */
+}
