@@ -115,13 +115,8 @@ main .hero,
   place-items:center;         /* centers both axes */
   text-align:center;
   min-height: clamp(360px, 58svh, 560px);
-  gap:18px;
-  <section class="hero">
-  <div class="container">
-    <!-- your H1, paragraph, and buttons -->
-  </div>
-</section>
-}
+  gap:30px;
+  }
 
 /* If you have a heading + buttons inside, keep them tidy */
 .home .buttons, .hero .buttons { justify-content:center; }
