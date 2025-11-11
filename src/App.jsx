@@ -369,76 +369,99 @@ function Veterans() {
 // === Contact Page (drop-in replacement) ===
 function Contact() {
   return (
-    <main className="container">
-      <h1 className="section-title">Contact</h1>
-      <p>
-        Prefer email? Reach me at{" "}
-        <a href="mailto:jesse@oneleaderatatimegroup.com">jesse@oneleaderatatimegroup.com</a>.
-      </p>
-
-      {/* Netlify form */}
-      <form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        className="card"
-      >
-        {/* required by Netlify */}
-        <input type="hidden" name="form-name" value="contact" />
-        <p hidden>
-          <label>
-            Don’t fill this out if you’re human: <input name="bot-field" />
-          </label>
+    <main className="container contact">
+      <section className="section">
+        <h1 className="section-title">Get in Touch</h1>
+        <p className="lead">
+          Have a question or want to book a speaking engagement? I’d love to
+          connect and learn more about your goals.
+        </p>
+        <p>
+          Prefer email? Reach me directly at{" "}
+          <a href="mailto:jesse@oneleaderatatimegroup.com">
+            jesse@oneleaderatatimegroup.com
+          </a>
+          .
         </p>
 
-        <label>
-          Name
-          <input type="text" name="name" required />
-        </label>
-
-        <label>
-          Email
-          <input type="email" name="email" required />
-        </label>
-
-        <label>
-          Phone (optional)
-          <input type="tel" name="phone" />
-        </label>
-
-        <label>
-          Topic
-          <select name="topic" defaultValue="Discovery call">
-            <option>Discovery call</option>
-            <option>ELITE Framework</option>
-            <option>Speaking availability</option>
-            <option>Veteran transition consult</option>
-            <option>Other</option>
-          </select>
-        </label>
-
-        <label>
-          Message
-          <textarea name="message" rows="6" required></textarea>
-        </label>
-
-        <button className="btn" type="submit">Send</button>
-      </form>
-
-      <p style={{ marginTop: 16 }}>
-        You can also connect on{" "}
-        <a
-          href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/"
-          target="_blank"
-          rel="noopener"
+        {/* Netlify form */}
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          className="card contact-form"
         >
-          LinkedIn
-        </a>.
-      </p>
+          {/* Required hidden inputs for Netlify */}
+          <input type="hidden" name="form-name" value="contact" />
+          <p hidden>
+            <label>
+              Don’t fill this out if you’re human: <input name="bot-field" />
+            </label>
+          </p>
+
+          <div className="form-grid">
+            <label>
+              Name
+              <input type="text" name="name" required />
+            </label>
+
+            <label>
+              Email
+              <input type="email" name="email" required />
+            </label>
+
+            <label>
+              Phone (optional)
+              <input type="tel" name="phone" />
+            </label>
+
+            <label>
+              Topic
+              <select name="topic" defaultValue="Discovery call">
+                <option>Discovery call</option>
+                <option>ELITE Framework</option>
+                <option>Speaking availability</option>
+                <option>Veteran transition consult</option>
+                <option>Other</option>
+              </select>
+            </label>
+
+            <label className="full-width">
+              Message
+              <textarea
+                name="message"
+                rows="6"
+                placeholder="Tell me a bit about your event or team..."
+                required
+              ></textarea>
+            </label>
+          </div>
+
+          <button className="btn" type="submit">
+            Send Message
+          </button>
+        </form>
+
+        <div style={{ marginTop: 24 }}>
+          <p>
+            You can also connect with me on{" "}
+            <a
+              href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            .
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
+
+export default Contact;
 
 export default function App() {
   return (
