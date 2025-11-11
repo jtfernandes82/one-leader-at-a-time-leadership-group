@@ -502,3 +502,64 @@ picture img[src*="about-jesseana"] {
 .site-footer .footer-links{
   display:flex; flex-wrap:wrap; gap:18px; justify-content:center; align-items:center;
 }
+/* --- A) Hide any real LinkedIn link in the header (keep only the CSS-injected square icon next to Contact) --- */
+.site-header a[href*="linkedin"],
+.nav a[href*="linkedin"],
+.nav-social,
+a.nav-social { display:none !important; }
+
+/* --- B) Center the hero content and stop the home page from feeling "empty" --- */
+/* Make the main area take the free height and center the first section */
+.site-main{
+  display:grid;
+  /* header+banner is ~210–260px on your site; footer ~70–90px */
+  min-height: calc(100vh - 270px);
+  place-content: start center;    /* center horizontally, keep a little room at top */
+  padding-block: 16px 24px;
+}
+
+/* Center the first content block (your hero) */
+.site-main .container:first-of-type{
+  text-align:center;
+  max-width: 920px;
+  margin-inline: auto;
+}
+
+/* Center the buttons row */
+.site-main .container:first-of-type .buttons{
+  justify-content:center;
+}
+.site-main .container:first-of-type .btn{
+  margin-inline: 4px;
+}
+
+/* --- C) About page: tighten the small gap above "Signature Strengths" and keep the portrait blend --- */
+/* Tighten margins that sometimes appear after the portrait grid */
+.about-grid{ margin-bottom: 8px !important; }
+.about-grid + h2,
+.about-grid + .section-title{ margin-top: 10px !important; }
+.about-grid + hr{ display:none !important; }
+
+/* If your image is about-jesseana.png, blend its edges (keeps your current fade) */
+.about-portrait,
+.about-image-wrapper img[src*="about-jesseana.png"]{
+  -webkit-mask-image: radial-gradient(128% 128% at 50% 48%, #000 76%, transparent 100%) !important;
+          mask-image: radial-gradient(128% 128% at 50% 48%, #000 76%, transparent 100%) !important;
+  -webkit-mask-repeat:no-repeat !important;
+          mask-repeat:no-repeat !important;
+  -webkit-mask-size:100% 100% !important;
+          mask-size:100% 100% !important;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+}
+@supports not (mask-image: radial-gradient(black, transparent)) {
+  .about-portrait,
+  .about-image-wrapper img[src*="about-jesseana.png"]{
+    clip-path: ellipse(90% 80% at 50% 50%);
+  }
+}
+
+/* --- D) Keep footer neat and centered (no extra LI icon down there) --- */
+.site-footer a[href*="linkedin"]{ display:none !important; }
+.site-footer .footer-inner{
+  justify-content:center; align-items:center; text-align:center; gap:14px;
+}
