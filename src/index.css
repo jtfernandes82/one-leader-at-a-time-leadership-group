@@ -323,3 +323,64 @@ html, body { height:100%; }
 body { display:flex; flex-direction:column; }
 main { flex:1 0 auto; }
 .site-footer { flex:0 0 auto; padding-bottom:18px; }
+/* =============================== */
+/* TIGHTEN HOME HERO + TRUE CENTER */
+/* =============================== */
+
+/* Catch the first content block that contains the main H1 on Home and center it */
+.home-hero,
+main > .container:first-of-type:has(> h1),
+main:has(> .home-hero) {
+  display: grid !important;
+  place-content: center !important;        /* vertical + horizontal center */
+  min-height: clamp(420px, 52dvh, 620px) !important;  /* smaller, no giant gulf */
+  padding-block: 4vh 5vh !important;       /* a little breathing room only */
+  text-align: center;
+}
+
+/* Trim headline + text spacing so it sits visually centered */
+main h1 { margin: .25em 0 .45em !important; }
+main p.lede,
+main p.intro,
+main > .container:first-of-type > p { margin: 0 0 1.1rem !important; }
+main .buttons { margin-top: .6rem !important; justify-content: center; }
+
+/* Kill sneaky extra gaps some themes inject */
+main > section:first-child,
+main > .container:first-child { margin-top: 0 !important; }
+main > section:last-child,
+main > .container:last-child  { margin-bottom: 0 !important; }
+hr, .rule, .separator { display: none !important; }
+
+/* ========================================== */
+/* ABOUT: REMOVE GAP ABOVE “SIGNATURE STRENGTHS” */
+/* ========================================== */
+.about-grid { margin-bottom: 8px !important; }
+
+/* Whatever directly follows the portrait grid (usually the H2) */
+.about-grid + * { margin-top: 8px !important; }
+
+/* Hit common heading ids/text for extra safety */
+h2[id*="Signature"],
+h2[id*="signature"],
+h2:where(#signature-strengths) { margin-top: 8px !important; }
+
+/* If your headings use .section-title, also trim it */
+.section-title { margin-top: 8px !important; }
+
+/* If there is a horizontal rule between portrait and the H2, hide it */
+.about-grid + hr { display: none !important; }
+
+/* Keep the soft-blended portrait edge intact (in case earlier rules overrode it) */
+.about-portrait{
+  -webkit-mask-image: radial-gradient(125% 125% at 50% 48%, #000 76%, transparent 100%);
+          mask-image: radial-gradient(125% 125% at 50% 48%, #000 76%, transparent 100%);
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;   mask-size: 100% 100%;
+}
+
+/* Optional: Ensure the footer hugs the bottom without extra gulf */
+html, body { height: 100%; }
+body { display: flex; flex-direction: column; }
+main { flex: 1 0 auto; }
+.site-footer { flex: 0 0 auto; padding-bottom: 18px; }
