@@ -463,8 +463,6 @@ function Contact() {
 
 export default Contact;
 
-export default function App() {
-  return (
     <>
       <Header />
       <Routes>
