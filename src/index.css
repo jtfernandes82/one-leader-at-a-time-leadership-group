@@ -127,3 +127,46 @@ h3{ color:var(--navy); margin-top:0; }
     position:absolute; right:0; top:0; transform:translateY(4px);
   }
 }
+/* -----------------------------------------------------------
+   1) Make the layout fill the viewport and keep footer tight
+   ----------------------------------------------------------- */
+html, body { height: 100%; }
+body{ 
+  display: flex; 
+  min-height: 100svh;    /* accounts for mobile browser UI */
+  flex-direction: column;
+}
+
+/* Use whichever main wrapper exists on your pages.
+   Keep all “page” content flexible so the footer stays at bottom. */
+.site-main, main, .page-content, .home, .about, .services, .elite, .speaking, .veterans, .contact {
+  flex: 1 0 auto;
+}
+.site-footer{ flex: 0 0 auto; }
+
+/* Prevent margin-collapsing “stripes/lines” between sections */
+section{ padding: 28px 0; }
+.container > *:first-child { margin-top: 0; }
+.container > *:last-child  { margin-bottom: 0; }
+
+/* -----------------------------------------------------------
+   2) Kill inline-image baseline gap and make images predictable
+   ----------------------------------------------------------- */
+img{ display:block; max-width:100%; height:auto; }
+
+/* -----------------------------------------------------------
+   3) About portrait: reduce invisible fade box + remove gap
+   ----------------------------------------------------------- */
+.about-image-wrapper{ align-self: start; }  /* grid cell starts at top */
+.about-portrait{
+  display:block;
+  margin: 0 auto;
+  /* slightly tighter fade so the transparent area isn't too tall */
+  -webkit-mask-image: radial-gradient(120% 120% at 50% 48%, #000 72%, transparent 100%);
+          mask-image: radial-gradient(120% 120% at 50% 48%, #000 72%, transparent 100%);
+}
+
+/* -----------------------------------------------------------
+   4) Home hero: gently reduce vertical padding to center content
+   ----------------------------------------------------------- */
+.hero{ padding-top: 18px; padding-bottom: 16px; }
