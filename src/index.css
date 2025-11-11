@@ -391,3 +391,7 @@ a[aria-label="LinkedIn"][style*="position:absolute"] {
 .site-footer a[href*="linkedin"] img{
   width:22px; height:22px; display:block;
 }
+/* Remove LinkedIn icon from the footer only */
+.site-footer a[href*="linkedin"]{
+  display: none !important;
+}
