@@ -599,3 +599,101 @@ a.nav-social { display:none !important; }
 @media (max-width: 720px){
   .form-grid{ grid-template-columns: 1fr; }
 }
+/* ===== Contact layout & styling (page-only) ===== */
+.hidden{ display:none !important; }
+
+.contact-section{
+  padding-top: 10px;               /* reduce extra top air */
+}
+
+.contact-intro{
+  margin: 6px 0 18px;
+}
+
+.contact-grid{
+  display: grid;
+  grid-template-columns: minmax(380px, 1fr) minmax(280px, 0.8fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.contact-card{
+  background: rgba(255,255,255,.94);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+}
+
+.form-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.form-grid label{
+  font-weight: 600;
+  color: var(--navy);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.14);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+}
+
+.form-grid .full{ grid-column: 1 / -1; }
+
+.contact-aside{
+  display: grid;
+  gap: 14px;
+}
+
+.contact-aside-card{
+  background: rgba(255,255,255,.94);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+}
+
+.contact-aside-card h3{
+  margin: 0 0 8px 0;
+  color: var(--navy);
+  font-family: "Merriweather", serif;
+  font-size: 1.05rem;
+}
+
+.tiny{ font-size: .9rem; opacity: .9; }
+
+/* LinkedIn inline with branded square */
+.linkedin-inline{
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--navy); text-decoration: none; font-weight: 600;
+}
+.li-square{
+  display:inline-block; width: 22px; height: 22px; border-radius: 4px;
+  background: #0A66C2;
+  mask: none; -webkit-mask: none;
+  position: relative;
+}
+.li-square::after{
+  content:"";
+  position:absolute; inset:0;
+  background-image: url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'>\
+      <path fill='white' d='M100.28 448H7.4V148.9h92.88zM54.14 107C24.12 107 0 82.9 0 53.8 0 24.7 24.12.6 54.14.6c29.34 0 53.46 24.1 53.46 53.2 0 29.1-24.12 53.2-53.46 53.2zm393.76 341h-92.68V302.4c0-34.7-.7-79.3-48.33-79.3-48.4 0-55.8 37.8-55.8 76.8V448h-92.7V148.9h88.9v40.8h1.3c12.4-23.4 42.5-48.3 87.4-48.3 93.5 0 110.7 61.5 110.7 141.3V448z'/>\
+    </svg>");
+  background-repeat:no-repeat; background-position:center; background-size: 80%;
+}
+
+/* Tight, clean mobile layout */
+@media (max-width: 900px){
+  .contact-grid{ grid-template-columns: 1fr; }
+  .form-grid{ grid-template-columns: 1fr; }
+}
