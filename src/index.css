@@ -333,3 +333,61 @@ main > .container:first-of-type{
   margin-bottom: 8px !important;            /* trims band above footer */
   padding-block: 0 !important; max-width: 940px;
 }
+/* --- SOFT EDGE AROUND PORTRAIT (class OR filename) --- */
+.about-portrait,
+.about-image-wrapper img[src*="about-jesseana.png"] {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 14px;
+  /* soft radial fade into page background */
+  -webkit-mask-image: radial-gradient(128% 128% at 50% 48%, #000 76%, transparent 100%) !important;
+          mask-image: radial-gradient(128% 128% at 50% 48%, #000 76%, transparent 100%) !important;
+  -webkit-mask-repeat: no-repeat !important;
+          mask-repeat: no-repeat !important;
+  -webkit-mask-size: 100% 100% !important;
+          mask-size: 100% 100% !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  background: transparent;
+}
+
+/* --- HEADER: square LinkedIn icon sits right after Contact --- */
+.nav-inner { display:flex; align-items:center; justify-content:center; gap:12px; }
+.nav-list  { display:flex; align-items:center; justify-content:center; gap:22px; flex-wrap:wrap; }
+.nav-social, .nav-social-link {
+  position: static !important;
+  order: 1 !important;            /* appears right after last tab (Contact) */
+  margin-left: 10px !important;
+}
+.nav-social-link,
+.nav-social-link svg,
+.nav-social-link img {
+  display:inline-flex;
+  width: 28px; height: 28px;
+}
+
+/* In case a floating/absolute LinkedIn from earlier remains, neutralize it */
+a[aria-label="LinkedIn"][style*="position:fixed"],
+a[aria-label="LinkedIn"][style*="position:absolute"] {
+  position: static !important; bottom:auto !important; left:auto !important;
+}
+
+/* --- FOOTER: align LinkedIn neatly with the footer links --- */
+.site-footer .footer-inner{
+  display:flex; flex-wrap:wrap; gap:14px;
+  justify-content:center; align-items:center; text-align:center;
+}
+.site-footer .footer-links{
+  display:flex; gap:18px; flex-wrap:wrap; justify-content:center; align-items:center;
+}
+.site-footer .footer-links a { font-weight:600; }
+
+/* target footer LinkedIn anchor by its href */
+.site-footer a[href*="linkedin"]{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:28px; height:28px;
+  margin-left:8px;
+}
+.site-footer a[href*="linkedin"] svg,
+.site-footer a[href*="linkedin"] img{
+  width:22px; height:22px; display:block;
+}
