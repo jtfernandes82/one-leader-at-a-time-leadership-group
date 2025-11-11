@@ -116,6 +116,11 @@ main .hero,
   text-align:center;
   min-height: clamp(360px, 58svh, 560px);
   gap:18px;
+  <section class="hero">
+  <div class="container">
+    <!-- your H1, paragraph, and buttons -->
+  </div>
+</section>
 }
 
 /* If you have a heading + buttons inside, keep them tidy */
