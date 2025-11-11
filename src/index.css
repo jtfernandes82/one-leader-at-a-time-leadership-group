@@ -422,3 +422,83 @@ a[aria-label="LinkedIn"][style*="position:absolute"] {
   width:28px; height:28px; margin-left:10px;
   transform: translateY(1px); /* optical baseline alignment */
 }
+/* ================================
+   1) PORTRAIT: soft blended edges
+   ================================ */
+
+/* Catch common builds: original name, hashed asset, or <picture> usage */
+.about-portrait,
+.about-image-wrapper img[src*="about-jesseana"],
+picture .about-portrait,
+picture img[src*="about-jesseana"] {
+  display:block;
+  width:100%;
+  max-width:420px;
+  border-radius:14px;
+  /* smooth radial fade into page background */
+  -webkit-mask-image: radial-gradient(128% 128% at 50% 48%, #000 76%, transparent 100%) !important;
+          mask-image: radial-gradient(128% 128% at 50% 48%, #000 76%, transparent 100%) !important;
+  -webkit-mask-repeat:no-repeat !important;
+          mask-repeat:no-repeat !important;
+  -webkit-mask-size:100% 100% !important;
+          mask-size:100% 100% !important;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+}
+
+/* Fallback for older browsers that don’t support mask-image */
+@supports not (mask-image: radial-gradient(black, transparent)) {
+  .about-portrait,
+  .about-image-wrapper img[src*="about-jesseana"] {
+    clip-path: ellipse(90% 80% at 50% 50%);
+  }
+}
+
+/* Tighten the tiny gap above “Signature Strengths” just in case */
+.about-grid{ margin-bottom:6px !important; padding-bottom:0 !important; }
+.about-grid + h2, .about-grid + .section-title{ margin-top:10px !important; }
+.about-grid + hr{ display:none !important; }
+
+/* ==========================================
+   2) HEADER: square LinkedIn *next to Contact*
+   (no HTML changes—inject with ::after)
+   ========================================== */
+
+.nav-list { display:flex; justify-content:center; align-items:center; gap:22px; }
+
+/* Add the icon after the last nav link (Contact) */
+.nav-list li:last-child > a {
+  position:relative;
+  display:inline-flex; align-items:center;
+  gap:10px;
+}
+.nav-list li:last-child > a::after{
+  content:"";
+  width:24px; height:24px; display:inline-block;
+  border-radius:4px;
+  background-size:cover; background-repeat:no-repeat;
+  /* Square LinkedIn SVG */
+  background-image: url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>\
+    <rect x='2' y='2' width='20' height='20' rx='4' fill='%230A66C2'/>\
+    <path fill='%23fff' d='M8.2 9.2H6.3V18h1.9V9.2Zm-.95-3.3a1.15 1.15 0 1 0 0 2.3 1.15 1.15 0 0 0 0-2.3ZM18 18h-1.9v-4.6c0-1.09-.44-1.78-1.35-1.78-.88 0-1.37.6-1.39 1.78V18H11.5V9.2h1.8v1.14h.03c.42-.79 1.25-1.26 2.18-1.22 1.57.02 2.5 1.08 2.5 3.02V18Z'/>\
+  </svg>");
+  transform: translateY(1px);
+}
+
+/* ===================================
+   3) FOOTER: remove LinkedIn icon only
+   =================================== */
+
+/* Hide any LinkedIn link in the footer area */
+.site-footer a[href*="linkedin"]{
+  display:none !important;
+}
+
+/* Keep footer centered and tidy */
+.site-footer .footer-inner{
+  display:flex; flex-wrap:wrap;
+  justify-content:center; align-items:center; gap:14px; text-align:center;
+}
+.site-footer .footer-links{
+  display:flex; flex-wrap:wrap; gap:18px; justify-content:center; align-items:center;
+}
