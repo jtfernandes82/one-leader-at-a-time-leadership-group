@@ -53,11 +53,22 @@ function Header() {
     { to: "/veterans", label: "Veterans" },
     { to: "/contact", label: "Contact" },
   ];
-  return (
-    <header>
-      {/* Full-width banner with graceful fallback */}
-      <div className="fullbleed banner" role="img" aria-label="One Leader at a Time – Leadership Group"></div>
 
+  return (
+    <header className="site-header">
+      {/* Top soft gradient line */}
+      <div className="header-blend" aria-hidden="true"></div>
+
+      {/* Banner image spanning entire width */}
+      <div className="banner-bar">
+        <img
+          src="/One%20Leader%20at%20a%20Time001.png"
+          alt="One Leader at a Time – Leadership Group"
+          className="banner-image"
+        />
+      </div>
+
+      {/* Navigation bar */}
       <nav className="nav">
         <div className="container nav-inner">
           <ul className="nav-list">
@@ -87,9 +98,13 @@ function Header() {
           </a>
         </div>
       </nav>
+
+      {/* Bottom soft gradient line */}
+      <div className="header-blend bottom" aria-hidden="true"></div>
     </header>
   );
 }
+
 
 function Footer() {
   return (
