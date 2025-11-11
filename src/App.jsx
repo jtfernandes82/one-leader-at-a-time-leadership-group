@@ -93,8 +93,6 @@ function Footer() {
 
 /* ----- PAGES ----- */
 
-import { Link } from "react-router-dom";
-
 function Home() {
   return (
     <main className="container home">
@@ -201,8 +199,6 @@ function Home() {
     </main>
   );
 }
-
-export default Home;
 
 function About() {
   return (
