@@ -253,3 +253,28 @@ section{ padding: clamp(1rem, 3.2vw, 1.6rem) 0; }
 
 /* Utility: keep long link sets from touching edges on tiny screens */
 .stack{ display:flex; flex-direction:column; gap:.6rem; }
+/* ---------- About page: remove big gap under the portrait on wide screens ---------- */
+@media (min-width: 980px){
+  /* Float the portrait so subsequent content can flow up beside it */
+  .portrait{
+    float: right;
+    width: min(420px, 38vw);
+    margin: 0 0 .85rem 2rem;          /* space between text and image */
+    shape-outside: inset(0 round 14px);/* nicer wrap around rounded corners */
+  }
+
+  /* Ensure the text block containing the opening paragraphs doesn't collapse around the float */
+  .about-intro, .about-text, .about-content{
+    overflow: hidden;                  /* pick whichever class exists; harmless if absent */
+  }
+}
+
+/* When the layout collapses, undo the float so the portrait stacks cleanly */
+@media (max-width: 979px){
+  .portrait{
+    float: none;
+    display: block;
+    margin: 0 auto 1rem auto;
+    width: min(420px, 92vw);
+  }
+}
