@@ -194,65 +194,124 @@ function Home() {
 
 function About() {
   return (
-    <main className="container about">
-      <h1 className="section-title">About Jesseana Fernandes</h1>
+    <main className="about-page">
+      {/* HERO */}
+      <section className="about-hero">
+        <div className="about-wrapper">
+          <div className="about-text">
+            <h1>About Jesseana “Jessiana” Fernandes</h1>
+            <p className="lead">
+              Founder of <strong>One Leader At A Time Leadership Group™</strong>. Veteran. Builder
+              of high-performance teams. I help leaders elevate people and culture using the
+              <strong> E.L.I.T.E.™ Framework</strong> — Empower, Lead, Inspire, Transform, Elevate.
+            </p>
+          </div>
 
-      <div className="about-grid">
-        <div>
+          <div className="about-photo vignette-gold">
+            <img
+              src="/images/jesseana-about.jpg"
+              alt="Jesseana Fernandes"
+              className="about-image"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* CREDIBILITY SNAPSHOT */}
+      <section className="about-cred section">
+        <ul className="cred-badges" aria-label="Credibility snapshot">
+          <li><strong>20+ years</strong><span>military & leadership experience</span></li>
+          <li><strong>Teams elevated</strong><span>military, aerospace & civilian</span></li>
+          <li><strong>ELITE™</strong><span>values → daily behaviors</span></li>
+        </ul>
+      </section>
+
+      {/* STORY */}
+      <section className="section about-story">
+        <div className="about-wrapper narrow">
+          <h2>Why One Leader At A Time</h2>
           <p>
-            Jesseana Fernandes is a transformational senior leader and Chief Warrant Officer Three (CW3)
-            with over two decades of experience leading in complex, high-stakes environments. As a Senior
-            Manager in aerospace operations, she blends disciplined execution with people-first leadership
-            to build resilient, high-performing teams.
+            My leadership journey began in uniform and continued across complex operations and
+            aerospace programs. The constant through every role: people thrive when expectations are
+            clear, values are lived, and leaders model what “right” looks like every day.
           </p>
-
           <p>
-            Trained to serve as a technical advisor to officers at every level—including senior commissioned
-            officers—Jesseana has a proven record of mentoring leaders, elevating standards, and driving
-            cultural momentum. Her leadership is grounded in purpose, accountability, and dignity—principles
-            that create clarity in complexity and performance under pressure.
-          </p>
-
-          <p>
-            Jesseana’s philosophy is simple and proven: <em>great organizations are built one leader at a time.</em>{" "}
-            That conviction inspired the creation of One Leader at a Time – Leadership Group™ and its proprietary
-            E.L.I.T.E.™ Framework—Empower, Lead, Inspire, Transform, Elevate—a field-tested approach that translates
-            values into visible behaviors, decision frameworks, and measurable outcomes leaders can apply immediately.
+            I created One Leader At A Time to turn that belief into a practical system. The work is
+            simple, not easy: align on what matters, coach the behaviors, remove friction, and
+            celebrate progress. Do that consistently and performance follows.
           </p>
         </div>
+      </section>
 
-        <div className="about-image-wrapper">
-          <img src="/about-jesseana.jpg" alt="Jesseana Fernandes" className="about-portrait" />
-          <small>Jesseana Fernandes, CW3 — Founder of One Leader at a Time – Leadership Group™</small>
+      {/* HOW WE HELP (OUTCOMES) */}
+      <section className="section about-outcomes">
+        <div className="about-wrapper narrow">
+          <h2>What You Can Expect</h2>
+          <ul className="check-list">
+            <li>Clarity on the few behaviors that drive results</li>
+            <li>Simple rhythms that strengthen trust and accountability</li>
+            <li>Tools leaders actually use (scorecards, huddles, coaching prompts)</li>
+            <li>Support for military → civilian leadership transitions</li>
+          </ul>
         </div>
-      </div>
+      </section>
 
-      <h2 className="section-title">Signature Strengths</h2>
-      <ul>
-        <li><strong>Leader Development:</strong> coaching, standards, and rituals that raise performance</li>
-        <li><strong>Organizational Resilience:</strong> change navigation, risk playbooks, and continuity planning</li>
-        <li><strong>Operational Excellence:</strong> cadence systems, clear ownership, and disciplined follow-through</li>
-        <li><strong>Culture Building:</strong> trust, accountability, and feedback loops that stick</li>
-      </ul>
+      {/* ELITE SNAPSHOT */}
+      <section className="section about-elite">
+        <div className="about-wrapper narrow">
+          <h2>The E.L.I.T.E.™ Snapshot</h2>
+          <div className="elite-mini">
+            <span><strong>E</strong> — Empower: ownership with guardrails</span>
+            <span><strong>L</strong> — Lead: model the standard, daily</span>
+            <span><strong>I</strong> — Inspire: connect work to mission</span>
+            <span><strong>T</strong> — Transform: turn constraints into catalysts</span>
+            <span><strong>E</strong> — Elevate: measure, coach, celebrate</span>
+          </div>
+          <p className="center">
+            <a className="btn btn-ghost" href="/elite">Explore the Framework</a>
+          </p>
+        </div>
+      </section>
 
-      <h2 className="section-title">About One Leader at a Time – Leadership Group™</h2>
-      <p>
-        One Leader at a Time – Leadership Group™ equips executives, teams, and transitioning veterans to lead with
-        integrity, resilience, and purpose. We deliver executive coaching, organizational transformation programs,
-        and veteran transition leadership—bridging the gap between technical mastery and human-centered leadership.
-      </p>
-      <p>
-        Every engagement is grounded in the E.L.I.T.E.™ Framework, aligning empower, lead, inspire, transform, and
-        elevate into practical systems: decision cadence, feedback loops, standards of behavior, and measurable outcomes
-        that lift culture and performance.
-      </p>
-      <p className="tagline">
-        VETERAN-OWNED • WOMEN-OWNED • PURPOSE-DRIVEN • LEADERSHIP-FOCUSED
-      </p>
+      {/* VALUES */}
+      <section className="section about-values">
+        <div className="about-wrapper narrow">
+          <h2>Values We Lead By</h2>
+          <div className="values-grid">
+            <article><h3>Stewardship</h3><p>We treat people, time, and resources like they matter—because they do.</p></article>
+            <article><h3>Courage</h3><p>We face truth, own decisions, and move forward together.</p></article>
+            <article><h3>Accountability</h3><p>Clear standards, honest feedback, and follow-through.</p></article>
+            <article><h3>Faith</h3><p>Purpose bigger than self; serve with humility and conviction.</p></article>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="section testimonials">
+        <div className="about-wrapper narrow">
+          <h2>What Military Leaders Are Saying</h2>
+          <blockquote>
+            “The ELITE approach brought clarity and cohesion to our unit—purpose over position.”
+            <footer>— Senior NCO, U.S. Army</footer>
+          </blockquote>
+          <blockquote>
+            “Direct, practical, and mission-focused. This is how you lead change that lasts.”
+            <footer>— Chief Warrant Officer, National Guard</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section cta">
+        <div className="about-wrapper narrow center">
+          <h2>Ready to elevate your leaders?</h2>
+          <p>Let’s design the right next step for your team or event.</p>
+          <p><a className="btn" href="/contact">Book a discovery call</a></p>
+        </div>
+      </section>
     </main>
   );
 }
-
 function Services() {
   return (
     <main className="container">
