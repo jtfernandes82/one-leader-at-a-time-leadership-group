@@ -252,3 +252,149 @@ p { line-height: 1.65; }
   display: block;
   margin: 0 auto;
 }
+/* ===============================
+   SOFT GLOBAL BACKDROP (subtle + single)
+   =============================== */
+:root{
+  --gold-r: 218; --gold-g: 182; --gold-b: 111;
+  --blue-r: 150; --blue-g: 180; --blue-b: 210;
+  --gold-alpha: 0.14;     /* lighter, more translucent */
+  --blue-alpha: 0.14; 
+  --gold-alpha-line: 0.10;/* even lighter for the thin blend bars */
+  --blue-alpha-line: 0.10;
+  --navy:#2a467b;
+}
+
+/* One **single** backdrop; prevents stacked “white lines” feeling */
+body{
+  background:
+    linear-gradient(
+      to right,
+      rgba(var(--gold-r),var(--gold-g),var(--gold-b),var(--gold-alpha)) 0%,
+      rgba(255,255,255,0.85) 48%,
+      rgba(var(--blue-r),var(--blue-g),var(--blue-b),var(--blue-alpha)) 100%
+    );
+  background-attachment: fixed;
+}
+
+/* ===============================
+   HEADER / BANNER
+   =============================== */
+.site-header{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+}
+
+/* A single, very light blend bar (top and bottom).
+   Much lighter to remove the sharp line effect */
+.header-blend{
+  height:8px;
+  width:100%;
+  background: linear-gradient(
+    to right,
+    rgba(var(--gold-r),var(--gold-g),var(--gold-b),var(--gold-alpha-line)) 0%,
+    rgba(255,255,255,0.60) 48%,
+    rgba(var(--blue-r),var(--blue-g),var(--blue-b),var(--blue-alpha-line)) 100%
+  );
+}
+.header-blend.bottom{ margin-top:4px; }
+
+/* Banner pane uses ultra-soft wash; no borders, no lines */
+.banner-bar{
+  width:100%;
+  display:flex; justify-content:center; align-items:center;
+  padding:6px 0 4px;     /* gives the banner a little breathing room */
+  background:
+    linear-gradient(
+      to right,
+      rgba(var(--gold-r),var(--gold-g),var(--gold-b),0.08) 0%,
+      rgba(255,255,255,0.92) 48%,
+      rgba(var(--blue-r),var(--blue-g),var(--blue-b),0.08) 100%
+    );
+}
+
+/* Larger banner while still responsive */
+.banner-image{
+  width: min(1280px, 96vw);
+  max-height: 280px;          /* increased from previous */
+  object-fit: contain;
+  display:block;
+  margin:0 auto;
+}
+
+/* ===============================
+   NAV (no borders / no lines)
+   =============================== */
+.nav{
+  background: transparent;
+  box-shadow:none;
+  border:0;
+}
+.nav-inner{ gap: 12px; }
+.nav-list{ gap: 18px; }
+.nav-link{
+  color: var(--navy);
+}
+.nav-link.is-active{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--navy);
+}
+
+/* LinkedIn icon sizing/alignment */
+.nav-social{
+  display:inline-flex; align-items:center; justify-content:center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+}
+
+/* ===============================
+   FOOTER (single, soft, full width)
+   =============================== */
+.site-footer{
+  background: none;
+  border:0;
+  box-shadow:none;
+  margin-top: 48px;
+}
+.footer-blend{
+  height:10px;
+  width:100%;
+  background: linear-gradient(
+    to right,
+    rgba(var(--gold-r),var(--gold-g),var(--gold-b),0.10) 0%,
+    rgba(255,255,255,0.62) 48%,
+    rgba(var(--blue-r),var(--blue-g),var(--blue-b),0.10) 100%
+  );
+}
+
+/* ===============================
+   ABOUT: soft-edge portrait blend
+   =============================== */
+.about-portrait{
+  width:100%;
+  max-width: 420px;
+  display:block;
+  margin: 0 auto;
+  border-radius: 12px;
+  /* Soft fade to transparent, so it blends on the page */
+  -webkit-mask-image: radial-gradient( 120% 115% at 50% 50%, #000 68%, transparent 100%);
+          mask-image: radial-gradient( 120% 115% at 50% 50%, #000 68%, transparent 100%);
+  /* Gentle ambient shadow (no hard frame) */
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,.10));
+}
+
+/* Cards / sections (Speaking / Services / ELITE) */
+.card{
+  background: rgba(255,255,255,0.85);
+  border-radius: 12px;
+  padding: 18px 18px 14px;
+  border: 1px solid rgba(0,0,0,.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+}
+
+.section-title{
+  color: var(--navy);
+  margin: 6px 0 14px;
+}
