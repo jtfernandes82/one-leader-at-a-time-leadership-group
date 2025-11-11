@@ -16,7 +16,7 @@ function LinkedInIcon({ size = 22 }) {
   );
 }
 
-/* Header with banner + nav (icon pinned right inside the nav) */
+/* Header with banner + nav */
 function Header() {
   const nav = [
     { to: "/", label: "Home" },
@@ -30,7 +30,6 @@ function Header() {
 
   return (
     <header className="site-header">
-      {/* The banner sits flush to the top */}
       <div className="banner-bar">
         <img
           src="/One%20Leader%20at%20a%20Time001.png"
@@ -72,7 +71,7 @@ function Header() {
   );
 }
 
-/* Footer with correct order: links (left) then © (right) */
+/* Footer */
 function Footer() {
   return (
     <footer className="site-footer">
@@ -305,50 +304,137 @@ function Speaking() {
   );
 }
 
+/* --------- UPDATED VETERANS PAGE (full detail) --------- */
 function Veterans() {
   return (
     <main className="container">
       <h1 className="section-title">Veteran Transition Leadership</h1>
-      <p>
-        End-to-end support for veterans moving into corporate leadership roles — helping translate
-        military discipline, adaptability, and values into civilian career success.
+      <p className="lede">
+        End-to-end support for veterans moving into corporate leadership roles—translating military
+        discipline, adaptability, and values into civilian career success.
       </p>
+
+      <div className="card-grid">
+        <div className="card">
+          <h3>Who this is for</h3>
+          <ul>
+            <li>Active duty and Guard/Reserve leaders preparing to transition</li>
+            <li>Veterans targeting roles in operations, supply chain, and technical leadership</li>
+            <li>Military spouses and ERGs building veteran-ready cultures</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>What you’ll get</h3>
+          <ul>
+            <li>Resume & LinkedIn built for civilian hiring systems (ATS-ready)</li>
+            <li>Positioning that translates MOS/achievements into business outcomes</li>
+            <li>Interview prep, story banking, and leadership value cases</li>
+            <li>30-60-90 day integration plan tailored to your target role</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3>Program flow</h3>
+          <ul>
+            <li><strong>Assess:</strong> map strengths, roles, and industries; identify keywords</li>
+            <li><strong>Translate:</strong> convert military impact into metrics and business language</li>
+            <li><strong>Launch:</strong> networking plan, interview reps, and first-90-days cadence</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 className="section-title">Common deliverables</h2>
       <ul>
-        <li>Resume and LinkedIn coaching</li>
-        <li>Interview preparation and positioning</li>
-        <li>30-60-90 day integration plans</li>
+        <li>Executive resume and optimized LinkedIn profile</li>
+        <li>2–3 role-specific versions (e.g., Ops Manager, Program Manager, Materials Lead)</li>
+        <li>Interview prep kit with accomplishment stories and question bank</li>
+        <li>First-week/30/60/90-day onboarding plan with quick-win targets</li>
       </ul>
+
+      <div className="buttons">
+        <Link to="/contact" className="btn">Request a veteran consult</Link>
+        <a
+          className="btn"
+          href="mailto:jesse@oneleaderatatimegroup.com?subject=Veteran Transition Consult"
+        >
+          Email Jesseana
+        </a>
+      </div>
     </main>
   );
 }
 
+/* --------- UPDATED CONTACT PAGE (clean Netlify form) --------- */
 function Contact() {
   return (
     <main className="container">
       <h1 className="section-title">Contact</h1>
       <p>
-        Email:{" "}
-        <a href="mailto:jesse@oneleaderatatimegroup.com">
-          jesse@oneleaderatatimegroup.com
-        </a>
+        Prefer email? Reach me at{" "}
+        <a href="mailto:jesse@oneleaderatatimegroup.com">jesse@oneleaderatatimegroup.com</a>.
       </p>
 
-      <form name="contact" method="POST" data-netlify="true" className="card">
+      {/* Netlify form */}
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        className="card"
+      >
+        {/* required by Netlify */}
         <input type="hidden" name="form-name" value="contact" />
+        <p hidden>
+          <label>
+            Don’t fill this out if you’re human: <input name="bot-field" />
+          </label>
+        </p>
+
         <label>
           Name
           <input type="text" name="name" required />
         </label>
+
         <label>
           Email
           <input type="email" name="email" required />
         </label>
+
+        <label>
+          Phone (optional)
+          <input type="tel" name="phone" />
+        </label>
+
+        <label>
+          Topic
+          <select name="topic" defaultValue="Discovery call">
+            <option>Discovery call</option>
+            <option>ELITE Framework</option>
+            <option>Speaking availability</option>
+            <option>Veteran transition consult</option>
+            <option>Other</option>
+          </select>
+        </label>
+
         <label>
           Message
-          <textarea name="message" rows="5" required></textarea>
+          <textarea name="message" rows="6" required></textarea>
         </label>
+
         <button className="btn" type="submit">Send</button>
       </form>
+
+      <p style={{ marginTop: 16 }}>
+        You can also connect on{" "}
+        <a
+          href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/"
+          target="_blank"
+          rel="noopener"
+        >
+          LinkedIn
+        </a>.
+      </p>
     </main>
   );
 }
