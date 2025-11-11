@@ -1,14 +1,33 @@
-<<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>One Leader at a Time – Leadership Group</title>
-    <meta name="description" content="Leadership, coaching, and the E.L.I.T.E.™ framework." />
-    <link rel="icon" href="/favicon.svg" />
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>One Leader at a Time – Leadership Group™</title>
+
+    <!-- Favicon (put the image in /public, e.g., /public/favicon.png or /public/star-swoosh-clear.png) -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- or, if you prefer your star swoosh file name: -->
+    <!-- <link rel="icon" type="image/png" href="/star-swoosh-clear.png" /> -->
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="/src/index.css" />
   </head>
+
   <body>
+    <!-- Optional soft top gradient bar (only if your CSS defines .top-gradient) -->
+    <div class="top-gradient" aria-hidden="true"></div>
+
+    <!-- Vite/React mount point -->
     <div id="root"></div>
+
+    <!-- Optional soft bottom gradient bar (only if your CSS defines .bottom-gradient) -->
+    <div class="bottom-gradient" aria-hidden="true"></div>
+
+    <!-- Vite entry (React) -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
