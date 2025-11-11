@@ -201,3 +201,33 @@ main > .container:first-of-type{
 .site-footer .footer-links{
   display:flex; gap:18px; flex-wrap:wrap; justify-content:center !important;
 }
+/* ==============================
+   HOME + GLOBAL BOTTOM-GAP FIX
+   ============================== */
+
+/* Make the page a flex column so the footer sits flush at the bottom,
+   and the main area uses all remaining space (no extra white band). */
+html, body { height: 100%; }
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main should expand to fill the viewport height and not add extra space */
+main{
+  flex: 1 0 auto;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* On Home specifically, trim the first content block’s bottom margin */
+main > .container:first-of-type{
+  margin-bottom: 6px !important;   /* prevents the bottom band on Home */
+}
+
+/* Footer anchors to the bottom with no extra gap above it */
+.site-footer{
+  margin-top: auto !important;
+  padding-top: 10px !important;
+}
