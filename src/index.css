@@ -218,3 +218,58 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* 6) Optional: slight tighten on Home top/bottom padding if still tall */
 .home .hero { padding-block: 12px; }
+/* ===== Patch: center Home hero, remove gaps, place LinkedIn next to Contact ===== */
+
+/* 1) Put the Home hero in the middle and reduce the tall whitespace.
+   These selectors cover the common structures you’ve used. */
+body.home main,
+.page-home main,
+main:has(.home-hero),
+main:has(.home-tagline),
+main > .container:first-of-type:has(h1) {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: clamp(460px, 64dvh, 700px) !important;
+  text-align: center !important;
+  padding-block: 0 !important;           /* trims extra padding */
+}
+
+/* center the buttons under the H1 on the home hero */
+main .buttons { justify-content: center; }
+
+/* 2) Kill any tiny “line”/gap caused by section margins on every page */
+main > section:first-child,
+main > .container:first-child { margin-top: 0 !important; }
+main > section:last-child,
+main > .container:last-child  { margin-bottom: 0 !important; }
+
+/* 3) ABOUT page: remove the visible gap below the portrait block
+      and keep the next heading tight. */
+.about-grid { margin-bottom: 8px !important; align-items: start; }
+.about-grid + .section-title,
+.about-grid + h2 { margin-top: 6px !important; }
+
+/* Re-apply soft blended edge (keeps your good look) */
+.about-portrait {
+  -webkit-mask-image: radial-gradient(125% 125% at 50% 48%, #000 76%, transparent 100%);
+          mask-image: radial-gradient(125% 125% at 50% 48%, #000 76%, transparent 100%);
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;  mask-size: 100% 100%;
+}
+
+/* 4) LinkedIn icon: sit right after Contact (not hard-right) */
+.nav-inner { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.nav-list { display: flex; gap: 22px; flex-wrap: wrap; }
+.nav-social {
+  margin-left: 8px !important;   /* was auto; brings it next to Contact */
+  position: static !important;
+  transform: none !important;
+  order: 0;                       /* keep natural order */
+}
+
+/* Mobile tweak so the icon stays aligned with the links */
+@media (max-width: 820px){
+  .nav-social { margin-left: 6px !important; }
+}
