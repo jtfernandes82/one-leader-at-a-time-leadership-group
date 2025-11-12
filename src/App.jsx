@@ -1,19 +1,19 @@
 import React from "react";
 import { Routes, Route, NavLink, Link } from "react-router-dom";
 
-/* LinkedIn icon */
-function LinkedInIcon({ size = 22 }) {
+/* LinkedIn icon (blue square) */
+function LinkedInBadgeIcon({ size = 24 }) {
   return (
     <svg
       viewBox="0 0 24 24"
       width={size}
       height={size}
       aria-hidden="true"
-      focusable="false"
     >
+      <rect x="2" y="2" width="20" height="20" rx="4" fill="#0A66C2" />
       <path
-        fill="currentColor"
-        d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zM8.5 8h3.8v2.2h.05c.53-1 1.82-2.2 3.74-2.2 4 0 4.74 2.6 4.74 6V24h-4v-7c0-1.67-.03-3.82-2.33-3.82-2.34 0-2.7 1.83-2.7 3.7V24h-4V8z"
+        fill="#fff"
+        d="M9 18H7V10h2v8Zm-1-9.3A1.05 1.05 0 1 1 8.999 6.6 1.05 1.05 0 0 1 8 8.7Zm11 9.3h-2v-4.6c0-1.18-.43-1.98-1.47-1.98-.8 0-1.28.54-1.48 1.06-.08.2-.1.48-.1.76V18h-2s.03-7 0-8h2v1.13c.26-.4.73-.98 1.78-.98 1.3 0 2.27.85 2.27 2.67V18Z"
       />
     </svg>
   );
@@ -59,15 +59,15 @@ function Header() {
 
           {/* real external LinkedIn link */}
           <a
-            className="nav-social-link"
-            href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            title="LinkedIn"
-          >
-            <LinkedInIcon size={22} />
-          </a>
+  className="nav-social-link"
+  href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="LinkedIn"
+  title="LinkedIn"
+>
+  <LinkedInBadgeIcon size={24} />
+</a>
         </div>
       </nav>
     </header>
