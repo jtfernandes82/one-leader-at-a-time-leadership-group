@@ -1218,3 +1218,17 @@ h1, h2 { color: #2a467b; }
 
 .section.cta { text-align:center; }
 .section.cta .buttons { display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; }
+/* Refine intro line on Services page */
+.hero-services .strong-intro {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #2a467b;
+  text-align: center;
+  line-height: 1.6;
+  background: linear-gradient(to right, rgba(217,184,95,0.15), rgba(255,255,255,0.8));
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  max-width: 850px;
+  margin: 0.5rem auto 1rem;
+}
