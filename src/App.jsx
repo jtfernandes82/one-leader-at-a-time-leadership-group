@@ -593,52 +593,155 @@ function Elite() {
 
 function Speaking() {
   return (
-    <main className="container">
-      <h1 className="section-title">Speaking & Keynotes</h1>
-      <p>
-        High-energy, high-credibility talks that turn leadership principles into action. Jesseana brings
-        two decades of military and aerospace leadership to the stage, equipping audiences to lead with
-        clarity, courage, and the E.L.I.T.E.™ mindset.
-      </p>
-
-      <div className="card">
-        <p><strong>Formats:</strong> Keynote (20–45 min), Fireside chat, Panelist, Workshop (90–120 min)</p>
-        <p><strong>Audiences:</strong> Executives, emerging leaders, technical teams, veteran ERGs</p>
-        <p><strong>Outcomes:</strong> Clarity, accountability, decision speed, cultural momentum</p>
-        <p><strong>Travel:</strong> Domestic & international • Based in Oklahoma City, OK</p>
-      </div>
-
-      <h2 className="section-title">Signature Topics</h2>
-      <div className="card-grid">
-        <div className="card">
-          <h3>Building High-Performance Teams</h3>
-          <ul>
-            <li>Team trust & cadence systems</li>
-            <li>Clarity of priorities & ownership</li>
-            <li>Faster, cleaner handoffs</li>
-          </ul>
+    <main className="container speaking-page">
+      {/* HERO */}
+      <section className="section hero-speaking">
+        <h1 className="section-title">Speaking & Keynotes</h1>
+        <p className="lede">
+          High-energy, high-credibility talks that turn leadership principles into action. Jesseana
+          blends military precision with real-world coaching to help audiences lead with clarity,
+          courage, and the E.L.I.T.E.™ mindset.
+        </p>
+        <div className="buttons">
+          <Link to="/contact" className="btn">Request availability</Link>
+          <Link to="/services" className="btn btn-ghost">See formats</Link>
         </div>
+      </section>
 
-        <div className="card">
-          <h3>Culture as a Competitive Advantage</h3>
-          <ul>
-            <li>Leadership standards & rituals</li>
-            <li>Constructive feedback culture</li>
-            <li>Retention & engagement gains</li>
-          </ul>
+      {/* FORMATS */}
+      <section className="section">
+        <h2>Formats</h2>
+        <div className="cards-grid">
+          <article className="card">
+            <h3>Keynote</h3>
+            <p>20–45 minutes + live Q&A as needed.</p>
+            <ul className="bullets">
+              <li>Audience alignment & inspiration</li>
+              <li>Practical takeaways, not theory</li>
+              <li>Event-specific examples</li>
+            </ul>
+          </article>
+          <article className="card">
+            <h3>Workshop</h3>
+            <p>90–120 minutes (breakout or plenary).</p>
+            <ul className="bullets">
+              <li>Hands-on ELITE™ practice</li>
+              <li>Tools, prompts & scorecards</li>
+              <li>Action plans for teams</li>
+            </ul>
+          </article>
+          <article className="card">
+            <h3>Panel / Fireside</h3>
+            <p>Curated insights and audience Q&A.</p>
+            <ul className="bullets">
+              <li>Timely topics & case examples</li>
+              <li>Moderator collaboration</li>
+              <li>Concise, useful answers</li>
+            </ul>
+          </article>
         </div>
+      </section>
 
-        <div className="card">
-          <h3>The E.L.I.T.E.™ Framework: Practical Leadership</h3>
-          <ul>
-            <li>Decision frameworks</li>
-            <li>Change navigation</li>
-            <li>Post-event action plans</li>
-          </ul>
+      {/* SIGNATURE TOPICS */}
+      <section className="section">
+        <h2>Signature Topics</h2>
+        <div className="topics-grid">
+          <article className="topic">
+            <h4>ELITE Behaviors that Elevate Team Performance</h4>
+            <p>Turn values into visible habits—clarity, ownership, and momentum.</p>
+          </article>
+          <article className="topic">
+            <h4>From Constraint to Catalyst</h4>
+            <p>Use friction as fuel—short improvement loops that actually stick.</p>
+          </article>
+          <article className="topic">
+            <h4>Building Trust at Speed</h4>
+            <p>Psych safety with standards—coaching skills that balance candor & care.</p>
+          </article>
+          <article className="topic">
+            <h4>Veteran Leadership in the Civilian Arena</h4>
+            <p>Translate military excellence into business impact and culture.</p>
+          </article>
         </div>
-      </div>
+      </section>
 
-      <Link to="/contact" className="btn">Request speaking availability</Link>
+      {/* BOOKING FLOW */}
+      <section className="section">
+        <h2>Booking at a Glance</h2>
+        <ol className="steps">
+          <li><strong>Inquiry:</strong> Share date, audience, outcomes.</li>
+          <li><strong>Fit Call:</strong> 15–20 minutes to align message & format.</li>
+          <li><strong>Customize:</strong> Tailor stories, examples, and tools.</li>
+          <li><strong>Deliver:</strong> Engaging, practical, and on time.</li>
+          <li><strong>Follow-up:</strong> Optional recap, tools, and next steps.</li>
+        </ol>
+        <p className="center" style={{ marginTop: ".5rem" }}>
+          <Link to="/contact" className="btn">Request availability</Link>
+        </p>
+      </section>
+
+      {/* AV & LOGISTICS (EVENT-PLANNER FRIENDLY) */}
+      <section className="section">
+        <h2>AV & Logistics</h2>
+        <div className="rider-grid">
+          <article className="card rider">
+            <h3>AV</h3>
+            <ul className="bullets">
+              <li>Wireless handheld or lapel mic</li>
+              <li>HDMI to house projector/LED</li>
+              <li>Confidence monitor (preferred)</li>
+            </ul>
+          </article>
+          <article className="card rider">
+            <h3>Slides & Media</h3>
+            <ul className="bullets">
+              <li>16:9 slides provided in advance</li>
+              <li>Backup on USB + cloud link</li>
+              <li>No loud auto-play media</li>
+            </ul>
+          </article>
+          <article className="card rider">
+            <h3>Room Setup</h3>
+            <ul className="bullets">
+              <li>Front-row seating within 6–8 ft</li>
+              <li>Stage or riser if >100 attendees</li>
+              <li>House lights up for interaction</li>
+            </ul>
+          </article>
+        </div>
+        <p className="muted" style={{ marginTop: ".5rem" }}>
+          Virtual delivery is also available. Brand co-branding and recording by request.
+        </p>
+      </section>
+
+      {/* QUICK ANSWERS */}
+      <section className="section">
+        <h2>Quick Answers</h2>
+        <div className="faq">
+          <details>
+            <summary>Do you customize talks?</summary>
+            <p>Yes. We align on your audience, outcomes, and language during a brief fit call.</p>
+          </details>
+          <details>
+            <summary>In-person or virtual?</summary>
+            <p>Both options are available. AV needs are light; virtual platforms are flexible.</p>
+          </details>
+          <details>
+            <summary>What about pricing?</summary>
+            <p>Available upon request. Share your date and format, and we’ll advise quickly.</p>
+          </details>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section cta">
+        <h2>Let’s make your event unforgettable</h2>
+        <p>Tell me about your audience and goals—I'll tailor the message for maximum impact.</p>
+        <div className="buttons">
+          <Link to="/contact" className="btn">Request availability</Link>
+          <Link to="/services" className="btn btn-ghost">Compare formats</Link>
+        </div>
+      </section>
     </main>
   );
 }
