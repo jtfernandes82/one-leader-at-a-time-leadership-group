@@ -788,28 +788,28 @@ function Veterans() {
           <article className="card">
             <h3>Who this is for</h3>
             <ul className="bullets">
-              <li>Active duty & Guard/Reserve preparing to transition</li>
-              <li>Veterans targeting ops, supply chain, program leadership</li>
-              <li>Military spouses & ERGs building veteran-ready cultures</li>
+              <li>Active-duty and Guard/Reserve leaders preparing to transition</li>
+              <li>Veterans targeting operations, supply-chain, or program leadership roles</li>
+              <li>Senior NCOs and officers pursuing private-sector advancement</li>
             </ul>
           </article>
 
           <article className="card">
             <h3>What you’ll get</h3>
             <ul className="bullets">
-              <li>ATS-ready resume & optimized LinkedIn (civilian language)</li>
-              <li>Story bank that proves impact with metrics</li>
+              <li>ATS-ready resume & optimized LinkedIn in civilian language</li>
+              <li>Story bank that proves impact with measurable results</li>
               <li>Interview coaching & leadership value cases</li>
-              <li>Customized 30-60-90 leadership ramp plan</li>
+              <li>Custom 30-60-90-day leadership ramp plan</li>
             </ul>
           </article>
 
           <article className="card">
             <h3>Program flow</h3>
             <ul className="bullets">
-              <li><strong>Assess:</strong> strengths, roles, industries, keywords</li>
+              <li><strong>Assess:</strong> map strengths, roles, and industries</li>
               <li><strong>Translate:</strong> convert MOS achievements to business outcomes</li>
-              <li><strong>Launch:</strong> networking plan, interview reps, 90-day cadence</li>
+              <li><strong>Launch:</strong> networking plan, interview reps, and 90-day cadence</li>
             </ul>
           </article>
         </div>
@@ -825,11 +825,11 @@ function Veterans() {
           </article>
           <article className="topic">
             <h4>Logistics & Supply → Inventory & Cost</h4>
-            <p>“Managed $48M in equipment” → “Reduced inventory variance & shrink; protected $48M asset base with cycle counts and audits.”</p>
+            <p>“Managed $48M in equipment” → “Reduced inventory variance & shrink; protected $48M asset base through audits and automation.”</p>
           </article>
           <article className="topic">
             <h4>Training & Mentorship → People Leadership</h4>
-            <p>“Led and trained 25 soldiers” → “Built a 25-person team; improved productivity 20% via coaching and weekly huddles.”</p>
+            <p>“Led and trained 25 soldiers” → “Built a 25-person team; improved productivity 20% via coaching and structured feedback.”</p>
           </article>
         </div>
       </section>
@@ -839,10 +839,10 @@ function Veterans() {
         <h2>Common Deliverables</h2>
         <ul className="checklist two-col">
           <li>Executive resume + 2–3 role-specific versions</li>
-          <li>LinkedIn rewrite with searchable keywords</li>
+          <li>LinkedIn rewrite with optimized search terms</li>
           <li>Achievement story bank (STAR/CAR format)</li>
           <li>Interview question bank & mock sessions</li>
-          <li>First-week/30/60/90 leadership plan</li>
+          <li>First-week / 30 / 60 / 90-day leadership plan</li>
           <li>Manager communication & expectations brief</li>
         </ul>
       </section>
@@ -899,7 +899,7 @@ function Veterans() {
 
             <label className="full-width">
               Message
-              <textarea name="message" rows="5" placeholder="Share goals, industries, and any current hurdles…" required></textarea>
+              <textarea name="message" rows="5" placeholder="Share goals, industries, or challenges…" required></textarea>
             </label>
           </div>
 
@@ -917,15 +917,15 @@ function Veterans() {
         <div className="faq">
           <details>
             <summary>Do you help with federal and corporate roles?</summary>
-            <p>Yes—targeted materials for USAJobs and private sector, including keyword alignment.</p>
+            <p>Yes—tailored materials for both USAJobs and private-sector hiring, including keyword alignment.</p>
           </details>
           <details>
-            <summary>Can you work with my ERG or unit?</summary>
-            <p>Absolutely—cohorts, workshops, or 1:1 coaching options are available.</p>
+            <summary>Can you support my unit or veteran cohort?</summary>
+            <p>Yes—group sessions and leadership workshops can be arranged upon request.</p>
           </details>
           <details>
             <summary>What about pricing?</summary>
-            <p>Available upon request. Share your timeline and needs, and we’ll advise quickly.</p>
+            <p>Available upon request. Share your timeline and goals, and we’ll advise quickly.</p>
           </details>
         </div>
       </section>
@@ -933,7 +933,7 @@ function Veterans() {
       {/* CTA */}
       <section className="section cta">
         <h2>You served with excellence—now lead with impact</h2>
-        <p>Let’s turn your experience into a leadership advantage in the civilian world.</p>
+        <p>Let’s turn your service experience into a leadership advantage in the civilian world.</p>
         <div className="buttons">
           <Link to="/contact" className="btn">Book a discovery call</Link>
           <a className="btn btn-ghost" href="mailto:jesse@oneleaderatatimegroup.com?subject=Veteran%20Transition%20Consult">Email Jesse</a>
