@@ -1106,3 +1106,37 @@ h1, h2 { color: #2a467b; }
   z-index: 2;
   pointer-events: none;
 }
+/* Subtle brand-tinted fade */
+.photo-frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: -60px;
+  border-radius: 50%;
+  background:
+    radial-gradient(320px 260px at 25% 25%, rgba(217,184,95,0.18), transparent 80%),
+    radial-gradient(320px 260px at 75% 75%, rgba(42,70,123,0.15), transparent 85%),
+    radial-gradient(320px 260px at 50% 50%, rgba(255,255,255,0.6), transparent 95%);
+  filter: blur(36px);
+  opacity: 0.95;
+  z-index: 0;
+}
+
+.soft-edges {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  border-radius: 14px;
+  display: block;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  mask-image: radial-gradient(circle at center, black 72%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 72%, transparent 100%);
+}
