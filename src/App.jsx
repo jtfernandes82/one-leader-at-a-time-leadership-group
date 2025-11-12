@@ -30,6 +30,17 @@ function Header() {
     { to: "/contact", label: "Contact" },
   ];
 
+  // Dedicated click handler to guarantee external open
+  const openLinkedIn = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.open(
+      "https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/",
+      "_blank",
+      "noopener"
+    );
+  };
+
   return (
     <header className="site-header">
       <div className="banner-bar">
@@ -40,9 +51,8 @@ function Header() {
         />
       </div>
 
-      <nav className="nav" role="navigation">
+      <nav className="nav">
         <div className="container nav-inner">
-          {/* LEFT: nav list */}
           <ul className="nav-list">
             {nav.map((item) => (
               <li key={item.to}>
@@ -58,17 +68,18 @@ function Header() {
             ))}
           </ul>
 
-          {/* RIGHT: external LinkedIn link */}
-          <a
-            className="nav-social-link"
-            href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            title="LinkedIn"
-          >
-            <LinkedInIcon size={22} />
-          </a>
+          {/* absolutely positioned, cannot be overlapped */}
+          <div className="nav-right">
+            <a
+              href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/"
+              onClick={openLinkedIn}
+              aria-label="LinkedIn"
+              title="LinkedIn"
+              className="nav-social-link"
+            >
+              <LinkedInIcon size={22} />
+            </a>
+          </div>
         </div>
       </nav>
     </header>
