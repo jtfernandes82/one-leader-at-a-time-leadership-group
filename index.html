@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>One Leader at a Time – Leadership Group</title>
 
-    <!-- Favicons (put a 32x32 or 48x48 star icon in /public as favicon1.png) -->
+    <!-- Favicon (place /public/favicon1.png in your repo) -->
     <link rel="icon" type="image/png" href="/favicon1.png" />
 
     <!-- Fonts -->
@@ -16,10 +16,10 @@
       rel="stylesheet"
     />
 
-    <!-- Main stylesheet (keep your gradients, portrait mask, etc. in here) -->
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="/src/index.css" />
 
-    <!-- Base styles so the app uses full height and avoids odd gaps -->
+    <!-- Make the app use full height & avoid odd gaps -->
     <style>
       html, body, #root { height: 100%; margin: 0; }
     </style>
@@ -29,7 +29,13 @@
     <!-- React mounts here -->
     <div id="root"></div>
 
-    <!-- Netlify detection form (hidden). Your real form renders on /contact -->
+    <!-- ================================
+         Netlify HIDDEN detection forms
+         (these let Netlify "see" your forms
+         at build time so submissions work)
+         ================================ -->
+
+    <!-- 1) Contact (matches your /contact React form) -->
     <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="contact" />
       <p style="display:none">
@@ -40,13 +46,56 @@
       <input type="tel" name="phone" />
       <select name="topic">
         <option>Discovery call</option>
-        <option>Speaking inquiry</option>
-        <option>ELITE framework workshop</option>
-        <option>Veteran transition coaching</option>
+        <option>ELITE Framework</option>
+        <option>Speaking availability</option>
+        <option>Veteran transition consult</option>
         <option>Other</option>
       </select>
       <textarea name="message"></textarea>
     </form>
+
+    <!-- 2) Speaking Request (matches your /speaking React form) -->
+    <form name="speaking-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="speaking-request" />
+      <p style="display:none">
+        <label>Don’t fill this out: <input name="bot-field" /></label>
+      </p>
+      <input name="name" />
+      <input name="email" />
+      <input name="organization" />
+      <input name="date" />
+      <select name="format">
+        <option>Keynote</option>
+        <option>Workshop</option>
+        <option>Panel / Fireside</option>
+        <option>Unsure</option>
+      </select>
+      <input name="audience" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <!-- 3) Veteran Consult (matches your /veterans React form) -->
+    <form name="veteran-consult" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="veteran-consult" />
+      <p style="display:none">
+        <label>Don’t fill this out: <input name="bot-field" /></label>
+      </p>
+      <input name="name" />
+      <input name="email" />
+      <input name="branch" />
+      <input name="role" />
+      <select name="timeline">
+        <option>0-3 months</option>
+        <option>3-6 months</option>
+        <option>6-12 months</option>
+        <option>Unsure</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
+
+    <!-- If Netlify ever asks for reCAPTCHA, add this div inside your visible forms:
+         <div data-netlify-recaptcha="true"></div>
+    -->
 
     <!-- Vite entry -->
     <script type="module" src="/src/main.jsx"></script>
