@@ -1602,3 +1602,25 @@ button:hover,
 .nav-link:hover {
   filter: drop-shadow(0 0 4px rgba(217,184,95,.4));
 }
+/* === Unified 'Strong Intro' Box Style for Home / ELITE / Services === */
+.strong-intro,
+.lede {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #2a467b;
+  text-align: center;
+  line-height: 1.6;
+  background: linear-gradient(
+    to right,
+    rgba(217,184,95,0.15),
+    rgba(255,255,255,0.85)
+  );
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  max-width: 850px;
+  margin: 0.75rem auto 1.5rem;
+}
+.section-title + .strong-intro {
+  margin-top: .5rem;
+}
