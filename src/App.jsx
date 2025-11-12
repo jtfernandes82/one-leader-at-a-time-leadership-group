@@ -8,14 +8,13 @@ function LinkedInIcon({ size = 22 }) {
       viewBox="0 0 24 24"
       width={size}
       height={size}
-      fill="#0a66c2"
       aria-hidden="true"
+      focusable="false"
     >
       <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zM8.5 8h3.8v2.2h.05c.53-1 1.82-2.2 3.74-2.2 4 0 4.74 2.6 4.74 6V24h-4v-7c0-1.67-.03-3.82-2.33-3.82-2.34 0-2.7 1.83-2.7 3.7V24h-4V8z"/>
     </svg>
   );
 }
-
 /* Header with banner + nav */
 function Header() {
   const nav = [
