@@ -30,11 +30,6 @@ function Header() {
     { to: "/contact", label: "Contact" },
   ];
 
-  const openLinkedIn = (e) => {
-    // hard-stop any router bubbling just in case
-    e.stopPropagation();
-  };
-
   return (
     <header className="site-header">
       <div className="banner-bar">
@@ -47,7 +42,6 @@ function Header() {
 
       <nav className="nav" role="navigation">
         <div className="container nav-inner">
-          {/* LEFT: nav list */}
           <ul className="nav-list">
             {nav.map((item) => (
               <li key={item.to}>
@@ -63,7 +57,7 @@ function Header() {
             ))}
           </ul>
 
-          {/* RIGHT: external LinkedIn (normal flow, no absolute) */}
+          {/* real external LinkedIn link */}
           <a
             className="nav-social-link"
             href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/"
@@ -71,9 +65,8 @@ function Header() {
             rel="noopener noreferrer"
             aria-label="LinkedIn"
             title="LinkedIn"
-            onClick={openLinkedIn}
           >
-            <img src="/linkedin.svg" alt="LinkedIn" width="22" height="22" />
+            <LinkedInIcon size={22} />
           </a>
         </div>
       </nav>
