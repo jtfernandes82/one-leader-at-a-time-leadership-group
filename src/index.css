@@ -1384,3 +1384,19 @@ h1, h2 { color: #2a467b; }
 .nav-social a:hover {
   filter: drop-shadow(0 0 4px rgba(217, 184, 95, 0.5));
 }
+/* Nav layout guardrails so items don't overlap */
+.nav-inner { display:flex; justify-content:space-between; align-items:center; }
+.nav-list { display:flex; gap:1.25rem; margin:0; padding:0; list-style:none; }
+.nav-list li { position:relative; }
+
+/* Keep the LinkedIn anchor on top + clickable */
+.nav-social { position:relative; z-index:10; margin-left:1rem; flex-shrink:0; }
+.nav-social a { display:inline-flex; align-items:center; justify-content:center; line-height:1; }
+
+/* Default & hover color (target the path directly) */
+.nav-social svg path { fill:#0a66c2; transition:fill .25s ease, transform .2s ease; }
+.nav-social a:hover svg path { fill:var(--gold, #d9b85f); }
+.nav-social a:hover svg { transform:scale(1.15); }
+
+/* (Optional) tiny glow */
+.nav-social a:hover { filter:drop-shadow(0 0 4px rgba(217,184,95,.45)); }
