@@ -1289,3 +1289,34 @@ h1, h2 { color: #2a467b; }
 
 .section.cta { text-align:center; }
 .section.cta .buttons { display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; }
+/* Speaking page tweaks */
+.speaking-page .hero-speaking { text-align:center; }
+.speaking-page .lede { color:#334; max-width: 72ch; margin: .5rem auto 0; }
+
+.rider-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap:1rem;
+}
+
+.steps {
+  counter-reset: step;
+  list-style: none;
+  padding: 0; margin: 0;
+  display: grid; gap: .5rem;
+}
+.steps li {
+  background:#fff; border:1px solid #e6ecf5; border-radius:12px; padding:.75rem 1rem;
+  box-shadow:0 6px 16px rgba(0,0,0,.04);
+}
+.steps li strong { color:#2a467b; }
+
+.topics-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap:1rem;
+}
+.topic {
+  background:#f7f9fc; border:1px solid #e6ecf5; border-radius:12px; padding:1rem;
+}
+.topic h4 { color:#2a467b; margin:0 0 .25rem; }
