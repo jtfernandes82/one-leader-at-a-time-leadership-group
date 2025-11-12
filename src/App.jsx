@@ -327,62 +327,136 @@ function About() {
 }
 function Services() {
   return (
-    <main className="container">
-      <h1 className="section-title">Services</h1>
-      <p>
-        We transform leaders, teams, and organizations through the E.L.I.T.E.™ Framework — Empower,
-        Lead, Inspire, Transform, Elevate. Programs can be delivered onsite or virtually and tailored
-        by audience level.
-      </p>
+    <main className="container services">
+      {/* HERO */}
+      <section className="section">
+        <h1 className="section-title">Services</h1>
+        <p className="lede">
+          Outcome-focused keynotes, workshops, and coaching that turn the E.L.I.T.E.™ Framework
+          into daily leadership behaviors—without adding busywork.
+        </p>
+      </section>
 
-      <div className="card-grid">
-        <div className="card">
-          <h3>Leadership & Team Development</h3>
-          <ul>
-            <li>Team operating rhythm</li>
-            <li>Leader standards & rituals</li>
-            <li>After-action learning</li>
-          </ul>
+      {/* PACKAGES */}
+      <section className="section">
+        <h2>Choose the right format</h2>
+        <div className="cards-grid">
+          <article className="card">
+            <h3>Keynote Talks</h3>
+            <p>High-energy sessions that align your audience and spark action.</p>
+            <ul className="bullets">
+              <li>30–60 minutes + Q&A</li>
+              <li>In-person or virtual</li>
+              <li>Audience handout</li>
+            </ul>
+            <div className="meta">
+              <span className="tag">Starter</span>
+              <span className="range">Typical range: $1,000–$2,500</span>
+            </div>
+          </article>
+
+          <article className="card">
+            <h3>Workshops</h3>
+            <p>Hands-on practice applying E.L.I.T.E.™ to your real challenges.</p>
+            <ul className="bullets">
+              <li>Half-day or full-day</li>
+              <li>Templates & playbooks</li>
+              <li>Action plans & scorecards</li>
+            </ul>
+            <div className="meta">
+              <span className="tag">Most Popular</span>
+              <span className="range">Typical range: $2,500–$5,000+</span>
+            </div>
+          </article>
+
+          <article className="card">
+            <h3>Team Coaching</h3>
+            <p>Short, focused sprints to lock in behavior change and results.</p>
+            <ul className="bullets">
+              <li>Bi-weekly sessions (8–16 weeks)</li>
+              <li>Leader scorecards</li>
+              <li>Progress reviews</li>
+            </ul>
+            <div className="meta">
+              <span className="tag">Sustain</span>
+              <span className="range">Custom proposal</span>
+            </div>
+          </article>
+
+          <article className="card">
+            <h3>Veteran Transition</h3>
+            <p>Translate military excellence into civilian leadership impact.</p>
+            <ul className="bullets">
+              <li>Resume & LinkedIn translation</li>
+              <li>Interview coaching</li>
+              <li>First-90-days ramp plan</li>
+            </ul>
+            <div className="meta">
+              <span className="tag">Veterans</span>
+              <span className="range">Program bundles</span>
+            </div>
+          </article>
         </div>
+      </section>
 
-        <div className="card">
-          <h3>Executive & Strategic Coaching</h3>
-          <ul>
-            <li>Decision frameworks</li>
-            <li>Executive presence</li>
-            <li>Accountability systems</li>
-          </ul>
+      {/* TOPICS */}
+      <section className="section">
+        <h2>Popular topics</h2>
+        <div className="topics-grid">
+          <article className="topic">
+            <h4>ELITE Behaviors that Elevate Team Performance</h4>
+            <p>Translate values into daily habits that reduce friction and raise ownership.</p>
+          </article>
+          <article className="topic">
+            <h4>From Constraint to Catalyst</h4>
+            <p>Turn bottlenecks into momentum using simple improvement cycles.</p>
+          </article>
+          <article className="topic">
+            <h4>Building Trust at Speed</h4>
+            <p>Psychological safety without complacency—coaching micro-skills that stick.</p>
+          </article>
         </div>
+      </section>
 
-        <div className="card">
-          <h3>Organizational Resilience</h3>
-          <ul>
-            <li>Change navigation</li>
-            <li>Risk & response playbooks</li>
-            <li>Metrics that matter</li>
-          </ul>
+      {/* WHAT'S INCLUDED */}
+      <section className="section">
+        <h2>What’s included</h2>
+        <ul className="checklist two-col">
+          <li>Discovery call to align on goals & audience</li>
+          <li>Customization to your language & scenarios</li>
+          <li>Practical tools (scorecards, prompts, templates)</li>
+          <li>Clear next-step plan and optional follow-ups</li>
+        </ul>
+      </section>
+
+      {/* FAQ (lightweight, not duplicating other pages) */}
+      <section className="section">
+        <h2>Quick answers</h2>
+        <div className="faq">
+          <details>
+            <summary>Do you customize sessions?</summary>
+            <p>Yes—content, examples, and tools are tailored to your context and outcomes.</p>
+          </details>
+          <details>
+            <summary>Do you travel?</summary>
+            <p>Yes—US travel and virtual delivery options are available.</p>
+          </details>
+          <details>
+            <summary>Non-profit/education pricing?</summary>
+            <p>Available on request. Share your event details and we’ll advise.</p>
+          </details>
         </div>
+      </section>
 
-        <div className="card">
-          <h3>Speaking & Keynotes</h3>
-          <ul>
-            <li>Keynotes</li>
-            <li>Panels & firesides</li>
-            <li>Workshops</li>
-          </ul>
+      {/* CTA */}
+      <section className="section cta">
+        <h2>Ready to plan your session?</h2>
+        <p>Tell me about your audience and goals—I’ll recommend the best format.</p>
+        <div className="buttons">
+          <Link to="/contact" className="btn">Book a discovery call</Link>
+          <Link to="/speaking" className="btn btn-ghost">See speaking details</Link>
         </div>
-
-        <div className="card">
-          <h3>Veteran Transition Leadership</h3>
-          <ul>
-            <li>Resume & LinkedIn</li>
-            <li>Interview prep</li>
-            <li>30-60-90 day plans</li>
-          </ul>
-        </div>
-      </div>
-
-      <Link to="/contact" className="btn">Schedule a consultation</Link>
+      </section>
     </main>
   );
 }
