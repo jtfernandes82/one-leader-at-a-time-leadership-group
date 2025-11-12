@@ -1140,3 +1140,81 @@ h1, h2 { color: #2a467b; }
   mask-image: radial-gradient(circle at center, black 72%, transparent 100%);
   -webkit-mask-image: radial-gradient(circle at center, black 72%, transparent 100%);
 }
+.services .section + .section { margin-top: 0.5rem; }
+.lede { color: #334; max-width: 68ch; }
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.card {
+  background: #fff;
+  border: 1px solid #e6ecf5;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,.05);
+}
+.card h3 { color:#2a467b; margin-bottom: .25rem; }
+.bullets { margin:.5rem 0 0; padding-left:1.1rem; }
+.bullets li { margin: .25rem 0; }
+
+.meta {
+  margin-top: .75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.tag {
+  background: rgba(150,180,210,.14);
+  border: 1px solid #d9b85f44;
+  padding: .25rem .5rem;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.range {
+  color:#5b6b82;
+  font-size: .9rem;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.topic {
+  background:#f7f9fc;
+  border:1px solid #e6ecf5;
+  border-radius:12px;
+  padding:1rem;
+}
+.topic h4 { margin:0 0 .25rem; color:#2a467b; }
+
+.checklist {
+  list-style: none; padding:0; margin:0;
+}
+.checklist li {
+  position: relative; padding-left: 1.5rem; margin: .35rem 0;
+}
+.checklist li::before {
+  content: "✓"; position:absolute; left:0; top:0; color:#2a467b; font-weight:700;
+}
+.checklist.two-col {
+  columns: 2; column-gap: 2rem;
+}
+@media (max-width: 720px) {
+  .checklist.two-col { columns: 1; }
+}
+
+.faq details {
+  background:#fff; border:1px solid #e6ecf5; border-radius:10px;
+  padding:.75rem 1rem; margin:.5rem 0;
+}
+.faq summary { font-weight:600; color:#2a467b; cursor:pointer; }
+
+.section.cta { text-align:center; }
+.section.cta .buttons { display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; }
