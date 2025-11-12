@@ -1337,3 +1337,24 @@ h1, h2 { color: #2a467b; }
 
 /* Reuse your existing .contact-form + .form-grid styles from Contact page */
 .speaking-page .contact-form { margin-top: .5rem; }
+/* Veterans hero line polish (same style used on Services/Speaking) */
+.veterans-page .strong-intro {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #2a467b;
+  text-align: center;
+  line-height: 1.6;
+  background: linear-gradient(to right, rgba(217,184,95,0.15), rgba(255,255,255,0.85));
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  max-width: 850px;
+  margin: 0.5rem auto 1rem;
+}
+
+/* Reuse existing grids; just ensure spacing feels tight on mobile */
+.veterans-page .topics-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.veterans-page .topic h4 { color:#2a467b; margin:0 0 .25rem; }
+
+/* Form spacing */
+.veterans-page .contact-form { margin-top: .5rem; }
