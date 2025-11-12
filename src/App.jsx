@@ -597,10 +597,9 @@ function Speaking() {
       {/* HERO */}
       <section className="section hero-speaking">
         <h1 className="section-title">Speaking & Keynotes</h1>
-        <p className="lede">
-          High-energy, high-credibility talks that turn leadership principles into action. Jesseana
-          blends military precision with real-world coaching to help audiences lead with clarity,
-          courage, and the E.L.I.T.E.™ mindset.
+        <p className="lede strong-intro">
+          Move people from inspiration to action. Jesseana blends military precision and practical coaching
+          so audiences leave aligned, energized, and ready to lead with the E.L.I.T.E.™ mindset.
         </p>
         <div className="buttons">
           <Link to="/contact" className="btn">Request availability</Link>
@@ -675,62 +674,83 @@ function Speaking() {
           <li><strong>Deliver:</strong> Engaging, practical, and on time.</li>
           <li><strong>Follow-up:</strong> Optional recap, tools, and next steps.</li>
         </ol>
-        <p className="center" style={{ marginTop: ".5rem" }}>
-          <Link to="/contact" className="btn">Request availability</Link>
-        </p>
       </section>
 
-      {/* AV & LOGISTICS (EVENT-PLANNER FRIENDLY) */}
+      {/* NETLIFY MINI REQUEST FORM */}
       <section className="section">
-        <h2>AV & Logistics</h2>
-        <div className="rider-grid">
-          <article className="card rider">
-            <h3>AV</h3>
-            <ul className="bullets">
-              <li>Wireless handheld or lapel mic</li>
-              <li>HDMI to house projector/LED</li>
-              <li>Confidence monitor (preferred)</li>
-            </ul>
-          </article>
-          <article className="card rider">
-            <h3>Slides & Media</h3>
-            <ul className="bullets">
-              <li>16:9 slides provided in advance</li>
-              <li>Backup on USB + cloud link</li>
-              <li>No loud auto-play media</li>
-            </ul>
-          </article>
-          <article className="card rider">
-            <h3>Room Setup</h3>
-            <ul className="bullets">
-              <li>Front-row seating within 6–8 ft</li>
-              <li>Stage or riser if >100 attendees</li>
-              <li>House lights up for interaction</li>
-            </ul>
-          </article>
-        </div>
-        <p className="muted" style={{ marginTop: ".5rem" }}>
-          Virtual delivery is also available. Brand co-branding and recording by request.
+        <h2>Request Availability</h2>
+        <p className="muted" style={{ marginBottom: ".5rem" }}>
+          Share a few details and we’ll get back to you quickly with next steps.
         </p>
-      </section>
 
-      {/* QUICK ANSWERS */}
-      <section className="section">
-        <h2>Quick Answers</h2>
-        <div className="faq">
-          <details>
-            <summary>Do you customize talks?</summary>
-            <p>Yes. We align on your audience, outcomes, and language during a brief fit call.</p>
-          </details>
-          <details>
-            <summary>In-person or virtual?</summary>
-            <p>Both options are available. AV needs are light; virtual platforms are flexible.</p>
-          </details>
-          <details>
-            <summary>What about pricing?</summary>
-            <p>Available upon request. Share your date and format, and we’ll advise quickly.</p>
-          </details>
-        </div>
+        <form
+          name="speaking-request"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          className="card contact-form"
+        >
+          {/* Required hidden inputs for Netlify */}
+          <input type="hidden" name="form-name" value="speaking-request" />
+          <p hidden>
+            <label>
+              Don’t fill this out if you’re human: <input name="bot-field" />
+            </label>
+          </p>
+
+          <div className="form-grid">
+            <label>
+              Name
+              <input type="text" name="name" required />
+            </label>
+
+            <label>
+              Email
+              <input type="email" name="email" required />
+            </label>
+
+            <label>
+              Organization
+              <input type="text" name="organization" />
+            </label>
+
+            <label>
+              Event Date (or window)
+              <input type="text" name="date" placeholder="e.g., Oct 10 or Oct 8–12" />
+            </label>
+
+            <label>
+              Format
+              <select name="format" defaultValue="Keynote">
+                <option>Keynote</option>
+                <option>Workshop</option>
+                <option>Panel / Fireside</option>
+                <option>Unsure</option>
+              </select>
+            </label>
+
+            <label>
+              Audience Size
+              <input type="number" name="audience" min="1" placeholder="Approx. headcount" />
+            </label>
+
+            <label className="full-width">
+              Message
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Tell me about your audience and desired outcomes…"
+                required
+              ></textarea>
+            </label>
+          </div>
+
+          <button className="btn" type="submit">Send Request</button>
+        </form>
+
+        <p className="center" style={{ marginTop: "0.75rem" }}>
+          Prefer email? <a href="mailto:jesse@oneleaderatatimegroup.com">jesse@oneleaderatatimegroup.com</a>
+        </p>
       </section>
 
       {/* CTA */}
@@ -745,7 +765,6 @@ function Speaking() {
     </main>
   );
 }
-
 /* --------- UPDATED VETERANS PAGE (full detail) --------- */
 function Veterans() {
   return (
