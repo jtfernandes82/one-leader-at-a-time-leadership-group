@@ -30,15 +30,9 @@ function Header() {
     { to: "/contact", label: "Contact" },
   ];
 
-  // Dedicated click handler to guarantee external open
   const openLinkedIn = (e) => {
-    e.preventDefault();
+    // hard-stop any router bubbling just in case
     e.stopPropagation();
-    window.open(
-      "https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/",
-      "_blank",
-      "noopener"
-    );
   };
 
   return (
@@ -51,8 +45,9 @@ function Header() {
         />
       </div>
 
-      <nav className="nav">
+      <nav className="nav" role="navigation">
         <div className="container nav-inner">
+          {/* LEFT: nav list */}
           <ul className="nav-list">
             {nav.map((item) => (
               <li key={item.to}>
@@ -68,24 +63,23 @@ function Header() {
             ))}
           </ul>
 
-          {/* absolutely positioned, cannot be overlapped */}
-          <div className="nav-right">
-            <a
-              href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/"
-              onClick={openLinkedIn}
-              aria-label="LinkedIn"
-              title="LinkedIn"
-              className="nav-social-link"
-            >
-              <LinkedInIcon size={22} />
-            </a>
-          </div>
+          {/* RIGHT: external LinkedIn (normal flow, no absolute) */}
+          <a
+            className="nav-social-link"
+            href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+            onClick={openLinkedIn}
+          >
+            <img src="/linkedin.svg" alt="LinkedIn" width="22" height="22" />
+          </a>
         </div>
       </nav>
     </header>
   );
 }
-
 /* Footer */
 function Footer() {
   return (
