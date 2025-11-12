@@ -1530,3 +1530,35 @@ a.nav-social {
 
 /* Make sure no absolute 'nav-right' or old floats interfere */
 .nav-right { position: static !important; transform: none !important; }
+/* ---- NAV LAYOUT: center tabs, icon on far right ---- */
+.nav-inner{
+  display:flex !important;
+  align-items:center !important;
+}
+
+.nav-list{
+  display:flex !important;
+  gap:1.25rem;
+  margin:0; padding:0; list-style:none;
+  flex:1 1 auto !important;          /* takes remaining width */
+  justify-content:center !important;  /* centers the tabs */
+}
+
+.nav-social-link{
+  flex:0 0 auto;                      /* sits at the far right */
+  display:inline-flex; align-items:center; justify-content:center;
+  margin-left:1rem;
+  line-height:1;
+  position:relative; z-index:5;
+}
+
+/* Gold hover for the blue-square SVG */
+.nav-social-link svg rect{ transition: fill .25s ease; }
+.nav-social-link:hover svg rect{ fill: var(--gold); }
+
+/* Make sure no older rules pull the icon left or hide it */
+.nav-right{ position:static !important; transform:none !important; }
+.site-header a[href*="linkedin"], .nav a[href*="linkedin"], .nav-social, a.nav-social{
+  display:inline-flex !important;
+}
+.nav-list li:last-child > a::after{ content:none !important; } /* kill any fake icon on Contact */
