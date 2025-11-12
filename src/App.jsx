@@ -101,10 +101,10 @@ function Home() {
       {/* HERO */}
       <section className="hero section">
         <h1 className="section-title">Lead Today. Transform Tomorrow.</h1>
-        <p className="lede">
-          Empowering leaders and organizations through the{" "}
-          <strong>E.L.I.T.E.™ Framework</strong> — Empower, Lead, Inspire, Transform, Elevate.
-        </p>
+        <p className="strong-intro">
+  Empowering military leaders and organizations through the E.L.I.T.E.™ Framework —
+  Empower, Lead, Inspire, Transform, Elevate.
+</p>
         {/* ❌ Removed the double button bar */}
       </section>
 
@@ -450,7 +450,7 @@ function Elite() {
       {/* HERO */}
       <section className="section hero-elite">
         <h1 className="section-title">The E.L.I.T.E.™ Framework</h1>
-        <p className="lede">
+       <p className="strong-intro">
           A simple, repeatable system that turns values into daily leadership behaviors—so trust
           grows, friction drops, and results compound.
         </p>
@@ -952,10 +952,9 @@ function Contact() {
     <main className="container contact">
       <section className="section">
         <h1 className="section-title">Get in Touch</h1>
-        <p className="lead">
-          Have a question or want to book a speaking engagement? I’d love to
-          connect and learn more about your goals.
-        </p>
+        <p className="strong-intro">
+  Have a question or want to book a speaking engagement? I’d love to connect and learn more about your goals.
+</p>
         <p>
           Prefer email? Reach me directly at{" "}
           <a href="mailto:jesse@oneleaderatatimegroup.com">
