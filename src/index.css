@@ -1400,3 +1400,41 @@ h1, h2 { color: #2a467b; }
 
 /* (Optional) tiny glow */
 .nav-social a:hover { filter:drop-shadow(0 0 4px rgba(217,184,95,.45)); }
+/* Layout: keep list and icon separated and non-overlapping */
+.nav { position: relative; }
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-list {
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  z-index: 1;
+}
+.nav-list li { flex: 0 0 auto; }
+
+/* The LinkedIn anchor is a separate clickable target on the right */
+.nav-social-link {
+  position: relative;
+  z-index: 2;               /* sits above neighboring links */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-decoration: none;
+  color: #0a66c2;           /* default LinkedIn blue via currentColor */
+  margin-left: 1rem;
+  pointer-events: auto;     /* ensure it's clickable even if ancestors changed */
+}
+
+/* Gold hover (thanks to currentColor on the SVG path) */
+.nav-social-link:hover { color: var(--gold, #d9b85f); }
+.nav-social-link:hover svg { transform: scale(1.15); }
+.nav-social-link svg {
+  transition: transform .2s ease;
+}
