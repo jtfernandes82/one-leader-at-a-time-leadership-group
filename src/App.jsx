@@ -768,60 +768,177 @@ function Speaking() {
 /* --------- UPDATED VETERANS PAGE (full detail) --------- */
 function Veterans() {
   return (
-    <main className="container">
-      <h1 className="section-title">Veteran Transition Leadership</h1>
-      <p className="lede">
-        End-to-end support for veterans moving into corporate leadership roles—translating military
-        discipline, adaptability, and values into civilian career success.
-      </p>
-
-      <div className="card-grid">
-        <div className="card">
-          <h3>Who this is for</h3>
-          <ul>
-            <li>Active duty and Guard/Reserve leaders preparing to transition</li>
-            <li>Veterans targeting roles in operations, supply chain, and technical leadership</li>
-            <li>Military spouses and ERGs building veteran-ready cultures</li>
-          </ul>
+    <main className="container veterans-page">
+      {/* HERO */}
+      <section className="section hero-vets">
+        <h1 className="section-title">Veteran Transition Leadership</h1>
+        <p className="lede strong-intro">
+          Translate military excellence into civilian leadership impact. We help veterans turn
+          hard-won experience into business value—so you land faster, lead stronger, and thrive.
+        </p>
+        <div className="buttons">
+          <Link to="/contact" className="btn">Book a discovery call</Link>
+          <a className="btn btn-ghost" href="mailto:jesse@oneleaderatatimegroup.com?subject=Veteran%20Transition%20Consult">Email Jesse</a>
         </div>
+      </section>
 
-        <div className="card">
-          <h3>What you’ll get</h3>
-          <ul>
-            <li>Resume & LinkedIn built for civilian hiring systems (ATS-ready)</li>
-            <li>Positioning that translates MOS/achievements into business outcomes</li>
-            <li>Interview prep, story banking, and leadership value cases</li>
-            <li>30-60-90 day integration plan tailored to your target role</li>
-          </ul>
+      {/* WHO / WHAT / FLOW */}
+      <section className="section">
+        <div className="cards-grid">
+          <article className="card">
+            <h3>Who this is for</h3>
+            <ul className="bullets">
+              <li>Active duty & Guard/Reserve preparing to transition</li>
+              <li>Veterans targeting ops, supply chain, program leadership</li>
+              <li>Military spouses & ERGs building veteran-ready cultures</li>
+            </ul>
+          </article>
+
+          <article className="card">
+            <h3>What you’ll get</h3>
+            <ul className="bullets">
+              <li>ATS-ready resume & optimized LinkedIn (civilian language)</li>
+              <li>Story bank that proves impact with metrics</li>
+              <li>Interview coaching & leadership value cases</li>
+              <li>Customized 30-60-90 leadership ramp plan</li>
+            </ul>
+          </article>
+
+          <article className="card">
+            <h3>Program flow</h3>
+            <ul className="bullets">
+              <li><strong>Assess:</strong> strengths, roles, industries, keywords</li>
+              <li><strong>Translate:</strong> convert MOS achievements to business outcomes</li>
+              <li><strong>Launch:</strong> networking plan, interview reps, 90-day cadence</li>
+            </ul>
+          </article>
         </div>
+      </section>
 
-        <div className="card">
-          <h3>Program flow</h3>
-          <ul>
-            <li><strong>Assess:</strong> map strengths, roles, and industries; identify keywords</li>
-            <li><strong>Translate:</strong> convert military impact into metrics and business language</li>
-            <li><strong>Launch:</strong> networking plan, interview reps, and first-90-days cadence</li>
-          </ul>
+      {/* TRANSLATION EXAMPLES */}
+      <section className="section">
+        <h2>Translate Your Experience</h2>
+        <div className="topics-grid">
+          <article className="topic">
+            <h4>Operations & Readiness → Delivery & Throughput</h4>
+            <p>“Maintained unit readiness at 96%” → “Increased on-time delivery to 96% by standardizing handoffs and visual controls.”</p>
+          </article>
+          <article className="topic">
+            <h4>Logistics & Supply → Inventory & Cost</h4>
+            <p>“Managed $48M in equipment” → “Reduced inventory variance & shrink; protected $48M asset base with cycle counts and audits.”</p>
+          </article>
+          <article className="topic">
+            <h4>Training & Mentorship → People Leadership</h4>
+            <p>“Led and trained 25 soldiers” → “Built a 25-person team; improved productivity 20% via coaching and weekly huddles.”</p>
+          </article>
         </div>
-      </div>
+      </section>
 
-      <h2 className="section-title">Common deliverables</h2>
-      <ul>
-        <li>Executive resume and optimized LinkedIn profile</li>
-        <li>2–3 role-specific versions (e.g., Ops Manager, Program Manager, Materials Lead)</li>
-        <li>Interview prep kit with accomplishment stories and question bank</li>
-        <li>First-week/30/60/90-day onboarding plan with quick-win targets</li>
-      </ul>
+      {/* DELIVERABLES */}
+      <section className="section">
+        <h2>Common Deliverables</h2>
+        <ul className="checklist two-col">
+          <li>Executive resume + 2–3 role-specific versions</li>
+          <li>LinkedIn rewrite with searchable keywords</li>
+          <li>Achievement story bank (STAR/CAR format)</li>
+          <li>Interview question bank & mock sessions</li>
+          <li>First-week/30/60/90 leadership plan</li>
+          <li>Manager communication & expectations brief</li>
+        </ul>
+      </section>
 
-      <div className="buttons">
-        <Link to="/contact" className="btn">Request a veteran consult</Link>
-        <a
-          className="btn"
-          href="mailto:jesse@oneleaderatatimegroup.com?subject=Veteran Transition Consult"
+      {/* MINI NETLIFY FORM */}
+      <section className="section">
+        <h2>Request a Veteran Consult</h2>
+        <p className="muted" style={{ marginBottom: ".5rem" }}>
+          Share a few details—we’ll reply quickly with next steps and availability.
+        </p>
+
+        <form
+          name="veteran-consult"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          className="card contact-form"
         >
-          Email Jesseana
-        </a>
-      </div>
+          <input type="hidden" name="form-name" value="veteran-consult" />
+          <p hidden>
+            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+          </p>
+
+          <div className="form-grid">
+            <label>
+              Name
+              <input type="text" name="name" required />
+            </label>
+
+            <label>
+              Email
+              <input type="email" name="email" required />
+            </label>
+
+            <label>
+              Service Branch
+              <input type="text" name="branch" placeholder="Army, Navy, USAF, USMC, USSF, Coast Guard" />
+            </label>
+
+            <label>
+              Target Role
+              <input type="text" name="role" placeholder="e.g., Operations Manager, Program Manager" />
+            </label>
+
+            <label>
+              Timeline
+              <select name="timeline" defaultValue="0-3 months">
+                <option>0-3 months</option>
+                <option>3-6 months</option>
+                <option>6-12 months</option>
+                <option>Unsure</option>
+              </select>
+            </label>
+
+            <label className="full-width">
+              Message
+              <textarea name="message" rows="5" placeholder="Share goals, industries, and any current hurdles…" required></textarea>
+            </label>
+          </div>
+
+          <button className="btn" type="submit">Send Request</button>
+        </form>
+
+        <p className="center" style={{ marginTop: "0.75rem" }}>
+          Prefer email? <a href="mailto:jesse@oneleaderatatimegroup.com">jesse@oneleaderatatimegroup.com</a>
+        </p>
+      </section>
+
+      {/* FAQ */}
+      <section className="section">
+        <h2>Quick Answers</h2>
+        <div className="faq">
+          <details>
+            <summary>Do you help with federal and corporate roles?</summary>
+            <p>Yes—targeted materials for USAJobs and private sector, including keyword alignment.</p>
+          </details>
+          <details>
+            <summary>Can you work with my ERG or unit?</summary>
+            <p>Absolutely—cohorts, workshops, or 1:1 coaching options are available.</p>
+          </details>
+          <details>
+            <summary>What about pricing?</summary>
+            <p>Available upon request. Share your timeline and needs, and we’ll advise quickly.</p>
+          </details>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section cta">
+        <h2>You served with excellence—now lead with impact</h2>
+        <p>Let’s turn your experience into a leadership advantage in the civilian world.</p>
+        <div className="buttons">
+          <Link to="/contact" className="btn">Book a discovery call</Link>
+          <a className="btn btn-ghost" href="mailto:jesse@oneleaderatatimegroup.com?subject=Veteran%20Transition%20Consult">Email Jesse</a>
+        </div>
+      </section>
     </main>
   );
 }
