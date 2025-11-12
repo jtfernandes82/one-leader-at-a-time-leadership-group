@@ -1562,3 +1562,43 @@ a.nav-social {
   display:inline-flex !important;
 }
 .nav-list li:last-child > a::after{ content:none !important; } /* kill any fake icon on Contact */
+/* ===== GLOBAL GOLD HOVER STYLE ===== */
+
+/* All clickable text links across nav, body, and footer */
+a,
+.nav-link,
+.footer-links a,
+button,
+.btn {
+  transition: color .25s ease, background-color .25s ease, border-color .25s ease;
+}
+
+/* Hover gold for text links and nav items */
+a:hover,
+.nav-link:hover,
+.footer-links a:hover {
+  color: var(--gold) !important;
+}
+
+/* Buttons: slightly darken or invert background */
+button:hover,
+.btn:hover {
+  background-color: var(--gold) !important;
+  color: #1a1a1a !important;
+  filter: brightness(1.1);
+}
+
+/* SVG-based icons (LinkedIn, etc.) */
+a:hover svg path,
+.nav-social-link:hover svg path {
+  fill: var(--gold) !important;
+  transition: fill .25s ease;
+}
+
+/* Optional subtle glow on hover for any interactive element */
+a:hover,
+button:hover,
+.btn:hover,
+.nav-link:hover {
+  filter: drop-shadow(0 0 4px rgba(217,184,95,.4));
+}
