@@ -1438,22 +1438,20 @@ h1, h2 { color: #2a467b; }
 .nav-social-link svg {
   transition: transform .2s ease;
 }
-/* Make the inner nav a positioning context */
-.nav-inner { 
-  position: relative; 
-  display: flex; 
-  align-items: center; 
+/* Layout: list on the left, icon on the right */
+.nav-inner {
+  display: flex;
+  align-items: center;
 }
 
-/* Normal nav list */
+/* Push the icon to the far right */
 .nav-list {
   display: flex;
   gap: 1.25rem;
   margin: 0;
   padding: 0;
   list-style: none;
-  /* leave space so the absolute icon doesn't overlap on narrow screens */
-  padding-right: 48px;
+  margin-right: auto;    /* <<--- THIS pushes the icon to the right */
 }
 
 /* Absolutely position the LinkedIn icon on the far right */
@@ -1465,25 +1463,36 @@ h1, h2 { color: #2a467b; }
   z-index: 9999;           /* always on top */
 }
 
-/* Clickable target + colors via currentColor */
+/* Keep link hit-box tight so it doesn't stretch over the icon */
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;   /* sane padding, not full-width */
+  position: relative;
+  z-index: 1;
+}
+/* Social link: its own click target, above neighbors */
 .nav-social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
-  color: #0a66c2;          /* LinkedIn blue by default */
-  text-decoration: none;
+  padding: 0.25rem;
+  position: relative;
+  z-index: 5;
 }
-
-/* Gold hover */
-.nav-social-link:hover { 
-  color: var(--gold, #d9b85f); 
-}
-
 /* subtle scale on hover */
 .nav-social-link svg {
   transition: transform .2s ease;
 }
 .nav-social-link:hover svg {
   transform: scale(1.15);
+}
+/* (Optional) hover polish; works with the PNG/SVG image too */
+.nav-social-link:hover img {
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 4px rgba(217,184,95,.45));
+}
+.nav-social-link img {
+  transition: transform .2s ease, filter .2s ease;
 }
