@@ -442,7 +442,7 @@ function Services() {
   );
 }
 
-export default function Elite() {
+function Elite() {
   return (
     <main className="container elite-page">
       {/* HERO */}
