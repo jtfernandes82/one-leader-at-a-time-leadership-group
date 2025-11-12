@@ -1358,3 +1358,29 @@ h1, h2 { color: #2a467b; }
 
 /* Form spacing */
 .veterans-page .contact-form { margin-top: .5rem; }
+.nav-social {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+.nav-social a svg {
+  transition: transform 0.2s ease;
+}
+.nav-social a:hover svg {
+  transform: scale(1.15);
+}
+/* --- LinkedIn Icon Gold Hover --- */
+.nav-social a svg {
+  transition: transform 0.2s ease, fill 0.3s ease;
+  fill: #0a66c2; /* LinkedIn blue default */
+}
+
+.nav-social a:hover svg {
+  transform: scale(1.15);
+  fill: var(--gold); /* uses your site-wide gold variable */
+}
+
+/* optional subtle ring on hover */
+.nav-social a:hover {
+  filter: drop-shadow(0 0 4px rgba(217, 184, 95, 0.5));
+}
