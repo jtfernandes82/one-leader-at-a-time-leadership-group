@@ -442,22 +442,153 @@ function Services() {
   );
 }
 
-function Elite() {
+function ELITE() {
   return (
-    <main className="container">
-      <h1 className="section-title">The E.L.I.T.E.™ Framework</h1>
-      <p>
-        A practical, repeatable way to lead in high-stakes environments. It turns values into visible
-        behaviors and measurable outcomes—so teams move with clarity, speed, and trust.
-      </p>
+    <main className="container elite-page">
+      {/* HERO */}
+      <section className="section hero-elite">
+        <h1 className="section-title">The E.L.I.T.E.™ Framework</h1>
+        <p className="lede">
+          A simple, repeatable system that turns values into daily leadership behaviors—
+          so trust grows, friction drops, and results compound.
+        </p>
+        <div className="buttons">
+          <Link to="/contact" className="btn">Bring ELITE to your team</Link>
+          <Link to="/speaking" className="btn btn-ghost">See speaking topics</Link>
+        </div>
+      </section>
 
-      <div className="card-grid">
-        <div className="card"><h3>Empower</h3><p>Set standards and equip teams to own outcomes.</p></div>
-        <div className="card"><h3>Lead</h3><p>Model calm, courage, and accountability under pressure.</p></div>
-        <div className="card"><h3>Inspire</h3><p>Connect purpose to performance and reinforce the “why.”</p></div>
-        <div className="card"><h3>Transform</h3><p>Build cadence, playbooks, and feedback loops that enable change.</p></div>
-        <div className="card"><h3>Elevate</h3><p>Measure, refine, and sustain excellence over time.</p></div>
-      </div>
+      {/* PILLARS */}
+      <section className="section">
+        <h2>Five Pillars</h2>
+        <div className="elite-grid">
+          <article className="card">
+            <h3>E — Empower</h3>
+            <p>Clarity + ownership. People know what “good” looks like and have the runway to do it.</p>
+          </article>
+          <article className="card">
+            <h3>L — Lead</h3>
+            <p>Leaders model the standard—consistency, candor, and follow-through every day.</p>
+          </article>
+          <article className="card">
+            <h3>I — Inspire</h3>
+            <p>Connect tasks to mission. Purpose fuels initiative and resilience.</p>
+          </article>
+          <article className="card">
+            <h3>T — Transform</h3>
+            <p>Turn constraints into catalysts using short improvement cycles and tight feedback.</p>
+          </article>
+          <article className="card">
+            <h3>E — Elevate</h3>
+            <p>Measure, coach, and celebrate—so progress sticks and the bar rises.</p>
+          </article>
+        </div>
+      </section>
+
+      {/* HOW IT ROLLS OUT */}
+      <section className="section">
+        <h2>How ELITE Works</h2>
+        <div className="stage-grid">
+          <article className="stage">
+            <h4>1) Align</h4>
+            <p>Define outcomes, metrics, and the few visible behaviors that matter most.</p>
+            <ul className="bullets">
+              <li>Discovery & stakeholder map</li>
+              <li>Behavior → metric link</li>
+              <li>Language & norms</li>
+            </ul>
+          </article>
+          <article className="stage">
+            <h4>2) Activate</h4>
+            <p>Teach the language; practice with your real scenarios; create quick wins.</p>
+            <ul className="bullets">
+              <li>Keynote/workshop</li>
+              <li>Coaching prompts</li>
+              <li>30–60 day actions</li>
+            </ul>
+          </article>
+          <article className="stage">
+            <h4>3) Sustain</h4>
+            <p>Lock in habits with light rhythms and a leader scorecard.</p>
+            <ul className="bullets">
+              <li>Weekly huddles</li>
+              <li>Scorecard reviews</li>
+              <li>Celebrate & recalibrate</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      {/* WHERE IT FITS */}
+      <section className="section">
+        <h2>Where ELITE Fits</h2>
+        <ul className="pill-list">
+          <li>Military units & veteran leaders</li>
+          <li>Operations & manufacturing teams</li>
+          <li>Emerging leader cohorts</li>
+          <li>Faith-driven leadership groups</li>
+        </ul>
+      </section>
+
+      {/* SCORECARD TEASER */}
+      <section className="section">
+        <h2>Leader Scorecard (teaser)</h2>
+        <p className="muted">
+          A one-page view that keeps behaviors visible and progress measurable.
+        </p>
+        <div className="scorecard">
+          <div className="row head">
+            <span>Behavior</span><span>Daily</span><span>Weekly</span><span>Notes</span>
+          </div>
+          <div className="row">
+            <span>E — Empower: clarify “done”</span><span>□</span><span>□</span><span>Standards visible?</span>
+          </div>
+          <div className="row">
+            <span>L — Lead: model & coach</span><span>□</span><span>□</span><span>1:1 or huddle done</span>
+          </div>
+          <div className="row">
+            <span>I — Inspire: connect to mission</span><span>□</span><span>□</span><span>Story shared</span>
+          </div>
+          <div className="row">
+            <span>T — Transform: remove friction</span><span>□</span><span>□</span><span>Turnback closed</span>
+          </div>
+          <div className="row">
+            <span>E — Elevate: celebrate & measure</span><span>□</span><span>□</span><span>Win recognized</span>
+          </div>
+        </div>
+        <p className="center" style={{marginTop: '0.75rem'}}>
+          <Link to="/contact" className="btn btn-ghost">Ask for the ELITE scorecard</Link>
+        </p>
+      </section>
+
+      {/* FAQ */}
+      <section className="section">
+        <h2>Quick answers</h2>
+        <div className="faq">
+          <details>
+            <summary>Is ELITE only for military teams?</summary>
+            <p>No. ELITE was shaped by military and aerospace experience, but it’s usable in any team aiming for clarity, trust, and performance.</p>
+          </details>
+          <details>
+            <summary>How long to see results?</summary>
+            <p>Teams usually feel momentum within the first 30–60 days as rhythms and language take hold.</p>
+          </details>
+          <details>
+            <summary>Can we start small?</summary>
+            <p>Yes—pilot with one team or a cohort, then expand.</p>
+          </details>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section cta">
+        <h2>Ready to put ELITE to work?</h2>
+        <p>Tell me about your team and goals—I’ll recommend the best starting point.</p>
+        <div className="buttons">
+          <Link to="/contact" className="btn">Book a discovery call</Link>
+          <Link to="/services" className="btn btn-ghost">Compare formats</Link>
+        </div>
+      </section>
     </main>
   );
 }
