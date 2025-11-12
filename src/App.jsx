@@ -55,16 +55,18 @@ function Header() {
             ))}
           </ul>
 
-          <a
-            className="nav-social"
-            href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/"
-            target="_blank"
-            rel="noopener"
-            aria-label="LinkedIn"
-            title="LinkedIn"
-          >
-            <LinkedInIcon size={22} />
-          </a>
+          {/* LinkedIn icon outside the router links */}
+          <div className="nav-social">
+            <a
+              href="https://www.linkedin.com/in/jesseanafernandes-enerprisearchitect-busops/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <LinkedInIcon size={22} />
+            </a>
+          </div>
         </div>
       </nav>
     </header>
