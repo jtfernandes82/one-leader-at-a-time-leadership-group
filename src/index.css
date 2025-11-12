@@ -1438,3 +1438,52 @@ h1, h2 { color: #2a467b; }
 .nav-social-link svg {
   transition: transform .2s ease;
 }
+/* Make the inner nav a positioning context */
+.nav-inner { 
+  position: relative; 
+  display: flex; 
+  align-items: center; 
+}
+
+/* Normal nav list */
+.nav-list {
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* leave space so the absolute icon doesn't overlap on narrow screens */
+  padding-right: 48px;
+}
+
+/* Absolutely position the LinkedIn icon on the far right */
+.nav-right {
+  position: absolute;
+  right: 0.5rem;           /* adjust if needed */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;           /* always on top */
+}
+
+/* Clickable target + colors via currentColor */
+.nav-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  color: #0a66c2;          /* LinkedIn blue by default */
+  text-decoration: none;
+}
+
+/* Gold hover */
+.nav-social-link:hover { 
+  color: var(--gold, #d9b85f); 
+}
+
+/* subtle scale on hover */
+.nav-social-link svg {
+  transition: transform .2s ease;
+}
+.nav-social-link:hover svg {
+  transform: scale(1.15);
+}
