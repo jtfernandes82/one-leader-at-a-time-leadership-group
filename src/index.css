@@ -1232,3 +1232,60 @@ h1, h2 { color: #2a467b; }
   max-width: 850px;
   margin: 0.5rem auto 1rem;
 }
+.elite-page .lede { color:#334; max-width: 68ch; margin: 0.5rem auto 0; }
+.hero-elite { text-align:center; }
+
+.elite-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:1rem;
+}
+.elite-grid .card {
+  background:#fff; border:1px solid #e6ecf5; border-radius:12px; padding:1rem;
+  box-shadow:0 6px 16px rgba(0,0,0,.05);
+}
+.elite-grid h3 { color:#2a467b; margin:0 0 .25rem; }
+
+.stage-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:1rem;
+}
+.stage { background:#f7f9fc; border:1px solid #e6ecf5; border-radius:12px; padding:1rem; }
+.stage h4 { color:#2a467b; margin:0 0 .25rem; }
+.bullets { margin:.4rem 0 0; padding-left:1.1rem; }
+
+.pill-list {
+  list-style:none; padding:0; margin:0.5rem 0 0; display:flex; flex-wrap:wrap; gap:.6rem;
+  justify-content:center;
+}
+.pill-list li {
+  background: rgba(150,180,210,.14);
+  border:1px solid #d9b85f44;
+  padding:.4rem .8rem;
+  border-radius:999px;
+  font-weight:600;
+  white-space:nowrap;
+}
+
+.scorecard {
+  border:1px solid #e6ecf5; border-radius:12px; overflow:hidden; background:#fff; margin-top:.5rem;
+}
+.scorecard .row {
+  display:grid; grid-template-columns: 2fr .5fr .5fr 2fr; gap:.5rem; padding:.6rem .8rem; align-items:center;
+  border-top:1px solid #eef2f7;
+}
+.scorecard .row.head {
+  background:#f7f9fc; font-weight:700; color:#2a467b; border-top:none;
+}
+.center { text-align:center; }
+.muted { color:#5b6b82; }
+
+.faq details {
+  background:#fff; border:1px solid #e6ecf5; border-radius:10px;
+  padding:.75rem 1rem; margin:.5rem 0;
+}
+.faq summary { font-weight:600; color:#2a467b; cursor:pointer; }
+
+.section.cta { text-align:center; }
+.section.cta .buttons { display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; }
