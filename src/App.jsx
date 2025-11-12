@@ -442,15 +442,15 @@ function Services() {
   );
 }
 
-function ELITE() {
+export default function Elite() {
   return (
     <main className="container elite-page">
       {/* HERO */}
       <section className="section hero-elite">
         <h1 className="section-title">The E.L.I.T.E.™ Framework</h1>
         <p className="lede">
-          A simple, repeatable system that turns values into daily leadership behaviors—
-          so trust grows, friction drops, and results compound.
+          A simple, repeatable system that turns values into daily leadership behaviors—so trust
+          grows, friction drops, and results compound.
         </p>
         <div className="buttons">
           <Link to="/contact" className="btn">Bring ELITE to your team</Link>
@@ -468,7 +468,7 @@ function ELITE() {
           </article>
           <article className="card">
             <h3>L — Lead</h3>
-            <p>Leaders model the standard—consistency, candor, and follow-through every day.</p>
+            <p>Leaders model the standard: consistency, candor, and follow-through every day.</p>
           </article>
           <article className="card">
             <h3>I — Inspire</h3>
@@ -533,9 +533,7 @@ function ELITE() {
       {/* SCORECARD TEASER */}
       <section className="section">
         <h2>Leader Scorecard (teaser)</h2>
-        <p className="muted">
-          A one-page view that keeps behaviors visible and progress measurable.
-        </p>
+        <p className="muted">A one-page view that keeps behaviors visible and progress measurable.</p>
         <div className="scorecard">
           <div className="row head">
             <span>Behavior</span><span>Daily</span><span>Weekly</span><span>Notes</span>
@@ -556,7 +554,7 @@ function ELITE() {
             <span>E — Elevate: celebrate & measure</span><span>□</span><span>□</span><span>Win recognized</span>
           </div>
         </div>
-        <p className="center" style={{marginTop: '0.75rem'}}>
+        <p className="center" style={{ marginTop: "0.75rem" }}>
           <Link to="/contact" className="btn btn-ghost">Ask for the ELITE scorecard</Link>
         </p>
       </section>
@@ -567,15 +565,15 @@ function ELITE() {
         <div className="faq">
           <details>
             <summary>Is ELITE only for military teams?</summary>
-            <p>No. ELITE was shaped by military and aerospace experience, but it’s usable in any team aiming for clarity, trust, and performance.</p>
+            <p>No. ELITE was shaped by military and aerospace experience, but it works anywhere clarity, trust, and performance matter.</p>
           </details>
           <details>
             <summary>How long to see results?</summary>
-            <p>Teams usually feel momentum within the first 30–60 days as rhythms and language take hold.</p>
+            <p>Most teams feel momentum within 30–60 days as rhythms and language take hold.</p>
           </details>
           <details>
             <summary>Can we start small?</summary>
-            <p>Yes—pilot with one team or a cohort, then expand.</p>
+            <p>Yes—pilot with one team or cohort, then expand.</p>
           </details>
         </div>
       </section>
