@@ -1496,3 +1496,37 @@ h1, h2 { color: #2a467b; }
 .nav-social-link img {
   transition: transform .2s ease, filter .2s ease;
 }
+/* --- HEADER LINKEDIN HOTFIX ----------------------------------- */
+/* Re-enable the real LinkedIn link (it was being hidden) */
+.site-header a[href*="linkedin"],
+.nav a[href*="linkedin"],
+.nav-social,
+a.nav-social {
+  display: inline-flex !important;
+}
+
+/* Kill the fake icon that was injected on the Contact link */
+.nav-list li:last-child > a::after {
+  content: none !important;
+}
+
+/* Keep layout from overlapping the icon */
+.nav-inner { display:flex; align-items:center; justify-content:flex-start !important; }
+.nav-list  { display:flex; gap:1.25rem; margin:0; padding:0; list-style:none; margin-right:auto !important; }
+.nav-social-link {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  margin-left: 1rem;
+}
+
+/* Gold hover on the inline SVG */
+.nav-social-link svg path { transition: fill .25s ease; }
+.nav-social-link:hover svg path { fill: var(--gold); }
+
+/* Make sure no absolute 'nav-right' or old floats interfere */
+.nav-right { position: static !important; transform: none !important; }
