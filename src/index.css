@@ -1641,3 +1641,20 @@ button:hover,
   font-weight: 600;
   margin-top: 16px;
 }
+.libutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 14px;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  width: auto;
+  height: 36px;
+  border-radius: 16px;
+  background-color: #0A66C2;
+  font-family: "SF Pro Text", Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
