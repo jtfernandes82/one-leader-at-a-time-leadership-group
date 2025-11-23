@@ -68,6 +68,14 @@ function Header() {
 >
   <LinkedInBadgeIcon size={24} />
 </a>
+<a
+  className="libutton"
+  href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7398083845474013184"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Subscribe on LinkedIn
+</a>        
         </div>
       </nav>
     </header>
