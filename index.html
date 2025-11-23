@@ -21,7 +21,12 @@
 
     <!-- Make the app use full height & avoid odd gaps -->
     <style>
-      html, body, #root { height: 100%; margin: 0; }
+      html,
+      body,
+      #root {
+        height: 100%;
+        margin: 0;
+      }
     </style>
   </head>
 
@@ -36,9 +41,15 @@
          ================================ -->
 
     <!-- 1) Contact (matches your /contact React form) -->
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
       <input type="hidden" name="form-name" value="contact" />
-      <p style="display:none">
+      <p style="display: none">
         <label>Don’t fill this out: <input name="bot-field" /></label>
       </p>
       <input type="text" name="name" />
@@ -55,9 +66,15 @@
     </form>
 
     <!-- 2) Speaking Request (matches your /speaking React form) -->
-    <form name="speaking-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <form
+      name="speaking-request"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
       <input type="hidden" name="form-name" value="speaking-request" />
-      <p style="display:none">
+      <p style="display: none">
         <label>Don’t fill this out: <input name="bot-field" /></label>
       </p>
       <input name="name" />
@@ -75,9 +92,15 @@
     </form>
 
     <!-- 3) Veteran Consult (matches your /veterans React form) -->
-    <form name="veteran-consult" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <form
+      name="veteran-consult"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
       <input type="hidden" name="form-name" value="veteran-consult" />
-      <p style="display:none">
+      <p style="display: none">
         <label>Don’t fill this out: <input name="bot-field" /></label>
       </p>
       <input name="name" />
@@ -101,7 +124,3 @@
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-<nav>
-  <!-- existing links -->
-  <a href="/newsletter.html">Newsletter</a>
-</nav>
