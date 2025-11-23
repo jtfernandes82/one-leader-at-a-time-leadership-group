@@ -103,25 +103,7 @@
       flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 12px;
-    }
-
-    .btn-primary {
-      background: var(--navy);
-      color: #ffffff;
-      border-radius: 999px;
-      padding: 10px 20px;
-      border: none;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
       align-items: center;
-      gap: 6px;
-    }
-
-    .btn-primary:hover {
-      background: #081a2f;
     }
 
     .btn-ghost {
@@ -231,6 +213,25 @@
       text-align: center;
     }
 
+    /* OFFICIAL LINKEDIN SUBSCRIBE BUTTON STYLE */
+    .libutton {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 7px;
+      text-align: center;
+      outline: none;
+      text-decoration: none !important;
+      color: #ffffff !important;
+      width: 200px;
+      height: 32px;
+      border-radius: 16px;
+      background-color: #0A66C2;
+      font-family: "SF Pro Text", Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
     @media (max-width: 800px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
@@ -271,25 +272,25 @@
         </p>
 
         <div class="hero-actions">
+          <!-- OFFICIAL LINKEDIN SUBSCRIBE BUTTON -->
+          <a
+            class="libutton"
+            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7398083845474013184"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Subscribe on LinkedIn
+          </a>
 
-  <!-- OFFICIAL LINKEDIN SUBSCRIBE BUTTON -->
-  <a
-    class="libutton"
-    href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7398083845474013184"
-    target="_blank"
-  >
-    Subscribe on LinkedIn
-  </a>
-
-  <a
-    class="btn-ghost"
-    href="https://www.linkedin.com/newsletters/e-l-i-t-e-leadership-digest-7398083845474013184"
-    target="_blank"
-  >
-    View all issues
-  </a>
-</div>
-
+          <a
+            class="btn-ghost"
+            href="https://www.linkedin.com/newsletters/e-l-i-t-e-leadership-digest-7398083845474013184"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View all issues
+          </a>
+        </div>
 
         <p class="hero-note">
           Hosted on LinkedIn. New issues share tools, stories, and strategies you can
@@ -382,30 +383,3 @@
   </script>
 </body>
 </html>
-<style>
-  .libutton {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 7px;
-    text-align: center;
-    outline: none;
-    text-decoration: none !important;
-    color: #ffffff !important;
-    width: 200px;
-    height: 32px;
-    border-radius: 16px;
-    background-color: #0A66C2;
-    font-family: "SF Pro Text", Helvetica, sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-  }
-</style>
-
-<a
-  class="libutton"
-  href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7398083845474013184"
-  target="_blank"
->
-  Subscribe on LinkedIn
-</a>
