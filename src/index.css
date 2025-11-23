@@ -1624,3 +1624,20 @@ button:hover,
 .section-title + .strong-intro {
   margin-top: .5rem;
 }
+.libutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  width: 200px;
+  height: 32px;
+  border-radius: 16px;
+  background-color: #0A66C2; /* LinkedIn blue */
+  font-family: "SF Pro Text", Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 16px;
+}
