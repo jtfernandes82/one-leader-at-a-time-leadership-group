@@ -74,8 +74,8 @@ function Header() {
   target="_blank"
   rel="noopener noreferrer"
 >
-  Subscribe on LinkedIn
-</a>        
+  Newsletter
+</a>       
         </div>
       </nav>
     </header>
