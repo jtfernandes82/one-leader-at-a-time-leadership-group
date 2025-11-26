@@ -933,11 +933,7 @@ function Veterans() {
             <summary>Can you support my unit or veteran cohort?</summary>
             <p>Yes—group sessions and leadership workshops can be arranged upon request.</p>
           </details>
-          <details>
-            <summary>What about pricing?</summary>
-            <p>Available upon request. Share your timeline and goals, and we’ll advise quickly.</p>
-          </details>
-        </div>
+                  </div>
       </section>
 
       {/* CTA */}
