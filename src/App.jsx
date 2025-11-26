@@ -218,7 +218,7 @@ function About() {
 
             <p>
               My leadership journey began in the U.S. Army and evolved through decades of leading
-              teams in high-stakes aerospace operations. What I discovered was that real leadership
+              teams in high-stakes environments. What I discovered was that real leadership
               isn’t about position — it’s about purpose, consistency, and the courage to grow even
               when no one’s watching.
             </p>
